@@ -1,0 +1,23 @@
+{
+  "../../../testinng-repos/space-tourism/src/style/common.css": [
+    "../../../testinng-repos/space-tourism/src/App.js"
+  ],
+  "../../../testinng-repos/space-tourism/src/assets/main.css": [
+    "../../../testinng-repos/space-tourism/src/App.js"
+  ],
+  "../../../testinng-repos/space-tourism/src/style/crew.css": [
+    "../../../testinng-repos/space-tourism/src/Components/Crew.js"
+  ],
+  "../../../testinng-repos/space-tourism/src/style/destination.css": [
+    "../../../testinng-repos/space-tourism/src/Components/Destination.js"
+  ],
+  "../../../testinng-repos/space-tourism/src/style/homepage.css": [
+    "../../../testinng-repos/space-tourism/src/temp/tester.js"
+  ],
+  "../../../testinng-repos/space-tourism/src/style/nav.css": [
+    "../../../testinng-repos/space-tourism/src/Components/Nav.js"
+  ],
+  "../../../testinng-repos/space-tourism/src/style/technology.css": [
+    "../../../testinng-repos/space-tourism/src/Components/Technology.js"
+  ]
+}
