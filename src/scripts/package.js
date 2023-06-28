@@ -12,13 +12,21 @@ function wrapper(dir) {
   }
   const original = fileSystem(dir);
   fs.writeFileSync("./createdLogs/original.json", JSON.stringify(original));
-  let obj = {};
-  importMap(dir, obj);
-  fs.writeFileSync("./createdLogs/importMap.json", JSON.stringify(obj));
-  obj = {};
-  parsingJSFiles(dir,obj);
-  fs.writeFileSync("./createdLogs/JSClasses.json",JSON.stringify(obj));
-  // CSSreducer(obj);
+  let obj1 = {},
+    obj2 = {};
+  importMap(dir, obj1, obj2);
+  setTimeout(() => {
+    fs.writeFileSync(
+      "./createdLogs/mapStylesToScripts.json",
+      JSON.stringify(obj1)
+    );
+    fs.writeFileSync(
+      "./createdLogs/mapScriptsToScripts.json",
+      JSON.stringify(obj2)
+    );
+    CSSreducer(obj1, obj2);
+  }, 2000);
 }
+// const dir = "../../../testinng-repos/project_modern_ui_ux_gpt3/src";
 const dir = "../../../testinng-repos/space-tourism/src";
 wrapper(dir);

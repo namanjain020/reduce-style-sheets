@@ -12,6 +12,9 @@ let classNames = [];
 export function parsingJSFiles(dir) {
   const files = fs.readdirSync(dir);
 
+
+
+  <div className="class-name"></div>
   //Recursive function 
   files.forEach((file) => {
     const filePath = path.join(dir, file);

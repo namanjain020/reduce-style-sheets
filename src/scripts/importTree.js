@@ -21,7 +21,7 @@ function calculateImportTree(filePath, map) {
       
       // console.log(temp);
       if (str.startsWith("./") || str.startsWith("../")) {
-        console.log(temp);
+        // console.log(temp);
         fs.access(temp,fs.R_OK ,(err) => {
           if(!err)
           {
@@ -34,37 +34,32 @@ function calculateImportTree(filePath, map) {
             {
               if(temp.endsWith(".js") || temp.endsWith(".jsx") || temp.endsWith(".ts")  || temp.endsWith(".tsx"))
               {
-                  console.log(temp);
+                if (!(temp in map)) {
+                  map[temp] = [];
+                  map[temp].push(filePath);
+                } else {
+                  map[temp].push(filePath);
+                }
               }
             }
           }
           else{
             const extensionArray = [".js",".jsx", ".ts",".tsx"];
             extensionArray.forEach(ext => {
-              temp.concat(ext);
+              fs.access(temp,fs.R_OK ,(err) => {
+                  if(!err)
+                  {
+                    console.log(filePath + "    ->    " + temp); 
+                  }
+              });
+
             })
           }
         })
       }
 
-      // console.log(temp);
-      // fs.access(temp, fs.R_OK, (err) => {
-      //   if (!err) {
-      //       console.log(temp);
-      //   const stats = fs.statSync(temp);
-      //   //
-      //   if (stats.isDirectory()) {
-      //     console.log("hello")
-      //   } else if (stats.isFile() && [".js", ".jsx", ".ts", ".tsx"].includes(path.extname(temp))) {
-      //     arr.push(temp);
-      //     // arr = arr.concat(calculateImportTree(temp,[]));
-      //   }
-      //
-      // }
-      // });
     },
   });
-  //   return arr;
 }
 
 //will get the src as the input
@@ -73,5 +68,5 @@ function calculateImportTree(filePath, map) {
 
 const dir = "../../../testinng-repos/project_modern_ui_ux_gpt3/src/containers/features/Features.jsx";
 let arr = [];
-calculateImportTree(dir, arr);
+calculateImportTree(path.resolve(dir), arr);
 console.log(arr);

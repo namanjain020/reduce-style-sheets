@@ -1,93 +1,111 @@
-import fs from "fs";
-import path from "path";
-import postcss from "postcss";
-import postcssNesting from "postcss-nesting";
-import autoprefixer from "autoprefixer";
-// const __dirname = path.resolve();
+// import { className } from "postcss-selector-parser";
 
-const plugins = [autoprefixer,postcssNesting];
+const className = 'pagination-tech';
+const content = `
+// Import Statements
+import Subheading from "./Subheading";
+import { useState, useEffect } from "react";
+import "../style/technology.css";
+import background from "./background";
+import launchPortrait from "../assets/technology/image-launch-vehicle-portrait.jpg";
+import spaceportPortrait from "../assets/technology/image-spaceport-portrait.jpg";
+import spacePortrait from "../assets/technology/image-space-capsule-portrait.jpg";
+import launchLand from "../assets/technology/image-launch-vehicle-landscape.jpg";
+import spaceportLand from "../assets/technology/image-spaceport-landscape.jpg";
+import spaceLand from "../assets/technology/image-space-capsule-landscape.jpg";
 
-const dir = "../logs/test.scss";
-const css = fs.readFileSync(dir,'utf-8');
-// console.log(css);
+// Data
+const data = require("../data.json");
+export default function Technology() {
+  // State
+  const [technologyId, setTechnologyId] = useState(0);
 
-postcss(plugins)
-  .process(css)
-  .then((result) => {
-    const transformedCSS = result.css;
-    console.log(transformedCSS);
-    // Further processing or outputting the transformed CSS
-  })
-  .catch((error) => {
-    // Handle any errors that occurred during the transformation
-  });
+  // Change Background onload
+  window.onload = background("technology");
 
-// function remCSSClasses(cssFilePath, requiredClasses) {
-//   const css = fs.readFileSync(filePath, "utf8");
-//   postcss([removeUnusedClasses(reqClasses, param)])
-//     .process(css, { from: undefined })
-//     .then((result) => {
-//       fs.writeFile(filePath, result.css, (err) => err && console.error(err));
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// }
-// const removeUnusedClasses = postcss.plugin(
-//   "remove-unused-classes",
-//   (reqClasses, param) => {
-//     return (root) => {
-//       root.walkRules((rule) => {
-//         const codeBlock = rule.toString();
-//         // Check if the rule has a class selector
-//         if (rule.selector && rule.selector.includes(".")) {
-//           // const arr = rule.selector
-//           //   .match(/\.([^\s\{\:\>\+\~\[\]\)\(\#\,\.]+)/g)
-//           //   .filter((el) => el != "");
-//           // regex matching to get all the selector for any combinator
-//           const arr = rule.selector
-//             .toString()
-//             .match(/(\.[^\s.#,]+|#[^\s.#,]+|[^.\s#,][^\s.#,]+)?/g)
-//             .filter((el) => el != "");
-//           let classes = [];
-//           let ids = [];
-//           let tags = [];
-//           arr.forEach((el) => {
-//             if (el[0] === ".") classes.push(el);
-//             else if (el[0] === "#") ids.push(el);
-//             else tags.push(el);
-//           });
+  // Data of Technology from data
+  const {
+    name,
+    images,
+    description
+  } = data.technology[technologyId];
 
-//           //No pseudo selectors are taken in tc for now
-//           const regex = /[:+~>]/;
-//           let required = true;
-//           //Only class combinators are considered
-//           if (
-//             ids.length === 0 &&
-//             tags.length === 0 &&
-//             !regex.test(rule.selector)
-//           ) {
-//             if (rule.selector.includes(",")) {
-//               required = classes.some((c) => reqClasses.has(c.substring(1)));
-//             } else {
-//               required = classes.every((c) => reqClasses.has(c.substring(1)));
-//             }
-//           }
-//           if (!required) {
-//             //Uncomment to start removal
-//             // rule.remove();
-//             param[rule.selector] = codeBlock;
-//             console.log(codeBlock);
-//           }
-//         }
-//       });
-//     };
-//   }
-// );
+  // Function to change technologyId onClick crew
+  const change = id => {
+    setTechnologyId(id);
+  };
+  useEffect(() => {
+    const list = document.querySelectorAll(' span');
+    for (let i = 0; i < list.length; i++) {
+      list[i].classList.remove('active-dot');
+    }
+    list[technologyId].classList.add("active-dot");
+  }, [technologyId]);
+  const image = () => {
+    let a = [];
+    if (name === "Launch vehicle") {
+      a.push(launchLand);
+      a.push(launchPortrait);
+      return a;
+    } else if (name === "Spaceport") {
+      a.push(spaceportLand);
+      a.push(spaceportPortrait);
+      return a;
+    } else if (name === "Space capsule") {
+      a.push(spaceLand);
+      a.push(spacePortrait);
+      return a;
+    }
+  };
+  return (
+    // Technology
+    <div className="container">
 
-// export function CSSreducer(CSSFileMap, JSClasses) {
-//   const cssFiles = Object.keys(map);
-//   cssFiles.forEach( cssFile => {
-//     console.log(map[cssFile]);
-//   });
-// }
+            {/* Subheading */}
+            <Subheading number="3" heading="Space launch 101" />
+
+            {/* Technology */}
+            <div className="technology">
+
+                {/* Technology Pagination */}
+                <div className="">
+                    <span onClick={() => change(0)}>1</span>
+                    <span onClick={() => change(1)}>2</span>
+                    <span onClick={() => change(2)}>3</span>
+                </div>
+
+                {/* Technology Text */}
+                <div className="technology-text">
+                    <span>
+                        The terminology of
+                    </span>
+                    <h3>
+                        {name}
+                    </h3>
+                    <p>
+                        {description}
+                    </p>
+                </div>
+
+                {/* Technology Image */}
+                <Picture mobile={image()[0]} desktop={image()[1]} name={name} />
+
+            </div>
+
+        </div>
+  );
+}
+function Picture({
+  mobile,
+  desktop,
+  name
+}) {
+  return <picture>
+            <source media="(max-width: 1200px)" srcSet={mobile} className="tech-img" />
+            <source media="(min-width: 1201px)" srcSet={desktop} className="tech-img" />
+            <img src={desktop} alt={name} className="tech-img" />
+        </picture>;
+}
+`
+const regex = new RegExp(`\\b${className}\\b`);
+console.log(regex.test(content))
