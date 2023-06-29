@@ -1,32 +1,54 @@
 import fs from "fs";
+import path from "path";
 import { fileSystem } from "./fileSystem.js";
 import { importMap } from "./importMap.js";
 import { CSSreducer } from "./CSSreducer.js";
 import { parsingJSFiles } from "./parsingJSFiles.js";
-function wrapper(dir) {
-  if (fs.existsSync("createdLogs")) {
-    console.log("createdLogs folder exists remove it run the file.");
-    return;
-  } else {
-    fs.mkdirSync("createdLogs");
+
+async function deleteAllFilesInDir(dirPath) {
+  try {
+    fs.readdirSync(dirPath).forEach(file => {
+      fs.rmSync(path.join(dirPath, file));
+    });
+  } catch (error) {
+    console.log(error);
   }
+}
+
+
+function wrapper(dir) {
+  if (fs.existsSync("logs")) {
+    deleteAllFilesInDir("./logs");
+    fs.rmdirSync("./logs");
+    // deleteAllFilesInDir('./my-directory');
+    // console.log("logs folder exists remove it run the file.");
+    // return;
+  }
+  fs.mkdirSync("logs");
   const original = fileSystem(dir);
-  fs.writeFileSync("./createdLogs/original.json", JSON.stringify(original));
+  fs.writeFileSync("./logs/original.json", JSON.stringify(original));
   let obj1 = {},
     obj2 = {};
   importMap(dir, obj1, obj2);
   setTimeout(() => {
     fs.writeFileSync(
-      "./createdLogs/mapStylesToScripts.json",
+      "./logs/mapStylesToScripts.json",
       JSON.stringify(obj1)
     );
     fs.writeFileSync(
-      "./createdLogs/mapScriptsToScripts.json",
+      "./logs/mapScriptsToScripts.json",
       JSON.stringify(obj2)
     );
-    CSSreducer(obj1, obj2);
-  }, 2000);
+    let obj3 = {};
+    CSSreducer(obj1, obj2, obj3);
+    fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(obj3));
+
+    setTimeout(() => {
+      const reduced = fileSystem(dir);
+      fs.writeFileSync("./logs/reduced.json", JSON.stringify(reduced));
+    }, 3000);
+  }, 1000);
 }
 // const dir = "../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-const dir = "../../../testinng-repos/space-tourism/src";
+const dir = "../../../../testinng-repos/space-tourism copy/src";
 wrapper(dir);

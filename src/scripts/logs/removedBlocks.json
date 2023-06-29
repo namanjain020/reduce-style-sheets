@@ -1,0 +1,48 @@
+{
+  "/Users/naman.jain1/Documents/testinng-repos/space-tourism copy/src/style/common.css": {
+    "unused-classes": {
+      "tester": "{\n    display: flex;\n    gap: 30px;\n    align-items: center;\n    flex-direction: row;\n    padding: 30px 50px 30px 80px;\n    width: fit-content;\n    min-height: fit-content;\n    position: static;\n    min-width: fit-content;\n}",
+      "req": " {\n  .ded {\n    color: red;\n  }\n}",
+      "ded": " {\n    color: red;\n  }",
+      "testing-class": " {\n  color: red;\n}"
+    },
+    "replaced-tailwind": {}
+  },
+  "/Users/naman.jain1/Documents/testinng-repos/space-tourism copy/src/assets/main.css": {
+    "unused-classes": {
+      "ml-\\[3vw\\]": " {\n  margin-left: 3vw;\n}",
+      "mt-\\[80px\\]": " {\n  margin-top: 80px;\n}",
+      "flex": " {\n  display: flex;\n}"
+    },
+    "replaced-tailwind": {}
+  },
+  "/Users/naman.jain1/Documents/testinng-repos/space-tourism copy/src/style/crew.css": {
+    "unused-classes": { "some-random-class": "{\n    color: red;\n}" },
+    "replaced-tailwind": {}
+  },
+  "/Users/naman.jain1/Documents/testinng-repos/space-tourism copy/src/style/homepage.css": {
+    "unused-classes": {
+      "nav-menu": "{\n        background: rgba(255, 255, 255, 0.1);\n        backdrop-filter: blur(81.5485px);\n    }"
+    },
+    "replaced-tailwind": {}
+  },
+  "/Users/naman.jain1/Documents/testinng-repos/space-tourism copy/src/suggestionMessage/suggestionMessage.scss": {
+    "unused-classes": {
+      "suggestionMsgSection": " {\n  border-radius: 0.5 * $spacer;\n  max-width: $suggestion-section-width;\n  padding: 2 * $spacer;\n  .engagementEntity {\n    border: 0;\n    .engagementEntityContent {\n      padding: 0;\n    }\n  }\n  .msgContent {\n    .sprMedia {\n      width: $msg-content-width;\n      height: auto;\n    }\n  }\n  .asset-card {\n    padding: $asset-card-padding;\n    width: $asset-card-width;\n  }\n  .samAssetLinkSec {\n    padding: $link-asset-padding;\n  }\n  .textContainer {\n    padding: $text-cont-padding;\n  }\n  .samPostUserSection {\n    padding: $sam-post-user-section-padding;\n  }\n  .samAssetLink {\n    margin-left: $link-margin;\n  }\n  .assetWrapper {\n    \n    border: unset;\n    .assetView {\n      .assetFooter {\n        display: none;\n      }\n    }\n  }\n  .msgFooter {\n    display: none;\n  }\n  .msgProfileName {\n    font-size: $suggested-profile-name-font-size;\n  }\n\n  .msgHdrCont {\n    margin-bottom: $suggested-content-hdr-spacing;\n  }\n}",
+      "engagementEntityContent": " {\n      padding: 0;\n    }",
+      "msgContent": " {\n    .sprMedia {\n      width: $msg-content-width;\n      height: auto;\n    }\n  }",
+      "sprMedia": " {\n      width: $msg-content-width;\n      height: auto;\n    }",
+      "asset-card": " {\n    padding: $asset-card-padding;\n    width: $asset-card-width;\n  }",
+      "samAssetLinkSec": " {\n    padding: $link-asset-padding;\n  }",
+      "textContainer": " {\n    padding: $text-cont-padding;\n  }",
+      "samPostUserSection": " {\n    padding: $sam-post-user-section-padding;\n  }",
+      "samAssetLink": " {\n    margin-left: $link-margin;\n  }",
+      "assetWrapper": " {\n    \n    border: unset;\n    .assetView {\n      .assetFooter {\n        display: none;\n      }\n    }\n  }",
+      "assetView": " {\n      .assetFooter {\n        display: none;\n      }\n    }",
+      "assetFooter": " {\n        display: none;\n      }",
+      "msgFooter": " {\n    display: none;\n  }",
+      "suggestionMediaRaw": " {\n  border-radius: 0.5 * $spacer;\n  max-width: $suggestion-section-width;\n  padding: 0;\n}"
+    },
+    "replaced-tailwind": {}
+  }
+}

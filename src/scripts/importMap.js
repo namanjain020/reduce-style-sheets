@@ -3,9 +3,6 @@ import fs from "fs";
 import path from "path";
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
-import postcss from "postcss";
-import postcssImport from "postcss-import";
-import postcssScss from "postcss-scss";
 const traverse = _traverse.default;
 
 async function resolveFilePath(filePath, extensions) {
@@ -31,8 +28,12 @@ export async function importMap(dir, imports, imported) {
     files.forEach((file) => {
       const filePath = path.resolve(path.join(dir, file));
       const stats = fs.statSync(filePath);
-      if (stats.isDirectory()) {
-        const temp = traverseDirectory(filePath, imports, imported);
+      if (stats.isDirectory() ) {
+        const temp =filePath.substring(filePath.lastIndexOf('/')+1);
+        if(temp!== "assets")
+        {
+         traverseDirectory(filePath, imports, imported);
+        }
       } else if (stats.isFile()) {
         const extension = path.extname(filePath);
         if ([".js", ".jsx", ".ts", ".tsx"].includes(extension)) {

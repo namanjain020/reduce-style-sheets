@@ -10,7 +10,7 @@ function calculateImportTree(filePath, map) {
   const fileDir = path.dirname(filePath);
   const ast = parser.parse(content, {
     sourceType: "module",
-    plugins: ["jsx"],
+    plugins: ["jsx","typescript"],
   });
   traverse(ast, {
     ImportDeclaration(pathAST) {

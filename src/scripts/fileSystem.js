@@ -45,7 +45,7 @@ export function fileSystem(dir) {
     return obj;
   }
   const obj = traverseDirectory(dir);
-  console.log("Total codebase storage size:", totalSize / 1000, "kb");
+  // console.log("Total codebase storage size:", totalSize / 1000, "kb");
   return obj;
 }
 

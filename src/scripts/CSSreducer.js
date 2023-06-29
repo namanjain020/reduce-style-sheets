@@ -5,33 +5,25 @@ import postcss from "postcss";
 const __dirname = path.resolve();
 
 function helper(className, arr, mapScripts) {
-  // console.log(file);
-  // console.log(arr);
-  // return true;
-  for (const idx = 0; idx < arr.length; idx++) {
-    // arr.forEach((file) => {
+  let boolVal = false;
+  
+  for (let idx = 0; idx < arr.length; idx++) {
     const temp = className.substring(1);
-    console.log(temp);
-    console.log(arr[idx]);
     const content = fs.readFileSync(arr[idx], "utf-8");
     const regex = new RegExp(`\\b${temp}\\b`);
-    console.log(regex);
-    // const regex = /${temp}/g;
-    if (regex.test(content));
-    {
-      console.log(temp + " present");
-      return true;
+    if (regex.test(content)) {
+      boolVal = true;
     }
-    // if ((helper(className, mapScripts[file]), mapScripts)) {
-    //   return true;
-    // }
+    if (arr[idx] in mapScripts) {
+      boolVal = boolVal | helper(className, mapScripts[arr[idx]], mapScripts);
+    }
   }
-  return false;
+  return boolVal;
 }
 
-function remCSSClasses(filePath, mapScripts, array) {
+function remCSSClasses(filePath, mapScripts, array, codeBlocks) {
   const css = fs.readFileSync(filePath, "utf8");
-  postcss([removeUnusedClasses(filePath, mapScripts, array)])
+  postcss([removeUnusedClasses(filePath, mapScripts, array, codeBlocks)])
     .process(css, { from: undefined })
     .then((result) => {
       fs.writeFile(filePath, result.css, (err) => err && console.error(err));
@@ -42,7 +34,7 @@ function remCSSClasses(filePath, mapScripts, array) {
 }
 const removeUnusedClasses = postcss.plugin(
   "remove-unused-classes",
-  (filePath, mapScripts, array) => {
+  (filePath, mapScripts, array, codeBlocks) => {
     return (root) => {
       root.walkRules((rule) => {
         const codeBlock = rule.toString();
@@ -70,39 +62,32 @@ const removeUnusedClasses = postcss.plugin(
             !regex.test(rule.selector)
           ) {
             if (!helper(classes[0], array, mapScripts)) {
-              console.log(codeBlock);
+              // const obj = {classes[0] : codeBlock};
+              if (!(filePath in codeBlocks)) {
+                codeBlocks[filePath] = {};
+              }
+              if(! ("unused-classes" in codeBlocks[filePath]))
+              {
+                codeBlocks[filePath]["unused-classes"] = {};
+              }
+              codeBlocks[filePath]["replaced-tailwind"] = {};
+              codeBlocks[filePath]["unused-classes"][classes[0].substring(1)] =
+              codeBlock.replace(classes[0], "");
+
+              // Uncommet to start removal
+              // rule.remove();
             }
           }
-          let required = true;
-          //Only class combinators are considered
-          // if (
-          //   ids.length === 0 &&
-          //   tags.length === 0 &&
-          //   !regex.test(rule.selector)
-          // ) {
-          //   if (rule.selector.includes(",")) {
-          //     required = classes.some((c) => reqClasses.has(c.substring(1)));
-          //   } else {
-          //     required = classes.every((c) => reqClasses.has(c.substring(1)));
-          //   }
-          // }
-          // if (!required) {
-          //   //Uncomment to start removal
-          //   // rule.remove();
-          //   param[rule.selector] = codeBlock;
-          //   console.log(codeBlock);
-          // }
+          // let required = true;
         }
       });
     };
   }
 );
 
-export function CSSreducer(mapStyles, mapScripts) {
+export function CSSreducer(mapStyles, mapScripts, codeBlocks) {
   const cssFiles = Object.keys(mapStyles);
   cssFiles.forEach((cssFile) => {
-    remCSSClasses(cssFile, mapScripts, mapStyles[cssFile]);
-    // console.log(cssFile);
-    // console.log(mapStyles[cssFile])
+    remCSSClasses(cssFile, mapScripts, mapStyles[cssFile], codeBlocks);
   });
 }
