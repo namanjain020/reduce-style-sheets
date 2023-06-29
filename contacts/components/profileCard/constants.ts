@@ -1,0 +1,4 @@
+export enum PROFILE_CARD_VARIANTS {
+  DETAIL_PANE = 'DETAIL_PANE',
+  LIST = 'LIST',
+}
