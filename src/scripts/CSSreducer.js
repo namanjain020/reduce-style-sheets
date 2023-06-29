@@ -14,9 +14,9 @@ function helper(className, arr, mapScripts) {
     if (regex.test(content)) {
       boolVal = true;
     }
-    if (arr[idx] in mapScripts) {
-      boolVal = boolVal | helper(className, mapScripts[arr[idx]], mapScripts);
-    }
+    // if (arr[idx] in mapScripts) {
+    //   boolVal = boolVal | helper(className, mapScripts[arr[idx]], mapScripts);
+    // }
   }
   return boolVal;
 }
@@ -73,7 +73,6 @@ const removeUnusedClasses = postcss.plugin(
               codeBlocks[filePath]["replaced-tailwind"] = {};
               codeBlocks[filePath]["unused-classes"][classes[0].substring(1)] =
               codeBlock.replace(classes[0], "");
-
               // Uncommet to start removal
               // rule.remove();
             }
@@ -88,6 +87,10 @@ const removeUnusedClasses = postcss.plugin(
 export function CSSreducer(mapStyles, mapScripts, codeBlocks) {
   const cssFiles = Object.keys(mapStyles);
   cssFiles.forEach((cssFile) => {
-    remCSSClasses(cssFile, mapScripts, mapStyles[cssFile], codeBlocks);
+    if(cssFile.endsWith(".scss"))
+    {
+      // console.log(cssFile);
+      remCSSClasses(cssFile, mapScripts, mapStyles[cssFile], codeBlocks);
+    }
   });
 }

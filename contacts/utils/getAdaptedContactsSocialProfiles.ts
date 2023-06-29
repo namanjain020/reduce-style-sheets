@@ -1,15 +1,15 @@
 // libraries
-import update from 'immutability-helper';
+// import update from 'immutability-helper';
 
 // constants
-import EMPTY_ARRAY_READONLY from '@sprinklr/modules/infra/constants/emptyArray';
-import EMPTY_OBJECT_READONLY from '@sprinklr/modules/infra/constants/emptyObject';
+// import EMPTY_ARRAY_READONLY from '@sprinklr/modules/infra/constants/emptyArray';
+// import EMPTY_OBJECT_READONLY from '@sprinklr/modules/infra/constants/emptyObject';
 
 // types
-import { Profile } from '@/modules/contacts/types';
+// import { Profile } from '@/modules/contacts/types';
 
 // utils
-import { AudienceProfileEntity, SocialProfileEntity } from '@sprinklr/modules/universalEntities/profile/entities';
+// import { AudienceProfileEntity, SocialProfileEntity } from '@sprinklr/modules/universalEntities/profile/entities';
 
 const SOCIAL_NETWORK_FACET_KEY = 'SN_TYPE';
 

@@ -29,16 +29,23 @@ export function fileSystem(dir) {
     files.forEach((file) => {
       const filePath = path.join(dir, file);
       const stats = fs.statSync(filePath);
-      if (stats.isDirectory()) {
+      if (stats.isDirectory() && file!== "__tests__") {
         const temp = traverseDirectory(filePath);
         obj[file] = temp;
         dirSize += temp.size;
       } else if (stats.isFile()) {
-        const fileSize = calculateFileSize(filePath);
-        dirSize += fileSize;
-        const temp = {};
-        temp["size"] = fileSize;
-        obj[file] = temp;
+        const extension = path.extname(filePath);
+        if (
+          [".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".less"].includes(
+            extension
+          )
+        ) {
+          const fileSize = calculateFileSize(filePath);
+          dirSize += fileSize;
+          const temp = {};
+          temp["size"] = fileSize;
+          obj[file] = temp;
+        }
       }
     });
     obj["size"] = dirSize;
@@ -48,7 +55,6 @@ export function fileSystem(dir) {
   // console.log("Total codebase storage size:", totalSize / 1000, "kb");
   return obj;
 }
-
 
 /*
 JSON FORMAT

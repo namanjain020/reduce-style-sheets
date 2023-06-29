@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
+import resolve from "enhanced-resolve";
 const traverse = _traverse.default;
 
 async function resolveFilePath(filePath, extensions) {
@@ -25,28 +26,80 @@ const styleImportRegex = /@import\s.*?['"](.+?)['"];/g;
 export async function importMap(dir, imports, imported) {
   function traverseDirectory(dir, map) {
     const files = fs.readdirSync(dir);
-    files.forEach((file) => {
-      const filePath = path.resolve(path.join(dir, file));
-      const stats = fs.statSync(filePath);
-      if (stats.isDirectory() ) {
-        const temp =filePath.substring(filePath.lastIndexOf('/')+1);
-        if(temp!== "assets")
-        {
-         traverseDirectory(filePath, imports, imported);
+    files
+      .filter((file) => !file.includes("__tests__"))
+      .forEach((file) => {
+        // console.log(file);
+        const filePath = path.resolve(path.join(dir, file));
+        // console.log(filePath)
+        const stats = fs.statSync(filePath);
+        if (stats.isDirectory()) {
+          // const temp =filePath.substring(filePath.lastIndexOf('/')+1);
+          // if(temp!== "assets")
+          // {
+          traverseDirectory(filePath, imports, imported);
+          // }
+        } else if (stats.isFile() && !filePath.includes(".d.ts")) {
+          const extension = path.extname(filePath);
+          if ([".ts"].includes(extension)) {
+            //ts type code
+            scriptImports(filePath, imports, imported, ["typescript"]);
+          } else if ([".tsx"].includes(extension)) {
+            scriptImports(filePath, imports, imported, ["typescript", "jsx"]);
+          } else if ([".js", ".jsx"].includes(extension)) {
+            //js code
+            scriptImports(filePath, imports, imported, ["jsx"]);
+          } else if ([".css", ".scss", ".less"]) {
+            // stylesheets
+          }
+          // } else if ([".css", ".scss", ".less"].includes(extension)) {
+          //   importStylesFromStyles(filePath, imports, imported);
+          // }
         }
-      } else if (stats.isFile()) {
-        const extension = path.extname(filePath);
-        if ([".js", ".jsx", ".ts", ".tsx"].includes(extension)) {
-          importStylesFromScripts(filePath, imports, imported);
-          importScriptsFromScripts(filePath, imports, imported);
-        }
-        // } else if ([".css", ".scss", ".less"].includes(extension)) {
-        //   importStylesFromStyles(filePath, imports, imported);
-        // }
-      }
-    });
+      });
   }
   traverseDirectory(dir, imports, imported);
+}
+
+function scriptImports(filePath, imports, imported, pluginArr) {
+  const content = fs.readFileSync(filePath, "utf8");
+  const fileDir = path.dirname(filePath);
+  const ast = parser.parse(content, {
+    sourceType: "module",
+    plugins: pluginArr,
+  });
+  traverse(ast, {
+    ImportDeclaration(pathAST) {
+      const { node } = pathAST;
+      const str = node.source.extra.rawValue;
+      const resolver = resolve.create({
+        preferAbsolute:true,
+        alias: {
+          "@mattermost/client": "packages/client/src",
+          "@mattermost/components": "packages/components/src",
+          "@mattermost/types/*": "packages/types/src/*",
+          "mattermost-redux/*": "packages/mattermost-redux/src/*",
+          "reselect": "packages/reselect/src",
+          "@mui/styled-engine": "./node_modules/@mui/styled-engine-sc",
+          "!!file-loader*": "utils/empty-string",
+          "@e2e-support/*": "e2e/playwright/support/*",
+          "@e2e-test.config": "e2e/playwright/test.config.ts",
+      }
+    });
+      resolver(fileDir, str, (err, result) => {
+        if (!err && !result.includes("node_modules")) {
+          if (!(filePath in imported)) {
+            imported[filePath] = [];
+          }
+          imported[filePath].push(result);
+          if (!(result in imports)) {
+            imports[result] = [];
+          }
+          imports[result].push(filePath);
+        }
+      });
+    },
+  });
 }
 
 // function importStylesFromStyles(filePath, imports, imported) {
@@ -151,7 +204,7 @@ function importScriptsFromScripts(filePath, imports, imported) {
                   imported[filePath].push(resolvedPath);
                 }
               }
-            } 
+            }
           }
         });
       }
