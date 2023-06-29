@@ -2,6 +2,7 @@
 import { memo, useCallback, useState } from 'react';
 
 //components
+import "./package.scss"
 import { Box } from '@sprinklr/spaceweb/box';
 import { ChannelUserAvatar } from '@sprinklr/modules/infra/components/channelUserAvatar';
 import { SocialProfileSwitcher } from '@/modules/contacts/components/profileCard/components/socialProfileSwitcher';

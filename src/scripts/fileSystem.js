@@ -29,7 +29,7 @@ export function fileSystem(dir) {
     files.forEach((file) => {
       const filePath = path.join(dir, file);
       const stats = fs.statSync(filePath);
-      if (stats.isDirectory() && file!== "__tests__") {
+      if (stats.isDirectory() && file !== "__tests__") {
         const temp = traverseDirectory(filePath);
         obj[file] = temp;
         dirSize += temp.size;
