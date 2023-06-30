@@ -47,5 +47,6 @@ function wrapper(dir) {
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
 // const dir = "../../../../testinng-repos/space-tourism/src";
 // const dir = "../../../../testinng-repos/mattermost-webapp";
+// const dir = "../../../../testinng-repos/screenREC/src";
 const dir = "../../contacts";
 wrapper(dir);

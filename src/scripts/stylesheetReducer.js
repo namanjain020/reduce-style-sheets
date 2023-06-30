@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import postcss from "postcss";
+import scss from "postcss-scss"
 // import { className } from "postcss-selector-parser";
 const __dirname = path.resolve();
 // let removedBlocks ={}
@@ -77,7 +78,7 @@ function removeClasses(filePath, importsFrom, importsTo, styleImports,removedBlo
       removedBlocks
     ),
   ])
-    .process(css, { from: undefined })
+    .process(css, { from: undefined, parser:scss })
     .then((result) => {
       fs.writeFile(filePath, result.css, (err) => err && console.error(err));
     })
@@ -108,7 +109,7 @@ const removeUnusedClasses = postcss.plugin(
           });
 
           //No pseudo selectors are taken in tc for now
-          const regex = /[:+~>]/;
+          const regex = /[:+~>@$\\]/;
           if (
             ids.length === 0 &&
             tags.length === 0 &&
@@ -146,21 +147,6 @@ const removeUnusedClasses = postcss.plugin(
     };
   }
 );
-
-// export function CSSreducer(mapStyles, mapScripts, codeBlocks) {
-//   const cssFiles = Object.keys(mapStyles);
-//   cssFiles.forEach((cssFile) => {
-//     if(cssFile.endsWith(".scss") || cssFile.endsWith(".css")  || cssFile.endsWith(".less"))
-//     {
-//       // console.log(cssFile);
-//       if(fs.existsSync(cssFile))
-//       {
-//           console.log(cssFile);
-//           remCSSClasses(cssFile, mapScripts, mapStyles[cssFile], codeBlocks);
-//       }
-//     }
-//   });
-// }
 
 export function stylesheetReducer(dirt, importsFrom, importsTo, styleImports,removedBlocks) {
   // console.log(styleImports);

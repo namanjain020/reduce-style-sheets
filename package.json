@@ -21,6 +21,7 @@
     "eslint-config-next": "13.4.7",
     "next": "13.4.7",
     "postcss": "8.4.24",
+    "postcss-scss": "^4.0.6",
     "prettier": "^2.8.8",
     "pretty-print-json": "^2.0.2",
     "react": "18.2.0",
