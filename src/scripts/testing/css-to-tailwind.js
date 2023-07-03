@@ -8,7 +8,7 @@ import { TailwindConverter } from "css-to-tailwindcss";
 
 // Tailwind converter used (Abstraction)
 const converter = new TailwindConverter({
-  remInPx: 20,
+  remInPx: null,
   // set null if you don't want to convert rem to pixels
   postCSSPlugins: [temp], // add any postcss plugins to this array
   tailwindConfig: {

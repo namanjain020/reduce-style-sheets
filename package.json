@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/traverse": "^7.22.5",
     "autoprefixer": "10.4.14",
+    "css-to-tailwindcss": "^1.0.4",
     "enhanced-resolve": "^5.15.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
@@ -29,7 +30,8 @@
     "react-icons": "^4.10.1",
     "recast": "^0.23.2",
     "tailwindcss": "3.3.2",
-    "ts-unused-exports": "^9.0.4"
+    "ts-unused-exports": "^9.0.4",
+    "typescript": "^5.1.6"
   },
   "devDependencies": {
     "@babel/generator": "^7.22.5",

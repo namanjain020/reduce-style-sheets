@@ -2,6 +2,7 @@ import fs, { writeFileSync } from "fs";
 import path from "path";
 const __dirname = path.resolve();
 
+let counter;
 //Takes in directory and outputs JSON
 export function fileSystem(dir) {
   // writeFileSync('./logs/test.json',)
@@ -26,32 +27,38 @@ export function fileSystem(dir) {
     let dirName = myArray.slice(-1);
 
     const files = fs.readdirSync(dir);
-    files.forEach((file) => {
-      const filePath = path.join(dir, file);
-      const stats = fs.statSync(filePath);
-      if (stats.isDirectory() && file !== "__tests__") {
-        const temp = traverseDirectory(filePath);
-        obj[file] = temp;
-        dirSize += temp.size;
-      } else if (stats.isFile()) {
-        const extension = path.extname(filePath);
-        if (
-          [".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".less"].includes(
-            extension
-          )
-        ) {
-          const fileSize = calculateFileSize(filePath);
-          dirSize += fileSize;
-          const temp = {};
-          temp["size"] = fileSize;
+    files
+      .filter((file) => !file.includes("__tests__"))
+      .filter((file) => !file.includes("tests"))
+      .forEach((file) => {
+        const filePath = path.join(dir, file);
+        const stats = fs.statSync(filePath);
+        if (stats.isDirectory()) {
+          const temp = traverseDirectory(filePath);
           obj[file] = temp;
+          dirSize += temp.size;
+        } else if (stats.isFile()) {
+          const extension = path.extname(filePath);
+          if (
+            [".css", ".scss", ".less"].includes(
+              extension
+            )
+          ) {
+            const fileSize = calculateFileSize(filePath);
+            dirSize += fileSize;
+            const temp = {};
+            temp["size"] = fileSize;
+            obj[file] = temp;
+            counter++;
+          }
         }
-      }
-    });
-    obj["size"] = dirSize;
-    return obj;
+      });
+        obj["size"] = dirSize;
+        return obj;
   }
+  counter=0;
   const obj = traverseDirectory(dir);
+  console.log("The number of stylesheets :" + counter);
   // console.log("Total codebase storage size:", totalSize / 1000, "kb");
   return obj;
 }

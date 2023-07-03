@@ -36,10 +36,14 @@ function regexHelper(className, fileName, importsFrom, recur) {
 }
 
 function helper(className, filePath, importsFrom, importsTo, styleImports) {
+  console.log(className);
+  // let boolVal = false;
+  // console.log(className);
   let arr = [filePath];
   if (filePath in styleImports) {
     styleImports[filePath].forEach((file) => arr.push(file));
   }
+  // console.log("BLAH BLAH BLAH");
   // console.log(filePath);
 
   // console.log(arr);
@@ -53,6 +57,8 @@ function helper(className, filePath, importsFrom, importsTo, styleImports) {
       }
     }
   }
+  // console.log(false);
+  // console.log("\n");
   return false;
   // return boolVal;
 }
@@ -117,7 +123,7 @@ const removeUnusedClasses = postcss.plugin(
             !regex.test(rule.selector)
           ) {
             const className = classes[0];
-            console.log(className);
+
             if (
               !helper(
                 className.substring(1),
@@ -134,6 +140,7 @@ const removeUnusedClasses = postcss.plugin(
               if (!("unused-classes" in removedBlocks[filePath])) {
                 removedBlocks[filePath]["unused-classes"] = {};
               }
+
               removedBlocks[filePath]["replaced-tailwind"] = {};
               // removedBlocks[filePath]["unused-classes"][
               //   classes[0].substring(1)
@@ -151,18 +158,14 @@ const removeUnusedClasses = postcss.plugin(
   }
 );
 
-export function stylesheetReducer(
-  dirt,
-  importsFrom,
+export function stylesheetRemover(
+  unresolvedDir,
   importsTo,
   styleImports,
-  removedBlocks
+  stylesheets
 ) {
-  // console.log(styleImports);
-
-  const dir = path.resolve(dirt);
+  const dir = path.resolve(unresolvedDir);
   const files = fs.readdirSync(dir);
-  // files = fs.readdirSync(dir);
   //Recursive function
   files
     .filter((file) => !file.includes("__tests__"))
@@ -172,27 +175,31 @@ export function stylesheetReducer(
       const filePath = path.join(dir, file);
       const stats = fs.statSync(filePath);
       if (stats.isDirectory()) {
-        stylesheetReducer(
+        stylesheetRemover(
           filePath,
-          importsFrom,
           importsTo,
           styleImports,
-          removedBlocks
+          stylesheets
         );
       } else if (stats.isFile()) {
         const extension = path.extname(filePath);
-        if ([".css", ".scss", ".less"].includes(extension)) {
-          console.log(counter);
-          console.log(filePath);
-          counter++;
-          removeClasses(
-            filePath,
-            importsFrom,
-            importsTo,
-            styleImports,
-            removedBlocks
-          );
+        if([".css", ".scss",".less"].includes(extension))
+        {
+            const stats = fs.statSync(filePath);
+            const fileSize = stats.size;
+            //If file is empty delete the file and remove imports
+            if(fileSize === 0)
+            {
+                // TO DO
+            }
+            
+            // If file is never imported remove
+            if(!(filePath in styleImports) && !(filePath in importsTo)){
+                stylesheets["never-imported"].push(filePath);
+                fs.rmSync(filePath);
+            }
         }
+         
       }
     });
 }
