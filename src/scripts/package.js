@@ -60,9 +60,9 @@ async function wrapper(dir) {
   }, 10000);
 }
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-// const dir = "../../../../testinng-repos/space-tourism/src";
+let dir = "../../../../testinng-repos/space-tourism/src";
 // let dir = "../../detailPane";
-let dir = "../../../../testinng-repos/mattermost-webapp";
+// let dir = "../../../../testinng-repos/mattermost-webapp";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";
 // const dir = "../../contacts";
