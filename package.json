@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "reduce": " node src/scripts/package.js"
+    "reduce": " node --max-old-space-size=16384 src/scripts/package.js"
   },
   "dependencies": {
     "@babel/core": "^7.22.5",
@@ -20,14 +20,15 @@
     "enhanced-resolve": "^5.15.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "immutable": "^4.3.0",
     "next": "13.4.7",
-    "postcss": "8.4.24",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.8",
     "pretty-print-json": "^2.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
+    "react-json-tree": "^0.18.0",
     "recast": "^0.23.2",
     "tailwindcss": "3.3.2",
     "ts-unused-exports": "^9.0.4",
@@ -43,6 +44,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
+    "postcss": "^8.4.24",
+    "postcss-nested": "^6.0.1",
     "react-simple-explorer": "^1.1.1"
   },
   "browserify": {

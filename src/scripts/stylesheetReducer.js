@@ -5,6 +5,7 @@ import scss from "postcss-scss";
 const __dirname = path.resolve();
 
 let counter = 0;
+
 function regexHelper(className, fileName, importsFrom, recur) {
   // console.log("searched in " +fileName);
   if (recur > 5) {
@@ -60,7 +61,10 @@ function helper(className, filePath, importsFrom, importsTo, styleImports) {
   for (let idx = 0; idx < arr.length; idx++) {
     if (arr[idx] in importsTo) {
       for (let idx2 = 0; idx2 < importsTo[arr[idx]].length; idx2++) {
-        if (regexHelper(className, importsTo[arr[idx]][idx2], importsFrom,1) === "Found") {
+        if (
+          regexHelper(className, importsTo[arr[idx]][idx2], importsFrom, 1) ===
+          "Found"
+        ) {
           // console.log(true);
           return true;
         }
@@ -151,17 +155,16 @@ const removeUnusedClasses = postcss.plugin(
                 removedBlocks[filePath]["unused-classes"] = {};
               }
               removedBlocks[filePath]["replaced-tailwind"] = {};
-              // console.log("++++++++++++" + classes[0]+"++++++++++++++")
               // removedBlocks[filePath]["unused-classes"][
               //   classes[0].substring(1)
               // ] = "codeblock";
-              // Uncommet to start removal \\
               removedBlocks[filePath]["unused-classes"][
                 classes[0].substring(1)
               ] = codeBlock.replace(classes[0], "");
+
+              // Uncommet to start removal \\
               // rule.remove();
             }
-            // console.log("\n");
           }
         }
       });

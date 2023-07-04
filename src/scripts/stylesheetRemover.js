@@ -5,63 +5,6 @@ import scss from "postcss-scss";
 const __dirname = path.resolve();
 
 let counter = 0;
-function regexHelper(className, fileName, importsFrom, recur) {
-  // console.log(fileName);
-  if (recur > 5) {
-    return false;
-  }
-  // console.log(fileName);
-  const content = fs.readFileSync(fileName, "utf-8");
-  const str = `${className}`;
-  // const regex = new RegExp(`\\b${className}\\b`);
-  if (content.includes(str)) {
-    return true;
-  } else {
-    if (fileName in importsFrom) {
-      for (let idx = 0; idx < importsFrom[fileName]["scripts"].length; idx++) {
-        if (
-          regexHelper(
-            className,
-            importsFrom[fileName]["scripts"][idx],
-            importsFrom,
-            recur + 1
-          )
-        ) {
-          return true;
-        }
-      }
-    }
-  }
-  return false;
-}
-
-function helper(className, filePath, importsFrom, importsTo, styleImports) {
-  console.log(className);
-  // let boolVal = false;
-  // console.log(className);
-  let arr = [filePath];
-  if (filePath in styleImports) {
-    styleImports[filePath].forEach((file) => arr.push(file));
-  }
-  // console.log("BLAH BLAH BLAH");
-  // console.log(filePath);
-
-  // console.log(arr);
-  for (let idx = 0; idx < arr.length; idx++) {
-    if (arr[idx] in importsTo) {
-      for (let idx2 = 0; idx2 < importsTo[arr[idx]].length; idx2++) {
-        if (regexHelper(className, importsTo[arr[idx]][idx2], importsFrom,1)) {
-          // console.log(true);
-          return true;
-        }
-      }
-    }
-  }
-  // console.log(false);
-  // console.log("\n");
-  return false;
-  // return boolVal;
-}
 
 function removeClasses(
   filePath,
@@ -191,6 +134,14 @@ export function stylesheetRemover(
             if(fileSize === 0)
             {
                 // TO DO
+                if(filePath in styleImports )
+                {
+                    helper1();
+                }
+                if(filePath in importsTo)
+                {
+                  helper2();
+                }
             }
             
             // If file is never imported remove

@@ -1,6 +1,6 @@
 "use client"
 import Sidebar from "../components/SideBar";
-import reduced from "../../scripts/createdLogs/reduced"
+import reduced from "../../scripts/logs/reduced.json"
 // use the component in your app!
 
 export default function Home() {
