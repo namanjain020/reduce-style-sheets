@@ -56,10 +56,10 @@ function helper(className, filePath, importsFrom, importsTo, styleImports) {
     styleImports[filePath].forEach((file) => arr.push(file));
   }
   // console.log(filePath);
-  if (regexHelper(className, filePath, importsFrom, 1) === "Found") {
-    // console.log(true);
-    return true;
-  }
+  // if (regexHelper(className, filePath, importsFrom, 1) === "Found") {
+  //   // console.log(true);
+  //   return true;
+  // }
   // console.log(arr);
   for (let idx = 0; idx < arr.length; idx++) {
     if (arr[idx] in importsTo) {

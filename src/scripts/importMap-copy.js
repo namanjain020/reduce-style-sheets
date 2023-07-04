@@ -84,7 +84,6 @@ export async function importMap(dir, importsTo, importsFrom, styleImportsMap) {
   ) {
     const files = fs.readdirSync(dir);
     files
-      .filter((file) => !file.includes("node_modules"))
       .filter((file) => !file.includes("__tests__"))
       .filter((file) => !file.includes("tests"))
       .forEach((file) => {
@@ -226,98 +225,99 @@ function scriptImports(absDir, filePath, importsTo, importsFrom, pluginArr) {
     }
   })
 
-  if (
-    endsWithFunc(filePath, ["index.ts", "index.tsx", "index.js", "index.jsx"])
-  ) {
-    // console.log(filePath);
-    traverse(ast, {
-      ExportNamedDeclaration(pathAST) {
-        const { node } = pathAST;
-        if (node.source) {
-          const str = node.source.value;
-          const resolver = resolve.create({
-            extensions: [".js", ".json", ".node", ".jsx", ".ts", ".tsx"],
-          });
-          //relative path
-          resolver(fileDir, str, (err, result) => {
-            if (!err && !result.includes("node_modules")) {
-              addToObject(filePath, result, importsFrom, importsTo);
-            } else if (err) {
-              resolver(fileDir, "./" + str, (err, result) => {
-                if (!err && !result.includes("node_modules")) {
-                  addToObject(filePath, result, importsFrom, importsTo);
-                } else if (err) {
-                  const absPath = absDir;
-                  //Direct path
-                  resolver(absPath, "./" + str, (err, result) => {
-                    if (!err && !result.includes("node_modules")) {
-                      addToObject(filePath, result, importsFrom, importsTo);
-                    }else if(err){
-                        //Alias resolver
-                  const keys = Object.keys(alias);
-                  const answer = startsWithFunc(str, keys);
-                  if (answer) {
-                    const newStr = str.replace(answer, alias[answer]);
-                    resolver(absPath, "./" + newStr, (err, result) => {
-                      if (!err && !result.includes("node_modules")) {
-                        addToObject(filePath, result, importsFrom, importsTo);
-                      }
-                    });
-                  }
-                    }
-                  });
+  // if (
+  //   endsWithFunc(filePath, ["index.ts", "index.tsx", "index.js", "index.jsx"])
+  // ) {
+  //   // console.log(filePath);
+  //   traverse(ast, {
+  //     ExportNamedDeclaration(pathAST) {
+  //       const { node } = pathAST;
+  //       if (node.source) {
+  //         const str = node.source.value;
+  //         const resolver = resolve.create({
+  //           extensions: [".js", ".json", ".node", ".jsx", ".ts", ".tsx"],
+  //         });
+  //         //relative path
+  //         resolver(fileDir, str, (err, result) => {
+  //           if (!err && !result.includes("node_modules")) {
+  //             addToObject(filePath, result, importsFrom, importsTo);
+  //           } else if (err) {
+  //             resolver(fileDir, "./" + str, (err, result) => {
+  //               if (!err && !result.includes("node_modules")) {
+  //                 addToObject(filePath, result, importsFrom, importsTo);
+  //               } else if (err) {
+  //                 const absPath = absDir;
+  //                 //Direct path
+  //                 resolver(absPath, "./" + str, (err, result) => {
+  //                   if (!err && !result.includes("node_modules")) {
+  //                     addToObject(filePath, result, importsFrom, importsTo);
+  //                   }else if(err){
+  //                       //Alias resolver
+  //                 const keys = Object.keys(alias);
+  //                 const answer = startsWithFunc(str, keys);
+  //                 if (answer) {
+  //                   const newStr = str.replace(answer, alias[answer]);
+  //                   resolver(absPath, "./" + newStr, (err, result) => {
+  //                     if (!err && !result.includes("node_modules")) {
+  //                       addToObject(filePath, result, importsFrom, importsTo);
+  //                     }
+  //                   });
+  //                 }
+  //                   }
+  //                 });
 
                   
-                }
-              });
-            }
-          });
-        }
-      },
-    });
-  }
-  traverse(ast, {
-    ImportDeclaration(pathAST) {
-      const { node } = pathAST;
-      const str = node.source.value;
-      const resolver = resolve.create({
-        extensions: [".js", ".json", ".node", ".jsx", ".ts", ".tsx"],
-      });
-      //relative path
-      resolver(fileDir, str, (err, result) => {
-        if (!err && !result.includes("node_modules")) {
-          addToObject(filePath, result, importsFrom, importsTo);
-        } else if (err) {
-          resolver(fileDir, "./" + str, (err, result) => {
-            if (!err && !result.includes("node_modules")) {
-              addToObject(filePath, result, importsFrom, importsTo);
-            }
-          });
-        }
-      });
+  //               }
+  //             });
+  //           }
+  //         });
+  //       }
+  //     },
+  //   });
+  // }
 
-      const absPath =
-        absDir;
-      //Direct path
-      resolver(absPath, "./" + str, (err, result) => {
-        if (!err && !result.includes("node_modules")) {
-          addToObject(filePath, result, importsFrom, importsTo);
-        }
-      });
+  // traverse(ast, {
+  //   ImportDeclaration(pathAST) {
+  //     const { node } = pathAST;
+  //     const str = node.source.value;
+  //     const resolver = resolve.create({
+  //       extensions: [".js", ".json", ".node", ".jsx", ".ts", ".tsx"],
+  //     });
+  //     //relative path
+  //     resolver(fileDir, str, (err, result) => {
+  //       if (!err && !result.includes("node_modules")) {
+  //         addToObject(filePath, result, importsFrom, importsTo);
+  //       } else if (err) {
+  //         resolver(fileDir, "./" + str, (err, result) => {
+  //           if (!err && !result.includes("node_modules")) {
+  //             addToObject(filePath, result, importsFrom, importsTo);
+  //           }
+  //         });
+  //       }
+  //     });
 
-      //Alias resolver
-      const keys = Object.keys(alias);
-      const answer = startsWithFunc(str, keys);
-      if (answer) {
-        const newStr = str.replace(answer, alias[answer]);
-        resolver(absPath, "./" + newStr, (err, result) => {
-          if (!err && !result.includes("node_modules")) {
-            addToObject(filePath, result, importsFrom, importsTo);
-          }
-        });
-      }
-    },
-  });
+  //     const absPath =
+  //       absDir;
+  //     //Direct path
+  //     resolver(absPath, "./" + str, (err, result) => {
+  //       if (!err && !result.includes("node_modules")) {
+  //         addToObject(filePath, result, importsFrom, importsTo);
+  //       }
+  //     });
+
+  //     //Alias resolver
+  //     const keys = Object.keys(alias);
+  //     const answer = startsWithFunc(str, keys);
+  //     if (answer) {
+  //       const newStr = str.replace(answer, alias[answer]);
+  //       resolver(absPath, "./" + newStr, (err, result) => {
+  //         if (!err && !result.includes("node_modules")) {
+  //           addToObject(filePath, result, importsFrom, importsTo);
+  //         }
+  //       });
+  //     }
+  //   },
+  // });
 
 
 }

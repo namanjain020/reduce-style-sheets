@@ -49,19 +49,20 @@ async function wrapper(dir) {
     );
     let obj4 = {};
     stylesheetReducer(dir, importsFrom, importsTo, styleImports, obj4);
+    // stylesheetConverter(dir, importsFrom, importsTo, styleImports, obj4);
     setTimeout(() => {  
       fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(obj4));
     }, 4000);
-    // stylesheetConverter(dir, importsFrom, importsTo, styleImports, obj4);
     setTimeout(() => {
       const reduced = fileSystem(dir);
       fs.writeFileSync("./logs/reduced.json", JSON.stringify(reduced));
     }, 3000);
-  }, 20000);
+  }, 10000);
 }
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
 // const dir = "../../../../testinng-repos/space-tourism/src";
-let dir = "../../testinng-repos/mattermost-webapp";
+// let dir = "../../detailPane";
+let dir = "../../../../testinng-repos/mattermost-webapp";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";
 // const dir = "../../contacts";

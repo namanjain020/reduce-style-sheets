@@ -117,8 +117,33 @@ const convertUsedClasses = postcss.plugin(
             converter
               .convertCSS(rule.toString())
               .then(({ convertedRoot, nodes }) => {
+                if (!(filePath in removedBlocks)) {
+                  removedBlocks[filePath] = {};
+                }
+                if (!("unused-classes" in removedBlocks[filePath])) {
+                  removedBlocks[filePath]["unused-classes"] = {};
+                }
+                if(!("replaced-tailwind" in removedBlocks[filePath])){
+                  removedBlocks[filePath]["replaced-tailwind"] = {};
+                }
+                const converted = convertedRoot.toString();
+                // removedBlocks[filePath]["unused-classes"][
+                //   classes[0].substring(1)
+                // ] = "codeblock";
+                removedBlocks[filePath]["replaced-tailwind"][
+                  className
+                ] = convertedRoot.toString();
+                
+                
+                // if(some condition)
+                // {
+                  // removedBlocks[filePath]["replaced-tailwind"][
+                  //   className
+                  // ] = convertedRoot.toString();
+                //   rule.remove();
+                // }
                 console.log(convertedRoot.toString());
-                console.log(counter);
+                // console.log(counter);
                 counter++;
               });
           }
