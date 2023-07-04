@@ -7,6 +7,30 @@ import resolve from "enhanced-resolve";
 const traverse = _traverse.default;
 
 const alias = {
+  "@/": "./",
+  "@space/": "../../apps/spr-main-web/src/",
+  "@space/i18n/": "../../apps/spr-main-web/i18n/*",
+  "rules/": "../../apps/spr-main-web/src/rules/*",
+  "@space/core/": "../../apps/spr-main-web/src/core/*",
+  "types/*": "../../apps/spr-main-web/src/types/*",
+
+  "@space/typings/": "../../apps/spr-main-web/src/typings/*",
+  "@space/client/*": ["../../apps/spr-main-web/src/client/*"],
+  "@space/modules/*": ["../../apps/spr-main-web/src/modules/*"],
+
+  "@space/virality-app/*": ["../../apps/spr-main-web/src/virality-app/*"],
+  "core/*": ["../../apps/spr-main-web/src/core/*"],
+
+  "typings/*": ["../../apps/spr-main-web/src/typings/*"],
+  "modules/*": ["../../apps/spr-main-web/src/modules/*"],
+  "i18n/*": ["../../apps/spr-main-web/i18n/*"],
+  "src/*": ["../../apps/spr-main-web/src/*"],
+  "spr-space/*": ["../spr-space/*"],
+  "spr-base/*": ["../spr-base/*"],
+  "spr-main-web/*": ["../../apps/spr-main-web/*"],
+  "@sprinklr/modules/*": ["../../packages/modules/src/*"],
+  "@sprinklr/modules/src/*": "../../packages/modules/src/",
+
   "@space/": "../sprinklr-app-client/apps/spr-main-web/src/",
   "@sprinklr/modules": "../sprinklr-app-client/packages/modules/src/",
   "@mattermost/client": "packages/client/src",
@@ -50,7 +74,14 @@ function addToObject(filePath, result, importsFrom, importsTo) {
 }
 
 export async function importMap(dir, importsTo, importsFrom, styleImportsMap) {
-  function traverseDirectory(dir, importsTo, importsFrom, styleImportsMap) {
+  const absDir = dir;
+  function traverseDirectory(
+    absDir,
+    dir,
+    importsTo,
+    importsFrom,
+    styleImportsMap
+  ) {
     const files = fs.readdirSync(dir);
     files
       .filter((file) => !file.includes("__tests__"))
@@ -61,20 +92,28 @@ export async function importMap(dir, importsTo, importsFrom, styleImportsMap) {
         // console.log(filePath)
         const stats = fs.statSync(filePath);
         if (stats.isDirectory()) {
-          traverseDirectory(filePath, importsTo, importsFrom, styleImportsMap);
+          traverseDirectory(
+            absDir,
+            filePath,
+            importsTo,
+            importsFrom,
+            styleImportsMap
+          );
         } else if (stats.isFile() && !filePath.includes(".d.ts")) {
           const extension = path.extname(filePath);
           if ([".ts"].includes(extension)) {
             //ts type code
-            scriptImports(filePath, importsTo, importsFrom, ["typescript"]);
+            scriptImports(absDir, filePath, importsTo, importsFrom, [
+              "typescript",
+            ]);
           } else if ([".tsx"].includes(extension)) {
-            scriptImports(filePath, importsTo, importsFrom, [
+            scriptImports(absDir, filePath, importsTo, importsFrom, [
               "typescript",
               "jsx",
             ]);
           } else if ([".js", ".jsx"].includes(extension)) {
             //js code
-            scriptImports(filePath, importsTo, importsFrom, ["jsx"]);
+            scriptImports(absDir, filePath, importsTo, importsFrom, ["jsx"]);
           } else if ([".css", ".scss", ".less"].includes(extension)) {
             // stylesheets
             styleImports(filePath, styleImportsMap);
@@ -82,7 +121,7 @@ export async function importMap(dir, importsTo, importsFrom, styleImportsMap) {
         }
       });
   }
-  traverseDirectory(dir, importsTo, importsFrom, styleImportsMap);
+  traverseDirectory(absDir, dir, importsTo, importsFrom, styleImportsMap);
 }
 
 function styleImports(filePath, styleImportsMap) {
@@ -126,7 +165,7 @@ function styleImports(filePath, styleImportsMap) {
   //Need to write imports due to webpack config
 }
 
-function scriptImports(filePath, importsTo, importsFrom, pluginArr) {
+function scriptImports(absDir, filePath, importsTo, importsFrom, pluginArr) {
   if (!(filePath in importsFrom)) {
     importsFrom[filePath] = {};
     importsFrom[filePath]["scripts"] = [];
@@ -138,6 +177,56 @@ function scriptImports(filePath, importsTo, importsFrom, pluginArr) {
     sourceType: "module",
     plugins: pluginArr,
   });
+  if (
+    endsWithFunc(filePath, ["index.ts", "index.tsx", "index.js", "index.jsx"])
+  ) {
+    // console.log(filePath);
+    traverse(ast, {
+      ExportNamedDeclaration(pathAST) {
+        const { node } = pathAST;
+        if (node.source) {
+          const str = node.source.value;
+          const resolver = resolve.create({
+            extensions: [".js", ".json", ".node", ".jsx", ".ts", ".tsx"],
+          });
+          //relative path
+          resolver(fileDir, str, (err, result) => {
+            if (!err && !result.includes("node_modules")) {
+              addToObject(filePath, result, importsFrom, importsTo);
+            } else if (err) {
+              resolver(fileDir, "./" + str, (err, result) => {
+                if (!err && !result.includes("node_modules")) {
+                  addToObject(filePath, result, importsFrom, importsTo);
+                } else if (err) {
+                  const absPath = absDir;
+                  //Direct path
+                  resolver(absPath, "./" + str, (err, result) => {
+                    if (!err && !result.includes("node_modules")) {
+                      addToObject(filePath, result, importsFrom, importsTo);
+                    }else if(err){
+                        //Alias resolver
+                  const keys = Object.keys(alias);
+                  const answer = startsWithFunc(str, keys);
+                  if (answer) {
+                    const newStr = str.replace(answer, alias[answer]);
+                    resolver(absPath, "./" + newStr, (err, result) => {
+                      if (!err && !result.includes("node_modules")) {
+                        addToObject(filePath, result, importsFrom, importsTo);
+                      }
+                    });
+                  }
+                    }
+                  });
+
+                  
+                }
+              });
+            }
+          });
+        }
+      },
+    });
+  }
   traverse(ast, {
     ImportDeclaration(pathAST) {
       const { node } = pathAST;
@@ -159,7 +248,7 @@ function scriptImports(filePath, importsTo, importsFrom, pluginArr) {
       });
 
       const absPath =
-        "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/";
+        absDir;
       //Direct path
       resolver(absPath, "./" + str, (err, result) => {
         if (!err && !result.includes("node_modules")) {
@@ -180,4 +269,6 @@ function scriptImports(filePath, importsTo, importsFrom, pluginArr) {
       }
     },
   });
+
+
 }
