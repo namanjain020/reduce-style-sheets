@@ -63,7 +63,7 @@ async function wrapper(dir) {
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
 // let dir = "../../../../testinng-repos/space-tourism/src";
 // let dir = "../../../detailPane";
-let dir = "../../../../testinng-repos/mattermost-webapp";
+let dir = "../../testinng-repos/mattermost-webapp";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";
 // const dir = "../../contacts";

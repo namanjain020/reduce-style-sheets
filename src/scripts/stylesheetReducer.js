@@ -32,20 +32,6 @@ function regexHelper(className, fileName, importsFrom, recur) {
         }
       }
     }
-    // if (fileName.endsWith(index.tsx)) {
-    //   for (let idx = 0; idx < importsFrom[fileName]["scripts"].length; idx++) {
-    //     if (
-    //       regexHelper(
-    //         className,
-    //         importsFrom[fileName]["scripts"][idx],
-    //         importsFrom,
-    //         recur + 1
-    //       )
-    //     ) {
-    //       return true;
-    //     }
-    //   }
-    // }
   }
   return "Not Found";
 }
@@ -55,12 +41,6 @@ function helper(className, filePath, importsFrom, importsTo, styleImports) {
   if (filePath in styleImports) {
     styleImports[filePath].forEach((file) => arr.push(file));
   }
-  // console.log(filePath);
-  // if (regexHelper(className, filePath, importsFrom, 1) === "Found") {
-  //   // console.log(true);
-  //   return true;
-  // }
-  // console.log(arr);
   for (let idx = 0; idx < arr.length; idx++) {
     if (arr[idx] in importsTo) {
       for (let idx2 = 0; idx2 < importsTo[arr[idx]].length; idx2++) {

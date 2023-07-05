@@ -142,6 +142,8 @@ export function stylesheetRemover(
                 {
                   helper2();
                 }
+
+                  fs.rmSync(filePath);
             }
             
             // If file is never imported remove
@@ -153,4 +155,9 @@ export function stylesheetRemover(
          
       }
     });
+}
+
+
+
+function helper1(){
 }
