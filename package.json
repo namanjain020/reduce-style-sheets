@@ -16,20 +16,25 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/traverse": "^7.22.5",
     "autoprefixer": "10.4.14",
+    "baseui": "^13.0.0",
     "css-to-tailwindcss": "^1.0.4",
     "enhanced-resolve": "^5.15.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "highlight.js": "^11.8.0",
     "immutable": "^4.3.0",
     "next": "13.4.7",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.8",
     "pretty-print-json": "^2.0.2",
     "react": "18.2.0",
+    "react-code-blocks": "^0.1.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-json-tree": "^0.18.0",
     "recast": "^0.23.2",
+    "styletron-engine-atomic": "^1.5.0",
+    "styletron-react": "^6.1.0",
     "tailwindcss": "3.3.2",
     "ts-unused-exports": "^9.0.4",
     "typescript": "^5.1.6"
@@ -38,6 +43,7 @@
     "@babel/generator": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@types/node": "20.3.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -45,8 +51,12 @@
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "postcss": "^8.4.24",
+    "postcss-extend": "^1.0.5",
     "postcss-nested": "^6.0.1",
     "react-simple-explorer": "^1.1.1"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
   },
   "browserify": {
     "transform": [

@@ -2,104 +2,18 @@ import fs from "fs";
 import path from "path";
 import postcss from "postcss";
 import scss from "postcss-scss";
+
+import parser from "@babel/parser";
+import _traverse from "@babel/traverse";
+
+import _generator from "@babel/generator";
+
+const generator = _generator.default;
+const traverse = _traverse.default;
+
 const __dirname = path.resolve();
-
-let counter = 0;
-
-function removeClasses(
-  filePath,
-  importsFrom,
-  importsTo,
-  styleImports,
-  removedBlocks
-) {
-  const css = fs.readFileSync(filePath, "utf8");
-  // let removedBlocks = JSON.parse(fs.readFileSync("./logs/removedBlocks.json"));
-  // console.log(removedBlocks);
-  postcss([
-    removeUnusedClasses(
-      filePath,
-      importsFrom,
-      importsTo,
-      styleImports,
-      removedBlocks
-    ),
-  ])
-    .process(css, { from: undefined, parser: scss })
-    .then((result) => {
-      fs.writeFile(filePath, result.css, (err) => err && console.error(err));
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  // fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(removedBlocks));
-}
-const removeUnusedClasses = postcss.plugin(
-  "remove-unused-classes",
-  (filePath, importsFrom, importsTo, styleImports, removedBlocks) => {
-    return (root) => {
-      root.walkRules((rule) => {
-        const codeBlock = rule.toString();
-        // Check if the rule has a class selector
-        if (rule.selector && rule.selector.includes(".")) {
-          const arr = rule.selector
-            .toString()
-            .match(/(\.[^\s.#,]+|#[^\s.#,]+|[^.\s#,][^\s.#,]+)?/g)
-            .filter((el) => el != "");
-          let classes = [];
-          let ids = [];
-          let tags = [];
-          arr.forEach((el) => {
-            if (el[0] === ".") classes.push(el);
-            else if (el[0] === "#") ids.push(el);
-            else tags.push(el);
-          });
-
-          //No pseudo selectors are taken in tc for now
-          const regex = /[:+~>@$&\\]/;
-          const parent = rule.parent;
-          if (
-            (!parent || !parent.selector) &&
-            ids.length === 0 &&
-            tags.length === 0 &&
-            classes.length === 1 &&
-            !regex.test(rule.selector)
-          ) {
-            const className = classes[0];
-
-            if (
-              !helper(
-                className.substring(1),
-                filePath,
-                importsFrom,
-                importsTo,
-                styleImports
-              )
-            ) {
-              // const obj = {classes[0] : codeBlock};
-              if (!(filePath in removedBlocks)) {
-                removedBlocks[filePath] = {};
-              }
-              if (!("unused-classes" in removedBlocks[filePath])) {
-                removedBlocks[filePath]["unused-classes"] = {};
-              }
-
-              removedBlocks[filePath]["replaced-tailwind"] = {};
-              // removedBlocks[filePath]["unused-classes"][
-              //   classes[0].substring(1)
-              // ] = "codeblock";
-              // Uncommet to start removal \\
-              removedBlocks[filePath]["unused-classes"][
-                classes[0].substring(1)
-              ] = codeBlock.replace(classes[0], "");
-              // rule.remove();
-            }
-          }
-        }
-      });
-    };
-  }
-);
+let absDir; 
+let counterT = 0 ,counterF = 0;
 
 export function stylesheetRemover(
   unresolvedDir,
@@ -108,9 +22,11 @@ export function stylesheetRemover(
   stylesheets
 ) {
   const dir = path.resolve(unresolvedDir);
+  absDir = dir;
   const files = fs.readdirSync(dir);
   //Recursive function
   files
+    .filter((file) => !file.includes("node_modules"))
     .filter((file) => !file.includes("__tests__"))
     .filter((file) => !file.includes("tests"))
     .filter((file) => !file.startsWith("_"))
@@ -118,46 +34,69 @@ export function stylesheetRemover(
       const filePath = path.join(dir, file);
       const stats = fs.statSync(filePath);
       if (stats.isDirectory()) {
-        stylesheetRemover(
-          filePath,
-          importsTo,
-          styleImports,
-          stylesheets
-        );
+        stylesheetRemover(filePath, importsTo, styleImports, stylesheets);
       } else if (stats.isFile()) {
         const extension = path.extname(filePath);
-        if([".css", ".scss",".less"].includes(extension))
-        {
-            const stats = fs.statSync(filePath);
-            const fileSize = stats.size;
-            //If file is empty delete the file and remove imports
-            if(fileSize === 0)
-            {
-                // TO DO
-                if(filePath in styleImports )
-                {
-                    helper1();
-                }
-                if(filePath in importsTo)
-                {
-                  helper2();
-                }
+        if ([".css", ".scss", ".less"].includes(extension)) {
+          const stats = fs.statSync(filePath);
+          const fileSize = stats.size;
+          //If file is empty delete the file and remove imports
+          if (fileSize === 0) {
+            console.log("Empty "+ filePath);
+            // TO DO
+            if (filePath in styleImports) {
+              helper1();
+            }
+            if (filePath in importsTo) {
+              helper2(filePath,importsTo);
+            }
+            // Uncomment when needed \\
+            // fs.rmSync(filePath);
+          }
 
-                  fs.rmSync(filePath);
-            }
-            
-            // If file is never imported remove
-            if(!(filePath in styleImports) && !(filePath in importsTo)){
-                stylesheets["never-imported"].push(filePath);
-                fs.rmSync(filePath);
-            }
+          // If file is never imported remove
+          if (!(filePath in styleImports) && !(filePath in importsTo)) {
+            console.log("Non imported file "+ filePath);
+            // Uncomment when needed \\
+            // fs.rmSync(filePath);
+          }
         }
-         
       }
     });
 }
 
+function helper1() {}
 
-
-function helper1(){
+function helper2(filePath ,importsTo) {
+  // console.log("empty file "+filePath);
+  const temp = filePath.replace(/^.*[\\\/]/, '');
+  importsTo[filePath].forEach((file) => {
+    let pluginArr;
+    if (file.endsWith(".ts")) {
+      pluginArr = ["typescript"];
+    } else if (file.endsWith(".js") || file.endsWith(".jsx")) {
+      pluginArr = ["jsx"];
+    } else if (file.endsWith(".tsx")) {
+      pluginArr = ["jsx", "typescript"];
+    }
+    const content = fs.readFileSync(file, "utf8");
+    const ast = parser.parse(content, {
+      sourceType: "module",
+      plugins: pluginArr,
+    });
+    traverse(ast, {
+      ImportDeclaration(pathAST) {
+        const { node } = pathAST;
+        const str = node.source.value;
+        console.log(str);
+        if(str.endsWith(temp))
+        {
+          pathAST.remove();
+        }
+      }  
+    })
+    const modCode = generator(ast).code;
+    // Uncomment when needed \\
+    // fs.writeFileSync(file, modCode);
+  });
 }

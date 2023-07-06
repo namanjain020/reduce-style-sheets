@@ -7,7 +7,7 @@ const __dirname = path.resolve();
 let counter = 0;
 
 function regexHelper(className, fileName, importsFrom, recur) {
-  // console.log("searched in " +fileName);
+  
   if (recur > 5) {
     return "Stop Checking";
   }
@@ -67,7 +67,7 @@ function removeClasses(
 ) {
   const css = fs.readFileSync(filePath, "utf8");
   // let removedBlocks = JSON.parse(fs.readFileSync("./logs/removedBlocks.json"));
-  // console.log(removedBlocks);
+  
   postcss([
     removeUnusedClasses(
       filePath,
