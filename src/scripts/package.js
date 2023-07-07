@@ -61,11 +61,11 @@ async function wrapper(dir) {
           setTimeout(() => {
             const reduced = fileSystem(dir);
             fs.writeFileSync("./logs/reduced.json", JSON.stringify(reduced));
-          }, 3000);
-        }, 180000);
-      }, 120000);
-    }, 10000);
-  }, 10000);
+          }, 4000);
+        }, 210000);
+      }, 150000);
+    }, 12000);
+  }, 12000);
 }
 const trigger = (result) => {
   fs.writeFileSync(
