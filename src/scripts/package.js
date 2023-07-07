@@ -27,14 +27,17 @@ async function wrapper(dir) {
   fs.mkdirSync("logs");
   let counter = 0;
   const original = fileSystem(dir, counter);
-  fs.writeFileSync("./logs/original.json", prettier.format(JSON.stringify(original), { parser: "json" }));
-
+  fs.writeFileSync(
+    "./logs/original.json",
+    prettier.format(JSON.stringify(original), { parser: "json" })
+  );
   let importsTo = {},
     importsFrom = {},
     styleImports = {},
     result = {};
   importMap(dir, importsTo, importsFrom, styleImports);
   setTimeout(() => {
+    // console.log(importsFrom);
     fs.writeFileSync(
       "./logs/importsTo.json",
       prettier.format(JSON.stringify(importsTo), { parser: "json" })
@@ -43,36 +46,34 @@ async function wrapper(dir) {
       "./logs/importsFrom.json",
       prettier.format(JSON.stringify(importsFrom), { parser: "json" })
     );
-
-    let unusedStylesheets = { "never-imported": [], empty: [] };
-    stylesheetRemover(dir, importsTo, styleImports, result);
-    setTimeout(() => {
-      fs.writeFileSync("./logs/removedSheets.json",JSON.stringify(unusedStylesheets))
-    }, 2000);
-
     fs.writeFileSync(
       "./logs/styleImports.json",
       prettier.format(JSON.stringify(styleImports), { parser: "json" })
     );
-    fs.writeFileSync(
-      "./logs/removedBlocks.json",
-      JSON.stringify({ key: "value" })
-    );
-    let obj4 = {};
-    stylesheetReducer(dir, importsFrom, importsTo, styleImports, obj4);
-    stylesheetConverter(dir, importsFrom, importsTo, styleImports, obj4);
+    stylesheetRemover(dir, importsTo, styleImports, result);
     setTimeout(() => {
-      fs.writeFileSync(
-        "./logs/removedBlocks.json",
-        prettier.format(JSON.stringify(obj4), { parser: "json" })
-      );
-    }, 4000);
-    setTimeout(() => {
-      const reduced = fileSystem(dir);
-      fs.writeFileSync("./logs/reduced.json", JSON.stringify(reduced));
-    }, 3000);
-  }, 5000);
+      stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
+      setTimeout(() => {
+        stylesheetConverter(dir, importsFrom, importsTo, styleImports, result);
+        setTimeout(() => {
+          console.log("Results printed to the file");
+          trigger(result);
+          setTimeout(() => {
+            const reduced = fileSystem(dir);
+            fs.writeFileSync("./logs/reduced.json", JSON.stringify(reduced));
+          }, 3000);
+        }, 180000);
+      }, 120000);
+    }, 10000);
+  }, 10000);
 }
+const trigger = (result) => {
+  fs.writeFileSync(
+    "./logs/removedBlocks.json",
+    prettier.format(JSON.stringify(result), { parser: "json" })
+  );
+};
+
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
 // let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";

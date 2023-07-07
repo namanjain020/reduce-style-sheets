@@ -7,7 +7,6 @@ const __dirname = path.resolve();
 let counter = 0;
 
 function regexHelper(className, fileName, importsFrom, recur) {
-  
   if (recur > 5) {
     return "Stop Checking";
   }
@@ -37,6 +36,7 @@ function regexHelper(className, fileName, importsFrom, recur) {
 }
 
 function helper(className, filePath, importsFrom, importsTo, styleImports) {
+  // console.log(className);
   let arr = [filePath];
   if (filePath in styleImports) {
     styleImports[filePath].forEach((file) => arr.push(file));
@@ -57,8 +57,7 @@ function helper(className, filePath, importsFrom, importsTo, styleImports) {
   return false;
   // return boolVal;
 }
-
-function removeClasses(
+ function removeClasses(
   filePath,
   importsFrom,
   importsTo,
@@ -79,20 +78,20 @@ function removeClasses(
   ])
     .process(css, { from: undefined, parser: scss })
     .then((result) => {
-      fs.writeFile(filePath, result.css, (err) => err && console.error(err));
+      
     })
     .catch((error) => {
       console.error(error);
     });
   // fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(removedBlocks));
+    return;
 }
 const removeUnusedClasses = postcss.plugin(
   "remove-unused-classes",
   (filePath, importsFrom, importsTo, styleImports, removedBlocks) => {
     return (root) => {
-      root.walkRules((rule) => {
+       root.walkRules((rule) => {
         const codeBlock = rule.toString();
-        // console.log(codeBlock);
         // Check if the rule has a class selector
         if (rule.selector && rule.selector.includes(".")) {
           const arr = rule.selector
@@ -118,36 +117,28 @@ const removeUnusedClasses = postcss.plugin(
             classes.length === 1 &&
             !regex.test(rule.selector)
           ) {
+            
             const className = classes[0];
             console.log(className);
-            // console.log(filePath);
-            if (
-              !helper(
-                className.substring(1),
-                filePath,
-                importsFrom,
-                importsTo,
-                styleImports
-              )
+            const boolVal = helper(
+              className.substring(1),
+              filePath,
+              importsFrom,
+              importsTo,
+              styleImports
+            )
+             if (
+              !boolVal
             ) {
-              // const obj = {classes[0] : codeBlock};
-              if (!(filePath in removedBlocks)) {
-                removedBlocks[filePath] = {};
-              }
-              if (!("unused-classes" in removedBlocks[filePath])) {
-                removedBlocks[filePath]["unused-classes"] = {};
-              }
-              removedBlocks[filePath]["replaced-tailwind"] = {};
-              // removedBlocks[filePath]["unused-classes"][
-              //   classes[0].substring(1)
-              // ] = "codeblock";
+              console.log(className+"classs is unused");
               removedBlocks[filePath]["unused-classes"][
                 classes[0].substring(1)
               ] = codeBlock.replace(classes[0], "");
-
+             
               // Uncommet to start removal \\
-              // rule.remove();
-            }
+              rule.remove();
+              fs.writeFileSync(filePath, root.toString(), (err) => err && console.error(err));
+              }
           }
         }
       });
@@ -155,14 +146,13 @@ const removeUnusedClasses = postcss.plugin(
   }
 );
 
-export function stylesheetReducer(
+export async function stylesheetReducer(
   dirt,
   importsFrom,
   importsTo,
   styleImports,
   removedBlocks
 ) {
-  // console.log(styleImports);
 
   const dir = path.resolve(dirt);
   const files = fs.readdirSync(dir);
@@ -187,7 +177,6 @@ export function stylesheetReducer(
         const extension = path.extname(filePath);
         if ([".css", ".scss", ".less"].includes(extension)) {
           console.log(counter);
-          console.log(filePath);
           counter++;
           removeClasses(
             filePath,
@@ -199,4 +188,5 @@ export function stylesheetReducer(
         }
       }
     });
+    return;
 }
