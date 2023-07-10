@@ -37,21 +37,21 @@ async function wrapper(dir) {
     result = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
 
-  
   await stylesheetRemover(dir, importsTo, styleImports, result);
-  
   setTimeout(async () => {
     await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
+    setTimeout(async () => {
+      await stylesheetConverter(dir, importsFrom, importsTo, styleImports, result);
       setTimeout(() => {
-        stylesheetConverter(dir, importsFrom, importsTo, styleImports, result);
-      }, 5000);
-  }, 5000);
-  
-  
+        trigger(importsFrom, importsTo, styleImports, result);
+      }, 50000);
+    }, 50000);
+  }, 50000);
+
   //   setTimeout(() => {
   // await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
   //     setTimeout(() => {
-  //       
+  //
   //       setTimeout(() => {
   //         console.log("Results printed to the file");
   //         trigger(result);
@@ -64,33 +64,33 @@ async function wrapper(dir) {
   //   }, 12000);
   // }, 12000);
 }
-const trigger = (result) => {
+const trigger = (importsTo, importsFrom, styleImports, result) => {
   setTimeout(() => {
     console.log("RESULTS HAVE BEEN PRINTED");
-  fs.writeFileSync(
-    "./logs/importsTo.json",
-    prettier.format(JSON.stringify(importsTo), { parser: "json" })
-  );
-  fs.writeFileSync(
-    "./logs/importsFrom.json",
-    prettier.format(JSON.stringify(importsFrom), { parser: "json" })
-  );
-  fs.writeFileSync(
-    "./logs/styleImports.json",
-    prettier.format(JSON.stringify(styleImports), { parser: "json" })
-  );
-  fs.writeFileSync(
-    "./logs/removedBlocks.json",
-    prettier.format(JSON.stringify(result), { parser: "json" })
-  );
-  }, 5000);
-  
+    // console.log(result);
+    fs.writeFileSync(
+      "./logs/importsTo.json",
+      prettier.format(JSON.stringify(importsTo), { parser: "json" })
+    );
+    fs.writeFileSync(
+      "./logs/importsFrom.json",
+      prettier.format(JSON.stringify(importsFrom), { parser: "json" })
+    );
+    fs.writeFileSync(
+      "./logs/styleImports.json",
+      prettier.format(JSON.stringify(styleImports), { parser: "json" })
+    );
+    fs.writeFileSync(
+      "./logs/removedBlocks.json",
+      prettier.format(JSON.stringify(result), { parser: "json" })
+    );
+  }, 40000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-let dir = "../../testinng-repos/space-tourism/src";
+// let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
-// let dir = "../../testinng-repos/mattermost-webapp";
+let dir = "../../testinng-repos/mattermost-webapp";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";
 // const dir = "../../contacts";

@@ -131,7 +131,7 @@ function addToScript(className, filePath, newStr) {
   });
   //Uncomment below two lines to update js files
   const modCode = generator(ast).code;
-  // fs.writeFileSync(filePath, modCode);
+  fs.writeFileSync(filePath, modCode);
   return;
 }
 
@@ -218,7 +218,7 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
                 params.removedBlocks[params.filePath]["replaced-tailwind"][
                   className
                 ]["converted"] = curVal;
-                // fs.writeFileSync(params.filePath, root.toString());
+                fs.writeFileSync(params.filePath, root.toString());
               }
             });
         }

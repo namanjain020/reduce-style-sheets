@@ -3,6 +3,12 @@ import path from "path";
 import postcss from "postcss";
 import { TailwindConverter } from "css-to-tailwindcss";
 
+import camelCase from "./bins/camelCase.js";
+import temp from "./bins/configured.js"
+
+
+
+
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 const traverse = _traverse.default;
@@ -33,8 +39,6 @@ const converter = new TailwindConverter({
     },
   },
 });
-
-
 
 function regexHelper(className, fileName, importsFrom, recur, newStr) {
   if (recur > 5) {
@@ -187,32 +191,72 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
           classes.length === 1 &&
           !regex.test(rule.selector)
         ) {
-          const className = classes[0];
-          let converted = "ABC";
-          converter
-            .convertCSS(rule.toString())
-            .then(({ convertedRoot, nodes }) => {
-              converted = convertedRoot.toString();
-
-              let curVal = null;
-              curVal = atruleHelper(converted, curVal);
-              if (curVal !== null) {
-                //add to js function
-                anotherHelper(className.substring(1), params, curVal);
-                rule.remove();
-                // onSuccess();
-                params.removedBlocks[params.filePath]["replaced-tailwind"][
-                  className
-                ] = {};
-                params.removedBlocks[params.filePath]["replaced-tailwind"][
-                  className
-                ]["original"] = rule.toString();
-                params.removedBlocks[params.filePath]["replaced-tailwind"][
-                  className
-                ]["converted"] = curVal;
-                fs.writeFileSync(params.filePath, root.toString());
-              }
+          const className = classes[0];let count =0;
+          // rule.nodes[0].remove();
+          let str= [];
+          const utils = Object.keys(temp);
+          utils.forEach((util) => {
+            const size = Object.keys(temp[util]).length;
+            let counter =0;
+            let arrayOfIndex =[];
+            const props = Object.keys(temp[util]); //array
+            props.forEach((prop) => {
+                for(let idx=0; idx<rule.nodes.length;idx++)
+                {
+                  if (
+                    camelCase(rule.nodes[idx].prop) == prop &&
+                    rule.nodes[idx].value == temp[util][prop]
+                  ) {
+                    arrayOfIndex.push(idx);
+                  }
+                  counter++;
+                }
             });
+            if(size == arrayOfIndex.length)
+            {
+              // console.log(count);
+              // count++;
+              str.push(util);
+              // console.log(util);
+              // console.log(arrayOfIndex);
+              for(let idx=0;idx<arrayOfIndex.length;idx++)
+              {
+                // rule.nodes[arrayOfIndex[idx]-idx].remove();
+              }
+            }
+          });
+          console.log(rule.toString());
+          console.log(str);
+          if(rule.nodes.length == 0)
+          {
+            console.log(rule.selector +' is removed')
+            // rule.remove();
+          }
+          // let converted = "ABC";
+          fs.writeFileSync(params.filePath, root.toString());
+          // converter
+          //   .convertCSS(rule.toString())
+          //   .then(({ convertedRoot, nodes }) => {
+          //     converted = convertedRoot.toString();
+
+          //     let curVal = null;
+          //     curVal = atruleHelper(converted, curVal);
+          //     if (curVal !== null) {
+          //       //add to js function
+          //       anotherHelper(className.substring(1), params, curVal);
+          //       rule.remove();
+          //       // onSuccess();
+          //       params.removedBlocks[params.filePath]["replaced-tailwind"][
+          //         className
+          //       ] = {};
+          //       params.removedBlocks[params.filePath]["replaced-tailwind"][
+          //         className
+          //       ]["original"] = rule.toString();
+          //       params.removedBlocks[params.filePath]["replaced-tailwind"][
+          //         className
+          //       ]["converted"] = curVal;
+          //     }
+          //   });
         }
       }
     });
@@ -265,7 +309,7 @@ export async function stylesheetConverter(
           removedBlocks,
         };
         const extension = path.extname(filePath);
-        
+
         if ([".css", ".scss", ".less"].includes(extension)) {
           const css = fs.readFileSync(params.filePath, "utf8");
           // console.log(css);

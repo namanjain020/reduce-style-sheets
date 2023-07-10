@@ -158,8 +158,8 @@ const removeUnusedClasses = postcss.plugin(
               ] = codeBlock.replace(classes[0], "");
 
               // Uncommet to start removal \\
-              // rule.remove();
-              // fs.writeFileSync(filePath, root.toString(), (err) => err && console.error(err));
+              rule.remove();
+              fs.writeFileSync(filePath, root.toString(), (err) => err && console.error(err));
             }
           }
         }
