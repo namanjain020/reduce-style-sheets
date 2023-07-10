@@ -5,8 +5,9 @@ import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 import resolve from "enhanced-resolve";
 import { addToObject } from "./bins/addToObject.js";
+import { rejects } from "assert";
 const traverse = _traverse.default;
-const resolver = resolve.create({
+const resolver = resolve.create.sync({
   extensions: [".js", ".json", ".node", ".jsx", ".ts", ".tsx"],
 });
 const alias = {
@@ -14,7 +15,7 @@ const alias = {
   "@space/": "../../apps/spr-main-web/src/",
   "rules/": "../../apps/spr-main-web/src/rules/",
   "types/*": "../../apps/spr-main-web/src/types/",
-  
+
   "core/*": "../../apps/spr-main-web/src/core/*",
 
   "typings/*": "../../apps/spr-main-web/src/typings/*",
@@ -57,147 +58,185 @@ function endsWithFunc(str, arr) {
 
 export async function importMap(dir, importsTo, importsFrom, styleImportsMap) {
   const absDir = dir;
-  function traverseDirectory(
+  async function traverseDirectory(
     absDir,
     dir,
     importsTo,
     importsFrom,
     styleImportsMap
   ) {
-    const files = fs.readdirSync(dir);
-    files
-      .filter((file) => !file.includes("node_modules"))
-      .filter((file) => !file.includes("__tests__"))
-      .filter((file) => !file.includes("tests"))
-      .forEach((file) => {
-        // console.log(file);
-        const filePath = path.resolve(path.join(dir, file));
-        // console.log(filePath)
-        const stats = fs.statSync(filePath);
-        if (stats.isDirectory()) {
-          traverseDirectory(
-            absDir,
-            filePath,
-            importsTo,
-            importsFrom,
-            styleImportsMap
-          );
-        } else if (stats.isFile() && !filePath.includes(".d.ts")) {
-          const extension = path.extname(filePath);
-          if ([".ts"].includes(extension)) {
-            //ts type code
-            scriptImports(absDir, filePath, importsTo, importsFrom, [
-              "typescript",
-            ]);
-          } else if ([".tsx"].includes(extension)) {
-            scriptImports(absDir, filePath, importsTo, importsFrom, [
-              "typescript",
-              "jsx",
-            ]);
-          } else if ([".js", ".jsx"].includes(extension)) {
-            //js code
-            scriptImports(absDir, filePath, importsTo, importsFrom, ["jsx"]);
-          } else if ([".css", ".scss", ".less"].includes(extension)) {
-            // stylesheets
-            styleImports(filePath, styleImportsMap);
+    return new Promise((resolve, rejects) => {
+      const files = fs.readdirSync(dir);
+      files
+        .filter((file) => !file.includes("node_modules"))
+        .filter((file) => !file.includes("__tests__"))
+        .filter((file) => !file.includes("tests"))
+        .forEach(async (file) => {
+          // console.log(file);
+          const filePath = path.resolve(path.join(dir, file));
+          // console.log(filePath)
+          const stats = fs.statSync(filePath);
+          if (stats.isDirectory()) {
+            await traverseDirectory(
+              absDir,
+              filePath,
+              importsTo,
+              importsFrom,
+              styleImportsMap
+            );
+          } else if (stats.isFile() && !filePath.includes(".d.ts")) {
+            const extension = path.extname(filePath);
+            if ([".ts"].includes(extension)) {
+              //ts type code
+              await scriptImports(absDir, filePath, importsTo, importsFrom, [
+                "typescript",
+              ]);
+            } else if ([".tsx"].includes(extension)) {
+              await scriptImports(absDir, filePath, importsTo, importsFrom, [
+                "typescript",
+                "jsx",
+              ]);
+            } else if ([".js", ".jsx"].includes(extension)) {
+              //js code
+              await scriptImports(absDir, filePath, importsTo, importsFrom, [
+                "jsx",
+              ]);
+            } else if ([".css", ".scss", ".less"].includes(extension)) {
+              // stylesheets
+              await styleImports(filePath, styleImportsMap);
+            }
           }
-        }
-      });
+        });
+      resolve();
+    });
   }
-  traverseDirectory(absDir, dir, importsTo, importsFrom, styleImportsMap);
+  await traverseDirectory(absDir, dir, importsTo, importsFrom, styleImportsMap);
+  return;
 }
 
-function styleImports(filePath, styleImportsMap) {
-  const content = fs.readFileSync(filePath, "utf-8");
-  // const styleImports = [];
-  let match;
-  const fileDir = path.dirname(filePath);
-  const myResolve = resolve.create({
+function syncResolveStyles(fileDir, match) {
+  const myResolve = resolve.create.sync({
     preferRelative: true,
     // or resolve.create.sync
     // allowlist: [/\.css$/,/\.scss$/],
     extensions: [".css", ".scss", ".less"],
     // see more options below
   });
-  const styleImportRegex1 = /@import\s.*?['"](.+?)['"];/g;
-  const styleImportRegex2 = /@import\surl\(.*?['"](.+?)['"]\);/g;
-  //module imports
-  while ((match = styleImportRegex1.exec(content))) {
-    myResolve(fileDir, match[1], (err, result) => {
-      if (!err) {
-        if (!(result in styleImportsMap)) {
-          styleImportsMap[result] = [];
-        }
-        styleImportsMap[result].push(filePath);
-      }
-    });
+  try {
+    const result = myResolve(fileDir, match);
+    // console.log(result);
+    return result;
+  } catch (error) {
+    // console.log("Error");
+    return null;
   }
-  //Partial imports
-  while ((match = styleImportRegex1.exec(content))) {
-    myResolve(fileDir, "_" + match[1], (err, result) => {
-      if (!err) {
-        if (!(result in styleImportsMap)) {
-          styleImportsMap[result] = [];
-        }
-        styleImportsMap[result].push(filePath);
-      }
-    });
-  }
-  const absPath =
-    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/sass";
-  //Need to write imports due to webpack config
 }
 
-function scriptImports(absDir, filePath, importsTo, importsFrom, pluginArr) {
-  if (!(filePath in importsFrom)) {
-    importsFrom[filePath] = {};
-    importsFrom[filePath]["scripts"] = [];
-    importsFrom[filePath]["styles"] = [];
-  }
-  const content = fs.readFileSync(filePath, "utf8");
-  let fileDir = path.dirname(filePath);
-  const ast = parser.parse(content, {
-    sourceType: "module",
-    plugins: pluginArr,
-  });
-  traverse(ast, {
-    CallExpression(pathAST) {
-      const { node } = pathAST;
-      if (node.callee.type === "Import" && node.arguments[0].value) {
-        const str = node.arguments[0].value;
-        resolveFunction(str,fileDir,filePath,importsFrom,importsTo,absDir);
+async function styleImports(filePath, styleImportsMap) {
+  return new Promise((res, rej) => {
+    const content = fs.readFileSync(filePath, "utf-8");
+    // const styleImports = [];
+    let match;
+    const fileDir = path.dirname(filePath);
+
+    const styleImportRegex1 = /@import\s.*?['"](.+?)['"];/g;
+    const styleImportRegex2 = /@import\surl\(.*?['"](.+?)['"]\);/g;
+    //module imports
+    while ((match = styleImportRegex1.exec(content))) {
+      const result = syncResolveStyles(fileDir, match[1]);
+      if (result) {
+        if (!(result in styleImportsMap)) {
+          styleImportsMap[result] = [];
+        }
+        styleImportsMap[result].push(filePath);
       }
-    },
+    }
+    //Partial imports
+    while ((match = styleImportRegex2.exec(content))) {
+      const result = syncResolveStyles(fileDir, match[1]);
+      if (result) {
+        if (!(result in styleImportsMap)) {
+          styleImportsMap[result] = [];
+        }
+        styleImportsMap[result].push(filePath);
+      }
+    }
+    const absPath =
+      "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/sass";
+    //Need to write imports due to webpack config
+    res();
   });
+}
 
-  if (
-    endsWithFunc(filePath, ["index.ts", "index.tsx", "index.js", "index.jsx"])
-  ) {
+async function scriptImports(
+  absDir,
+  filePath,
+  importsTo,
+  importsFrom,
+  pluginArr
+) {
+  return new Promise((res, rej) => {
+    if (!(filePath in importsFrom)) {
+      importsFrom[filePath] = {};
+      importsFrom[filePath]["scripts"] = [];
+      importsFrom[filePath]["styles"] = [];
+    }
+    const content = fs.readFileSync(filePath, "utf8");
+    let fileDir = path.dirname(filePath);
+    const ast = parser.parse(content, {
+      sourceType: "module",
+      plugins: pluginArr,
+    });
     traverse(ast, {
-      ExportNamedDeclaration(pathAST) {
+      CallExpression(pathAST) {
         const { node } = pathAST;
-        if (node.source) {
-          const str = node.source.value;
-          resolveFunction(str,fileDir,filePath,importsFrom,importsTo,absDir);
-
+        if (node.callee.type === "Import" && node.arguments[0].value) {
+          const str = node.arguments[0].value;
+          resolveFunction(
+            str,
+            fileDir,
+            filePath,
+            importsFrom,
+            importsTo,
+            absDir
+          );
         }
       },
     });
-  }
-  traverse(ast, {
-    ImportDeclaration(pathAST) {
-      const { node } = pathAST;
-      const str = node.source.value;
-      resolveFunction(str,fileDir,filePath,importsFrom,importsTo,absDir);
-
-    },
+    if (
+      endsWithFunc(filePath, ["index.ts", "index.tsx", "index.js", "index.jsx"])
+    ) {
+      traverse(ast, {
+        ExportNamedDeclaration(pathAST) {
+          const { node } = pathAST;
+          if (node.source) {
+            const str = node.source.value;
+            resolveFunction(
+              str,
+              fileDir,
+              filePath,
+              importsFrom,
+              importsTo,
+              absDir
+            );
+          }
+        },
+      });
+    }
+    traverse(ast, {
+      ImportDeclaration(pathAST) {
+        const { node } = pathAST;
+        const str = node.source.value;
+        resolveFunction(str, fileDir, filePath, importsFrom, importsTo, absDir);
+      },
+    });
+    res();
   });
-
 }
 
+// function syncResolveScripts()
 
-
-function resolveFunction(
+async function resolveFunction(
   str,
   fileDir,
   filePath,
@@ -205,36 +244,73 @@ function resolveFunction(
   importsTo,
   absDir
 ) {
+  // console.log(str);
   //relative path
-  resolver(fileDir, str, (err, result) => {
-    if (!err && !result.includes("node_modules")) {
-      addToObject(filePath, result, importsFrom, importsTo);
-    } else if (err) {
-      resolver(fileDir, "./" + str, (err, result) => {
-        if (!err && !result.includes("node_modules")) {
-          addToObject(filePath, result, importsFrom, importsTo);
-        } else if (err) {
-          const absPath = absDir;
-          //Direct path
-          resolver(absPath, "./" + str, (err, result) => {
-            if (!err && !result.includes("node_modules")) {
-              addToObject(filePath, result, importsFrom, importsTo);
-            } else if (err) {
-              //Alias resolver
-              const keys = Object.keys(alias);
-              const answer = startsWithFunc(str, keys);
-              if (answer) {
-                const newStr = str.replace(answer, alias[answer]);
-                resolver(absPath, "./" + newStr, (err, result) => {
-                  if (!err && !result.includes("node_modules")) {
-                    addToObject(filePath, result, importsFrom, importsTo);
-                  }
-                });
-              }
-            }
-          });
+  const absPath = absDir;
+  let result;
+  try {
+    //relative path
+    result = resolver(fileDir, str);
+    // console.log(result);
+    await addToObject(filePath, result, importsFrom, importsTo);
+    return;
+  } catch (error) {
+    try {
+      //relative path with changes
+      result = resolver(fileDir, "./" + str);
+      await addToObject(filePath, result, importsFrom, importsTo);
+      return;
+    } catch (error) {
+      try {
+        //absolute path
+        result = resolver(absPath, "./" + str);
+        await addToObject(filePath, result, importsFrom, importsTo);
+        return;
+      } catch (error) {
+        try {
+          //Alias path
+          const keys = Object.keys(alias);
+          const answer = startsWithFunc(str, keys);
+          result = resolver(absPath, "./" + newStr);
+          await addToObject(filePath, result, importsFrom, importsTo);
+          return;
+        } catch (error) {
+          return;
         }
-      });
+      }
     }
-  });
+  }
+
+  // resolver(fileDir, str, async (err, result) => {
+  //   if (!err && !result.includes("node_modules")) {
+  //     await addToObject(filePath, result, importsFrom, importsTo);
+  //   } else if (err) {
+  //     resolver(fileDir, "./" + str, async (err, result) => {
+  //       if (!err && !result.includes("node_modules")) {
+  //         await addToObject(filePath, result, importsFrom, importsTo);
+  //       } else if (err) {
+  //         const absPath = absDir;
+  //         //Direct path
+  //         resolver(absPath, "./" + str, async (err, result) => {
+  //           if (!err && !result.includes("node_modules")) {
+  //             await addToObject(filePath, result, importsFrom, importsTo);
+  //           } else if (err) {
+  //             //Alias resolver
+  //             const keys = Object.keys(alias);
+  //             const answer = startsWithFunc(str, keys);
+  //             if (answer) {
+  //               const newStr = str.replace(answer, alias[answer]);
+  //               resolver(absPath, "./" + newStr, async (err, result) => {
+  //                 if (!err && !result.includes("node_modules")) {
+  //                   await addToObject(filePath, result, importsFrom, importsTo);
+  //                 }
+  //               });
+  //             }
+  //           }
+  //         });
+  //       }
+  //     });
+  //   }
+  // });
+  // console.log(filePath);
 }

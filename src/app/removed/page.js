@@ -1,7 +1,9 @@
 "use client";
 import Sidebar from "../components/SideBar";
 import { JSONTree } from "react-json-tree";
+import MergeRequest from "../components/MergeRequest";
 import "./removed.css";
+import CodeBlock from "../components/CodeBlock";
 import Table from './components/table.js';
 // If you're using Immutable.js: `npm i --save immutable`
 import { Map } from "immutable";
@@ -9,16 +11,7 @@ import obj from "../../../../distributed-result/removedBlocks.json";
 import { useEffect, useState, useRef } from "react";
 // use the component in your app!
 
-const content = `
-.visit-marketplace {
-  top: 1px;
-  padding-top: 4px;
-  padding-right: 16px;
-  padding-bottom: 16px;
-  padding-left: 16px;
-  font-size: 12px;
-  text-align: center;
-}`;
+
 
 const theme = {
   scheme: "monokai",
@@ -67,16 +60,24 @@ export default function Home() {
   //   newobj[newKey] = newobj[key];
   //   delete newobj[key];
   // });
+  const content = `
+  .activityHeader {\n  height: 5 * $spacer;\n  border-bottom: 0.1rem solid $azure;\n  @include media('>md') {\n    padding: 0 1.2rem;\n  }\n  @include media('<sm') {\n    margin-bottom: $spacer;\n  }\n}`;
+  const diff = [
+    '.visit-marketplace {',
+    '+ top: 1px',
+    'font-size: 12px;',
+    '-text-align: center;',
+    '}',
+  ];
   return (
     <>
-      <Sidebar class="   ${styles.class} ">
+      <Sidebar class="${styles.class} ">
         <header>
           <h1 className="text-5xl p-3">Reduce StyleSheets</h1>
           <h2 className="text-3xl p-4 ">Style reduced</h2>
         </header>
-        <pre class=" m-4 pl-5 drop-shadow-xl">
-          <code class="language-javascript">{content}</code>
-        </pre>
+        <MergeRequest diff={diff} />
+        <CodeBlock content={content}/>
         <div className="shadow-xl p-0 m-4 bg-white rounded">
           <h2>StyleSheets</h2>
           <Table></Table>

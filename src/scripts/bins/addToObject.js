@@ -15,14 +15,22 @@ function endsWithFunc(str, arr) {
   return false;
 }
 
-export function addToObject(filePath, result, importsFrom, importsTo) {
-  if (endsWithFunc(result, [".js", ".jsx", ".ts", ".tsx"])) {
-    importsFrom[filePath]["scripts"].push(result);
-  } else if (endsWithFunc(result, [".css", ".scss", ".less"])) {
-    importsFrom[filePath]["styles"].push(result);
-    if (!(result in importsTo)) {
-      importsTo[result] = [];
+export async function addToObject(filePath, result, importsFrom, importsTo) {
+  return new Promise ((res,rej) => {
+    if(result.includes("node_modules"))
+    {
+      res();
     }
-    importsTo[result].push(filePath);
-  }
+    if (endsWithFunc(result, [".js", ".jsx", ".ts", ".tsx"])) {
+      importsFrom[filePath]["scripts"].push(result);
+    } else if (endsWithFunc(result, [".css", ".scss", ".less"])) {
+      importsFrom[filePath]["styles"].push(result);
+      if (!(result in importsTo)) {
+        importsTo[result] = [];
+      }
+      importsTo[result].push(filePath);
+    }
+    // console.log("Add to function " +filePath);
+    res();
+  })
 }

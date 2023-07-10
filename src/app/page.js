@@ -1,8 +1,10 @@
 "use client"
+import MergeRequest from "./components/MergeRequest";
 import Sidebar from "./components/SideBar";
 // use the component in your app!
 
 export default function Home() {
+  
   return (
     <>
     <Sidebar>

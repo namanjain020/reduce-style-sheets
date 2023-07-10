@@ -15,19 +15,21 @@ let absDir;
 let counterT = 0,
   counterF = 0;
 
-function init(filePath, result) {
-  const stats = fs.statSync(filePath);
-  const fileSize = stats.size;
-
-  //Initialize result block;
-  result[filePath] = {};
-  result[filePath]["original-size"] = fileSize / 1000;
-  result[filePath]["unused"] = false;
-  result[filePath]["empty"] = false;
-  result[filePath]["unused-classes"] = {};
-  result[filePath]["replaced-tailwind"] = {};
-  result[filePath]["reduced-size"] = fileSize / 1000;
-  return;
+async function init(filePath, result) {
+  return new Promise((res,rej) =>{
+    const stats = fs.statSync(filePath);
+    const fileSize = stats.size;
+  
+    //Initialize result block;
+    result[filePath] = {};
+    result[filePath]["original-size"] = fileSize / 1000;
+    result[filePath]["unused"] = false;
+    result[filePath]["empty"] = false;
+    result[filePath]["unused-classes"] = {};
+    result[filePath]["replaced-tailwind"] = {};
+    result[filePath]["reduced-size"] = fileSize / 1000;
+    res();
+  })
 }
 
 export async function stylesheetRemover(
@@ -36,63 +38,66 @@ export async function stylesheetRemover(
   styleImports,
   result
 ) {
-  stylesheetRemoverHelper(unresolvedDir, importsTo, styleImports, result);
+  // console.log("in");
+  async function stylesheetRemoverHelper(
+    unresolvedDir,
+    importsTo,
+    styleImports,
+    result
+  ) {
+    const dir = path.resolve(unresolvedDir);
+    absDir = dir;
+    const files = fs.readdirSync(dir);
+    //Recursive function
+    files
+      .filter((file) => !file.includes("node_modules"))
+      .filter((file) => !file.includes("__tests__"))
+      .filter((file) => !file.includes("tests"))
+      .filter((file) => !file.startsWith("_"))
+      .forEach(async (file) => {
+        const filePath = path.join(dir, file);
+        const stats = fs.statSync(filePath);
+        if (stats.isDirectory()) {
+          stylesheetRemoverHelper(filePath, importsTo, styleImports, result);
+        } else if (stats.isFile()) {
+          const extension = path.extname(filePath);
+          if ([".css", ".scss", ".less"].includes(extension)) {
+            await init(filePath, result);
+            const stats = fs.statSync(filePath);
+            const fileSize = stats.size;
+            //If file is empty delete the file and remove imports
+            if (fileSize === 0) {
+              result[filePath]["empty"] = true;
+              console.log("Empty " + filePath);
+              // TO DO
+              if (filePath in styleImports) {
+                await helper1();
+              }
+              if (filePath in importsTo) {
+                await helper2(filePath, importsTo);
+              }
+              // Uncomment when needed \\
+              fs.rmSync(filePath);
+            }
+            // If file is never imported remove
+            if (!(filePath in styleImports) && !(filePath in importsTo)) {
+              console.log("Non imported file " + filePath);
+              result[filePath]["unused"] = true;
+              // Uncomment when needed \\
+              fs.rmSync(filePath);
+            }
+          }
+        }
+      });
+  }
+  await stylesheetRemoverHelper(unresolvedDir, importsTo, styleImports, result);
+  // console.log("out");
   return;
 }
 
-export function stylesheetRemoverHelper(
-  unresolvedDir,
-  importsTo,
-  styleImports,
-  result
-) {
-  const dir = path.resolve(unresolvedDir);
-  absDir = dir;
-  const files = fs.readdirSync(dir);
-  //Recursive function
-  files
-    .filter((file) => !file.includes("node_modules"))
-    .filter((file) => !file.includes("__tests__"))
-    .filter((file) => !file.includes("tests"))
-    .filter((file) => !file.startsWith("_"))
-    .forEach((file) => {
-      const filePath = path.join(dir, file);
-      const stats = fs.statSync(filePath);
-      if (stats.isDirectory()) {
-        stylesheetRemoverHelper(filePath, importsTo, styleImports, result);
-      } else if (stats.isFile()) {
-        const extension = path.extname(filePath);
-        if ([".css", ".scss", ".less"].includes(extension)) {
-          init(filePath, result);
-          const stats = fs.statSync(filePath);
-          const fileSize = stats.size;
-          //If file is empty delete the file and remove imports
-          if (fileSize === 0) {
-            result[filePath]["empty"] = true;
-            console.log("Empty " + filePath);
-            // TO DO
-            if (filePath in styleImports) {
-              helper1();
-            }
-            if (filePath in importsTo) {
-              helper2(filePath, importsTo);
-            }
-            // Uncomment when needed \\
-            fs.rmSync(filePath);
-          }
-          // If file is never imported remove
-          if (!(filePath in styleImports) && !(filePath in importsTo)) {
-            console.log("Non imported file " + filePath);
-            result[filePath]["unused"] = true;
-            // Uncomment when needed \\
-            fs.rmSync(filePath);
-          }
-        }
-      }
-    });
-}
 
-function helper1() {}
+
+async function helper1() {}
 
 async function helper2(filePath, importsTo) {
   // console.log("empty file "+filePath);
@@ -122,7 +127,7 @@ async function helper2(filePath, importsTo) {
     });
     const modCode = generator(ast).code;
     // Uncomment when needed \\
-    fs.writeFileSync(file, modCode);
+    // fs.writeFileSync(file, modCode);
   });
   return;
 }

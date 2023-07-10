@@ -6,91 +6,116 @@ const __dirname = path.resolve();
 
 let counter = 0;
 
-function regexHelper(className, fileName, importsFrom, recur) {
-  if (recur > 5) {
-    return "Stop Checking";
+async function regexHelper(className, fileName, importsFrom, visited) {
+  if (visited.includes(fileName)) {
+    return false;
   }
-  // console.log(fileName);
+  visited.push(fileName);
+  // console.log(visited);
   const content = fs.readFileSync(fileName, "utf-8");
   const str = `${className}`;
-  // const regex = new RegExp(`\\b${className}\\b`);
   if (content.includes(className)) {
-    return "Found";
+    return true;
   } else {
     if (fileName in importsFrom) {
       for (let idx = 0; idx < importsFrom[fileName]["scripts"].length; idx++) {
-        if (
-          regexHelper(
-            className,
-            importsFrom[fileName]["scripts"][idx],
-            importsFrom,
-            recur + 1
-          ) === "Found"
-        ) {
-          return "Found";
-        }
-      }
-    }
-  }
-  return "Not Found";
-}
-
-function helper(className, filePath, importsFrom, importsTo, styleImports) {
-  // console.log(className);
-  let arr = [filePath];
-  if (filePath in styleImports) {
-    styleImports[filePath].forEach((file) => arr.push(file));
-  }
-  for (let idx = 0; idx < arr.length; idx++) {
-    if (arr[idx] in importsTo) {
-      for (let idx2 = 0; idx2 < importsTo[arr[idx]].length; idx2++) {
-        if (
-          regexHelper(className, importsTo[arr[idx]][idx2], importsFrom, 1) ===
-          "Found"
-        ) {
-          // console.log(true);
+        const result = await regexHelper(
+          className,
+          importsFrom[fileName]["scripts"][idx],
+          importsFrom,
+          visited
+        );
+        if (result) {
           return true;
         }
       }
     }
   }
   return false;
+}
+
+async function helper(
+  className,
+  filePath,
+  importsFrom,
+  importsTo,
+  styleImports
+) {
+  console.log(className);
+  // console.log(className);
+  let arr = [filePath];
+  let visited = [];
+
+  if (filePath in styleImports) {
+    styleImports[filePath].forEach((file) => arr.push(file));
+  }
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (arr[idx] in importsTo) {
+      for (let idx2 = 0; idx2 < importsTo[arr[idx]].length; idx2++) {
+        const res = await regexHelper(
+          className,
+          importsTo[arr[idx]][idx2],
+          importsFrom,
+          visited
+        );
+        if (res) {
+          // console.log(true);
+          // console.log(className + " classs is used");
+          return true;
+        }
+      }
+    }
+  }
+  console.log(className + " classs is unused");
+  return false;
   // return boolVal;
 }
- function removeClasses(
+async function removeClasses(
   filePath,
   importsFrom,
   importsTo,
   styleImports,
   removedBlocks
 ) {
-  const css = fs.readFileSync(filePath, "utf8");
-  // let removedBlocks = JSON.parse(fs.readFileSync("./logs/removedBlocks.json"));
-  
-  postcss([
-    removeUnusedClasses(
-      filePath,
-      importsFrom,
-      importsTo,
-      styleImports,
-      removedBlocks
-    ),
-  ])
-    .process(css, { from: undefined, parser: scss })
-    .then((result) => {
-      
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  new Promise((res, rej) => {
+    const onSuccess = () => {
+      res();
+    };
+    const css = fs.readFileSync(filePath, "utf8");
+    // let removedBlocks = JSON.parse(fs.readFileSync("./logs/removedBlocks.json"));
+    postcss([
+      removeUnusedClasses(
+        filePath,
+        importsFrom,
+        importsTo,
+        styleImports,
+        removedBlocks,
+        onSuccess
+      ),
+    ])
+      .process(css, { from: undefined, parser: scss })
+      .then((result) => {
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+
   // fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(removedBlocks));
-    return;
 }
 const removeUnusedClasses = postcss.plugin(
   "remove-unused-classes",
-  (filePath, importsFrom, importsTo, styleImports, removedBlocks) => {
+  (
+    filePath,
+    importsFrom,
+    importsTo,
+    styleImports,
+    removedBlocks,
+    onSuccess
+  ) => {
     return (root) => {
-       root.walkRules((rule) => {
+      root.walkRules(async (rule) => {
         const codeBlock = rule.toString();
         // Check if the rule has a class selector
         if (rule.selector && rule.selector.includes(".")) {
@@ -117,30 +142,28 @@ const removeUnusedClasses = postcss.plugin(
             classes.length === 1 &&
             !regex.test(rule.selector)
           ) {
-            
             const className = classes[0];
-            console.log(className);
-            const boolVal = helper(
+
+            const boolVal = await helper(
               className.substring(1),
               filePath,
               importsFrom,
               importsTo,
               styleImports
-            )
-             if (
-              !boolVal
-            ) {
-              console.log(className+"classs is unused");
+            );
+            if (!boolVal) {
+              // console.log(className + "classs is unused");
               removedBlocks[filePath]["unused-classes"][
                 classes[0].substring(1)
               ] = codeBlock.replace(classes[0], "");
-             
+
               // Uncommet to start removal \\
-              rule.remove();
-              fs.writeFileSync(filePath, root.toString(), (err) => err && console.error(err));
-              }
+              // rule.remove();
+              // fs.writeFileSync(filePath, root.toString(), (err) => err && console.error(err));
+            }
           }
         }
+        onSuccess();
       });
     };
   }
@@ -153,40 +176,59 @@ export async function stylesheetReducer(
   styleImports,
   removedBlocks
 ) {
-
-  const dir = path.resolve(dirt);
-  const files = fs.readdirSync(dir);
-  // files = fs.readdirSync(dir);
-  //Recursive function
-  files
-    .filter((file) => !file.includes("__tests__"))
-    .filter((file) => !file.includes("tests"))
-    .filter((file) => !file.startsWith("_"))
-    .forEach((file) => {
-      const filePath = path.join(dir, file);
-      const stats = fs.statSync(filePath);
-      if (stats.isDirectory()) {
-        stylesheetReducer(
-          filePath,
-          importsFrom,
-          importsTo,
-          styleImports,
-          removedBlocks
-        );
-      } else if (stats.isFile()) {
-        const extension = path.extname(filePath);
-        if ([".css", ".scss", ".less"].includes(extension)) {
-          console.log(counter);
-          counter++;
-          removeClasses(
-            filePath,
-            importsFrom,
-            importsTo,
-            styleImports,
-            removedBlocks
-          );
-        }
-      }
-    });
-    return;
+  return new Promise(async (res, rej) => {
+    console.log("in");
+    async function stylesheetReducerHelper(
+      dirt,
+      importsFrom,
+      importsTo,
+      styleImports,
+      removedBlocks
+    ) {
+      const dir = path.resolve(dirt);
+      const files = fs.readdirSync(dir);
+      // files = fs.readdirSync(dir);
+      //Recursive function
+      files
+        .filter((file) => !file.includes("node_modules"))
+        .filter((file) => !file.includes("__tests__"))
+        .filter((file) => !file.includes("tests"))
+        .filter((file) => !file.startsWith("_"))
+        .forEach(async (file) => {
+          const filePath = path.join(dir, file);
+          const stats = fs.statSync(filePath);
+          if (stats.isDirectory()) {
+            await stylesheetReducerHelper(
+              filePath,
+              importsFrom,
+              importsTo,
+              styleImports,
+              removedBlocks
+            );
+          } else if (stats.isFile()) {
+            const extension = path.extname(filePath);
+            if ([".css", ".scss", ".less"].includes(extension)) {
+              counter++;
+              await removeClasses(
+                filePath,
+                importsFrom,
+                importsTo,
+                styleImports,
+                removedBlocks
+              );
+            }
+          }
+        });
+      return;
+    }
+    await stylesheetReducerHelper(
+      dirt,
+      importsFrom,
+      importsTo,
+      styleImports,
+      removedBlocks
+    );
+    console.log("out");
+    res();
+  });
 }
