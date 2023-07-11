@@ -3,6 +3,13 @@ import "./table.css";
 import Image from "next/image";
 import Progress from "./Progress";
 import CodeBlock from "./codeblock.js";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
 
 function Table(props) {
   let variable = 10;
@@ -14,34 +21,52 @@ function Table(props) {
   let result = structuredClone(props.data);
   const files = Object.keys(result);
   const temp = files.map((file) => (
-    <div key={file.id} className="current">
-      <div className="flex border-2" onClick={clicked}>
-        <Image
-          className="w-10 h-10 p-1 mt-2"
-          src="/sass-logo.png"
-          width={22}
-          height={10}
-          alt="sass-logo"
-        />
-        <p className="w-[35rem] py-3 pl-6">{file.replace(/^.*[\\\/]/, "")}</p>
-        <p className="w-[12rem] py-3">{result[file]["original-size"]} KB</p>
-        <p className=" w-[12rem] py-3">
-          {result[file]["reduced-size"] / 1000} KB
-        </p>
-        <div className=" w-[22rem] py-3 ">
-          <Progress
-            val={Math.round(
-              (result[file]["reduced-size"] /
-                1000 /
-                result[file]["original-size"]) *
-                100
-            )}
-          />
+    <div key={file.id}>
+      <AccordionItem>
+        <div className="current border-2">
+          <AccordionButton>
+            <div className="flex" onClick={clicked}>
+              <Image
+                className="w-10 h-10 p-1 mt-2"
+                src="/sass-logo.png"
+                width={22}
+                height={10}
+                alt="sass-logo"
+              />
+              <div className="p-4">
+                <AccordionIcon />
+              </div>
+
+              <p className="w-[34rem] py-3 pl-6">
+                {file.replace(/^.*[\\\/]/, "")}
+              </p>
+              <p className="w-[12rem] py-3">
+                {result[file]["original-size"]} KB
+              </p>
+              <p className=" w-[11rem] py-3">
+                {result[file]["reduced-size"] / 1000} KB
+              </p>
+              <div className=" w-[22rem] p-5">
+                <Progress
+                  val={Math.round(
+                    (result[file]["reduced-size"] /
+                      1000 /
+                      result[file]["original-size"]) *
+                      100
+                  )}
+                />
+              </div>
+            </div>
+          </AccordionButton>
+
+          <AccordionPanel>
+            <CodeBlock
+              unused={result[file]["unused-classes"]}
+              tw={result[file]["replaced-tailwind"]}
+            />
+          </AccordionPanel>
         </div>
-      </div>
-      <div className="hidden" id="currentBlock">
-        <CodeBlock unused={result[file]["unused-classes"]}   tw ={result[file]["replaced-tailwind"]} />
-      </div>
+      </AccordionItem>
     </div>
   ));
   return (
@@ -54,13 +79,15 @@ function Table(props) {
           </p>
         </div>
         <div className="bg-slate-100 py-1 font-bold flex p-2">
-          <div className="w-[2rem]"></div>
-          <p className="w-[35rem] py-4 pl-8">File Name</p>
+          <div className="w-[7rem]"></div>
+          <p className="w-[36rem] py-4 pl-8">File Name</p>
           <p className="w-[12rem] py-4">Original Size</p>
           <p className=" w-[12rem] py-4">Reduced Size</p>
           <p className=" w-[22rem] py-4">Visualiser</p>
         </div>
-        <div>{temp}</div>
+        <Accordion allowToggle>
+          <div>{temp}</div>
+        </Accordion>
         <div className="table-container w-full m-0 p-0"></div>
       </div>
     </>

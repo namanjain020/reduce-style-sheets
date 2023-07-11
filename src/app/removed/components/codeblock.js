@@ -21,12 +21,17 @@ export default function Codeblock (props){
     const twClasses = Object.keys(twObj);
     // console.log(unusedClasses);
     const temp2 = twClasses.map((className) => (
-        <div key={className.id}>
+        <div key={className.id} className="flex">
             <pre>
-                <code>
+                <code className="w-1/2">
                     {twObj[className]['original']}
                 </code>
             </pre>
+            <div>
+                <p>
+                {twObj[className]['converted']}
+                </p>
+            </div>
         </div>
     ));
     // const temp = unusedClasses.map((class) => ())
@@ -43,12 +48,12 @@ export default function Codeblock (props){
             </p>
             {temp}
         </div>
-        <div>
+        {/* <div>
             <p>
                 REPLACED TAILWIND
             </p>
             {temp2}
-        </div>
+        </div> */}
         
     </div>)
 }
