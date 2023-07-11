@@ -1,16 +1,14 @@
-* Table container */
+
 .table-container {
   overflow-x: auto;
 }
 
-/* Table */
 .table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
 
-/* Table header */
 .table th {
   background-color: #f0f0f0;
   padding: 10px;
@@ -18,23 +16,19 @@
   border-bottom: 1px solid #ccc;
 }
 
-/* Table body */
 .table td {
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
 
-/* Alternating row colors */
 .table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Hover effect on rows */
 .table tr:hover {
   background-color: #e0e0e0;
 }
 
-/* Responsive styles for small screens */
 @media screen and (max-width: 600px) {
   .table-container {
     overflow-x: scroll;

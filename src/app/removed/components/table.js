@@ -6,9 +6,9 @@ import CodeBlock from "./codeblock.js";
 
 function Table(props) {
   let variable = 10;
-  const targetDiv = document.getElementById("currentBlock");
+  // const targetDiv = document.getElementById("currentBlock");
   const clicked = () => {
-    targetDiv.style.visibility = "visible";
+    // targetDiv.style.visibility = "visible";
     // alert("Hello")
   };
   let result = structuredClone(props.data);

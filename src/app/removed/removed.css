@@ -5,7 +5,6 @@
   font-size: 16px;
 }
 
-/* Optional: Apply line numbers to the code block */
 .code-block {
   position: relative;
   counter-reset: line;
