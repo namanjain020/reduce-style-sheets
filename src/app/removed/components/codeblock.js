@@ -8,7 +8,7 @@ export default function Codeblock (props){
     const unusedClasses = Object.keys(unusedObj);
     // console.log(unusedClasses);
     const temp = unusedClasses.map((className) => (
-        <div>
+        <div key={className.id}>
             <pre>
                 <code>
                     {className}
@@ -21,7 +21,7 @@ export default function Codeblock (props){
     const twClasses = Object.keys(twObj);
     // console.log(unusedClasses);
     const temp2 = twClasses.map((className) => (
-        <div>
+        <div key={className.id}>
             <pre>
                 <code>
                     {twObj[className]['original']}

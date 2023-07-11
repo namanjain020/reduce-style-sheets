@@ -14,7 +14,7 @@ function Table(props) {
   let result = structuredClone(props.data);
   const files = Object.keys(result);
   const temp = files.map((file) => (
-    <div className="current">
+    <div key={file.id} className="current">
       <div className="flex border-2" onClick={clicked}>
         <Image
           className="w-10 h-10 p-1 mt-2"
