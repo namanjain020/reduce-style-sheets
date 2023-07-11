@@ -4,10 +4,7 @@ import postcss from "postcss";
 import { TailwindConverter } from "css-to-tailwindcss";
 
 import camelCase from "./bins/camelCase.js";
-import temp from "./bins/configured.js"
-
-
-
+import temp from "./bins/configured.js";
 
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
@@ -20,6 +17,7 @@ import _generator from "@babel/generator";
 const generator = _generator.default;
 import scss from "postcss-scss";
 import postcssExtend from "postcss-extend";
+
 const __dirname = path.resolve();
 let counter = 0;
 // Tailwind converter used (Abstraction)
@@ -87,6 +85,10 @@ function anotherHelper(className, params, newStr) {
 }
 
 function addToScript(className, filePath, newStr) {
+  if(!newStr)
+  {
+    return;
+  }
   let pluginArr;
   if (filePath.endsWith(".ts")) {
     pluginArr = ["typescript"];
@@ -124,7 +126,12 @@ function addToScript(className, filePath, newStr) {
         // console.log(baseString);
         path.node.trailingComments = [comment];
         // const arr = baseString.split(" ");
-        path.node.value.value = baseString + " " + newStr;
+        newStr.forEach((util) => {
+          if (!path.node.value.value.includes(util)) {
+            path.node.value.value = path.node.value.value + " " + util;
+          }
+        });
+        // path.node.value.value = baseString + " " + newStr;
         // console.log(path.node.value.value);
       }
     },
@@ -152,7 +159,7 @@ function atruleHelper(converted, curVal) {
       });
     };
   });
-  postcss([twPlugin])
+  postcss([postcssNested, twPlugin])
     .process(converted, { from: undefined })
     .then((result) => {})
     .catch((error) => {
@@ -166,8 +173,13 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
     root.walkRules((rule) => {
       // console.log("Hello");
       const codeBlock = rule.toString();
+      
       // Check if the rule has a class selector
-      if (rule.selector && rule.selector.includes(".")) {
+      if (
+        rule.selector &&
+        rule.selector.includes(".") &&
+        rule.parent.type !== "atrule"
+      ) {
         const arr = rule.selector
           .toString()
           .match(/(\.[^\s.#,]+|#[^\s.#,]+|[^.\s#,][^\s.#,]+)?/g)
@@ -191,46 +203,44 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
           classes.length === 1 &&
           !regex.test(rule.selector)
         ) {
-          const className = classes[0];let count =0;
-          // rule.nodes[0].remove();
-          let str= [];
+          const className = classes[0];
+          params.removedBlocks[params.filePath]["replaced-tailwind"][className] =[];
+          let count = 0;
+          let str = [];
           const utils = Object.keys(temp);
           utils.forEach((util) => {
             const size = Object.keys(temp[util]).length;
-            let counter =0;
-            let arrayOfIndex =[];
+            let counter = 0;
+            let arrayOfIndex = [];
             const props = Object.keys(temp[util]); //array
             props.forEach((prop) => {
-                for(let idx=0; idx<rule.nodes.length;idx++)
-                {
-                  if (
-                    camelCase(rule.nodes[idx].prop) == prop &&
-                    rule.nodes[idx].value == temp[util][prop]
-                  ) {
-                    arrayOfIndex.push(idx);
-                  }
-                  counter++;
+              for (let idx = 0; idx < rule.nodes.length; idx++) {
+                if (
+                  rule.nodes[idx].type === "decl" &&
+                  camelCase(rule.nodes[idx].prop) == prop &&
+                  rule.nodes[idx].value == temp[util][prop]
+                ) {
+                  arrayOfIndex.push(idx);
                 }
+                counter++;
+              }
             });
-            if(size == arrayOfIndex.length)
-            {
-              // console.log(count);
-              // count++;
+            if (size == arrayOfIndex.length) {
               str.push(util);
-              // console.log(util);
-              // console.log(arrayOfIndex);
-              for(let idx=0;idx<arrayOfIndex.length;idx++)
-              {
-                // rule.nodes[arrayOfIndex[idx]-idx].remove();
+              for (let idx = 0; idx < arrayOfIndex.length; idx++) {
+                const obj ={[rule.nodes[arrayOfIndex[idx]-idx].toString()]: util}
+                params.removedBlocks[params.filePath]["replaced-tailwind"][className].push(obj); 
+                rule.nodes[arrayOfIndex[idx]-idx].remove();
               }
             }
           });
-          console.log(rule.toString());
+          console.log(className);
+          anotherHelper(className.substring(1), params, str);
           console.log(str);
-          if(rule.nodes.length == 0)
-          {
-            console.log(rule.selector +' is removed')
-            // rule.remove();
+          
+          if (rule.nodes.length == 0) {
+            console.log(rule.selector + " is removed");
+            rule.remove();
           }
           // let converted = "ABC";
           fs.writeFileSync(params.filePath, root.toString());
@@ -285,6 +295,7 @@ export async function stylesheetConverter(
   const files = fs.readdirSync(dir);
   //Recursive function
   files
+    .filter((file) => !file.includes("node_modules"))
     .filter((file) => !file.includes("__tests__"))
     .filter((file) => !file.includes("tests"))
     .filter((file) => !file.startsWith("_"))
@@ -313,6 +324,7 @@ export async function stylesheetConverter(
         if ([".css", ".scss", ".less"].includes(extension)) {
           const css = fs.readFileSync(params.filePath, "utf8");
           // console.log(css);
+          console.log(filePath);
           convertClasses(params);
           const stats = fs.statSync(filePath);
           params.removedBlocks[params.filePath]["reduced-size"] = stats.size;

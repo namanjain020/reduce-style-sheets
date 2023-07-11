@@ -1,21 +1,17 @@
 import React from 'react';
 
-const MergeRequest = ({ diff }) => {
-  const renderDiffLine = (line, index) => {
-    if (line.startsWith('+')) {
-      return <pre key={index} style={{ backgroundColor: 'lightgreen' }}>{line}</pre>;
-    } else if (line.startsWith('-')) {
-      return <pre key={index} style={{ backgroundColor: 'lightblue' }}>{line}</pre>;
-    } else {
-      return <pre key={index}>{line}</pre>;
-    }
-  };
-
+const UnifiedDiffView = ({ diff }) => {
   return (
-    <pre>
-      {diff.map((line, index) => renderDiffLine(line, index))}
+    <pre className="bg-gray-100 p-4 overflow-auto">
+      <code className="text-xs font-mono">
+        {diff.map((line, index) => (
+          <span key={index} className={line.type}>
+            {line.content}
+          </span>
+        ))}
+      </code>
     </pre>
   );
 };
 
-export default MergeRequest;
+export default UnifiedDiffView;

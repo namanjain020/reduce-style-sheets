@@ -127,7 +127,7 @@ async function helper2(filePath, importsTo) {
     });
     const modCode = generator(ast).code;
     // Uncomment when needed \\
-    // fs.writeFileSync(file, modCode);
+    fs.writeFileSync(file, modCode);
   });
   return;
 }

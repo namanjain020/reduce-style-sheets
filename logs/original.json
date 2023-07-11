@@ -51,9 +51,9 @@
     "activity_and_insights": {
       "activity_and_insights.scss": { "size": 28.105 },
       "activity_and_insights_link": {
-        "activity_and_insights_link.scss": { "size": 1.288 },
+        "activity_and_insights_link.scss": { "size": 1.294 },
         "insights_tour_tip": { "size": 0 },
-        "size": 1.288
+        "size": 1.294
       },
       "insights": {
         "__snapshots__": { "size": 0 },
@@ -127,7 +127,7 @@
         "widget_hoc": { "size": 0 },
         "size": 23.502000000000002
       },
-      "size": 52.895
+      "size": 52.901
     },
     "activity_log_modal": {
       "__snapshots__": { "size": 0 },
@@ -180,8 +180,8 @@
         },
         "billing_summary": {
           "billing_summary.scss": { "size": 4.39 },
-          "upsell_card.scss": { "size": 1.427 },
-          "size": 5.817
+          "upsell_card.scss": { "size": 1.429 },
+          "size": 5.819
         },
         "company_info_display.scss": { "size": 3.334 },
         "company_info_edit.scss": { "size": 2.666 },
@@ -202,7 +202,7 @@
           "plan_pricing.scss": { "size": 0.381 },
           "size": 3.6609999999999996
         },
-        "size": 35.887
+        "size": 35.888999999999996
       },
       "blockable_link": { "size": 0 },
       "brand_image_setting": { "size": 0 },
@@ -427,24 +427,24 @@
         "dashboard.scss": { "size": 8.441 },
         "size": 8.441
       },
-      "size": 102.596
+      "size": 102.598
     },
     "advanced_create_comment": { "__snapshots__": { "size": 0 }, "size": 0 },
     "advanced_create_post": { "__snapshots__": { "size": 0 }, "size": 0 },
     "advanced_text_editor": {
-      "advanced_text_editor.scss": { "size": 5.586 },
+      "advanced_text_editor.scss": { "size": 5.588 },
       "formatting_bar": { "size": 0 },
       "send_button": { "size": 0 },
       "show_formatting": { "size": 0 },
       "texteditor_actions": { "size": 0 },
       "toggle_formatting_bar": { "size": 0 },
-      "size": 5.586
+      "size": 5.588
     },
     "air_gapped_self_hosted_purchase_modal": {
       "content.scss": { "size": 0.387 },
       "size": 0.387
     },
-    "alert_banner.scss": { "size": 3.879 },
+    "alert_banner.scss": { "size": 3.883 },
     "analytics": {
       "__snapshots__": { "size": 0 },
       "activated_users_card": { "size": 0 },
@@ -483,8 +483,8 @@
     },
     "app_bar": {
       "__snapshots__": { "size": 0 },
-      "app_bar.scss": { "size": 3.88 },
-      "size": 3.88
+      "app_bar.scss": { "size": 3.894 },
+      "size": 3.894
     },
     "apps_form": {
       "__snapshots__": { "size": 0 },
@@ -517,7 +517,7 @@
       "title_and_button_card_header": { "size": 0 },
       "size": 2.75
     },
-    "category_modal.scss": { "size": 0.351 },
+    "category_modal.scss": { "size": 0.353 },
     "center_message_lock": { "index.scss": { "size": 1.137 }, "size": 1.137 },
     "channel_groups_manage_modal": { "size": 0 },
     "channel_header": {
@@ -595,10 +595,10 @@
     },
     "cloud_subscribe_with_loading_modal": { "size": 0 },
     "cloud_usage_modal": {
-      "index.scss": { "size": 0.708 },
+      "index.scss": { "size": 0.712 },
       "limit_line.scss": { "size": 0.776 },
-      "mini_modal.scss": { "size": 0.338 },
-      "size": 1.822
+      "mini_modal.scss": { "size": 0.342 },
+      "size": 1.83
     },
     "code_block": { "__snapshots__": { "size": 0 }, "size": 0 },
     "commercial_support_modal": {
@@ -613,7 +613,7 @@
         "accordion.scss": { "size": 1.905 },
         "size": 1.905
       },
-      "auto_height_switcher.scss": { "size": 0.192 },
+      "auto_height_switcher.scss": { "size": 0.196 },
       "carousel": {
         "__snapshots__": { "size": 0 },
         "carousel.scss": { "size": 2.457 },
@@ -638,7 +638,7 @@
       "plan_label": { "size": 0 },
       "svg_images_components": { "size": 0 },
       "usage_percent_bar": { "size": 0 },
-      "size": 7.158
+      "size": 7.162
     },
     "compass_design_provider": { "size": 0 },
     "compass_theme_provider": { "size": 0 },
@@ -680,8 +680,8 @@
       "size": 3.27
     },
     "do_verify_email": {
-      "do_verify_email.scss": { "size": 0.678 },
-      "size": 0.678
+      "do_verify_email.scss": { "size": 0.682 },
+      "size": 0.682
     },
     "dot_menu": {
       "__snapshots__": { "size": 0 },
@@ -702,7 +702,7 @@
         "draft_title.scss": { "size": 0.38 },
         "size": 0.38
       },
-      "drafts.scss": { "size": 1.021 },
+      "drafts.scss": { "size": 1.027 },
       "drafts_link": {
         "__snapshots__": { "size": 0 },
         "drafts_link.scss": { "size": 1.074 },
@@ -711,13 +711,13 @@
       },
       "panel": {
         "__snapshots__": { "size": 0 },
-        "panel.scss": { "size": 0.579 },
+        "panel.scss": { "size": 0.583 },
         "panel_body.scss": { "size": 0.816 },
         "panel_header.scss": { "size": 1.556 },
-        "size": 2.951
+        "size": 2.955
       },
       "thread_draft": { "__snapshots__": { "size": 0 }, "size": 0 },
-      "size": 6.651999999999999
+      "size": 6.662
     },
     "dropdown_input.scss": { "size": 0.949 },
     "edit_category_modal": { "size": 0 },
@@ -746,13 +746,13 @@
     "external_image": { "size": 0 },
     "external_link": { "__snapshots__": { "size": 0 }, "size": 0 },
     "external_login_button": {
-      "external_login_button.scss": { "size": 0.619 },
-      "size": 0.619
+      "external_login_button.scss": { "size": 0.623 },
+      "size": 0.623
     },
     "favicon_title_handler": { "size": 0 },
     "feature_restricted_modal": {
-      "feature_restricted_modal.scss": { "size": 1.034 },
-      "size": 1.034
+      "feature_restricted_modal.scss": { "size": 1.038 },
+      "size": 1.038
     },
     "feedback_modal": { "feedback.scss": { "size": 0.486 }, "size": 0.486 },
     "file_attachment": {
@@ -806,7 +806,7 @@
       "forward_post_modal.scss": { "size": 3.681 },
       "size": 3.681
     },
-    "generic_modal.scss": { "size": 7.897 },
+    "generic_modal.scss": { "size": 7.901 },
     "get_public_link_modal": { "__snapshots__": { "size": 0 }, "size": 0 },
     "gif_picker": {
       "components": {
@@ -815,11 +815,11 @@
         "Header": { "Header.scss": { "size": 0.799 }, "size": 0.799 },
         "InfiniteScroll": { "size": 0 },
         "Search": { "size": 0 },
-        "SearchBar": { "SearchBar.scss": { "size": 1.425 }, "size": 1.425 },
+        "SearchBar": { "SearchBar.scss": { "size": 1.427 }, "size": 1.427 },
         "SearchGrid": { "SearchGrid.scss": { "size": 0.763 }, "size": 0.763 },
         "SearchItem": { "SearchItem.scss": { "size": 0.28 }, "size": 0.28 },
         "Trending": { "size": 0 },
-        "size": 4.263
+        "size": 4.265
       },
       "static": {
         "favicons": { "size": 0 },
@@ -827,7 +827,7 @@
         "size": 0
       },
       "utils": { "size": 0 },
-      "size": 4.263
+      "size": 4.265
     },
     "global_header": {
       "center_controls": {
@@ -843,12 +843,12 @@
           "product_menu_item": { "size": 0 },
           "product_menu_list": {
             "__snapshots__": { "size": 0 },
-            "product_menu_list.scss": { "size": 0.261 },
-            "size": 0.261
+            "product_menu_list.scss": { "size": 0.265 },
+            "size": 0.265
           },
-          "size": 0.261
+          "size": 0.265
         },
-        "size": 0.261
+        "size": 0.265
       },
       "right_controls": {
         "at_mentions_button": { "__snapshots__": { "size": 0 }, "size": 0 },
@@ -857,18 +857,18 @@
         "settings_button": { "size": 0 },
         "size": 0
       },
-      "size": 0.261
+      "size": 0.265
     },
     "header_footer_route": {
       "content_layouts": {
-        "alternate_link.scss": { "size": 0.505 },
-        "column.scss": { "size": 1.05 },
-        "size": 1.5550000000000002
+        "alternate_link.scss": { "size": 0.509 },
+        "column.scss": { "size": 1.054 },
+        "size": 1.5630000000000002
       },
-      "footer.scss": { "size": 0.874 },
-      "header.scss": { "size": 1.424 },
-      "header_footer_route.scss": { "size": 0.791 },
-      "size": 4.644
+      "footer.scss": { "size": 0.878 },
+      "header.scss": { "size": 1.428 },
+      "header_footer_route.scss": { "size": 0.797 },
+      "size": 4.666
     },
     "header_footer_template": { "__snapshots__": { "size": 0 }, "size": 0 },
     "help": { "components": { "size": 0 }, "size": 0 },
@@ -884,8 +884,8 @@
     },
     "info_toast": {
       "__snapshots__": { "size": 0 },
-      "info_toast.scss": { "size": 1.219 },
-      "size": 1.219
+      "info_toast.scss": { "size": 1.221 },
+      "size": 1.221
     },
     "integrations": {
       "__snapshots__": { "size": 0 },
@@ -919,10 +919,10 @@
     "intl_provider": { "__snapshots__": { "size": 0 }, "size": 0 },
     "invitation_modal": {
       "__snapshots__": { "size": 0 },
-      "add_to_channels.scss": { "size": 1.364 },
-      "invitation_modal.scss": { "size": 2.14 },
-      "invite_as.scss": { "size": 2.108 },
-      "invite_view.scss": { "size": 1.996 },
+      "add_to_channels.scss": { "size": 1.366 },
+      "invitation_modal.scss": { "size": 2.142 },
+      "invite_as.scss": { "size": 2.122 },
+      "invite_view.scss": { "size": 2.012 },
       "no_permissions_view.scss": { "size": 0.872 },
       "overage_users_banner_notice": {
         "overage_users_banner_notice.scss": { "size": 0.327 },
@@ -930,7 +930,7 @@
       },
       "result_table.scss": { "size": 2.729 },
       "result_view.scss": { "size": 0.119 },
-      "size": 11.655000000000001
+      "size": 11.689
     },
     "keyboard_shortcuts": {
       "keyboard_shortcuts_modal": {
@@ -940,10 +940,10 @@
       },
       "keyboard_shortcuts_sequence": {
         "__snapshots__": { "size": 0 },
-        "keyboard_shortcuts_sequence.scss": { "size": 0.494 },
-        "size": 0.494
+        "keyboard_shortcuts_sequence.scss": { "size": 0.498 },
+        "size": 0.498
       },
-      "size": 2.418
+      "size": 2.4219999999999997
     },
     "latex_block": { "__snapshots__": { "size": 0 }, "size": 0 },
     "latex_inline": { "__snapshots__": { "size": 0 }, "size": 0 },
@@ -966,9 +966,9 @@
     "logged_in": { "size": 0 },
     "login": {
       "__snapshots__": { "size": 0 },
-      "login.scss": { "size": 9.567 },
-      "login_mfa.scss": { "size": 0.631 },
-      "size": 10.198
+      "login.scss": { "size": 9.571 },
+      "login_mfa.scss": { "size": 0.635 },
+      "size": 10.206
     },
     "main_menu": { "__snapshots__": { "size": 0 }, "size": 0 },
     "markdown": { "__snapshots__": { "size": 0 }, "size": 0 },
@@ -1164,26 +1164,26 @@
       "description.scss": { "size": 0.247 },
       "launching_workspace.scss": { "size": 1.55 },
       "page_body.scss": { "size": 0.057 },
-      "plugins.scss": { "size": 1.241 },
-      "preparing_workspace.scss": { "size": 1.89 },
+      "plugins.scss": { "size": 1.243 },
+      "preparing_workspace.scss": { "size": 1.896 },
       "progress.scss": { "size": 1.252 },
       "single_column_layout.scss": { "size": 0.172 },
       "title.scss": { "size": 0.529 },
-      "size": 6.938
+      "size": 6.946
     },
     "pricing_modal": {
       "content.scss": { "size": 0.664 },
       "downgrade_team_removal_modal": {
-        "downgrade_team_removal_modal.scss": { "size": 3.795 },
-        "size": 3.795
+        "downgrade_team_removal_modal.scss": { "size": 3.797 },
+        "size": 3.797
       },
-      "pricing_modal.scss": { "size": 11.6 },
-      "size": 16.058999999999997
+      "pricing_modal.scss": { "size": 11.602 },
+      "size": 16.063000000000002
     },
     "product_notices_modal": {
       "__snapshots__": { "size": 0 },
-      "product_notices_modal.scss": { "size": 3.43 },
-      "size": 3.43
+      "product_notices_modal.scss": { "size": 3.434 },
+      "size": 3.434
     },
     "profile_picture": {
       "__snapshots__": { "size": 0 },
@@ -1242,8 +1242,8 @@
     },
     "searchable_user_list": { "size": 0 },
     "seats_calculator": {
-      "seats_calculator.scss": { "size": 0.754 },
-      "size": 0.754
+      "seats_calculator.scss": { "size": 0.756 },
+      "size": 0.756
     },
     "select_team": {
       "__snapshots__": { "size": 0 },
@@ -1263,8 +1263,8 @@
       "size": 1.241
     },
     "should_verify_email": {
-      "should_verify_email.scss": { "size": 1.866 },
-      "size": 1.866
+      "should_verify_email.scss": { "size": 1.87 },
+      "size": 1.87
     },
     "sidebar": {
       "__snapshots__": { "size": 0 },
@@ -1308,8 +1308,8 @@
     "sidebar_right_menu": { "size": 0 },
     "signup": {
       "__snapshots__": { "size": 0 },
-      "signup.scss": { "size": 11.133 },
-      "size": 11.133
+      "signup.scss": { "size": 11.137 },
+      "size": 11.137
     },
     "single_image_view": { "__snapshots__": { "size": 0 }, "size": 0 },
     "start_trial_modal": {
@@ -1366,14 +1366,14 @@
       "common": {
         "button": {
           "__snapshots__": { "size": 0 },
-          "button.scss": { "size": 3.15 },
-          "size": 3.15
+          "button.scss": { "size": 3.152 },
+          "size": 3.152
         },
         "follow_button": { "__snapshots__": { "size": 0 }, "size": 0 },
-        "size": 3.15
+        "size": 3.152
       },
       "global_threads": {
-        "global_threads.scss": { "size": 2.623 },
+        "global_threads.scss": { "size": 2.631 },
         "mark_all_threads_as_read_modal": {
           "mark_all_threads_as_read_modal.scss": { "size": 0.643 },
           "size": 0.643
@@ -1388,8 +1388,8 @@
             "file_card": { "file_card.scss": { "size": 1.44 }, "size": 1.44 },
             "size": 1.561
           },
-          "thread_item.scss": { "size": 3.39 },
-          "size": 4.9510000000000005
+          "thread_item.scss": { "size": 3.394 },
+          "size": 4.955
         },
         "thread_list": {
           "__snapshots__": { "size": 0 },
@@ -1398,15 +1398,15 @@
         },
         "thread_menu": {
           "__snapshots__": { "size": 0 },
-          "thread_menu.scss": { "size": 0.181 },
-          "size": 0.181
+          "thread_menu.scss": { "size": 0.185 },
+          "size": 0.185
         },
         "thread_pane": {
           "__snapshots__": { "size": 0 },
-          "thread_pane.scss": { "size": 1.712 },
-          "size": 1.712
+          "thread_pane.scss": { "size": 1.714 },
+          "size": 1.714
         },
-        "size": 11.824
+        "size": 11.842
       },
       "global_threads_link": {
         "global_threads_link.scss": { "size": 1.071 },
@@ -1414,16 +1414,16 @@
       },
       "thread_viewer": {
         "__snapshots__": { "size": 0 },
-        "thread_viewer.scss": { "size": 1.338 },
-        "size": 1.338
+        "thread_viewer.scss": { "size": 1.344 },
+        "size": 1.344
       },
       "virtualized_thread_viewer": { "reply": { "size": 0 }, "size": 0 },
-      "size": 18.742
+      "size": 18.768000000000004
     },
     "three_days_left_trial_modal": {
       "__snapshots__": { "size": 0 },
-      "three_days_left_trial_modal.scss": { "size": 3.145 },
-      "size": 3.145
+      "three_days_left_trial_modal.scss": { "size": 3.147 },
+      "size": 3.147
     },
     "timestamp": { "__snapshots__": { "size": 0 }, "size": 0 },
     "toast": {
@@ -1436,15 +1436,15 @@
     "tours": {
       "crt_tour": {
         "collapsed_reply_threads_modal": {
-          "collapsed_reply_threads_modal.scss": { "size": 0.796 },
-          "size": 0.796
+          "collapsed_reply_threads_modal.scss": { "size": 0.798 },
+          "size": 0.798
         },
-        "size": 0.796
+        "size": 0.798
       },
       "onboarding_explore_tools_tour": { "size": 0 },
       "onboarding_tour": { "size": 0 },
       "worktemplate_explore_tour": { "size": 0 },
-      "size": 0.796
+      "size": 0.798
     },
     "trial_benefits_modal": {
       "__snapshots__": { "size": 0 },
@@ -1526,9 +1526,9 @@
       "__snapshots__": { "size": 0 },
       "view_user_group_header_sub_menu": { "size": 0 },
       "view_user_group_list_item": { "size": 0 },
-      "view_user_group_modal.scss": { "size": 5.117 },
+      "view_user_group_modal.scss": { "size": 5.119 },
       "view_user_group_modal_header": { "size": 0 },
-      "size": 5.117
+      "size": 5.119
     },
     "warn_metric_ack_modal": { "__snapshots__": { "size": 0 }, "size": 0 },
     "welcome_post_renderer": { "index.scss": { "size": 0.332 }, "size": 0.332 },
@@ -1537,8 +1537,8 @@
       "background_pill_symbol": { "size": 0 },
       "header": {
         "__snapshots__": { "size": 0 },
-        "header.scss": { "size": 0.673 },
-        "size": 0.673
+        "header.scss": { "size": 0.677 },
+        "size": 0.677
       },
       "icons": { "size": 0 },
       "inputs": {
@@ -1547,12 +1547,12 @@
         "dropdown_input_hybrid.scss": { "size": 2.479 },
         "input": { "input.scss": { "size": 4.211 }, "size": 4.211 },
         "password_input": {
-          "password_input.scss": { "size": 0.63 },
-          "size": 0.63
+          "password_input.scss": { "size": 0.634 },
+          "size": 0.634
         },
-        "url_input": { "url_input.scss": { "size": 1.655 }, "size": 1.655 },
-        "users_emails_input.scss": { "size": 6.689 },
-        "size": 21.155
+        "url_input": { "url_input.scss": { "size": 1.659 }, "size": 1.659 },
+        "users_emails_input.scss": { "size": 6.691 },
+        "size": 21.165000000000003
       },
       "links": {
         "__snapshots__": { "size": 0 },
@@ -1561,14 +1561,14 @@
       },
       "loading": { "size": 0 },
       "menu": {
-        "menu.scss": { "size": 3.662 },
+        "menu.scss": { "size": 3.664 },
         "menu_group.scss": { "size": 0.206 },
         "menu_header.scss": { "size": 0.418 },
         "menu_items": {
           "__snapshots__": { "size": 0 },
-          "menu_item.scss": { "size": 8.402 },
-          "restricted_indicator.scss": { "size": 1.038 },
-          "size": 9.44
+          "menu_item.scss": { "size": 8.41 },
+          "restricted_indicator.scss": { "size": 1.042 },
+          "size": 9.452
         },
         "menu_modals": {
           "submenu_modal": {
@@ -1578,10 +1578,10 @@
           },
           "size": 3.377
         },
-        "menu_wrapper.scss": { "size": 0.648 },
-        "size": 17.750999999999998
+        "menu_wrapper.scss": { "size": 0.65 },
+        "size": 17.767
       },
-      "modals": { "full_screen_modal.scss": { "size": 1.543 }, "size": 1.543 },
+      "modals": { "full_screen_modal.scss": { "size": 1.545 }, "size": 1.545 },
       "popover": { "__snapshots__": { "size": 0 }, "size": 0 },
       "public-private-selector": {
         "public-private-selector.scss": { "size": 3.3 },
@@ -1609,12 +1609,12 @@
         },
         "avatars": {
           "__snapshots__": { "size": 0 },
-          "avatars.scss": { "size": 1.482 },
-          "size": 1.482
+          "avatars.scss": { "size": 1.486 },
+          "size": 1.486
         },
-        "size": 3.154
+        "size": 3.158
       },
-      "size": 54.41999999999999
+      "size": 54.455999999999996
     },
     "work_templates": {
       "components": {
@@ -1625,7 +1625,7 @@
       "size": 0
     },
     "youtube_video": { "__snapshots__": { "size": 0 }, "size": 0 },
-    "size": 539.3849999999999
+    "size": 539.623
   },
   "e2e": {
     "cypress": { "patches": { "size": 0 }, "utils": { "size": 0 }, "size": 0 },
@@ -1702,10 +1702,10 @@
           "size": 0.637
         },
         "skeleton_loader": { "size": 0 },
-        "tour_tip": { "tour_tip.scss": { "size": 11.121 }, "size": 11.121 },
-        "size": 11.758000000000001
+        "tour_tip": { "tour_tip.scss": { "size": 11.129 }, "size": 11.129 },
+        "size": 11.766
       },
-      "size": 11.758000000000001
+      "size": 11.766
     },
     "mattermost-redux": {
       "src": {
@@ -1735,7 +1735,7 @@
     },
     "reselect": { "src": { "size": 0 }, "size": 0 },
     "types": { "src": { "size": 0 }, "size": 0 },
-    "size": 11.758000000000001
+    "size": 11.766
   },
   "plugins": {
     "call_button": { "call_button.scss": { "size": 3.094 }, "size": 3.094 },
@@ -1900,5 +1900,5 @@
     "use_websocket": { "size": 0 },
     "size": 0
   },
-  "size": 1286.462
+  "size": 1286.708
 }

@@ -249,6 +249,7 @@ export async function stylesheetConverter(
   const files = fs.readdirSync(dir);
   //Recursive function
   files
+  .filter((file) => !file.includes("node_modules"))
     .filter((file) => !file.includes("__tests__"))
     .filter((file) => !file.includes("tests"))
     .filter((file) => !file.startsWith("_"))

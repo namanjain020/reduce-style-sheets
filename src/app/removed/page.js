@@ -9,30 +9,80 @@ import Table from './components/table.js';
 import { Map } from "immutable";
 import obj from "../../../../distributed-result/removedBlocks.json";
 import { useEffect, useState, useRef } from "react";
+import UnifiedDiffView from "../components/MergeRequest";
 // use the component in your app!
 
+const dummy = {
+
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/taskItem/variants/profileTask/profileTask.mod.scss": {
+    "original-size": 0.306,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 306
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/universalCaseMessage/universalCaseMessage.mod.scss": {
+    "original-size": 0.212,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".dialog": {
+        "original": ".dialog {\n  width: 90 * $spacer;\n  height: 90%;\n}",
+        "converted": "w-[90_*_$spacer] h-[90%]"
+      }
+    },
+    "reduced-size": 212
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/faq/FAQDetailsContainer.mod.scss": {
+    "original-size": 0.735,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "faqIcon": " {\n  fill: $faq-icon-color;\n  @include size($faq-icon-size);\n  margin-top: 0.6rem;\n}"
+    },
+    "replaced-tailwind": {
+      ".faqDetails": {
+        "original": ".faqDetails {\n  width: $content-width;\n  max-width: 100%;\n  border-radius: $spacer/2;\n}",
+        "converted": "w-[$content-width] max-w-full rounded-[$spacer/2]"
+      },
+      ".faqDescriptionCont": {
+        "original": ".faqDescriptionCont {\n  @extend .faqDetails;\n  .faqDescriptionHeading {\n    font-size: 2rem;\n  }\n}",
+        "converted": "text-[2rem]"
+      },
+      ".faqCont": {
+        "original": ".faqCont {\n  padding: 3 * $spacer 0;\n  @include media('<lg') {\n    padding: 0;\n  }\n}",
+        "converted": "pr-[*] pt-[3] pb-[$spacer] p-0"
+      }
+    },
+    "reduced-size": 641
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/filter/components/Filter/filter.mod.scss": {
+    "original-size": 0.735,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "activeFilterIcon": " {\n  .filterActionIcon {\n    visibility: visible;\n  }\n}",
+      "filterActionIcon": " {\n  visibility: hidden;\n}",
+      "flex-order-1": " {\n  order: 1;\n}",
+      "blurBg": " {\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 2;\n}",
+      "saveNameInput": " {\n  border: 0.1rem solid $ash;\n\n  &:focus {\n    border: 0.1rem solid $active-color;\n  }\n}",
+      "saveOptionsContainer": " {\n  border: 0;\n}"
+    },
+    "replaced-tailwind": {
+      ".filterOption": {
+        "original": ".filterOption {\n  margin: 0 !important;\n}",
+        "converted": "m-0"
+      }
+    },
+    "reduced-size": 366
+  },
+}
 
 
-const theme = {
-  scheme: "monokai",
-  author: "wimer hazenberg (http://www.monokai.nl)",
-  base00: "#272822",
-  base01: "#383830",
-  base02: "#49483e",
-  base03: "#75715e",
-  base04: "#a59f85",
-  base05: "#f8f8f2",
-  base06: "#f5f4f1",
-  base07: "#f9f8f5",
-  base08: "#f92672",
-  base09: "#fd971f",
-  base0A: "#f4bf75",
-  base0B: "#a6e22e",
-  base0C: "#a1efe4",
-  base0D: "#66d9ef",
-  base0E: "#ae81ff",
-  base0F: "#cc6633",
-};
+
+
 
 export default function Home() {
   const newobj = structuredClone(obj);
@@ -51,23 +101,19 @@ export default function Home() {
     ['Jane Smith', 32, '100 Market St., San Francisco, California'],
     ['Joe Black', 33, '100 Macquarie St., Sydney, Australia'],
   ];
-  // const keys = Object.keys(newobj);
-  // keys.forEach((key) => {
-  //   const newKey = key.replace(
-  //     "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/",
-  //     ".../"
-  //   );
-  //   newobj[newKey] = newobj[key];
-  //   delete newobj[key];
-  // });
   const content = `
   .activityHeader {\n  height: 5 * $spacer;\n  border-bottom: 0.1rem solid $azure;\n  @include media('>md') {\n    padding: 0 1.2rem;\n  }\n  @include media('<sm') {\n    margin-bottom: $spacer;\n  }\n}`;
+  // const diff = [
+  //   '.visit-marketplace {',
+  //   '+ top: 1px',
+  //   'font-size: 12px;',
+  //   '-text-align: center;',
+  //   '}',
+  // ];
   const diff = [
-    '.visit-marketplace {',
-    '+ top: 1px',
-    'font-size: 12px;',
-    '-text-align: center;',
-    '}',
+    { type: 'added', content: '+ const newFunction = () => {\n+   console.log("This is a new function");\n+ }' },
+    { type: 'unchanged', content: 'function hello() {\n  console.log("Hello, World!");\n}' },
+    { type: 'deleted', content: '- function greet() {\n-   console.log("Greetings!");\n- }' },
   ];
   return (
     <>
@@ -76,12 +122,11 @@ export default function Home() {
           <h1 className="text-5xl p-3">Reduce StyleSheets</h1>
           <h2 className="text-3xl p-4 ">Style reduced</h2>
         </header>
+        <UnifiedDiffView diff={diff}/>
         <MergeRequest diff={diff} />
         <CodeBlock content={content}/>
-        <div className="shadow-xl p-0 m-4 bg-white rounded">
-          <h2>StyleSheets</h2>
-          <Table></Table>
-        </div>
+        <Table data={dummy}  ></Table>
+        
         <div className="pl-5">
           {/* <JSONTree theme={theme} data={newobj} />; */}
         </div>

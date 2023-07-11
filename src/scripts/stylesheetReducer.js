@@ -11,7 +11,6 @@ async function regexHelper(className, fileName, importsFrom, visited) {
     return false;
   }
   visited.push(fileName);
-  // console.log(visited);
   const content = fs.readFileSync(fileName, "utf-8");
   const str = `${className}`;
   if (content.includes(className)) {
@@ -41,8 +40,6 @@ async function helper(
   importsTo,
   styleImports
 ) {
-  console.log(className);
-  // console.log(className);
   let arr = [filePath];
   let visited = [];
 
@@ -59,8 +56,6 @@ async function helper(
           visited
         );
         if (res) {
-          // console.log(true);
-          // console.log(className + " classs is used");
           return true;
         }
       }
@@ -101,7 +96,6 @@ async function removeClasses(
         console.error(error);
       });
   });
-
   // fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(removedBlocks));
 }
 const removeUnusedClasses = postcss.plugin(

@@ -6,8 +6,9 @@ import { fileSystem } from "./fileSystem.js";
 import { importMap } from "./importMap.js";
 import { stylesheetRemover } from "./stylesheetRemover.js";
 import { stylesheetReducer } from "./stylesheetReducer.js";
-import { stylesheetConverter } from "./stylesheetConverter.js";
+import { stylesheetConverter } from "./stylesheetConverterCopy.js";
 import { parsingJSFiles } from "./parsingJSFiles.js";
+import { finalTraverse } from "./finalTraverse.js";
 
 async function deleteAllFilesInDir(dirPath) {
   try {
@@ -43,10 +44,11 @@ async function wrapper(dir) {
     setTimeout(async () => {
       await stylesheetConverter(dir, importsFrom, importsTo, styleImports, result);
       setTimeout(() => {
+        finalTraverse(dir, importsTo, styleImports, result);
         trigger(importsFrom, importsTo, styleImports, result);
-      }, 50000);
-    }, 50000);
-  }, 50000);
+      }, 60000);
+    }, 60000);
+  }, 60000);
 
   //   setTimeout(() => {
   // await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
@@ -64,7 +66,7 @@ async function wrapper(dir) {
   //   }, 12000);
   // }, 12000);
 }
-const trigger = (importsTo, importsFrom, styleImports, result) => {
+const trigger = (importsFrom, importsTo, styleImports, result) => {
   setTimeout(() => {
     console.log("RESULTS HAVE BEEN PRINTED");
     // console.log(result);
@@ -84,7 +86,7 @@ const trigger = (importsTo, importsFrom, styleImports, result) => {
       "./logs/removedBlocks.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 40000);
+  }, 60000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
