@@ -1,1 +1,0 @@
-export { ProfileCardsList } from './ProfileCardsList';
