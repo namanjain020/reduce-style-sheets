@@ -3,6 +3,7 @@ import "./table.css";
 import Image from "next/image";
 import Progress from "./Progress";
 import CodeBlock from "./codeblock.js";
+import TailwindCodeBlock from "./tailwindBlock.js"
 import {
   Accordion,
   AccordionItem,
@@ -15,17 +16,17 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 function Table(props) {
   let result = structuredClone(props.data);
-  let files = [];
+  let filesForUnused = [];
   Object.keys(result).forEach((file) => {
     if (
       result[file]["original-size"] - result[file]["size-after-unused"]  >
       0
     ) {
       console.log(file);
-      files.push(file);
+      filesForUnused.push(file);
     }
   });
-  const unusedClasses = files.map((file) => (
+  const unusedClasses = filesForUnused.map((file) => (
     <div key={file.id}>
       <AccordionItem>
         <div className="current border-2">
@@ -42,14 +43,14 @@ function Table(props) {
                 <AccordionIcon />
               </div>
 
-              <p className="w-[34rem] py-3 pl-6">
+              <p className="w-[24rem] py-3 pl-6">
                 {file.replace(/^.*[\\\/]/, "")}
               </p>
-              <p className="w-[12rem] py-3">
+              <p className="w-[8rem] py-3">
                 {result[file]["original-size"]} KB
               </p>
-              <p className=" w-[11rem] py-3">
-                {result[file]["reduced-size"] / 1000} KB
+              <p className=" w-[8rem] py-3">
+                {result[file]["size-after-unused"] } KB
               </p>
               <div className=" w-[22rem] p-5">
                 <Progress
@@ -74,8 +75,16 @@ function Table(props) {
       </AccordionItem>
     </div>
   ));
-
-  const replaced = files.map((file) => (
+ let filesForTW = [];
+ Object.keys(result).forEach((file) => {
+  if (
+    result[file]["size-after-unused"] - result[file]["final-size"]  >
+    0
+  ) {
+    filesForTW.push(file);
+  }
+});
+  const replaced = filesForTW.map((file) => (
     <div key={file.id}>
       <AccordionItem>
         <div className="current border-2">
@@ -92,14 +101,14 @@ function Table(props) {
                 <AccordionIcon />
               </div>
 
-              <p className="w-[34rem] py-3 pl-6">
+              <p className="w-[24rem] py-3 pl-6">
                 {file.replace(/^.*[\\\/]/, "")}
               </p>
-              <p className="w-[12rem] py-3">
-                {result[file]["original-size"]} KB
+              <p className="w-[8rem] py-3">
+                {result[file]["size-after-unused"]} KB
               </p>
-              <p className=" w-[11rem] py-3">
-                {result[file]["reduced-size"] / 1000} KB
+              <p className=" w-[8rem] py-3">
+                {result[file]["final-size"]} KB
               </p>
               <div className=" w-[22rem] p-5">
                 <Progress
@@ -115,10 +124,7 @@ function Table(props) {
           </AccordionButton>
 
           <AccordionPanel>
-            <CodeBlock
-              unused={result[file]["unused-classes"]}
-              tw={result[file]["replaced-tailwind"]}
-            />
+          <TailwindCodeBlock tailwind={result[file]["replaced-tailwind"]}/>
           </AccordionPanel>
         </div>
       </AccordionItem>
