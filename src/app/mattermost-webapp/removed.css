@@ -1,0 +1,18 @@
+.code-block {
+  background-color: #272822;
+  color: #f8f8f2;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 16px;
+}
+
+.code-block {
+  position: relative;
+  counter-reset: line;
+}
+.code-block:before {
+  content: counter(line);
+  counter-increment: line;
+  position: absolute;
+  left: -2em;
+  color: #75715e;
+}

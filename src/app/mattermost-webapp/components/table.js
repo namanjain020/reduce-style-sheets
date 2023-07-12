@@ -14,17 +14,14 @@ import {
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 function Table(props) {
-  function checkEmpty(file) {
-    return result[file]["unused-classes"].length;
-  }
-
   let result = structuredClone(props.data);
   let files = [];
   Object.keys(result).forEach((file) => {
     if (
-      result[file]["original-size"] - result[file]["reduced-size"] / 1000 >
+      result[file]["original-size"] - result[file]["size-after-unused"]  >
       0
     ) {
+      console.log(file);
       files.push(file);
     }
   });

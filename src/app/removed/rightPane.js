@@ -6,9 +6,10 @@ import "./removed.css";
 import CodeBlock from "../components/CodeBlock";
 import Table from "./components/table.js";
 // If you're using Immutable.js: `npm i --save immutable`
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { Map } from "immutable";
 import Overall from "./components/overall.js";
-import obj from "../../../dst-logs/removedBlocks (1).json";
+import obj from "../../../results/dst.json";
 import { useEffect, useState, useRef } from "react";
 import UnifiedDiffView from "../components/MergeRequest";
 // use the component in your app!
@@ -19,7 +20,6 @@ const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
 });
-
 
 export default function RightPane() {
   const newobj = structuredClone(obj);
@@ -45,18 +45,19 @@ export default function RightPane() {
   //   '-text-align: center;',
   //   '}',
   // ];
-  
+
   return (
     <div className="w-full">
       <div className="mx-20 p-4">
-          <h1 className=" text-5xl p-3">Reduce StyleSheets</h1>
-          <h2 className="text-3xl p-4 ">Style reduced</h2>
-        </div>
-        <Overall data={obj}></Overall>
-        <Table data={obj}></Table>
-        <div className="pl-5">
-          {/* <JSONTree theme={theme} data={newobj} />; */}
-        </div>
+        <h1 className=" text-5xl p-3">Reduce StyleSheets</h1>
+        <h2 className="text-3xl p-4 ">Style reduced</h2>
+      </div>
+      <Overall data={obj}></Overall>
+      
+      <Table data={obj}></Table>
+      <div className="pl-5">
+        {/* <JSONTree theme={theme} data={newobj} />; */}
+      </div>
     </div>
   );
 }

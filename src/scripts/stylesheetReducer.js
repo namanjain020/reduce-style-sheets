@@ -154,7 +154,7 @@ const removeUnusedClasses = postcss.plugin(
               const processed = root.toString();
               fs.writeFileSync(
                 filePath,
-                await prettier.format(processed, { parser: "scss" })
+                prettier.format(processed, { parser: "scss" })
               );
             }
           }

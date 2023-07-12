@@ -48,7 +48,7 @@ async function regexHelper(className, fileName, importsFrom, visited, newStr) {
   const str = `${className}`;
   // const regex = new RegExp(`\\b${className}\\b`);
   if (content.includes(className)) {
-    addToScript(className, fileName, newStr);
+    await addToScript(className, fileName, newStr);
   }
   if (fileName in importsFrom) {
     for (let idx = 0; idx < importsFrom[fileName]["scripts"].length; idx++) {
@@ -86,14 +86,9 @@ async function anotherHelper(className, params, newStr) {
   return;
 }
 
-function addToScript(className, filePath, newStr) {
-  if (!newStr) {
-    return;
-  }
-  if(newStr.length)
-  {
-    return;
-  }
+async function addToScript(className, filePath, newStr) {
+  // console.log(className);
+  // console.log(filePath);
   let pluginArr;
   if (filePath.endsWith(".ts")) {
     pluginArr = ["typescript"];
@@ -110,37 +105,37 @@ function addToScript(className, filePath, newStr) {
 
   traverse(ast, {
     StringLiteral(path) {
-      const regex = new RegExp(
-        `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
-      );
-      // Using AST notation we can grab the className attribut for all the react tags
-      if (regex.test(path.node.value)) {
-
-        let baseString = path.node.value;
-        // const comment = {
-        //   type: "CommentLine",
-        //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
-        // };
-        // path.node.trailingComments = [comment];
-        newStr.forEach((util) => {
-          if (!path.node.value.includes(util)) {
-            path.node.value = path.node.value + " " + util;
-          }
-        });
-        // path.node.value.value = baseString + " " + newStr;
-        // console.log(path.node.value.value);
+      if (path.node && path.node.value) {
+        const regex = new RegExp(
+          `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
+        );
+        // Using AST notation we can grab the className attribut for all the react tags
+        if (regex.test(path.node.value)) {
+          let baseString = path.node.value;
+          // const comment = {
+          //   type: "CommentLine",
+          //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
+          // };
+          // path.node.trailingComments = [comment];
+          newStr.forEach((util) => {
+            if (!path.node.value.includes(util)) {
+              path.node.value = path.node.value + " " + util;
+            }
+          });
+        }
       }
     },
   });
   //Uncomment below two lines to update js files
   const modCode = generator(ast).code;
-  let parserObj;
-  if (filePath.endsWith("js") || filePath.endsWith("jsx")) {
-    parserObj = "babel";
-  } else {
-    parserObj = "typescript";
-  }
-  fs.writeFileSync(filePath, prettier.format(modCode, { parser: parserObj }));
+  // let parserObj;
+  // if (filePath.endsWith("js") || filePath.endsWith("jsx")) {
+  //   parserObj = "babel";
+  // } else {
+  //   parserObj = "typescript";
+  // }
+  // console.log(className+ " |||| " +  newStr  +"   changes in "+ filePath);
+  fs.writeFileSync(filePath, modCode);
   return;
 }
 
@@ -172,8 +167,7 @@ function atruleHelper(converted, curVal) {
 const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
   return (root) => {
     // console.log(root.nodes.length);
-    root.walkRules((rule) => {
-      // console.log("Hello");
+    root.walkRules(async (rule) => {
       const codeBlock = rule.toString();
       // Check if the rule has a class selector
       if (
@@ -232,7 +226,7 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
               str.push(util);
               for (let idx = 0; idx < arrayOfIndex.length; idx++) {
                 const obj = {
-                  [rule.nodes[arrayOfIndex[idx] - idx].toString()]: util
+                  [rule.nodes[arrayOfIndex[idx] - idx].toString()]: util,
                 };
                 params.removedBlocks[params.filePath]["replaced-tailwind"][
                   className
@@ -241,9 +235,13 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
               }
             }
           });
-          console.log(className);
-          anotherHelper(className.substring(1), params, str);
-          console.log(str);
+          if(str && str.length > 0)
+          {
+            console.log(className);
+            console.log(str);
+            await anotherHelper(className.substring(1), params, str);
+          }
+          
 
           if (rule.nodes.length == 0) {
             console.log(rule.selector + " is removed");

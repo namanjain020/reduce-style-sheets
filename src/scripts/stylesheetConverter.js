@@ -280,8 +280,6 @@ export async function stylesheetConverter(
           const css = fs.readFileSync(params.filePath, "utf8");
           // console.log(css);
           convertClasses(params);
-          const stats = fs.statSync(filePath);
-          params.removedBlocks[params.filePath]["reduced-size"] = stats.size;
         }
       }
     });
