@@ -78,9 +78,9 @@ const trigger = (importsFrom, importsTo, styleImports, result) => {
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-// let dir = "../../testinng-repos/space-tourism/src";
+let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
-let dir = "../../testinng-repos/mattermost-webapp";
+// let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";

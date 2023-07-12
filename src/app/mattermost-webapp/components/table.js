@@ -3,7 +3,7 @@ import "./table.css";
 import Image from "next/image";
 import Progress from "./Progress";
 import CodeBlock from "./codeblock.js";
-import TailwindCodeBlock from "./tailwindBlock.js"
+import TailwindCodeBlock from "./tailwindBlock.js";
 import {
   Accordion,
   AccordionItem,
@@ -11,49 +11,55 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
-
+import { Chart } from "react-google-charts";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 function Table(props) {
   let result = structuredClone(props.data);
+  let totalOriginalSize = 0;
+  let sizeAfterUnused = 0;
+  let sizeFinal = 0;
+  Object.keys(result).forEach((file) => {
+    totalOriginalSize += result[file]["original-size"];
+    sizeAfterUnused += result[file]["size-after-unused"];
+    sizeFinal += result[file]["final-size"];
+  });
+  // console.log(totalOriginalSize);
+  const info = [
+    ["Task", "in KB"],
+    ["Remaining", sizeFinal],
+    ["Converted", sizeAfterUnused - sizeFinal],
+    ["Unused Classes", totalOriginalSize - sizeAfterUnused],
+  ];
+  const options = {
+    title: "",
+  };
   let filesForUnused = [];
   Object.keys(result).forEach((file) => {
-    if (
-      result[file]["original-size"] - result[file]["size-after-unused"]  >
-      0
-    ) {
-      console.log(file);
+    if (result[file]["original-size"] - result[file]["size-after-unused"] > 0) {
+      // console.log(file);
       filesForUnused.push(file);
     }
   });
   const unusedClasses = filesForUnused.map((file) => (
-    <div key={file.id}>
+    <div key={file.id} >
+      
       <AccordionItem>
-        <div className="current border-2">
+        <div className="border-2">
           <AccordionButton>
-            <div className="flex">
-              <Image
-                className="w-10 h-10 p-1 mt-2"
-                src="/sass-logo.png"
-                width={22}
-                height={10}
-                alt="sass-logo"
-              />
-              <div className="p-4">
-                <AccordionIcon />
-              </div>
-
-              <p className="w-[24rem] py-3 pl-6">
+            
+            
+                <p className="w-[36rem] py-3 pl-6">
                 {file.replace(/^.*[\\\/]/, "")}
               </p>
-              <p className="w-[8rem] py-3">
+              <p className="w-[12rem] py-3">
                 {result[file]["original-size"]} KB
               </p>
-              <p className=" w-[8rem] py-3">
-                {result[file]["size-after-unused"] } KB
+              <p className=" w-[12rem] py-3">
+                {result[file]["size-after-unused"]} KB
               </p>
-              <div className=" w-[22rem] p-5">
-                <Progress
+              <div className="p-5  w-[22rem]">
+                <Progress 
                   val={Math.round(
                     (result[file]["reduced-size"] /
                       1000 /
@@ -62,7 +68,6 @@ function Table(props) {
                   )}
                 />
               </div>
-            </div>
           </AccordionButton>
 
           <AccordionPanel>
@@ -73,43 +78,28 @@ function Table(props) {
           </AccordionPanel>
         </div>
       </AccordionItem>
+      
+      
     </div>
   ));
- let filesForTW = [];
- Object.keys(result).forEach((file) => {
-  if (
-    result[file]["size-after-unused"] - result[file]["final-size"]  >
-    0
-  ) {
-    filesForTW.push(file);
-  }
-});
+  let filesForTW = [];
+  Object.keys(result).forEach((file) => {
+    if (result[file]["size-after-unused"] - result[file]["final-size"] > 0) {
+      filesForTW.push(file);
+    }
+  });
   const replaced = filesForTW.map((file) => (
     <div key={file.id}>
       <AccordionItem>
         <div className="current border-2">
           <AccordionButton>
-            <div className="flex">
-              <Image
-                className="w-10 h-10 p-1 mt-2"
-                src="/sass-logo.png"
-                width={22}
-                height={10}
-                alt="sass-logo"
-              />
-              <div className="p-4">
-                <AccordionIcon />
-              </div>
-
-              <p className="w-[24rem] py-3 pl-6">
+              <p className="w-[36rem] py-3 pl-6">
                 {file.replace(/^.*[\\\/]/, "")}
               </p>
-              <p className="w-[8rem] py-3">
+              <p className="w-[12rem] py-3">
                 {result[file]["size-after-unused"]} KB
               </p>
-              <p className=" w-[8rem] py-3">
-                {result[file]["final-size"]} KB
-              </p>
+              <p className="w-[12rem] py-3">{result[file]["final-size"]} KB</p>
               <div className=" w-[22rem] p-5">
                 <Progress
                   val={Math.round(
@@ -119,12 +109,11 @@ function Table(props) {
                       100
                   )}
                 />
-              </div>
             </div>
           </AccordionButton>
 
           <AccordionPanel>
-          <TailwindCodeBlock tailwind={result[file]["replaced-tailwind"]}/>
+            <TailwindCodeBlock tailwind={result[file]["replaced-tailwind"]} />
           </AccordionPanel>
         </div>
       </AccordionItem>
@@ -149,20 +138,20 @@ function Table(props) {
           <TabPanels>
             <TabPanel>
               <div className="bg-slate-100 py-1 font-bold flex p-2">
-                <div className="w-[7rem]"></div>
+                
                 <p className="w-[36rem] py-4 pl-8">File Name</p>
                 <p className="w-[12rem] py-4">Size Before</p>
                 <p className=" w-[12rem] py-4">Size After</p>
                 <p className=" w-[22rem] py-4">Visualiser</p>
               </div>
               <Accordion allowToggle>
-                <div>{unusedClasses}</div>
+                <div className="w-full">{unusedClasses}</div>
               </Accordion>
               <div className="table-container w-full m-0 p-0"></div>
             </TabPanel>
             <TabPanel>
               <div className="bg-slate-100 py-1 font-bold flex p-2">
-                <div className="w-[7rem]"></div>
+                
                 <p className="w-[36rem] py-4 pl-8">File Name</p>
                 <p className="w-[12rem] py-4">Size Before</p>
                 <p className=" w-[12rem] py-4">Size After</p>
@@ -174,7 +163,15 @@ function Table(props) {
               <div className="table-container w-full m-0 p-0"></div>
             </TabPanel>
             <TabPanel>
-              <p>three!</p>
+              <div className="w-[40rem]">
+                <Chart
+                  chartType="PieChart"
+                  data={info}
+                  options={options}
+                  width={"100%"}
+                  height={"600px"}
+                />
+              </div>
             </TabPanel>
           </TabPanels>
         </Tabs>

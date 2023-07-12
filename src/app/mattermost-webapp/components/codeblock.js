@@ -19,11 +19,10 @@ export default function Codeblock (props){
     ));
     const twObj = structuredClone(props.tw);
     const twClasses = Object.keys(twObj);
-    const str = "\n  fill: $faq-icon-color;\n  @include size($faq-icon-size);\n  margin-top: 0.6rem;\n"
     return (<div>
-        <div>
+        <div >
             <p>
-                UNUSED CLASSES
+                Unused Classes
             </p>
             {temp}
         </div>

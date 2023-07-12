@@ -16,37 +16,35 @@ const roboto = Roboto({
 });
 
 export default function Home() {
-  // var filename = fullPath.replace(/^.*[\\\/]/, '')
-  // const data = [{ name: "test1" }, { name: "test2" }];
-
-  // newobj = structuredClone(obj);
   return (
     <div className={roboto.className}>
       <div className="flex overflow-clip">
-        <div className="w-2/12 bg-white text-3xl drop-shadow-2xl ">
-          <div className="m-2 p-2 drop-shadow-lg">
-          <Card>
+        <div className="w-2/12 bg-white text-3xl drop-shadow-2xl content-center">
+          <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
+          <Card className=" hover:bg-slate-100">
           <Link href='/distributed-app'>
             <CardBody>
-             <p>distributed-app</p>
+             <p>Distributed-app</p>
             </CardBody>
             </Link>
           </Card>
           </div>
-          <div className="m-2 p-2 drop-shadow-lg">
-          <Card>
+          <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
+          <Card className=" hover:bg-slate-100 ">
           <Link href='/mattermost-webapp'>
             <CardBody>
-             <p>mattermost-webapp</p>
+             <p>Mattermost-webapp</p>
             </CardBody>
             </Link>
           </Card>
           </div>
-          <div className="m-2 p-2 drop-shadow-lg">
-          <Card>
+          <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
+          <Card className=" hover:bg-slate-100">
+          <Link href='/testing'>
             <CardBody>
-             <p>testing-repo</p>
+             <p>Testing-repo</p>
             </CardBody>
+            </Link>
           </Card>
           </div>
         </div>
