@@ -14,8 +14,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".AccessProblem": [] },
-    "reduced-size": 913,
-    "final-size": 0.913
+    "reduced-size": 797,
+    "final-size": 0.797
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/actions_menu/actions_menu.scss": {
     "original-size": 0.609,
@@ -35,8 +35,8 @@
       ],
       ".visit-marketplace-button-icon": []
     },
-    "reduced-size": 492,
-    "final-size": 0.492
+    "reduced-size": 462,
+    "final-size": 0.462
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/activity_and_insights.scss": {
     "original-size": 28.105,
@@ -44,17 +44,17 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ActivityAndInsights": [] },
-    "reduced-size": 28105,
-    "final-size": 28.105
+    "reduced-size": 20595,
+    "final-size": 20.595
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/activity_and_insights_link/activity_and_insights_link.scss": {
-    "original-size": 1.294,
+    "original-size": 1.288,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".tippy-box[data-placement^=right]": [] },
-    "reduced-size": 1294,
-    "final-size": 1.294
+    "reduced-size": 1074,
+    "final-size": 1.074
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/card/card.scss": {
     "original-size": 2.745,
@@ -71,8 +71,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".Insights___header": [] },
-    "reduced-size": 2126,
-    "final-size": 2.126
+    "reduced-size": 1714,
+    "final-size": 1.714
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/insights_modal/insights_modal.scss": {
     "original-size": 14.888,
@@ -80,8 +80,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".insights-modal": [] },
-    "reduced-size": 14888,
-    "final-size": 14.888
+    "reduced-size": 10374,
+    "final-size": 10.374
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/channel_actions_menu/channel_actions_menu.scss": {
     "original-size": 0.908,
@@ -91,8 +91,8 @@
     "replaced-tailwind": {
       ".channel-action": [{ "margin-left: auto": "ml-auto" }]
     },
-    "reduced-size": 885,
-    "final-size": 0.885
+    "reduced-size": 760,
+    "final-size": 0.76
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/least_active_channels_table/least_active_channels_table.scss": {
     "original-size": 0.174,
@@ -100,8 +100,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".LeastActiveChannelsTable": [] },
-    "reduced-size": 174,
-    "final-size": 0.174
+    "reduced-size": 142,
+    "final-size": 0.142
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/time_frame_dropdown/time_frame_dropdown.scss": {
     "original-size": 0.605,
@@ -152,8 +152,8 @@
         { "opacity: 0.5": "opacity-50" }
       ]
     },
-    "reduced-size": 726,
-    "final-size": 0.726
+    "reduced-size": 686,
+    "final-size": 0.686
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_history.scss": {
     "original-size": 3.664,
@@ -201,8 +201,8 @@
         { "justify-content: flex-end": "justify-end" }
       ]
     },
-    "reduced-size": 3115,
-    "final-size": 3.115
+    "reduced-size": 2828,
+    "final-size": 2.828
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_history_modal.scss": {
     "original-size": 0.801,
@@ -214,8 +214,8 @@
         { "overflow-y: hidden !important": "overflow-y-hidden" }
       ]
     },
-    "reduced-size": 766,
-    "final-size": 0.766
+    "reduced-size": 632,
+    "final-size": 0.632
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/billing_subscriptions.scss": {
     "original-size": 5.617,
@@ -264,8 +264,8 @@
         { "font-weight: 600": "font-600" }
       ]
     },
-    "reduced-size": 5206,
-    "final-size": 5.206
+    "reduced-size": 4862,
+    "final-size": 4.862
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/cloud_trial_banner.scss": {
     "original-size": 0.099,
@@ -273,8 +273,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".upgradeLink": [] },
-    "reduced-size": 99,
-    "final-size": 0.099
+    "reduced-size": 95,
+    "final-size": 0.095
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limit_card.scss": {
     "original-size": 0.974,
@@ -282,8 +282,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ProductLimitCard": [] },
-    "reduced-size": 974,
-    "final-size": 0.974
+    "reduced-size": 810,
+    "final-size": 0.81
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limit_reached_banner.scss": {
     "original-size": 0.433,
@@ -291,8 +291,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".LimitReachedBanner": [] },
-    "reduced-size": 433,
-    "final-size": 0.433
+    "reduced-size": 369,
+    "final-size": 0.369
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limits.scss": {
     "original-size": 1.165,
@@ -300,8 +300,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ProductLimitsPanel": [] },
-    "reduced-size": 1165,
-    "final-size": 1.165
+    "reduced-size": 997,
+    "final-size": 0.997
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/mixins.scss": {
     "original-size": 0.369,
@@ -318,8 +318,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ToYearlyNudgeBanner": [] },
-    "reduced-size": 430,
-    "final-size": 0.43
+    "reduced-size": 366,
+    "final-size": 0.366
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_summary/billing_summary.scss": {
     "original-size": 4.39,
@@ -381,17 +381,17 @@
         { "text-align: center": "text-center" }
       ]
     },
-    "reduced-size": 3691,
-    "final-size": 3.691
+    "reduced-size": 3469,
+    "final-size": 3.469
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_summary/upsell_card.scss": {
-    "original-size": 1.429,
+    "original-size": 1.427,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".UpsellCard": [] },
-    "reduced-size": 1429,
-    "final-size": 1.429
+    "reduced-size": 1209,
+    "final-size": 1.209
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/company_info_display.scss": {
     "original-size": 3.334,
@@ -434,8 +434,8 @@
       ],
       ".CompanyInfoDisplay__companyInfo-editButton": []
     },
-    "reduced-size": 2901,
-    "final-size": 2.901
+    "reduced-size": 2783,
+    "final-size": 2.783
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/company_info_edit.scss": {
     "original-size": 2.666,
@@ -449,8 +449,8 @@
         { "font-weight: 600": "font-600" }
       ]
     },
-    "reduced-size": 2644,
-    "final-size": 2.644
+    "reduced-size": 2253,
+    "final-size": 2.253
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/delete_workspace_modal.scss": {
     "original-size": 1.259,
@@ -458,8 +458,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DeleteWorkspaceModal": [] },
-    "reduced-size": 1259,
-    "final-size": 1.259
+    "reduced-size": 1031,
+    "final-size": 1.031
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/progress_modal.scss": {
     "original-size": 0.543,
@@ -467,8 +467,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DeleteWorkspaceProgressModal": [] },
-    "reduced-size": 543,
-    "final-size": 0.543
+    "reduced-size": 473,
+    "final-size": 0.473
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/result_modal.scss": {
     "original-size": 0.096,
@@ -476,8 +476,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".delete-workspace-result_modal": [] },
-    "reduced-size": 96,
-    "final-size": 0.096
+    "reduced-size": 88,
+    "final-size": 0.088
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/success_modal.scss": {
     "original-size": 0.11,
@@ -537,8 +537,8 @@
       ],
       ".PaymentInfoDisplay__paymentInfo-editButton": []
     },
-    "reduced-size": 3092,
-    "final-size": 3.092
+    "reduced-size": 2958,
+    "final-size": 2.958
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/payment_info_edit.scss": {
     "original-size": 1.269,
@@ -553,8 +553,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 1225,
-    "final-size": 1.225
+    "reduced-size": 1123,
+    "final-size": 1.123
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/feature_list.scss": {
     "original-size": 0.278,
@@ -562,8 +562,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PlanDetailsFeature": [] },
-    "reduced-size": 278,
-    "final-size": 0.278
+    "reduced-size": 238,
+    "final-size": 0.238
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/plan_details.scss": {
     "original-size": 3.002,
@@ -600,8 +600,8 @@
         { "text-transform: uppercase": "uppercase" }
       ]
     },
-    "reduced-size": 2156,
-    "final-size": 2.156
+    "reduced-size": 1923,
+    "final-size": 1.923
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/plan_pricing.scss": {
     "original-size": 0.381,
@@ -614,8 +614,8 @@
         { "align-items: flex-end": "items-end" }
       ]
     },
-    "reduced-size": 335,
-    "final-size": 0.335
+    "reduced-size": 293,
+    "final-size": 0.293
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_grid/data_grid.scss": {
     "original-size": 6.301,
@@ -623,8 +623,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DataGrid": [{ "width: 100%": "w-full" }] },
-    "reduced-size": 6284,
-    "final-size": 6.284
+    "reduced-size": 5030,
+    "final-size": 5.03
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/channel_list/channel_list.scss": {
     "original-size": 0.353,
@@ -632,8 +632,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PolicyChannelsList": [] },
-    "reduced-size": 353,
-    "final-size": 0.353
+    "reduced-size": 306,
+    "final-size": 0.306
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/custom_policy_form/custom_policy_form.scss": {
     "original-size": 1.39,
@@ -647,8 +647,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 1329,
-    "final-size": 1.329
+    "reduced-size": 1208,
+    "final-size": 1.208
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/data_retention_settings.scss": {
     "original-size": 0.593,
@@ -656,8 +656,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DataRetentionSettings": [] },
-    "reduced-size": 593,
-    "final-size": 0.593
+    "reduced-size": 527,
+    "final-size": 0.527
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/global_policy_form/global_policy_form.scss": {
     "original-size": 1.368,
@@ -671,8 +671,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 1307,
-    "final-size": 1.307
+    "reduced-size": 1186,
+    "final-size": 1.186
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/team_list/team_list.scss": {
     "original-size": 0.511,
@@ -680,8 +680,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PolicyTeamsList": [] },
-    "reduced-size": 511,
-    "final-size": 0.511
+    "reduced-size": 446,
+    "final-size": 0.446
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/database/migrations_table.scss": {
     "original-size": 0.728,
@@ -695,8 +695,8 @@
       ],
       ".migrations-table": []
     },
-    "reduced-size": 691,
-    "final-size": 0.691
+    "reduced-size": 636,
+    "final-size": 0.636
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/feature_discovery/feature_discovery.scss": {
     "original-size": 1.663,
@@ -717,8 +717,8 @@
       ".FeatureDiscovery_title": [],
       ".FeatureDiscovery_copy": []
     },
-    "reduced-size": 1511,
-    "final-size": 1.511
+    "reduced-size": 1389,
+    "final-size": 1.389
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/filter.scss": {
     "original-size": 2.983,
@@ -731,8 +731,8 @@
         { "position: relative": "relative" }
       ]
     },
-    "reduced-size": 2932,
-    "final-size": 2.932
+    "reduced-size": 2442,
+    "final-size": 2.442
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/team_filter_dropdown/team_filter_dropdown.scss": {
     "original-size": 5.17,
@@ -740,8 +740,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".TeamFilterDropdown": [] },
-    "reduced-size": 5170,
-    "final-size": 5.17
+    "reduced-size": 4377,
+    "final-size": 4.377
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/jobs/job_cancel_button.scss": {
     "original-size": 0.202,
@@ -756,8 +756,8 @@
         { "cursor: pointer": "cursor-pointer" }
       ]
     },
-    "reduced-size": 104,
-    "final-size": 0.104
+    "reduced-size": 98,
+    "final-size": 0.098
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/jobs/table.scss": {
     "original-size": 0.641,
@@ -767,8 +767,8 @@
       "job-table__data-retention": " {\n    .job-table__table {\n        border: none;\n    }\n\n    .table > thead > tr > th,\n    .table > tbody > tr > th,\n    .table > tfoot > tr > th,\n    .table > thead > tr > td,\n    .table > tbody > tr > td,\n    .table > tfoot > tr > td {\n        border-top: none;\n    }\n\n    .table > thead > tr > th {\n        border-bottom: 1px solid rgba(var(--sys-center-channel-color-rgb), 0.16);\n    }\n\n    .help-text {\n        padding: 10px 16px;\n        background: rgba(var(--sys-center-channel-color-rgb), 0.04);\n        color: var(--sys-center-channel-color);\n    }\n\n    .cancel-button-field {\n        width: 30px;\n    }\n}"
     },
     "replaced-tailwind": {},
-    "reduced-size": 1,
-    "final-size": 0.001
+    "reduced-size": 0,
+    "final-size": 0
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/enterprise_edition/enterprise_edition.scss": {
     "original-size": 4.468,
@@ -778,8 +778,8 @@
       "EnterpriseEditionRightPannel": " {\n    font-family: Metropolis;\n\n    .svg-image {\n        text-align: center;\n\n        svg {\n            margin: 0 auto;\n        }\n    }\n\n    .upgrade-title {\n        margin: 10px 0;\n        color: #3f4350;\n        font-size: 16px;\n        font-weight: 700;\n        line-height: 24px;\n    }\n\n    .advantages-list {\n        margin: 7px 0;\n        font-size: 12px;\n        line-height: 16px;\n\n        .item {\n            margin: 10px 0;\n\n            i {\n                margin-right: 5px;\n            }\n        }\n\n        :last-child {\n            color: rgba(63, 69, 80, 0.72);\n        }\n    }\n\n    button {\n        width: 100%;\n        margin: 5px auto;\n        border-radius: 4px;\n    }\n\n    .purchase_buttons {\n        margin-top: 20px;\n\n        button {\n            height: 48px !important;\n            padding: 7px 12px !important;\n            margin: 0 5px !important;\n        }\n    }\n\n    .upgrade-error {\n        margin-top: 10px;\n    }\n}"
     },
     "replaced-tailwind": { ".EnterpriseEditionLeftPanel": [] },
-    "reduced-size": 3492,
-    "final-size": 3.492
+    "reduced-size": 2768,
+    "final-size": 2.768
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/license_settings.scss": {
     "original-size": 1.59,
@@ -797,8 +797,8 @@
         { "font-weight: 600": "font-600" }
       ]
     },
-    "reduced-size": 1464,
-    "final-size": 1.464
+    "reduced-size": 1297,
+    "final-size": 1.297
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/confirm_license_removal_modal.scss": {
     "original-size": 1.435,
@@ -806,8 +806,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ConfirmLicenseRemovalModal": [] },
-    "reduced-size": 1435,
-    "final-size": 1.435
+    "reduced-size": 1195,
+    "final-size": 1.195
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/ee_license_modal.scss": {
     "original-size": 0.805,
@@ -815,8 +815,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".EELicenseModal": [] },
-    "reduced-size": 805,
-    "final-size": 0.805
+    "reduced-size": 675,
+    "final-size": 0.675
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/upload_license_modal.scss": {
     "original-size": 3.625,
@@ -824,8 +824,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".UploadLicenseModal": [] },
-    "reduced-size": 3625,
-    "final-size": 3.625
+    "reduced-size": 2789,
+    "final-size": 2.789
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/renew_license_card/renew_license_card.scss": {
     "original-size": 1.137,
@@ -846,8 +846,8 @@
         { "display: inline-block": "inline-block" }
       ]
     },
-    "reduced-size": 729,
-    "final-size": 0.729
+    "reduced-size": 643,
+    "final-size": 0.643
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/starter_edition/starter_edition.scss": {
     "original-size": 2.852,
@@ -859,8 +859,8 @@
     "replaced-tailwind": {
       ".StarterLeftPanel": [{ "position: relative": "relative" }]
     },
-    "reduced-size": 1380,
-    "final-size": 1.38
+    "reduced-size": 1139,
+    "final-size": 1.139
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/team_edition/team_edition.scss": {
     "original-size": 0.95,
@@ -870,8 +870,8 @@
       "TeamEditionRightPanel": " {\n    .svg-image {\n        text-align: center;\n\n        svg {\n            margin: 0 auto;\n        }\n    }\n\n    .upgrade-title {\n        margin: 10px 0;\n        color: #3f4350;\n        font-family: Metropolis;\n        font-size: 16px;\n        font-weight: 700;\n        line-height: 24px;\n    }\n\n    .advantages-list {\n        margin: 7px 0;\n        font-size: 12px;\n        line-height: 16px;\n\n        .item {\n            margin: 10px 0;\n\n            i {\n                margin-right: 5px;\n            }\n        }\n\n        :last-child {\n            color: rgba(63, 69, 80, 0.72);\n        }\n    }\n\n    button {\n        width: 100%;\n        margin: 5px auto;\n        border-radius: 4px;\n    }\n\n    .upgrade-error {\n        margin-top: 10px;\n    }\n}"
     },
     "replaced-tailwind": { ".TeamEditionLeftPanel": [] },
-    "reduced-size": 180,
-    "final-size": 0.18
+    "reduced-size": 156,
+    "final-size": 0.156
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/trial_license_card/trial_license_card.scss": {
     "original-size": 0.651,
@@ -888,8 +888,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".MemberListGroup": [] },
-    "reduced-size": 359,
-    "final-size": 0.359
+    "reduced-size": 295,
+    "final-size": 0.295
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/openid_convert/openid_convert.scss": {
     "original-size": 1.666,
@@ -912,8 +912,8 @@
       ".OpenIdConvert_imageWrapper": [],
       ".OpenIdConvert_image": []
     },
-    "reduced-size": 1442,
-    "final-size": 1.442
+    "reduced-size": 1276,
+    "final-size": 1.276
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/schema_admin_settings.scss": {
     "original-size": 0.532,
@@ -921,8 +921,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".config-section": [] },
-    "reduced-size": 532,
-    "final-size": 0.532
+    "reduced-size": 462,
+    "final-size": 0.462
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/server_logs/log_list.scss": {
     "original-size": 0.804,
@@ -932,8 +932,8 @@
     "replaced-tailwind": {
       ".LogTable": [{ "overflow: auto": "overflow-auto" }]
     },
-    "reduced-size": 784,
-    "final-size": 0.784
+    "reduced-size": 665,
+    "final-size": 0.665
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_role/system_role_permissions.scss": {
     "original-size": 6.171,
@@ -941,8 +941,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".SystemRolePermissions": [] },
-    "reduced-size": 6171,
-    "final-size": 6.171
+    "reduced-size": 4771,
+    "final-size": 4.771
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_roles.scss": {
     "original-size": 0.379,
@@ -970,8 +970,8 @@
       ],
       ".SystemUserDetail__error": []
     },
-    "reduced-size": 741,
-    "final-size": 0.741
+    "reduced-size": 705,
+    "final-size": 0.705
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/team_list/abstract_list.scss": {
     "original-size": 1.543,
@@ -979,8 +979,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".AbstractList": [] },
-    "reduced-size": 1543,
-    "final-size": 1.543
+    "reduced-size": 1287,
+    "final-size": 1.287
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/team_list/team_row.scss": {
     "original-size": 1.358,
@@ -995,8 +995,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 1289,
-    "final-size": 1.289
+    "reduced-size": 1153,
+    "final-size": 1.153
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/channel/details/channel_profile.scss": {
     "original-size": 0.432,
@@ -1004,8 +1004,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".AdminChannelDetails": [] },
-    "reduced-size": 432,
-    "final-size": 0.432
+    "reduced-size": 352,
+    "final-size": 0.352
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/channel/list/channel_list.scss": {
     "original-size": 0.875,
@@ -1013,8 +1013,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ChannelsList": [] },
-    "reduced-size": 875,
-    "final-size": 0.875
+    "reduced-size": 673,
+    "final-size": 0.673
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/group/group_users/users_to_remove.scss": {
     "original-size": 0.581,
@@ -1022,8 +1022,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".UsersToRemove": [] },
-    "reduced-size": 581,
-    "final-size": 0.581
+    "reduced-size": 473,
+    "final-size": 0.473
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/team/details/team_profile.scss": {
     "original-size": 0.446,
@@ -1040,8 +1040,8 @@
       ".tooltip-title": [{ "font-weight: 600": "font-600" }],
       ".tooltip-body": [{ "text-align: left": "text-left" }]
     },
-    "reduced-size": 277,
-    "final-size": 0.277
+    "reduced-size": 259,
+    "final-size": 0.259
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/team/list/team_list.scss": {
     "original-size": 1.14,
@@ -1049,8 +1049,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".TeamsList": [] },
-    "reduced-size": 1140,
-    "final-size": 1.14
+    "reduced-size": 862,
+    "final-size": 0.862
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/user_grid/user_grid.scss": {
     "original-size": 0.446,
@@ -1061,8 +1061,8 @@
       ".UserGrid_nameRow": [{ "display: flex": "flex" }],
       ".UserGrid_removeRow": []
     },
-    "reduced-size": 427,
-    "final-size": 0.427
+    "reduced-size": 367,
+    "final-size": 0.367
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/workspace-optimization/dashboard.scss": {
     "original-size": 8.441,
@@ -1081,11 +1081,11 @@
       ],
       ".WorkspaceOptimizationDashboard": []
     },
-    "reduced-size": 8368,
-    "final-size": 8.368
+    "reduced-size": 6474,
+    "final-size": 6.474
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/advanced_text_editor/advanced_text_editor.scss": {
-    "original-size": 5.588,
+    "original-size": 5.586,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1102,8 +1102,8 @@
         { "opacity: 0.7": "opacity-70" }
       ]
     },
-    "reduced-size": 5441,
-    "final-size": 5.441
+    "reduced-size": 4497,
+    "final-size": 4.497
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/air_gapped_self_hosted_purchase_modal/content.scss": {
     "original-size": 0.387,
@@ -1115,7 +1115,7 @@
     "final-size": 0.387
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/alert_banner.scss": {
-    "original-size": 3.883,
+    "original-size": 3.879,
     "unused": false,
     "empty": false,
     "unused-classes": {
@@ -1138,8 +1138,8 @@
       ".AlertBanner__message": [],
       ".AlertBanner__closeButton": [{ "display: flex": "flex" }]
     },
-    "reduced-size": 1405,
-    "final-size": 1.405
+    "reduced-size": 1253,
+    "final-size": 1.253
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/analytics/true_up_review.scss": {
     "original-size": 1.298,
@@ -1147,8 +1147,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".TrueUpReview": [] },
-    "reduced-size": 1298,
-    "final-size": 1.298
+    "reduced-size": 1134,
+    "final-size": 1.134
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/contact_sales/contact_us.scss": {
     "original-size": 0.382,
@@ -1156,8 +1156,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".contact-us": [{ "display: block": "block" }] },
-    "reduced-size": 362,
-    "final-size": 0.362
+    "reduced-size": 332,
+    "final-size": 0.332
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/no_internet_connection/no_internet_connection.scss": {
     "original-size": 0.804,
@@ -1171,8 +1171,8 @@
         { "flex-direction: column": "flex-col" }
       ]
     },
-    "reduced-size": 733,
-    "final-size": 0.733
+    "reduced-size": 650,
+    "final-size": 0.65
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/overage_users_banner/overage_users_banner.scss": {
     "original-size": 0.304,
@@ -1180,8 +1180,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".overage_users_banner": [] },
-    "reduced-size": 304,
-    "final-size": 0.304
+    "reduced-size": 268,
+    "final-size": 0.268
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/purchase_link/purchase_link.scss": {
     "original-size": 0.341,
@@ -1191,8 +1191,8 @@
     "replaced-tailwind": {
       ".annnouncementBar__purchaseNow": [{ "display: block": "block" }]
     },
-    "reduced-size": 321,
-    "final-size": 0.321
+    "reduced-size": 293,
+    "final-size": 0.293
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/renewal_link/renew_link.scss": {
     "original-size": 0.342,
@@ -1202,11 +1202,11 @@
     "replaced-tailwind": {
       ".annnouncementBar__renewLicense": [{ "display: block": "block" }]
     },
-    "reduced-size": 322,
-    "final-size": 0.322
+    "reduced-size": 294,
+    "final-size": 0.294
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/app_bar/app_bar.scss": {
-    "original-size": 3.894,
+    "original-size": 3.88,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1218,8 +1218,8 @@
         { "text-align: center": "text-center" }
       ]
     },
-    "reduced-size": 3797,
-    "final-size": 3.797
+    "reduced-size": 3269,
+    "final-size": 3.269
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/apps_form/apps_form_component.scss": {
     "original-size": 1.226,
@@ -1242,8 +1242,8 @@
       ".apps-form-modal-body-loading": [],
       ".apps-form-select-option": []
     },
-    "reduced-size": 1059,
-    "final-size": 1.059
+    "reduced-size": 919,
+    "final-size": 0.919
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/at_sum_members_mention/notification_from_members_modal.scss": {
     "original-size": 0.336,
@@ -1251,8 +1251,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".NotificationFromMembersModal": [] },
-    "reduced-size": 336,
-    "final-size": 0.336
+    "reduced-size": 268,
+    "final-size": 0.268
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/card/card.scss": {
     "original-size": 2.75,
@@ -1267,11 +1267,11 @@
         { "height: 0": "h-0" }
       ]
     },
-    "reduced-size": 2713,
-    "final-size": 2.713
+    "reduced-size": 2287,
+    "final-size": 2.287
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/category_modal.scss": {
-    "original-size": 0.353,
+    "original-size": 0.351,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1279,8 +1279,8 @@
       ".edit-category__helpText": [],
       ".delete-category__helpText": []
     },
-    "reduced-size": 353,
-    "final-size": 0.353
+    "reduced-size": 351,
+    "final-size": 0.351
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/center_message_lock/index.scss": {
     "original-size": 1.137,
@@ -1293,8 +1293,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 1093,
-    "final-size": 1.093
+    "reduced-size": 893,
+    "final-size": 0.893
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_fetch_error/cloud_fetch_error.scss": {
     "original-size": 0.479,
@@ -1309,8 +1309,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 383,
-    "final-size": 0.383
+    "reduced-size": 355,
+    "final-size": 0.355
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_invoice_preview/cloud_invoice_preview.scss": {
     "original-size": 1.634,
@@ -1322,8 +1322,8 @@
         { "overflow-y: hidden !important": "overflow-y-hidden" }
       ]
     },
-    "reduced-size": 1599,
-    "final-size": 1.599
+    "reduced-size": 1315,
+    "final-size": 1.315
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_start_trial/cloud_start_trial_btn.scss": {
     "original-size": 0.265,
@@ -1331,8 +1331,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".CloudStartTrialButton": [] },
-    "reduced-size": 265,
-    "final-size": 0.265
+    "reduced-size": 229,
+    "final-size": 0.229
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_start_trial/request_business_email_modal.scss": {
     "original-size": 2.722,
@@ -1340,8 +1340,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".RequestBusinessEmailModal": [] },
-    "reduced-size": 2722,
-    "final-size": 2.722
+    "reduced-size": 2254,
+    "final-size": 2.254
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_subscribe_result_modal/style.scss": {
     "original-size": 0.113,
@@ -1349,11 +1349,11 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".cloud_subscribe_result_modal": [] },
-    "reduced-size": 113,
-    "final-size": 0.113
+    "reduced-size": 101,
+    "final-size": 0.101
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/index.scss": {
-    "original-size": 0.712,
+    "original-size": 0.708,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1361,8 +1361,8 @@
       ".CloudUsageModal": [],
       ".cloud-usage-backdrop": []
     },
-    "reduced-size": 712,
-    "final-size": 0.712
+    "reduced-size": 654,
+    "final-size": 0.654
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/limit_line.scss": {
     "original-size": 0.776,
@@ -1375,17 +1375,17 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 732,
-    "final-size": 0.732
+    "reduced-size": 642,
+    "final-size": 0.642
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/mini_modal.scss": {
-    "original-size": 0.342,
+    "original-size": 0.338,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".CloudUsageMiniModal": [] },
-    "reduced-size": 342,
-    "final-size": 0.342
+    "reduced-size": 318,
+    "final-size": 0.318
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/commercial_support_modal/commercial_support_modal.scss": {
     "original-size": 0.166,
@@ -1393,8 +1393,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".CommercialSupportModal": [] },
-    "reduced-size": 166,
-    "final-size": 0.166
+    "reduced-size": 148,
+    "final-size": 0.148
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/accordion/accordion.scss": {
     "original-size": 1.905,
@@ -1402,17 +1402,17 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".Accordion": [{ "width: 100%": "w-full" }] },
-    "reduced-size": 1888,
-    "final-size": 1.888
+    "reduced-size": 1508,
+    "final-size": 1.508
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/auto_height_switcher.scss": {
-    "original-size": 0.196,
+    "original-size": 0.192,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".AutoHeight": [{ "display: block": "block" }] },
-    "reduced-size": 176,
-    "final-size": 0.176
+    "reduced-size": 167,
+    "final-size": 0.167
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/carousel/carousel.scss": {
     "original-size": 2.457,
@@ -1427,8 +1427,8 @@
         { "height: 100%": "h-full" }
       ]
     },
-    "reduced-size": 2376,
-    "final-size": 2.376
+    "reduced-size": 1902,
+    "final-size": 1.902
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/circular_chart/circular_chart.scss": {
     "original-size": 0.952,
@@ -1436,8 +1436,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".CircularChart": [] },
-    "reduced-size": 952,
-    "final-size": 0.952
+    "reduced-size": 794,
+    "final-size": 0.794
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/multi_select_cards/index.scss": {
     "original-size": 0.053,
@@ -1445,8 +1445,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".MultiSelectCards": [] },
-    "reduced-size": 53,
-    "final-size": 0.053
+    "reduced-size": 49,
+    "final-size": 0.049
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/multi_select_cards/multi_select_card.scss": {
     "original-size": 1.599,
@@ -1464,8 +1464,8 @@
         { "cursor: pointer": "cursor-pointer" }
       ]
     },
-    "reduced-size": 1424,
-    "final-size": 1.424
+    "reduced-size": 1234,
+    "final-size": 1.234
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/create_user_groups_modal/create_user_groups_modal.scss": {
     "original-size": 0.241,
@@ -1473,8 +1473,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".user-groups-modal-create": [] },
-    "reduced-size": 241,
-    "final-size": 0.241
+    "reduced-size": 203,
+    "final-size": 0.203
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/custom_status/custom_status.scss": {
     "original-size": 7.909,
@@ -1492,8 +1492,8 @@
       ],
       ".dateTime": [{ "display: flex": "flex" }]
     },
-    "reduced-size": 7761,
-    "final-size": 7.761
+    "reduced-size": 6447,
+    "final-size": 6.447
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/date_picker/date_picker.scss": {
     "original-size": 2.957,
@@ -1501,8 +1501,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".date-picker__popper": [], ".rdp": [] },
-    "reduced-size": 2957,
-    "final-size": 2.957
+    "reduced-size": 2459,
+    "final-size": 2.459
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/delinquency_modal/delinquency_modal.scss": {
     "original-size": 2.44,
@@ -1510,8 +1510,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DelinquencyModal": [] },
-    "reduced-size": 2440,
-    "final-size": 2.44
+    "reduced-size": 2022,
+    "final-size": 2.022
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dnd_custom_time_picker_modal/dnd_custom_time_picker_modal.scss": {
     "original-size": 3.27,
@@ -1537,11 +1537,11 @@
       ],
       ".DndModal__calendar-input": []
     },
-    "reduced-size": 3035,
-    "final-size": 3.035
+    "reduced-size": 2633,
+    "final-size": 2.633
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/do_verify_email/do_verify_email.scss": {
-    "original-size": 0.682,
+    "original-size": 0.678,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1551,8 +1551,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 638,
-    "final-size": 0.638
+    "reduced-size": 558,
+    "final-size": 0.558
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dot_menu/dot_menu.scss": {
     "original-size": 0.389,
@@ -1560,8 +1560,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".dot-menu": [] },
-    "reduced-size": 389,
-    "final-size": 0.389
+    "reduced-size": 337,
+    "final-size": 0.337
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/downgrade_modal/index.scss": {
     "original-size": 0.449,
@@ -1578,8 +1578,8 @@
       ".ProcessPayment-progress": [],
       ".ProcessPayment-progress-fill": [{ "height: 100%": "h-full" }]
     },
-    "reduced-size": 360,
-    "final-size": 0.36
+    "reduced-size": 340,
+    "final-size": 0.34
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/draft_actions/action.scss": {
     "original-size": 1.226,
@@ -1587,8 +1587,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DraftAction": [] },
-    "reduced-size": 1226,
-    "final-size": 1.226
+    "reduced-size": 1072,
+    "final-size": 1.072
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/draft_title/draft_title.scss": {
     "original-size": 0.38,
@@ -1596,17 +1596,17 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DraftTitle": [] },
-    "reduced-size": 380,
-    "final-size": 0.38
+    "reduced-size": 328,
+    "final-size": 0.328
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/drafts.scss": {
-    "original-size": 1.027,
+    "original-size": 1.021,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".Drafts": [{ "display: grid": "grid" }] },
-    "reduced-size": 1007,
-    "final-size": 1.007
+    "reduced-size": 897,
+    "final-size": 0.897
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/drafts_link/drafts_link.scss": {
     "original-size": 1.074,
@@ -1618,15 +1618,15 @@
     "final-size": 1.074
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel.scss": {
-    "original-size": 0.583,
+    "original-size": 0.579,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": {
       ".Panel": [{ "cursor: pointer": "cursor-pointer" }]
     },
-    "reduced-size": 562,
-    "final-size": 0.562
+    "reduced-size": 528,
+    "final-size": 0.528
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel_body.scss": {
     "original-size": 0.816,
@@ -1634,8 +1634,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DraftPanelBody": [{ "display: flex": "flex" }] },
-    "reduced-size": 797,
-    "final-size": 0.797
+    "reduced-size": 657,
+    "final-size": 0.657
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel_header.scss": {
     "original-size": 1.556,
@@ -1650,8 +1650,8 @@
         { "justify-content: space-between": "justify-between" }
       ]
     },
-    "reduced-size": 1453,
-    "final-size": 1.453
+    "reduced-size": 1225,
+    "final-size": 1.225
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dropdown_input.scss": {
     "original-size": 0.949,
@@ -1662,28 +1662,28 @@
       ".DropdownInput": [],
       ".DropdownInput__indicatorsContainer": []
     },
-    "reduced-size": 949,
-    "final-size": 0.949
+    "reduced-size": 855,
+    "final-size": 0.855
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/external_login_button/external_login_button.scss": {
-    "original-size": 0.623,
+    "original-size": 0.619,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": {
       ".external-login-button": [{ "text-decoration: none": "no-underline" }]
     },
-    "reduced-size": 596,
-    "final-size": 0.596
+    "reduced-size": 556,
+    "final-size": 0.556
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/feature_restricted_modal/feature_restricted_modal.scss": {
-    "original-size": 1.038,
+    "original-size": 1.034,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".FeatureRestrictedModal": [] },
-    "reduced-size": 1038,
-    "final-size": 1.038
+    "reduced-size": 890,
+    "final-size": 0.89
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/feedback_modal/feedback.scss": {
     "original-size": 0.486,
@@ -1691,8 +1691,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".FeedbackModal": [] },
-    "reduced-size": 486,
-    "final-size": 0.486
+    "reduced-size": 420,
+    "final-size": 0.42
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal.scss": {
     "original-size": 1.186,
@@ -1702,8 +1702,8 @@
     "replaced-tailwind": {
       ".file-preview-modal": [{ "padding-left: 0 !important": "pl-0" }]
     },
-    "reduced-size": 1154,
-    "final-size": 1.154
+    "reduced-size": 981,
+    "final-size": 0.981
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_footer/file_preview_modal_footer.scss": {
     "original-size": 0.256,
@@ -1718,8 +1718,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 159,
-    "final-size": 0.159
+    "reduced-size": 149,
+    "final-size": 0.149
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_header/file_preview_modal_header.scss": {
     "original-size": 0.425,
@@ -1735,8 +1735,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 304,
-    "final-size": 0.304
+    "reduced-size": 274,
+    "final-size": 0.274
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_info/file_preview_modal_info.scss": {
     "original-size": 1.726,
@@ -1744,8 +1744,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".file-preview-modal": [] },
-    "reduced-size": 1726,
-    "final-size": 1.726
+    "reduced-size": 1426,
+    "final-size": 1.426
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_main_actions/file_preview_modal_main_actions.scss": {
     "original-size": 0.772,
@@ -1753,8 +1753,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".file-preview-modal-main-actions": [] },
-    "reduced-size": 772,
-    "final-size": 0.772
+    "reduced-size": 648,
+    "final-size": 0.648
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_main_nav/file_preview_modal_main_nav.scss": {
     "original-size": 0.867,
@@ -1770,8 +1770,8 @@
         { "justify-content: center": "justify-center" }
       ]
     },
-    "reduced-size": 749,
-    "final-size": 0.749
+    "reduced-size": 632,
+    "final-size": 0.632
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/image_preview.scss": {
     "original-size": 0.222,
@@ -1779,8 +1779,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".image_preview": [] },
-    "reduced-size": 222,
-    "final-size": 0.222
+    "reduced-size": 192,
+    "final-size": 0.192
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_search_results/file_search_result_item.scss": {
     "original-size": 2.679,
@@ -1797,8 +1797,8 @@
         { "cursor: pointer": "cursor-pointer" }
       ]
     },
-    "reduced-size": 2549,
-    "final-size": 2.549
+    "reduced-size": 2163,
+    "final-size": 2.163
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/forward_post_modal/forward_post_modal.scss": {
     "original-size": 3.681,
@@ -1806,11 +1806,11 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".forward-post": [] },
-    "reduced-size": 3681,
-    "final-size": 3.681
+    "reduced-size": 2981,
+    "final-size": 2.981
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/generic_modal.scss": {
-    "original-size": 7.901,
+    "original-size": 7.897,
     "unused": false,
     "empty": false,
     "unused-classes": {
@@ -1820,8 +1820,8 @@
       "GenericModal__button": " {\n    padding: 12px 16px;\n    border: none;\n    font-size: 14px;\n    font-weight: 600;\n    line-height: 12px;\n\n    &.cancel {\n        background: var(--center-channel-bg);\n        color: var(--button-bg);\n    }\n\n    &.confirm {\n        background: var(--button-bg);\n        border-radius: 4px;\n        color: var(--button-color);\n\n        &.disabled {\n            background: rgba(var(--center-channel-color-rgb), 0.08);\n            color: rgba(var(--center-channel-color-rgb), 0.32);\n        }\n    }\n}"
     },
     "replaced-tailwind": {},
-    "reduced-size": 6845,
-    "final-size": 6.845
+    "reduced-size": 5432,
+    "final-size": 5.432
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/Categories/Categories.scss": {
     "original-size": 0.996,
@@ -1835,8 +1835,8 @@
         { "box-sizing: border-box": "box-border" }
       ]
     },
-    "reduced-size": 920,
-    "final-size": 0.92
+    "reduced-size": 798,
+    "final-size": 0.798
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/Header/Header.scss": {
     "original-size": 0.799,
@@ -1844,11 +1844,11 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".header-container": [{ "width: 100%": "w-full" }] },
-    "reduced-size": 782,
-    "final-size": 0.782
+    "reduced-size": 638,
+    "final-size": 0.638
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchBar/SearchBar.scss": {
-    "original-size": 1.427,
+    "original-size": 1.425,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1859,8 +1859,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 1358,
-    "final-size": 1.358
+    "reduced-size": 1160,
+    "final-size": 1.16
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchGrid/SearchGrid.scss": {
     "original-size": 0.763,
@@ -1877,8 +1877,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 66,
-    "final-size": 0.066
+    "reduced-size": 62,
+    "final-size": 0.062
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchItem/SearchItem.scss": {
     "original-size": 0.28,
@@ -1899,11 +1899,11 @@
         { "cursor: pointer": "cursor-pointer" }
       ]
     },
-    "reduced-size": 97,
-    "final-size": 0.097
+    "reduced-size": 93,
+    "final-size": 0.093
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/global_header/left_controls/product_menu/product_menu_list/product_menu_list.scss": {
-    "original-size": 0.265,
+    "original-size": 0.261,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1916,22 +1916,22 @@
         { "left: 0": "inset-0" }
       ]
     },
-    "reduced-size": 160,
-    "final-size": 0.16
+    "reduced-size": 158,
+    "final-size": 0.158
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/content_layouts/alternate_link.scss": {
-    "original-size": 0.509,
+    "original-size": 0.505,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": {
       ".alternate-link": [{ "margin-left: auto": "ml-auto" }]
     },
-    "reduced-size": 486,
-    "final-size": 0.486
+    "reduced-size": 439,
+    "final-size": 0.439
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/content_layouts/column.scss": {
-    "original-size": 1.054,
+    "original-size": 1.05,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1941,11 +1941,11 @@
         { "justify-content: center": "justify-center" }
       ]
     },
-    "reduced-size": 1006,
-    "final-size": 1.006
+    "reduced-size": 906,
+    "final-size": 0.906
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/footer.scss": {
-    "original-size": 0.878,
+    "original-size": 0.874,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1958,11 +1958,11 @@
         { "height: auto": "h-auto" }
       ]
     },
-    "reduced-size": 775,
-    "final-size": 0.775
+    "reduced-size": 701,
+    "final-size": 0.701
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/header.scss": {
-    "original-size": 1.428,
+    "original-size": 1.424,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1974,11 +1974,11 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 1344,
-    "final-size": 1.344
+    "reduced-size": 1134,
+    "final-size": 1.134
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/header_footer_route.scss": {
-    "original-size": 0.797,
+    "original-size": 0.791,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -1992,8 +1992,8 @@
         { "min-height: 100%": "min-h-full" }
       ]
     },
-    "reduced-size": 665,
-    "final-size": 0.665
+    "reduced-size": 613,
+    "final-size": 0.613
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/hint-toast/hint_toast.scss": {
     "original-size": 1.225,
@@ -2014,8 +2014,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 1048,
-    "final-size": 1.048
+    "reduced-size": 918,
+    "final-size": 0.918
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/icon_message_with_progress_bar/icon_message_with_progress_bar.scss": {
     "original-size": 0.397,
@@ -2030,11 +2030,11 @@
         { "height: 100%": "h-full" }
       ]
     },
-    "reduced-size": 293,
-    "final-size": 0.293
+    "reduced-size": 277,
+    "final-size": 0.277
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/info_toast/info_toast.scss": {
-    "original-size": 1.221,
+    "original-size": 1.219,
     "unused": false,
     "empty": false,
     "unused-classes": {
@@ -2054,44 +2054,44 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 896,
-    "final-size": 0.896
+    "reduced-size": 810,
+    "final-size": 0.81
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/add_to_channels.scss": {
-    "original-size": 1.366,
+    "original-size": 1.364,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".AddToChannels": [] },
-    "reduced-size": 1366,
-    "final-size": 1.366
+    "reduced-size": 1140,
+    "final-size": 1.14
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invitation_modal.scss": {
-    "original-size": 2.142,
+    "original-size": 2.14,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".InvitationModal": [] },
-    "reduced-size": 2142,
-    "final-size": 2.142
+    "reduced-size": 1808,
+    "final-size": 1.808
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invite_as.scss": {
-    "original-size": 2.122,
+    "original-size": 2.108,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".InviteAs": [] },
-    "reduced-size": 2122,
-    "final-size": 2.122
+    "reduced-size": 1696,
+    "final-size": 1.696
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invite_view.scss": {
-    "original-size": 2.012,
+    "original-size": 1.996,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".InviteView": [], ".modal-body": [] },
-    "reduced-size": 2012,
-    "final-size": 2.012
+    "reduced-size": 1762,
+    "final-size": 1.762
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/no_permissions_view.scss": {
     "original-size": 0.872,
@@ -2099,8 +2099,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".NoPermissionsView": [] },
-    "reduced-size": 872,
-    "final-size": 0.872
+    "reduced-size": 722,
+    "final-size": 0.722
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/overage_users_banner_notice/overage_users_banner_notice.scss": {
     "original-size": 0.327,
@@ -2108,8 +2108,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".overage_users_banner": [] },
-    "reduced-size": 327,
-    "final-size": 0.327
+    "reduced-size": 289,
+    "final-size": 0.289
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/result_table.scss": {
     "original-size": 2.729,
@@ -2124,8 +2124,8 @@
       ".InviteResultRow": [{ "display: flex": "flex" }],
       ".invitation-modal-confirm": []
     },
-    "reduced-size": 2671,
-    "final-size": 2.671
+    "reduced-size": 2166,
+    "final-size": 2.166
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/result_view.scss": {
     "original-size": 0.119,
@@ -2133,8 +2133,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ResultView": [] },
-    "reduced-size": 119,
-    "final-size": 0.119
+    "reduced-size": 107,
+    "final-size": 0.107
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/keyboard_shortcuts/keyboard_shortcuts_modal/keyboard_shortcuts_modal.scss": {
     "original-size": 1.924,
@@ -2142,17 +2142,17 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".modal": [] },
-    "reduced-size": 1924,
-    "final-size": 1.924
+    "reduced-size": 1438,
+    "final-size": 1.438
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/keyboard_shortcuts/keyboard_shortcuts_sequence/keyboard_shortcuts_sequence.scss": {
-    "original-size": 0.498,
+    "original-size": 0.494,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".shortcut-line": [] },
-    "reduced-size": 498,
-    "final-size": 0.498
+    "reduced-size": 446,
+    "final-size": 0.446
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/learn_more_trial_modal.scss": {
     "original-size": 3.716,
@@ -2160,8 +2160,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".LearnMoreTrialModal": [] },
-    "reduced-size": 3716,
-    "final-size": 3.716
+    "reduced-size": 3026,
+    "final-size": 3.026
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/learn_more_trial_modal_step.scss": {
     "original-size": 1.823,
@@ -2169,8 +2169,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".LearnMoreTrialModalStep": [] },
-    "reduced-size": 1823,
-    "final-size": 1.823
+    "reduced-size": 1487,
+    "final-size": 1.487
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/start_trial_btn.scss": {
     "original-size": 0.906,
@@ -2178,8 +2178,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".StartTrialBtn": [] },
-    "reduced-size": 906,
-    "final-size": 0.906
+    "reduced-size": 782,
+    "final-size": 0.782
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/link_tooltip/link_tooltip.scss": {
     "original-size": 0.219,
@@ -2192,11 +2192,11 @@
         { "opacity: 0": "opacity-0" }
       ]
     },
-    "reduced-size": 179,
-    "final-size": 0.179
+    "reduced-size": 165,
+    "final-size": 0.165
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/login/login.scss": {
-    "original-size": 9.571,
+    "original-size": 9.567,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -2206,17 +2206,17 @@
         { "flex-direction: column": "flex-col" }
       ]
     },
-    "reduced-size": 9524,
-    "final-size": 9.524
+    "reduced-size": 7316,
+    "final-size": 7.316
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/login/login_mfa.scss": {
-    "original-size": 0.635,
+    "original-size": 0.631,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".login-mfa-form": [{ "display: flex": "flex" }] },
-    "reduced-size": 616,
-    "final-size": 0.616
+    "reduced-size": 550,
+    "final-size": 0.55
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/markdown_image_expand/markdown_image_expand.scss": {
     "original-size": 1.898,
@@ -2250,8 +2250,8 @@
         { "white-space: nowrap": "whitespace-no-wrap" }
       ]
     },
-    "reduced-size": 1499,
-    "final-size": 1.499
+    "reduced-size": 1387,
+    "final-size": 1.387
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/menu/sub_menu.scss": {
     "original-size": 0.161,
@@ -2259,8 +2259,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".menuModal": [] },
-    "reduced-size": 161,
-    "final-size": 0.161
+    "reduced-size": 135,
+    "final-size": 0.135
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/more_channels/more_channels.scss": {
     "original-size": 7.258,
@@ -2282,8 +2282,8 @@
       ".MultiInput__multiValueContainer": [],
       ".MultiInput__placeholder": []
     },
-    "reduced-size": 1758,
-    "final-size": 1.758
+    "reduced-size": 1486,
+    "final-size": 1.486
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/new_channel_modal/new_channel_modal.scss": {
     "original-size": 2.219,
@@ -2294,8 +2294,8 @@
       ".new-channel-modal": [],
       ".new-channel-modal__url": []
     },
-    "reduced-size": 2219,
-    "final-size": 2.219
+    "reduced-size": 1839,
+    "final-size": 1.839
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/new_replies_banner/new_replies_banner.scss": {
     "original-size": 0.228,
@@ -2309,8 +2309,8 @@
         { "justify-content: center": "justify-center" }
       ]
     },
-    "reduced-size": 156,
-    "final-size": 0.156
+    "reduced-size": 132,
+    "final-size": 0.132
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/no_results_indicator/no_results_indicator.scss": {
     "original-size": 1.465,
@@ -2339,8 +2339,8 @@
       ".no-results__title": [{ "font-weight: 600": "font-600" }],
       ".no-results__icon": [{ "display: flex": "flex" }]
     },
-    "reduced-size": 1062,
-    "final-size": 1.062
+    "reduced-size": 935,
+    "final-size": 0.935
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/onboarding_tasks/onboarding_video_modal/onboarding_video_modal.scss": {
     "original-size": 1.129,
@@ -2348,8 +2348,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".on-boarding-video_modal": [] },
-    "reduced-size": 1129,
-    "final-size": 1.129
+    "reduced-size": 932,
+    "final-size": 0.932
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/card_image.css": {
     "original-size": 0.138,
@@ -2363,8 +2363,8 @@
         { "height: auto": "h-auto" }
       ]
     },
-    "reduced-size": 81,
-    "final-size": 0.081
+    "reduced-size": 75,
+    "final-size": 0.075
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/card_input.css": {
     "original-size": 0.768,
@@ -2380,8 +2380,8 @@
         { "height: 100%": "h-full" }
       ]
     },
-    "reduced-size": 650,
-    "final-size": 0.65
+    "reduced-size": 614,
+    "final-size": 0.614
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/gather_intent/gather_intent.scss": {
     "original-size": 4.264,
@@ -2396,8 +2396,8 @@
       ],
       ".AltPaymentsModal": []
     },
-    "reduced-size": 4218,
-    "final-size": 4.218
+    "reduced-size": 3564,
+    "final-size": 3.564
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/payment_form.scss": {
     "original-size": 4.022,
@@ -2405,8 +2405,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PaymentForm": [] },
-    "reduced-size": 4022,
-    "final-size": 4.022
+    "reduced-size": 3471,
+    "final-size": 3.471
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/picture_selector.scss": {
     "original-size": 1.779,
@@ -2437,8 +2437,8 @@
         { "background-color: transparent": "bg-transparent" }
       ]
     },
-    "reduced-size": 1507,
-    "final-size": 1.507
+    "reduced-size": 1409,
+    "final-size": 1.409
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/plugin_marketplace/marketplace_modal.scss": {
     "original-size": 4.451,
@@ -2460,8 +2460,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 4272,
-    "final-size": 4.272
+    "reduced-size": 3516,
+    "final-size": 3.516
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_priority/post_priority_picker.scss": {
     "original-size": 0.26,
@@ -2469,8 +2469,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PostPriorityPicker": [] },
-    "reduced-size": 260,
-    "final-size": 0.26
+    "reduced-size": 234,
+    "final-size": 0.234
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_reminder_custom_time_picker_modal/post_reminder_custom_time_picker_modal.scss": {
     "original-size": 1.498,
@@ -2478,8 +2478,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".post-reminder-modal": [] },
-    "reduced-size": 1498,
-    "final-size": 1.498
+    "reduced-size": 1204,
+    "final-size": 1.204
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/acknowledgements/post_acknowledgements.scss": {
     "original-size": 1.715,
@@ -2496,8 +2496,8 @@
       ],
       ".AcknowledgementButton__divider": [{ "width: 1px": "w-px" }]
     },
-    "reduced-size": 1590,
-    "final-size": 1.59
+    "reduced-size": 1414,
+    "final-size": 1.414
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/channel_intro_message/add_members_button.scss": {
     "original-size": 1.521,
@@ -2512,8 +2512,8 @@
         { "flex-direction: row": "flex-row" }
       ]
     },
-    "reduced-size": 1212,
-    "final-size": 1.212
+    "reduced-size": 1093,
+    "final-size": 1.093
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/post_attachment_opengraph/post_attachment_opengraph.scss": {
     "original-size": 5.004,
@@ -2532,8 +2532,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 4861,
-    "final-size": 4.861
+    "reduced-size": 4119,
+    "final-size": 4.119
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/reaction/reaction.scss": {
     "original-size": 3.917,
@@ -2549,8 +2549,8 @@
         { "cursor: pointer": "cursor-pointer" }
       ]
     },
-    "reduced-size": 3799,
-    "final-size": 3.799
+    "reduced-size": 3301,
+    "final-size": 3.301
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/description.scss": {
     "original-size": 0.247,
@@ -2558,8 +2558,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PreparingWorkspaceDescription": [] },
-    "reduced-size": 247,
-    "final-size": 0.247
+    "reduced-size": 233,
+    "final-size": 0.233
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/launching_workspace.scss": {
     "original-size": 1.55,
@@ -2594,8 +2594,8 @@
       ],
       ".LaunchingWorkspace": []
     },
-    "reduced-size": 728,
-    "final-size": 0.728
+    "reduced-size": 648,
+    "final-size": 0.648
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/page_body.scss": {
     "original-size": 0.057,
@@ -2603,20 +2603,20 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PreparingWorkspacePageBody": [] },
-    "reduced-size": 57,
-    "final-size": 0.057
+    "reduced-size": 55,
+    "final-size": 0.055
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/plugins.scss": {
-    "original-size": 1.243,
+    "original-size": 1.241,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".Plugins__marketplace": [] },
-    "reduced-size": 1243,
-    "final-size": 1.243
+    "reduced-size": 965,
+    "final-size": 0.965
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/preparing_workspace.scss": {
-    "original-size": 1.896,
+    "original-size": 1.89,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -2624,8 +2624,8 @@
       ".PreparingWorkspace": [],
       ".PreparingWorkspacePageContainer": [{ "position: relative": "relative" }]
     },
-    "reduced-size": 1872,
-    "final-size": 1.872
+    "reduced-size": 1635,
+    "final-size": 1.635
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/progress.scss": {
     "original-size": 1.252,
@@ -2642,8 +2642,8 @@
         { "height: 100vh": "h-screen" }
       ]
     },
-    "reduced-size": 1119,
-    "final-size": 1.119
+    "reduced-size": 939,
+    "final-size": 0.939
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/single_column_layout.scss": {
     "original-size": 0.172,
@@ -2660,8 +2660,8 @@
         { "height: 100vh": "h-screen" }
       ]
     },
-    "reduced-size": 1,
-    "final-size": 0.001
+    "reduced-size": 0,
+    "final-size": 0
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/title.scss": {
     "original-size": 0.529,
@@ -2674,8 +2674,8 @@
         { "margin-top: 0": "mt-0" }
       ]
     },
-    "reduced-size": 491,
-    "final-size": 0.491
+    "reduced-size": 431,
+    "final-size": 0.431
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/content.scss": {
     "original-size": 0.664,
@@ -2694,35 +2694,35 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 520,
-    "final-size": 0.52
+    "reduced-size": 447,
+    "final-size": 0.447
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/downgrade_team_removal_modal/downgrade_team_removal_modal.scss": {
-    "original-size": 3.797,
+    "original-size": 3.795,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".DowngradeTeamRemovalModal": [] },
-    "reduced-size": 3797,
-    "final-size": 3.797
+    "reduced-size": 3124,
+    "final-size": 3.124
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/pricing_modal.scss": {
-    "original-size": 11.602,
+    "original-size": 11.6,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PricingModal": [] },
-    "reduced-size": 11602,
-    "final-size": 11.602
+    "reduced-size": 8608,
+    "final-size": 8.608
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/product_notices_modal/product_notices_modal.scss": {
-    "original-size": 3.434,
+    "original-size": 3.43,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".productNotices": [] },
-    "reduced-size": 3434,
-    "final-size": 3.434
+    "reduced-size": 2812,
+    "final-size": 2.812
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/profile_picture/profile_picture.scss": {
     "original-size": 0.044,
@@ -2730,8 +2730,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ProfilePicture": [] },
-    "reduced-size": 44,
-    "final-size": 0.044
+    "reduced-size": 42,
+    "final-size": 0.042
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/profile_popover/profile_popover.scss": {
     "original-size": 3.292,
@@ -2755,8 +2755,8 @@
       ],
       ".user-profile-popover": [{ "overflow-y: auto": "overflow-y-auto" }]
     },
-    "reduced-size": 3092,
-    "final-size": 3.092
+    "reduced-size": 2552,
+    "final-size": 2.552
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/progress_bar.scss": {
     "original-size": 0.201,
@@ -2774,8 +2774,8 @@
         { "flex-shrink: 0": "flex-shrink-0" }
       ]
     },
-    "reduced-size": 91,
-    "final-size": 0.091
+    "reduced-size": 87,
+    "final-size": 0.087
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_in_progress_modal/index.scss": {
     "original-size": 0.281,
@@ -2783,8 +2783,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".PurchaseInProgressModal": [] },
-    "reduced-size": 281,
-    "final-size": 0.281
+    "reduced-size": 245,
+    "final-size": 0.245
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/icon_message.scss": {
     "original-size": 2.661,
@@ -2792,8 +2792,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".IconMessage": [] },
-    "reduced-size": 2661,
-    "final-size": 2.661
+    "reduced-size": 2141,
+    "final-size": 2.141
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/process_payment.css": {
     "original-size": 0.346,
@@ -2806,8 +2806,8 @@
       ".ProcessPayment-progress": [],
       ".ProcessPayment-progress-fill": [{ "height: 100%": "h-full" }]
     },
-    "reduced-size": 254,
-    "final-size": 0.254
+    "reduced-size": 238,
+    "final-size": 0.238
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/purchase.scss": {
     "original-size": 18.407,
@@ -2827,8 +2827,8 @@
       ".tooltipTitle": [{ "font-weight: 700": "font-700" }],
       ".tooltipText": [{ "text-align: left": "text-left" }]
     },
-    "reduced-size": 18268,
-    "final-size": 18.268
+    "reduced-size": 13481,
+    "final-size": 13.481
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/screening_in_progress_modal/content.scss": {
     "original-size": 0.723,
@@ -2836,8 +2836,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ScreeningInProgressModal": [] },
-    "reduced-size": 723,
-    "final-size": 0.723
+    "reduced-size": 615,
+    "final-size": 0.615
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/files_filter_menu.scss": {
     "original-size": 1.208,
@@ -2845,8 +2845,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".FilesFilterMenu": [] },
-    "reduced-size": 1208,
-    "final-size": 1.208
+    "reduced-size": 976,
+    "final-size": 0.976
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/messages_or_files_selector.scss": {
     "original-size": 1.164,
@@ -2860,8 +2860,8 @@
         { "justify-content: space-between": "justify-between" }
       ]
     },
-    "reduced-size": 1084,
-    "final-size": 1.084
+    "reduced-size": 930,
+    "final-size": 0.93
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/search_results.scss": {
     "original-size": 0.58,
@@ -2869,8 +2869,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".SearchResults": [] },
-    "reduced-size": 580,
-    "final-size": 0.58
+    "reduced-size": 488,
+    "final-size": 0.488
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_shortcut/search_shortcut.scss": {
     "original-size": 0.184,
@@ -2880,17 +2880,17 @@
     "replaced-tailwind": {
       ".search-shortcut": [{ "display: inline-block": "inline-block" }]
     },
-    "reduced-size": 157,
-    "final-size": 0.157
+    "reduced-size": 139,
+    "final-size": 0.139
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/seats_calculator/seats_calculator.scss": {
-    "original-size": 0.756,
+    "original-size": 0.754,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".SeatsCalculator": [] },
-    "reduced-size": 756,
-    "final-size": 0.756
+    "reduced-size": 644,
+    "final-size": 0.644
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/self_hosted_purchase_modal/self_hosted_purchase_modal.scss": {
     "original-size": 16.686,
@@ -2904,8 +2904,8 @@
       ],
       ".FullScreenModal": []
     },
-    "reduced-size": 16646,
-    "final-size": 16.646
+    "reduced-size": 12206,
+    "final-size": 12.206
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/self_hosted_purchase_modal/success_page.scss": {
     "original-size": 0.372,
@@ -2926,8 +2926,8 @@
         { "height: 100%": "h-full" }
       ]
     },
-    "reduced-size": 154,
-    "final-size": 0.154
+    "reduced-size": 146,
+    "final-size": 0.146
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/shortcut_key/shortcut_key.scss": {
     "original-size": 1.241,
@@ -2937,11 +2937,11 @@
       "app__body": " {\n    .shortcut-key {\n        display: inline-block;\n        padding: 10px 9px 8px 8px;\n        border-radius: 4px;\n        color: var(--center-channel-bg);\n        font-size: 14px;\n        font-weight: 500;\n        line-height: 1;\n\n        &.shortcut-key--contrast {\n            background-color: rgba(var(--center-channel-color-rgb), 0.08);\n            color: var(--center-channel-color);\n        }\n\n        &.shortcut-key--tooltip {\n            padding: 2px 5px;\n            background-color: rgba(255, 255, 255, 0.08);\n            color: rgba(255, 255, 255, 0.72);\n            font-family: inherit;\n            font-size: 12px;\n            font-weight: 600;\n            line-height: 16px;\n        }\n\n        &.shortcut-key--tutorial-tip {\n            padding: 2px 5px;\n            background-color: rgba(var(--center-channel-color-rgb), 0.08);\n            color: rgba(var(--center-channel-color-rgb), 0.72);\n            font-family: inherit;\n            font-size: 12px;\n            font-weight: 600;\n            line-height: 16px;\n        }\n\n        &.shortcut-key--shortcut-modal {\n            font-family: inherit;\n            font-size: 12px;\n            font-weight: 600;\n            line-height: 16px;\n        }\n    }\n}"
     },
     "replaced-tailwind": {},
-    "reduced-size": 1,
-    "final-size": 0.001
+    "reduced-size": 0,
+    "final-size": 0
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/should_verify_email/should_verify_email.scss": {
-    "original-size": 1.87,
+    "original-size": 1.866,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -2951,8 +2951,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 1826,
-    "final-size": 1.826
+    "reduced-size": 1478,
+    "final-size": 1.478
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/sidebar/sidebar_channel/channel_pencil_icon/channel_pencil_icon.scss": {
     "original-size": 0.355,
@@ -2982,11 +2982,11 @@
         { "opacity: 0": "opacity-0" }
       ]
     },
-    "reduced-size": 1550,
-    "final-size": 1.55
+    "reduced-size": 1358,
+    "final-size": 1.358
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/signup/signup.scss": {
-    "original-size": 11.137,
+    "original-size": 11.133,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -2996,8 +2996,8 @@
         { "flex-direction: column": "flex-col" }
       ]
     },
-    "reduced-size": 11090,
-    "final-size": 11.09
+    "reduced-size": 8600,
+    "final-size": 8.6
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/start_trial_modal/start_trial_modal.scss": {
     "original-size": 4.034,
@@ -3005,8 +3005,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".StartTrialModal": [] },
-    "reduced-size": 4034,
-    "final-size": 4.034
+    "reduced-size": 3252,
+    "final-size": 3.252
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/status_dropdown/status_dropdown.scss": {
     "original-size": 6.452,
@@ -3027,8 +3027,8 @@
         { "left: 0": "inset-0" }
       ]
     },
-    "reduced-size": 6279,
-    "final-size": 6.279
+    "reduced-size": 5225,
+    "final-size": 5.225
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/switch_to_yearly_plan_confirm_modal/switch_to_yearly_plan_confirm_modal.scss": {
     "original-size": 1.453,
@@ -3036,8 +3036,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".SwitchToYearlyPlanConfirmModal": [] },
-    "reduced-size": 1453,
-    "final-size": 1.453
+    "reduced-size": 1215,
+    "final-size": 1.215
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/channel_threads/thread_footer/thread_footer.scss": {
     "original-size": 1.359,
@@ -3053,11 +3053,11 @@
         { "margin-top: 1px": "mt-px" }
       ]
     },
-    "reduced-size": 1237,
-    "final-size": 1.237
+    "reduced-size": 1059,
+    "final-size": 1.059
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/common/button/button.scss": {
-    "original-size": 3.152,
+    "original-size": 3.15,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3068,11 +3068,11 @@
         { "font-weight: 600": "font-600" }
       ]
     },
-    "reduced-size": 3082,
-    "final-size": 3.082
+    "reduced-size": 2627,
+    "final-size": 2.627
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/global_threads.scss": {
-    "original-size": 2.631,
+    "original-size": 2.623,
     "unused": false,
     "empty": false,
     "unused-classes": {
@@ -3084,8 +3084,8 @@
         { "overflow: hidden": "overflow-hidden" }
       ]
     },
-    "reduced-size": 2456,
-    "final-size": 2.456
+    "reduced-size": 2102,
+    "final-size": 2.102
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/mark_all_threads_as_read_modal/mark_all_threads_as_read_modal.scss": {
     "original-size": 0.643,
@@ -3097,8 +3097,8 @@
         { "text-align: center": "text-center" }
       ]
     },
-    "reduced-size": 576,
-    "final-size": 0.576
+    "reduced-size": 532,
+    "final-size": 0.532
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/attachments/attachment_card/attachment_card.scss": {
     "original-size": 0.121,
@@ -3112,8 +3112,8 @@
         { "min-width: 0": "min-w-0" }
       ]
     },
-    "reduced-size": 56,
-    "final-size": 0.056
+    "reduced-size": 54,
+    "final-size": 0.054
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/attachments/file_card/file_card.scss": {
     "original-size": 1.44,
@@ -3127,11 +3127,11 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 1371,
-    "final-size": 1.371
+    "reduced-size": 1181,
+    "final-size": 1.181
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/thread_item.scss": {
-    "original-size": 3.394,
+    "original-size": 3.39,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3142,8 +3142,8 @@
         { "cursor: pointer": "cursor-pointer" }
       ]
     },
-    "reduced-size": 3326,
-    "final-size": 3.326
+    "reduced-size": 2876,
+    "final-size": 2.876
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_list/thread_list.scss": {
     "original-size": 1.714,
@@ -3156,20 +3156,20 @@
         { "overflow: hidden": "overflow-hidden" }
       ]
     },
-    "reduced-size": 1673,
-    "final-size": 1.673
+    "reduced-size": 1351,
+    "final-size": 1.351
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_menu/thread_menu.scss": {
-    "original-size": 0.185,
+    "original-size": 0.181,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ThreadMenu": [] },
-    "reduced-size": 185,
-    "final-size": 0.185
+    "reduced-size": 177,
+    "final-size": 0.177
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_pane/thread_pane.scss": {
-    "original-size": 1.714,
+    "original-size": 1.712,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3179,8 +3179,8 @@
         { "overflow: hidden": "overflow-hidden" }
       ]
     },
-    "reduced-size": 1673,
-    "final-size": 1.673
+    "reduced-size": 1368,
+    "final-size": 1.368
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads_link/global_threads_link.scss": {
     "original-size": 1.071,
@@ -3192,22 +3192,22 @@
     "final-size": 1.071
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/thread_viewer/thread_viewer.scss": {
-    "original-size": 1.344,
+    "original-size": 1.338,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ThreadViewer": [] },
-    "reduced-size": 1344,
-    "final-size": 1.344
+    "reduced-size": 1182,
+    "final-size": 1.182
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/three_days_left_trial_modal/three_days_left_trial_modal.scss": {
-    "original-size": 3.147,
+    "original-size": 3.145,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ThreeDaysLeftTrialModal": [] },
-    "reduced-size": 3147,
-    "final-size": 3.147
+    "reduced-size": 2477,
+    "final-size": 2.477
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/toast/toast.scss": {
     "original-size": 1.995,
@@ -3230,17 +3230,17 @@
       ],
       ".tooltip__shortcut--txt": [{ "opacity: 0.6": "opacity-60" }]
     },
-    "reduced-size": 1624,
-    "final-size": 1.624
+    "reduced-size": 1407,
+    "final-size": 1.407
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/tours/crt_tour/collapsed_reply_threads_modal/collapsed_reply_threads_modal.scss": {
-    "original-size": 0.798,
+    "original-size": 0.796,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".modal": [] },
-    "reduced-size": 798,
-    "final-size": 0.798
+    "reduced-size": 713,
+    "final-size": 0.713
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal.scss": {
     "original-size": 3.097,
@@ -3248,8 +3248,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".TrialBenefitsModal": [] },
-    "reduced-size": 3097,
-    "final-size": 3.097
+    "reduced-size": 2519,
+    "final-size": 2.519
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal_step.scss": {
     "original-size": 2.188,
@@ -3257,8 +3257,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".TrialBenefitsModalStep": [] },
-    "reduced-size": 2188,
-    "final-size": 2.188
+    "reduced-size": 1736,
+    "final-size": 1.736
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal_step_more.scss": {
     "original-size": 0.837,
@@ -3266,8 +3266,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".TrialBenefitsModalStepMore": [] },
-    "reduced-size": 837,
-    "final-size": 0.837
+    "reduced-size": 725,
+    "final-size": 0.725
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/update_user_group_modal/update_user_group_modal.scss": {
     "original-size": 0.917,
@@ -3275,8 +3275,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".user-groups-modal-update": [] },
-    "reduced-size": 917,
-    "final-size": 0.917
+    "reduced-size": 729,
+    "final-size": 0.729
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/user_group_popover/user_group_popover.scss": {
     "original-size": 0.057,
@@ -3297,13 +3297,13 @@
     "final-size": 13.457
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/view_user_group_modal/view_user_group_modal.scss": {
-    "original-size": 5.119,
+    "original-size": 5.117,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".view-user-groups-modal": [] },
-    "reduced-size": 5119,
-    "final-size": 5.119
+    "reduced-size": 3961,
+    "final-size": 3.961
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/welcome_post_renderer/index.scss": {
     "original-size": 0.332,
@@ -3311,8 +3311,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".WelcomePostRenderer": [] },
-    "reduced-size": 332,
-    "final-size": 0.332
+    "reduced-size": 284,
+    "final-size": 0.284
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/admin_console/admin_panel.scss": {
     "original-size": 1.35,
@@ -3320,11 +3320,11 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".AdminPanel": [] },
-    "reduced-size": 1350,
-    "final-size": 1.35
+    "reduced-size": 1102,
+    "final-size": 1.102
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/header/header.scss": {
-    "original-size": 0.677,
+    "original-size": 0.673,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3335,8 +3335,8 @@
         { "justify-content: space-between": "justify-between" }
       ]
     },
-    "reduced-size": 597,
-    "final-size": 0.597
+    "reduced-size": 525,
+    "final-size": 0.525
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/channels_input.scss": {
     "original-size": 5.491,
@@ -3344,8 +3344,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".ChannelsInput": [] },
-    "reduced-size": 5491,
-    "final-size": 5.491
+    "reduced-size": 4518,
+    "final-size": 4.518
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/dropdown_input_hybrid.scss": {
     "original-size": 2.479,
@@ -3368,20 +3368,20 @@
       ".success": [],
       ".Input_container": [{ "width: 100%": "w-full" }]
     },
-    "reduced-size": 4194,
-    "final-size": 4.194
+    "reduced-size": 3579,
+    "final-size": 3.579
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/password_input/password_input.scss": {
-    "original-size": 0.634,
+    "original-size": 0.63,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".password-input": [] },
-    "reduced-size": 634,
-    "final-size": 0.634
+    "reduced-size": 568,
+    "final-size": 0.568
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/url_input/url_input.scss": {
-    "original-size": 1.659,
+    "original-size": 1.655,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3391,11 +3391,11 @@
         { "flex-direction: column": "flex-col" }
       ]
     },
-    "reduced-size": 1612,
-    "final-size": 1.612
+    "reduced-size": 1313,
+    "final-size": 1.313
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/users_emails_input.scss": {
-    "original-size": 6.691,
+    "original-size": 6.689,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3408,8 +3408,8 @@
         { "width: 100%": "w-full" }
       ]
     },
-    "reduced-size": 6601,
-    "final-size": 6.601
+    "reduced-size": 5417,
+    "final-size": 5.417
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/links/link.scss": {
     "original-size": 0.925,
@@ -3420,17 +3420,17 @@
       ".style-button": [{ "font-weight: 600": "font-600" }],
       ".style-link": [{ "display: inline-block": "inline-block" }]
     },
-    "reduced-size": 876,
-    "final-size": 0.876
+    "reduced-size": 834,
+    "final-size": 0.834
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu.scss": {
-    "original-size": 3.664,
+    "original-size": 3.662,
     "unused": false,
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".Menu": [] },
-    "reduced-size": 3664,
-    "final-size": 3.664
+    "reduced-size": 2944,
+    "final-size": 2.944
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_group.scss": {
     "original-size": 0.206,
@@ -3438,8 +3438,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".MenuGroup": [] },
-    "reduced-size": 206,
-    "final-size": 0.206
+    "reduced-size": 190,
+    "final-size": 0.19
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_header.scss": {
     "original-size": 0.418,
@@ -3447,11 +3447,11 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".Menu": [] },
-    "reduced-size": 418,
-    "final-size": 0.418
+    "reduced-size": 362,
+    "final-size": 0.362
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/menu_item.scss": {
-    "original-size": 8.41,
+    "original-size": 8.402,
     "unused": false,
     "empty": false,
     "unused-classes": {
@@ -3469,11 +3469,11 @@
       ],
       ".SubMenu__icon-right": [{ "float: right": "float-right" }]
     },
-    "reduced-size": 7836,
-    "final-size": 7.836
+    "reduced-size": 6282,
+    "final-size": 6.282
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/restricted_indicator.scss": {
-    "original-size": 1.042,
+    "original-size": 1.038,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3487,8 +3487,8 @@
         { "align-items: center": "items-center" }
       ]
     },
-    "reduced-size": 955,
-    "final-size": 0.955
+    "reduced-size": 859,
+    "final-size": 0.859
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_modals/submenu_modal/submenu_modal.scss": {
     "original-size": 3.377,
@@ -3500,7 +3500,7 @@
     "final-size": 3.377
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_wrapper.scss": {
-    "original-size": 0.65,
+    "original-size": 0.648,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3508,11 +3508,11 @@
       ".MenuWrapper": [{ "position: relative": "relative" }],
       ".MenuWrapperAnimation": []
     },
-    "reduced-size": 626,
-    "final-size": 0.626
+    "reduced-size": 553,
+    "final-size": 0.553
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/modals/full_screen_modal.scss": {
-    "original-size": 1.545,
+    "original-size": 1.543,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3526,8 +3526,8 @@
         { "height: 100%": "h-full" }
       ]
     },
-    "reduced-size": 1444,
-    "final-size": 1.444
+    "reduced-size": 1208,
+    "final-size": 1.208
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/public-private-selector/public-private-selector.scss": {
     "original-size": 3.3,
@@ -3540,8 +3540,8 @@
         { "flex-direction: row": "flex-row" }
       ]
     },
-    "reduced-size": 3256,
-    "final-size": 3.256
+    "reduced-size": 2703,
+    "final-size": 2.703
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/separator/notification-separator.scss": {
     "original-size": 0.184,
@@ -3549,8 +3549,8 @@
     "empty": false,
     "unused-classes": {},
     "replaced-tailwind": { ".NotificationSeparator": [] },
-    "reduced-size": 184,
-    "final-size": 0.184
+    "reduced-size": 164,
+    "final-size": 0.164
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/separator/separator.scss": {
     "original-size": 1.796,
@@ -3565,8 +3565,8 @@
         { "pointer-events: none": "pointer-events-none" }
       ]
     },
-    "reduced-size": 1705,
-    "final-size": 1.705
+    "reduced-size": 1429,
+    "final-size": 1.429
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/team_icon/team_icon.scss": {
     "original-size": 2.589,
@@ -3590,8 +3590,8 @@
         { "text-transform: uppercase": "uppercase" }
       ]
     },
-    "reduced-size": 2343,
-    "final-size": 2.343
+    "reduced-size": 2079,
+    "final-size": 2.079
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/users/avatar/avatar.scss": {
     "original-size": 1.672,
@@ -3601,11 +3601,11 @@
     "replaced-tailwind": {
       ".Avatar": [{ "user-select: none": "select-none" }]
     },
-    "reduced-size": 1649,
-    "final-size": 1.649
+    "reduced-size": 1396,
+    "final-size": 1.396
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/users/avatars/avatars.scss": {
-    "original-size": 1.486,
+    "original-size": 1.482,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3616,8 +3616,8 @@
         { "justify-content: center": "justify-center" }
       ]
     },
-    "reduced-size": 1406,
-    "final-size": 1.406
+    "reduced-size": 1204,
+    "final-size": 1.204
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/packages/components/src/pulsating_dot/pulsating_dot.scss": {
     "original-size": 0.637,
@@ -3633,11 +3633,11 @@
         { "margin-left: auto": "ml-auto" }
       ]
     },
-    "reduced-size": 517,
-    "final-size": 0.517
+    "reduced-size": 442,
+    "final-size": 0.442
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/packages/components/src/tour_tip/tour_tip.scss": {
-    "original-size": 11.129,
+    "original-size": 11.121,
     "unused": false,
     "empty": false,
     "unused-classes": {},
@@ -3645,8 +3645,8 @@
       ".tour-tip": [{ "display: flex": "flex" }],
       ".tippy-blue-style": []
     },
-    "reduced-size": 11110,
-    "final-size": 11.11
+    "reduced-size": 9477,
+    "final-size": 9.477
   },
   "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/plugins/call_button/call_button.scss": {
     "original-size": 3.094,

@@ -218,7 +218,8 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
                 params.removedBlocks[params.filePath]["replaced-tailwind"][
                   className
                 ]["converted"] = curVal;
-                fs.writeFileSync(params.filePath, root.toString());
+                const processed = root.toString();
+                fs.writeFileSync(params.filePath, prettier.format(processed,{parser:"scss"}));
               }
             });
         }

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import postcss from "postcss";
 import scss from "postcss-scss";
+import * as prettier from "prettier";
 const __dirname = path.resolve();
 
 let counter = 0;
@@ -89,9 +90,7 @@ async function removeClasses(
       ),
     ])
       .process(css, { from: undefined, parser: scss })
-      .then((result) => {
-
-      })
+      .then((result) => {})
       .catch((error) => {
         console.error(error);
       });
@@ -146,14 +145,17 @@ const removeUnusedClasses = postcss.plugin(
               styleImports
             );
             if (!boolVal) {
-              // console.log(className + "classs is unused");
               removedBlocks[filePath]["unused-classes"][
                 classes[0].substring(1)
               ] = codeBlock.replace(classes[0], "");
 
               // Uncommet to start removal \\
               rule.remove();
-              fs.writeFileSync(filePath, root.toString(), (err) => err && console.error(err));
+              const processed = root.toString();
+              fs.writeFileSync(
+                filePath,
+                await prettier.format(processed, { parser: "scss" })
+              );
             }
           }
         }

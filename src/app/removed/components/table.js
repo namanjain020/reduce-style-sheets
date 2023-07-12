@@ -11,6 +11,8 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+
 function Table(props) {
   let variable = 10;
   // const targetDiv = document.getElementById("currentBlock");
@@ -18,9 +20,19 @@ function Table(props) {
     // targetDiv.style.visibility = "visible";
     // alert("Hello")
   };
+  
+  function checkEmpty(file) {
+    return result[file]["unused-classes"].length;
+  }
+  
+
+
   let result = structuredClone(props.data);
   const files = Object.keys(result);
-  const temp = files.map((file) => (
+  const tempo = files.filter((file) => (result[file]['unused-classes'].length>0));
+  console.log(tempo);
+  const temp = files
+  .map((file) => (
     <div key={file.id}>
       <AccordionItem>
         <div className="current border-2">

@@ -25,9 +25,7 @@ const alias = {
   "spr-base/": "../spr-base/",
   "spr-main-web/": "../../apps/spr-main-web/",
   "@sprinklr/modules/": "../../packages/modules/src/",
-  "@sprinklr/modules/src/": "../../packages/modules/src/",
 
-  "@sprinklr/modules": "../sprinklr-app-client/packages/modules/src/",
   "@mattermost/client": "packages/client/src",
   "@mattermost/components": "packages/components/src",
   "@mattermost/types/": "packages/types/src/",

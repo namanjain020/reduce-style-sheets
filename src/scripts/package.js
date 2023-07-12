@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import prettier from "prettier";
+import * as prettier from "prettier";
 
 import { fileSystem } from "./fileSystem.js";
 import { importMap } from "./importMap.js";
@@ -37,7 +37,6 @@ async function wrapper(dir) {
     styleImports = {},
     result = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
-
   await stylesheetRemover(dir, importsTo, styleImports, result);
   setTimeout(async () => {
     await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
@@ -46,9 +45,9 @@ async function wrapper(dir) {
       setTimeout(() => {
         finalTraverse(dir, importsTo, styleImports, result);
         trigger(importsFrom, importsTo, styleImports, result);
-      }, 60000);
-    }, 60000);
-  }, 60000);
+      }, 90000);
+    }, 90000);
+  }, 90000);
 
   //   setTimeout(() => {
   // await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
@@ -86,7 +85,7 @@ const trigger = (importsFrom, importsTo, styleImports, result) => {
       "./logs/removedBlocks.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 60000);
+  }, 90000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";

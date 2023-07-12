@@ -5,6 +5,8 @@ import MergeRequest from "../components/MergeRequest";
 import "./removed.css";
 import CodeBlock from "../components/CodeBlock";
 import Table from "./components/table.js";
+import RightPane from "./rightPane.js";
+import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 // If you're using Immutable.js: `npm i --save immutable`
 import { Map } from "immutable";
 import Overall from "./components/overall.js";
@@ -143,23 +145,16 @@ export default function Home() {
   ];
   return (
     <div className={roboto.className}>
-      <>
-        {/* <Sidebar class="${styles.class} "> */}
-        <div className="mx-20  ">
-          <h1 className=" text-5xl p-3">Reduce StyleSheets</h1>
-          <h2 className="text-3xl p-4 ">Style reduced</h2>
-        </div>
-        <Overall data={obj}></Overall>
-        {/* <UnifiedDiffView diff={diff}/> */}
-        {/* <MergeRequest diff={diff} /> */}
-        {/* <CodeBlock content={content}/> */}
-        <Table data={obj}></Table>
-
-        <div className="pl-5">
-          {/* <JSONTree theme={theme} data={newobj} />; */}
-        </div>
-        {/* </Sidebar> */}
-      </>
+      <div className="flex">
+        <Card>
+          <CardBody>
+            <p>
+            Hello
+            </p>
+          </CardBody>
+        </Card>
+        <RightPane />
+      </div>
     </div>
   );
 }

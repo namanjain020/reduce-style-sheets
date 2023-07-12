@@ -3,7 +3,7 @@ import path from "path";
 
 import postcss from "postcss";
 import scss from "postcss-scss";
-
+import * as prettier from "prettier";
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 import _generator from "@babel/generator";
@@ -16,10 +16,10 @@ let counterT = 0,
   counterF = 0;
 
 async function init(filePath, result) {
-  return new Promise((res,rej) =>{
+  return new Promise((res, rej) => {
     const stats = fs.statSync(filePath);
     const fileSize = stats.size;
-  
+
     //Initialize result block;
     result[filePath] = {};
     result[filePath]["original-size"] = fileSize / 1000;
@@ -29,7 +29,7 @@ async function init(filePath, result) {
     result[filePath]["replaced-tailwind"] = {};
     result[filePath]["reduced-size"] = fileSize / 1000;
     res();
-  })
+  });
 }
 
 export async function stylesheetRemover(
@@ -95,8 +95,6 @@ export async function stylesheetRemover(
   return;
 }
 
-
-
 async function helper1() {}
 
 async function helper2(filePath, importsTo) {
@@ -127,7 +125,13 @@ async function helper2(filePath, importsTo) {
     });
     const modCode = generator(ast).code;
     // Uncomment when needed \\
-    fs.writeFileSync(file, modCode);
+    let parserObj;
+    if (filePath.endsWith("js") || filePath.endsWith("jsx")) {
+      parserObj = "babel";
+    } else {
+      parserObj = "typescript";
+    }
+    fs.writeFileSync(file, prettier.format(modCode, { parser: parserObj }));
   });
   return;
 }

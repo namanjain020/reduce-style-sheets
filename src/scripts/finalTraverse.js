@@ -10,7 +10,6 @@ import _generator from "@babel/generator";
 const generator = _generator.default;
 const traverse = _traverse.default;
 
-let totalSize=0;
 
 export async function finalTraverse(
   unresolvedDir,
@@ -41,7 +40,6 @@ export async function finalTraverse(
         } else if (stats.isFile()) {
           const extension = path.extname(filePath);
           if ([".css", ".scss", ".less"].includes(extension)) {
-
             const stats = fs.statSync(filePath);
             const fileSize = stats.size;
             result[filePath]["final-size"] = fileSize / 1000;
@@ -53,5 +51,3 @@ export async function finalTraverse(
   // console.log("out");
   return;
 }
-
-

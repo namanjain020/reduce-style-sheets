@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import postcss from "postcss";
 import { TailwindConverter } from "css-to-tailwindcss";
-
+import * as prettier from "prettier";
 import camelCase from "./bins/camelCase.js";
 import temp from "./bins/configured.js";
 
@@ -38,44 +38,46 @@ const converter = new TailwindConverter({
   },
 });
 
-function regexHelper(className, fileName, importsFrom, recur, newStr) {
-  if (recur > 5) {
-    return "Stop Checking";
+async function regexHelper(className, fileName, importsFrom, visited, newStr) {
+  if (visited.includes(fileName)) {
+    return;
   }
+  visited.push(fileName);
   // console.log(fileName);
   const content = fs.readFileSync(fileName, "utf-8");
   const str = `${className}`;
   // const regex = new RegExp(`\\b${className}\\b`);
   if (content.includes(className)) {
     addToScript(className, fileName, newStr);
-  } else {
-    if (fileName in importsFrom) {
-      for (let idx = 0; idx < importsFrom[fileName]["scripts"].length; idx++) {
-        regexHelper(
-          className,
-          importsFrom[fileName]["scripts"][idx],
-          importsFrom,
-          recur + 1
-        );
-      }
+  }
+  if (fileName in importsFrom) {
+    for (let idx = 0; idx < importsFrom[fileName]["scripts"].length; idx++) {
+      await regexHelper(
+        className,
+        importsFrom[fileName]["scripts"][idx],
+        importsFrom,
+        visited,
+        newStr
+      );
     }
   }
   return;
 }
 
-function anotherHelper(className, params, newStr) {
+async function anotherHelper(className, params, newStr) {
   let arr = [params.filePath];
+  let visited = [];
   if (params.filePath in params.styleImports) {
     params.styleImports[params.filePath].forEach((file) => arr.push(file));
   }
   for (let idx = 0; idx < arr.length; idx++) {
     if (arr[idx] in params.importsTo) {
       for (let idx2 = 0; idx2 < params.importsTo[arr[idx]].length; idx2++) {
-        regexHelper(
+        await regexHelper(
           className,
           params.importsTo[arr[idx]][idx2],
           params.importsFrom,
-          1,
+          visited,
           newStr
         );
       }
@@ -85,7 +87,10 @@ function anotherHelper(className, params, newStr) {
 }
 
 function addToScript(className, filePath, newStr) {
-  if(!newStr)
+  if (!newStr) {
+    return;
+  }
+  if(newStr.length)
   {
     return;
   }
@@ -104,31 +109,22 @@ function addToScript(className, filePath, newStr) {
   });
 
   traverse(ast, {
-    JSXAttribute(path) {
+    StringLiteral(path) {
       const regex = new RegExp(
         `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
       );
       // Using AST notation we can grab the className attribut for all the react tags
-      if (
-        (path.node.name.name === "className" ||
-          path.node.name.name === "class") &&
-        path.node.value.type === "StringLiteral" &&
-        regex.test(path.node.value.value)
-      ) {
-        // console.log(className + " converted " + newStr);
-        // changedClass.push(el);
+      if (regex.test(path.node.value)) {
 
-        let baseString = path.node.value.value;
-        const comment = {
-          type: "CommentLine",
-          value: `SCRIPT TODO: ${className} class has been converted to util classes`,
-        };
-        // console.log(baseString);
-        path.node.trailingComments = [comment];
-        // const arr = baseString.split(" ");
+        let baseString = path.node.value;
+        // const comment = {
+        //   type: "CommentLine",
+        //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
+        // };
+        // path.node.trailingComments = [comment];
         newStr.forEach((util) => {
-          if (!path.node.value.value.includes(util)) {
-            path.node.value.value = path.node.value.value + " " + util;
+          if (!path.node.value.includes(util)) {
+            path.node.value = path.node.value + " " + util;
           }
         });
         // path.node.value.value = baseString + " " + newStr;
@@ -138,7 +134,13 @@ function addToScript(className, filePath, newStr) {
   });
   //Uncomment below two lines to update js files
   const modCode = generator(ast).code;
-  fs.writeFileSync(filePath, modCode);
+  let parserObj;
+  if (filePath.endsWith("js") || filePath.endsWith("jsx")) {
+    parserObj = "babel";
+  } else {
+    parserObj = "typescript";
+  }
+  fs.writeFileSync(filePath, prettier.format(modCode, { parser: parserObj }));
   return;
 }
 
@@ -173,7 +175,6 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
     root.walkRules((rule) => {
       // console.log("Hello");
       const codeBlock = rule.toString();
-      
       // Check if the rule has a class selector
       if (
         rule.selector &&
@@ -204,7 +205,9 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
           !regex.test(rule.selector)
         ) {
           const className = classes[0];
-          params.removedBlocks[params.filePath]["replaced-tailwind"][className] =[];
+          params.removedBlocks[params.filePath]["replaced-tailwind"][
+            className
+          ] = [];
           let count = 0;
           let str = [];
           const utils = Object.keys(temp);
@@ -228,22 +231,31 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
             if (size == arrayOfIndex.length) {
               str.push(util);
               for (let idx = 0; idx < arrayOfIndex.length; idx++) {
-                const obj ={[rule.nodes[arrayOfIndex[idx]-idx].toString()]: util}
-                params.removedBlocks[params.filePath]["replaced-tailwind"][className].push(obj); 
-                rule.nodes[arrayOfIndex[idx]-idx].remove();
+                const obj = {
+                  [rule.nodes[arrayOfIndex[idx] - idx].toString()]: util
+                };
+                params.removedBlocks[params.filePath]["replaced-tailwind"][
+                  className
+                ].push(obj);
+                rule.nodes[arrayOfIndex[idx] - idx].remove();
               }
             }
           });
           console.log(className);
           anotherHelper(className.substring(1), params, str);
           console.log(str);
-          
+
           if (rule.nodes.length == 0) {
             console.log(rule.selector + " is removed");
             rule.remove();
           }
           // let converted = "ABC";
-          fs.writeFileSync(params.filePath, root.toString());
+          const processed = root.toString();
+          fs.writeFileSync(
+            params.filePath,
+            prettier.format(processed, { parser: "scss" })
+          );
+          // fs.writeFileSync(params.filePath, root.toString());
           // converter
           //   .convertCSS(rule.toString())
           //   .then(({ convertedRoot, nodes }) => {
@@ -324,7 +336,7 @@ export async function stylesheetConverter(
         if ([".css", ".scss", ".less"].includes(extension)) {
           const css = fs.readFileSync(params.filePath, "utf8");
           // console.log(css);
-          console.log(filePath);
+          // console.log(filePath);
           convertClasses(params);
           const stats = fs.statSync(filePath);
           params.removedBlocks[params.filePath]["reduced-size"] = stats.size;
