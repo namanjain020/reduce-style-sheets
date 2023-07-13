@@ -80,12 +80,12 @@ export async function stylesheetRemover(
               fs.rmSync(filePath);
             }
             // If file is never imported remove
-            if (!(filePath in styleImports) && !(filePath in importsTo)) {
-              console.log("Non imported file " + filePath);
-              result[filePath]["unused"] = true;
-              // Uncomment when needed \\
-              fs.rmSync(filePath);
-            }
+            // if (!(filePath in styleImports) && !(filePath in importsTo)) {
+            //   console.log("Non imported file " + filePath);
+            //   result[filePath]["unused"] = true;
+            //   // Uncomment when needed \\
+            //   fs.rmSync(filePath);
+            // }
           }
         }
       });

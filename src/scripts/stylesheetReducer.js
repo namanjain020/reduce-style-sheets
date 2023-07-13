@@ -3,9 +3,50 @@ import path from "path";
 import postcss from "postcss";
 import scss from "postcss-scss";
 import * as prettier from "prettier";
+import _traverse from "@babel/traverse";
+const traverse = _traverse.default;
+import _generator from "@babel/generator";
+const generator = _generator.default;
+import parser from "@babel/parser";
 const __dirname = path.resolve();
 
 let counter = 0;
+
+async function checkScript(className, filePath) {
+  let value = false;
+  let pluginArr;
+  if (filePath.endsWith(".ts")) {
+    pluginArr = ["typescript"];
+  } else if (filePath.endsWith(".js") || filePath.endsWith(".jsx")) {
+    pluginArr = ["jsx"];
+  } else if (filePath.endsWith(".tsx")) {
+    pluginArr = ["jsx", "typescript"];
+  }
+  const content = fs.readFileSync(filePath, "utf8");
+  const ast = parser.parse(content, {
+    sourceType: "module",
+    plugins: pluginArr,
+  });
+
+  await traverse(ast, {
+    StringLiteral(path) {
+      if (path.node && path.node.value) {
+        const regex = new RegExp(
+          `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
+        );
+        // Using AST notation we can grab the className attribut for all the react tags
+        if (regex.test(path.node.value)) {
+          value = true;
+        }
+      }
+    },
+  });
+  return value;
+}
+
+
+
+
 
 async function regexHelper(className, fileName, importsFrom, visited) {
   if (visited.includes(fileName)) {
@@ -13,7 +54,7 @@ async function regexHelper(className, fileName, importsFrom, visited) {
   }
   visited.push(fileName);
   const content = fs.readFileSync(fileName, "utf-8");
-  const str = `${className}`;
+  // const str = `${className}`;
   if (content.includes(className)) {
     return true;
   } else {

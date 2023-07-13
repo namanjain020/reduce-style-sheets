@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import postcss from "postcss";
+import simpleVars from "postcss-simple-vars"
 import { TailwindConverter } from "css-to-tailwindcss";
 import * as prettier from "prettier";
 import camelCase from "./bins/camelCase.js";
@@ -20,23 +21,6 @@ import postcssExtend from "postcss-extend";
 
 const __dirname = path.resolve();
 let counter = 0;
-// Tailwind converter used (Abstraction)
-const converter = new TailwindConverter({
-  remInPx: null,
-  // set null if you don't want to convert rem to pixels
-  postCSSPlugins: [postcssNested, postcssImport], // add any postcss plugins to this array
-  tailwindConfig: {
-    // your tailwind config here
-    content: [],
-    theme: {
-      extend: {},
-      supports: {
-        grid: "display: grid",
-        flex: "display: flex",
-      },
-    },
-  },
-});
 
 async function regexHelper(className, fileName, importsFrom, visited, newStr) {
   if (visited.includes(fileName)) {
@@ -139,31 +123,7 @@ async function addToScript(className, filePath, newStr) {
   return;
 }
 
-function atruleHelper(converted, curVal) {
-  const twPlugin = postcss.plugin("tw-plugin", () => {
-    return (root) => {
-      root.walkRules((rule) => {
-        if (
-          rule.nodes.length === 1 &&
-          rule.nodes[0].name &&
-          rule.nodes[0].name === "apply"
-        ) {
-          curVal = rule.nodes[0].params;
-          // console.log(curVal);
-        } else {
-          curVal = null;
-        }
-      });
-    };
-  });
-  postcss([postcssNested, twPlugin])
-    .process(converted, { from: undefined })
-    .then((result) => {})
-    .catch((error) => {
-      console.error(error);
-    });
-  return curVal;
-}
+
 const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
   return (root) => {
     // console.log(root.nodes.length);
@@ -235,6 +195,10 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
               }
             }
           });
+          if(params.removedBlocks[params.filePath]["replaced-tailwind"][className].length<0)
+          {
+              delete params.removedBlocks[params.filePath][className];
+          }
           if(str && str.length > 0)
           {
             console.log(className);
@@ -242,12 +206,10 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
             await anotherHelper(className.substring(1), params, str);
           }
           
-
           if (rule.nodes.length == 0) {
             console.log(rule.selector + " is removed");
             rule.remove();
           }
-          // let converted = "ABC";
           const processed = root.toString();
           fs.writeFileSync(
             params.filePath,
@@ -284,6 +246,10 @@ const convertUsedClasses = postcss.plugin("convert-used-classes", (params) => {
 });
 function convertClasses(params) {
   const css = fs.readFileSync(params.filePath, "utf8");
+  // const processedCss = postcss()
+  //   .use(simpleVars({ silent: true }))
+  //   .process(css)
+  //   .css;
   postcss([convertUsedClasses(params)])
     .process(css, { from: undefined, parser: scss })
     .then((result) => {})

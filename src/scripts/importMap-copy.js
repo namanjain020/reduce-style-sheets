@@ -13,7 +13,6 @@ const alias = {
   "rules/": "../../apps/spr-main-web/src/rules/*",
   "@space/core/": "../../apps/spr-main-web/src/core/*",
   "types/*": "../../apps/spr-main-web/src/types/*",
-
   "@space/typings/": "../../apps/spr-main-web/src/typings/*",
   "@space/client/*": ["../../apps/spr-main-web/src/client/*"],
   "@space/modules/*": ["../../apps/spr-main-web/src/modules/*"],

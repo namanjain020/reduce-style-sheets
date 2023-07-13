@@ -21,9 +21,13 @@ export default function TailwindCodeblock(props) {
   // console.log(classes);
   const newline = "\n";
   const temp = classes.forEach((c) => {
-    codeblock += c + "\n";
-    // obj[]
-    codeblock += "\t" + "property";
+    codeblock += c + "\n\t";
+    if (obj[c]) {
+      obj[c].forEach((property) => {
+        codeblock += JSON.stringify(property)+"\n\t" ;
+      });
+    }
+
     codeblock += newline;
   });
 
