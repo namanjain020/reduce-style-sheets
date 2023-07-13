@@ -26,7 +26,7 @@ export default function RightPane() {
     <div className="w-full">
       <div className="mx-10 p-4">
         <h1 className=" text-5xl p-3">Reduce StyleSheets</h1>
-        <h2 className="text-3xl p-4">testing-app</h2>
+        <h2 className="text-3xl p-4">Testing webapp</h2>
       </div>
       <Overall data={obj}></Overall>
       <Table data={obj}></Table>

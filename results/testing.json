@@ -1,9 +1,11 @@
 {
   "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/common.css": {
-    "original-size": 5.953,
+    "original-size": 6.117,
     "unused": false,
     "empty": false,
-    "unused-classes": {},
+    "unused-classes": {
+      "class-imported-thorugh-stylesheet": "{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    font-family: 'Bellefair', serif;\n    text-align: center;\n}"
+    },
     "replaced-tailwind": {
       ".subheading": [
         { "font-weight: 400": "font-400" },
@@ -12,26 +14,24 @@
       ".container": []
     },
     "reduced-size": 5239,
-    "size-after-unused": 5.953,
+    "size-after-unused": 5.288,
     "final-size": 5.239
   },
-  "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/crew.css": {
-    "original-size": 0.865,
+  "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/crew.scss": {
+    "original-size": 1.295,
     "unused": false,
     "empty": false,
-    "unused-classes": {},
-    "replaced-tailwind": {
-      ".crew": [
-        { "display: flex": "flex" },
-        { "flex-direction: column": "flex-col" },
-        { "align-items: center": "items-center" }
-      ],
-      ".crew-text": [{ "width: 100%": "w-full" }],
-      ".pagination-crew": []
+    "unused-classes": {
+      "crew": " {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n}",
+      "unused-class": " {\n  min-height: 60vh;\n  max-height: 60vh;\n  margin-top: 70px;\n  display: inline-block;\n  font-weight: 400;\n  text-transform: uppercase;\n  mix-blend-mode: normal;\n  opacity: 0.5;\n  font-size: 24px;\n}",
+      "class-with-inherit": " {\n  .children-class {\n    min-height: 60vh;\n    max-height: 60vh;\n    margin-top: 70px;\n    display: inline-block;\n    font-weight: 400;\n    text-transform: uppercase;\n    mix-blend-mode: normal;\n    opacity: 0.5;\n    font-size: 24px;\n  }\n}",
+      "crew-text": " {\n  width: 100%;\n}",
+      "pagination-crew": " {\n  margin-top: -610px;\n}"
     },
-    "reduced-size": 737,
-    "size-after-unused": 0.865,
-    "final-size": 0.712
+    "replaced-tailwind": {},
+    "reduced-size": 670,
+    "size-after-unused": 0.67,
+    "final-size": 0.67
   },
   "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/destination.css": {
     "original-size": 1.622,

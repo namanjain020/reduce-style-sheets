@@ -110,7 +110,6 @@ function Table(props) {
                 />
             </div>
           </AccordionButton>
-
           <AccordionPanel>
             <TailwindCodeBlock tailwind={result[file]["replaced-tailwind"]} />
           </AccordionPanel>
@@ -137,7 +136,6 @@ function Table(props) {
           <TabPanels>
             <TabPanel>
               <div className="bg-slate-100 py-1 font-bold flex p-2">
-                
                 <p className="w-[36rem] py-4 pl-8 flex justify-center">File Name</p>
                 <p className="w-[12rem] py-4  flex justify-center">Size Before</p>
                 <p className=" w-[12rem] py-4  flex justify-center">Size After</p>
@@ -150,7 +148,6 @@ function Table(props) {
             </TabPanel>
             <TabPanel>
               <div className="bg-slate-100 py-1 font-bold flex p-2">
- 
                 <p className="w-[36rem] py-4 pl-8 flex justify-center">File Name</p>
                 <p className="w-[12rem] py-4  flex justify-center">Size Before</p>
                 <p className=" w-[12rem] py-4  flex justify-center">Size After</p>

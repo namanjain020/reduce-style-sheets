@@ -1,0 +1,1097 @@
+{
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/assets/appVariables.scss": {
+    "original-size": 2.17,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 2170,
+    "size-after-unused": 2.17,
+    "final-size": 2.17
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/assets/scss/lite/app.nontheme.scss": {
+    "original-size": 0.035,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 35,
+    "size-after-unused": 0.035,
+    "final-size": 0.035
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/assets/scss/lite/lite.scss": {
+    "original-size": 1.637,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "body-scroll-lock": " {\n  overflow: hidden;\n}",
+      "icon-md": " {\n  @include size(1.4rem);\n}",
+      "contentFadeInEnter": " {\n  animation: fadeInAnimation ease 250ms;\n  animation-iteration-count: 1;\n  animation-fill-mode: forwards;\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 1430,
+    "size-after-unused": 1.43,
+    "final-size": 1.43
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/accountCard/accountCard.scss": {
+    "original-size": 2.461,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "acc-card--actions-lg": " {\n  padding: $acc-actions-padding;\n}",
+      "acc-card-c--dBy": " {\n  @include media('<md') {\n    font-size: $font-size-xsmall;\n  }\n}",
+      "acc-card-ftr-icn": " {\n  @include size(1rem);\n  @include media('>md') {\n    @include size($icon-size-small);\n  }\n}",
+      "acc-card-ftr-icn-sch": " {\n  fill: $in-approval-clr;\n}",
+      "acc-card-ftr-icn-aud": " {\n  fill: $approved-clr;\n}",
+      "acc-card-ftr-icn-rej": " {\n  fill: $rejected-clr;\n}",
+      "acc-card-ftr-txt-rej": " {\n  color: $rejected-clr;\n}",
+      "acc-card-action-button": " {\n  background-color: transparent;\n}"
+    },
+    "replaced-tailwind": {
+      ".acc-card-lg": [],
+      ".acc-card--icn-sm": [],
+      ".acc-card--more-icn": [],
+      ".acc-card--bc": [],
+      ".acc-card-deactive": [],
+      ".acc-card-c": [],
+      ".acc-card--bdy": [],
+      ".acc-card--img": [],
+      ".accDelImgName": [{ "display: flex": "flex" }],
+      ".acc-card--icn": [],
+      ".acc-card--ftr": [{ "right: 0": "right-0" }],
+      ".acc-card--actions": [
+        { "text-align: center": "text-center" },
+        { "background-color: transparent": "bg-transparent" }
+      ],
+      ".acc-card--txt": []
+    },
+    "reduced-size": 1836,
+    "size-after-unused": 1.94,
+    "final-size": 1.816
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/conversationModal/conversationModal.mod.scss": {
+    "original-size": 1.011,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "closeContainer": " {\n  top: $universal-bar-height + $spacer;\n  right: 4 * $spacer;\n\n  .closeButton {\n    height: 5rem !important;\n    width: 5rem !important;\n  }\n\n  &:hover {\n    .closeText {\n      color: white;\n    }\n  }\n}"
+    },
+    "replaced-tailwind": {
+      ".msgConversation": [
+        { "overflow: visible !important": "overflow-visible" }
+      ],
+      ".msgConversationBox": [],
+      ".chatContainer": []
+    },
+    "reduced-size": 761,
+    "size-after-unused": 0.793,
+    "final-size": 0.74
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/detailPane/components/activity/activity.scss": {
+    "original-size": 0.216,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 216,
+    "size-after-unused": 0.216,
+    "final-size": 0.216
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/detailPane/detailPane.scss": {
+    "original-size": 1.086,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "detailPaneActions": " {\n  .msgActions__item {\n    @include spr-rule(background-color, 'spr-ui-01');\n    border: 1px solid;\n    @include spr-rule(border-color, 'spr-clr-grey');\n    @include spr-rule(border-radius, borderRadius-6);\n    @include spr-rule(padding-top, padding-2);\n    @include spr-rule(padding-bottom, padding-2);\n    @include spr-rule(padding-left, padding-3);\n    @include spr-rule(padding-right, padding-3);\n  }\n}",
+      "sideNav": " {\n  .icon {\n    @include size(0.8rem);\n  }\n}",
+      "detailMsg": " {\n  .engagementEntityContainer {\n    @include media('<md') {\n      margin-left: 2 * $spacer;\n    }\n  }\n}"
+    },
+    "replaced-tailwind": { ".workflowDetails": [] },
+    "reduced-size": 486,
+    "size-after-unused": 0.486,
+    "final-size": 0.486
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/assetsNotification/assetsNotification.scss": {
+    "original-size": 0.395,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "asset-notif__full": " {\n  height: 5.6rem;\n}",
+      "asset-notif": " {\n  .asset-notif__ftr--actions {\n    margin-left: auto;\n  }\n}",
+      "asset-notif-spread": " {\n  display: flex;\n  align-items: stretch;\n  justify-content: space-between;\n}",
+      "asset-notif--msg": " {\n  max-width: $message-max-width;\n}",
+      "asset-notif__ftr": " {\n  margin-left: $message-footer-margin;\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 59,
+    "size-after-unused": 0.059,
+    "final-size": 0.059
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/assetsNotification/components/itemDetail/itemDetail.scss": {
+    "original-size": 0.925,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "sprTaskDetail__container": " {\n  border-top: 0.2rem solid $gold;\n  max-height: 46rem;\n  overflow-y: auto;\n}",
+      "postDetail__container": " {\n  border-top: 0.2rem solid $obsidian;\n  max-height: 46rem;\n  overflow-y: auto;\n  .sprMedia {\n    @include size(20rem);\n  }\n  @include media('<sm') {\n    padding: 0.8rem !important;\n  }\n}"
+    },
+    "replaced-tailwind": {
+      ".eventDetail__container": [],
+      ".eventDetail__header": [],
+      ".eventDetail__headTitle": [],
+      ".eventDetail__authorName": [],
+      ".eventDetail__img": [{ "width: 22.4rem": "w-56" }]
+    },
+    "reduced-size": 612,
+    "size-after-unused": 0.612,
+    "final-size": 0.594
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/engagementActivityEntity/engagementActivityEntity.mod.scss": {
+    "original-size": 0.273,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".activityHeader": [],
+      ".activityProfileName": [{ "margin-right: 0.2rem": "mr-0.5" }]
+    },
+    "reduced-size": 273,
+    "size-after-unused": 0.273,
+    "final-size": 0.223
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/engagementEntity.scss": {
+    "original-size": 6.023,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "errorMsgContainer": " {\n  background-color: rgba(255, 96, 96, 0.03);\n  max-height: $error-cont-height;\n  .workflowPropValue {\n    color: $error-color;\n  }\n  .errorText {\n    text-overflow: ellipsis;\n    overflow: hidden;\n    white-space: nowrap;\n  }\n  @include media('<sm') {\n    border: $error-cont-border;\n    border-radius: 0.4rem;\n    margin-bottom: $error-cont-mobile-spacing;\n  }\n}",
+      "sprMedia": " {\n  @include media('<lg') {\n    max-width: 100%;\n    height: 18rem;\n    display: inline-block;\n  }\n}",
+      "engActTitle": " {\n  @include media('<lg') {\n    padding-left: 2 * $spacer;\n  }\n}"
+    },
+    "replaced-tailwind": {
+      ".engagementEntity": [],
+      ".oBParent": [],
+      ".engagementEntityFocused": [],
+      ".footerConversationLabel": []
+    },
+    "reduced-size": 5452,
+    "size-after-unused": 5.452,
+    "final-size": 5.452
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/engagementEntityMixin.scss": {
+    "original-size": 0.534,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 534,
+    "size-after-unused": 0.534,
+    "final-size": 0.534
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/inboundMessage/newsItem/newsFeedItem.scss": {
+    "original-size": 0.901,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "newsItem__hdr": " {\n  display: block; /*http://stackoverflow.com/a/16660746*/\n  width: calc(100% - 1.6rem);\n}"
+    },
+    "replaced-tailwind": { ".newsItem__img--cont": [] },
+    "reduced-size": 795,
+    "size-after-unused": 0.795,
+    "final-size": 0.795
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/postStatistics/postStatistics.scss": {
+    "original-size": 0.22,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "engagementEntity": " {\n  .statisticsContainer {\n    margin-right: 4rem;\n    color: $marble;\n  }\n\n  .statIcn {\n    top: 2px;\n    margin-right: $spacer/2;\n    @include size($icon-size-small);\n  }\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 26,
+    "size-after-unused": 0.026,
+    "final-size": 0.026
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/suggestionMessage/suggestionMessage.scss": {
+    "original-size": 1.699,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "suggestionMsgSection": " {\n  border-radius: 0.5 * $spacer;\n  max-width: $suggestion-section-width;\n  padding: 2 * $spacer;\n  .engagementEntity {\n    border: 0;\n    .engagementEntityContent {\n      padding: 0;\n    }\n  }\n  .msgContent {\n    .sprMedia {\n      width: $msg-content-width;\n      height: auto;\n    }\n  }\n  .asset-card {\n    padding: $asset-card-padding;\n    width: $asset-card-width;\n  }\n  .samAssetLinkSec {\n    padding: $link-asset-padding;\n  }\n  .textContainer {\n    padding: $text-cont-padding;\n  }\n  .samPostUserSection {\n    padding: $sam-post-user-section-padding;\n  }\n  .samAssetLink {\n    margin-left: $link-margin;\n  }\n  .assetWrapper {\n    border: unset;\n    .assetView {\n      .assetFooter {\n        display: none;\n      }\n    }\n  }\n  .msgFooter {\n    display: none;\n  }\n  .msgProfileName {\n    font-size: $suggested-profile-name-font-size;\n  }\n\n  .msgHdrCont {\n    margin-bottom: $suggested-content-hdr-spacing;\n  }\n}",
+      "suggestionMediaRaw": " {\n  border-radius: 0.5 * $spacer;\n  max-width: $suggestion-section-width;\n  padding: 0;\n}"
+    },
+    "replaced-tailwind": { ".suggestionMsgContent": [] },
+    "reduced-size": 649,
+    "size-after-unused": 0.649,
+    "final-size": 0.649
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/taskItem/variants/profileTask/profileTask.mod.scss": {
+    "original-size": 0.306,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 306,
+    "size-after-unused": 0.306,
+    "final-size": 0.306
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/engagementEntity/universalCaseMessage/universalCaseMessage.mod.scss": {
+    "original-size": 0.212,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".dialog": [] },
+    "reduced-size": 212,
+    "size-after-unused": 0.212,
+    "final-size": 0.212
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/faq/FAQDetailsContainer.mod.scss": {
+    "original-size": 0.735,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "faqIcon": " {\n  fill: $faq-icon-color;\n  @include size($faq-icon-size);\n  margin-top: 0.6rem;\n}"
+    },
+    "replaced-tailwind": {
+      ".faqDetails": [{ "max-width: 100%": "max-w-full" }],
+      ".columnAnswer": [],
+      ".faqDescriptionCont": [],
+      ".faqCont": []
+    },
+    "reduced-size": 622,
+    "size-after-unused": 0.641,
+    "final-size": 0.622
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/filter/components/Filter/filter.mod.scss": {
+    "original-size": 0.735,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "activeFilterIcon": " {\n  .filterActionIcon {\n    visibility: visible;\n  }\n}",
+      "filterActionIcon": " {\n  visibility: hidden;\n}",
+      "flex-order-1": " {\n  order: 1;\n}",
+      "blurBg": " {\n  background-color: rgba(255, 255, 255, 0.7);\n  z-index: 2;\n}",
+      "saveNameInput": " {\n  border: 0.1rem solid $ash;\n\n  &:focus {\n    border: 0.1rem solid $active-color;\n  }\n}",
+      "saveOptionsContainer": " {\n  border: 0;\n}"
+    },
+    "replaced-tailwind": {
+      ".filtersHeader": [],
+      ".filterOption": [],
+      ".layoutHeaderLabel": [],
+      ".layout": []
+    },
+    "reduced-size": 366,
+    "size-after-unused": 0.366,
+    "final-size": 0.366
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/filter/components/QuickFilter/quickFilter.mod.scss": {
+    "original-size": 1.528,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "activeActionContainer": " {\n  .actionIcon {\n    visibility: visible;\n    fill: $nickel;\n  }\n\n  .fillActiveColor {\n    fill: $actionIconActiveHoverColor;\n  }\n}",
+      "activeIcon": " {\n  @extend .activeActionContainer;\n  @include iconButtonActive;\n}",
+      "quickFilterLabel": " {\n  overflow-wrap: break-word;\n}",
+      "quickFilterContainer": " {\n  border-bottom: 0.1rem solid $white;\n\n  &:hover {\n    .actionIcon {\n      visibility: visible;\n    }\n  }\n}",
+      "quickFilterBody": " {\n  flex-basis: auto;\n}",
+      "actionContainer": " {\n  border: 0;\n}"
+    },
+    "replaced-tailwind": {
+      ".isSelected": [],
+      ".fillActiveColor": [],
+      ".quickFilter": [],
+      ".quickFilterActions": [],
+      ".actionIcon": [{ "visibility: hidden": "invisible" }],
+      ".filterNameInput": [],
+      ".filterNameInputC": []
+    },
+    "reduced-size": 1007,
+    "size-after-unused": 1.029,
+    "final-size": 0.99
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/filter/components/filterBar/filterBar.mod.scss": {
+    "original-size": 0.462,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".filterCapsule": [{ "line-height: 2rem": "leading-8" }],
+      ".chevronIcon": [],
+      ".filterForm": [],
+      ".filterBar": []
+    },
+    "reduced-size": 441,
+    "size-after-unused": 0.462,
+    "final-size": 0.421
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/hierarchicalConversationItem/hierarchicalConversationItem.scss": {
+    "original-size": 1.178,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "msgConversationContainer": " {\n  .convFooterContainer {\n    .childViewToggle {\n      color: $active-color !important;\n    }\n\n    .replyConversationIcon {\n      fill: $active-color;\n    }\n  }\n\n  .replyConversationIcon {\n    fill: $active-color;\n  }\n\n  .hasThreadConnector.isHighlighted:before {\n    border-color: $active-color;\n  }\n\n  .prevLabelBtn.showThreadConnector:before,\n  .nextLabelBtn.showThreadConnector:before,\n  .prevNextLabelBtn.showThreadConnector:before {\n    border: 0;\n  }\n\n  .is-active > .actionIconClass {\n    fill: $active-color;\n  }\n\n  .originalPostTag {\n    @include txt-bd5();\n    background-color: $granite;\n    color: $snow;\n  }\n\n  .engagementEntityContainer {\n    width: auto !important;\n    padding: 0 !important;\n\n    .msgRightSection {\n      height: auto;\n    }\n\n    .msgContentSection {\n      width: auto;\n    }\n\n    .msgVideoContainer {\n      height: 24rem;\n    }\n\n    .profileHeaderContainer {\n      margin-bottom: $spacer;\n\n      .msgActions {\n        margin-top: $spacer;\n        margin-right: 0;\n        visibility: visible;\n      }\n    }\n\n    .sprMedia {\n      overflow: hidden;\n      border-radius: 0.2rem;\n    }\n  }\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 26,
+    "size-after-unused": 0.026,
+    "final-size": 0.026
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/invalidConfig/invalidConfig.mod.scss": {
+    "original-size": 0.482,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".fadeIn": [], ".fadeInEnter": [] },
+    "reduced-size": 482,
+    "size-after-unused": 0.482,
+    "final-size": 0.482
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/messageActions/messageActions.scss": {
+    "original-size": 0.824,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "msgActionActive": " {\n  color: $active-color;\n\n  .msgActions__icn {\n    fill: $active-color !important;\n  }\n}"
+    },
+    "replaced-tailwind": {
+      ".msgActions__item": [
+        { "display: flex": "flex" },
+        { "user-select: none": "select-none" },
+        { "flex-direction: row": "flex-row" },
+        { "align-items: center": "items-center" },
+        { "cursor: pointer": "cursor-pointer" }
+      ]
+    },
+    "reduced-size": 716,
+    "size-after-unused": 0.716,
+    "final-size": 0.613
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/overlaySearchableCheckboxGroup/overlaySearchableCheckboxGroup.mod.scss": {
+    "original-size": 0.162,
+    "unused": false,
+    "empty": false,
+    "unused-classes": { "searchPopup": " {\n  width: 24rem;\n}" },
+    "replaced-tailwind": { ".searchInput": [], ".searchOptions": [] },
+    "reduced-size": 128,
+    "size-after-unused": 0.128,
+    "final-size": 0.128
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/pageLoadProgressBar/pageLoadProgressBarStyle.scss": {
+    "original-size": 0.277,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 277,
+    "size-after-unused": 0.277,
+    "final-size": 0.277
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/planner/components/monthViewItemsStream/monthViewItemsStream.mod.scss": {
+    "original-size": 0.417,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".monthViewItemContainer": [] },
+    "reduced-size": 429,
+    "size-after-unused": 0.417,
+    "final-size": 0.429
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/planner/components/weekViewItem/weekViewItem.mod.scss": {
+    "original-size": 0.464,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "itemContainer": " {\n  border: 0.1rem solid $powder;\n}",
+      "messageCardContent": " {\n  line-height: $msgCardContent__line-height;\n  word-break: break-word;\n  @include text-clamp(3, $msgCardContent__line-height);\n}",
+      "completeContent": " {\n  line-height: $msgCardContent__line-height;\n  word-break: break-word;\n  @include text-clamp(28, $msgCardContent__line-height);\n}",
+      "attachmentHeight": " {\n  height: 9.6rem;\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 69,
+    "size-after-unused": 0.069,
+    "final-size": 0.069
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/planner/styles/calendar.scss": {
+    "original-size": 0.022,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 22,
+    "size-after-unused": 0.022,
+    "final-size": 0.022
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/planner/styles/itemDetail.scss": {
+    "original-size": 0.745,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "eventDetail__container": " {\n  border-top: 0.2rem solid $highlight-secondary-color;\n}",
+      "eventDetail__headTitle": " {\n  width: calc(100% - 2.8rem); /*size of pic*/\n}",
+      "eventDetail__authorName": " {\n  flex: 0 0 auto;\n  &:after {\n    content: '\\00a0';\n  }\n}",
+      "eventDetail__img": " {\n  height: 13.6rem;\n  width: 22.4rem;\n}",
+      "sprTaskDetail__container": " {\n  border-top: 0.2rem solid $gold;\n  max-height: 46rem;\n  overflow-y: auto;\n}",
+      "postDetail__container": " {\n  border-top: 0.2rem solid $obsidian;\n  max-height: 46rem;\n  overflow-y: auto;\n  .sprMedia {\n    @include size(20rem);\n  }\n  @include media('<sm') {\n    padding: 0.8rem !important;\n  }\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 125,
+    "size-after-unused": 0.125,
+    "final-size": 0.125
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/profileBanner/profileBanner.mod.scss": {
+    "original-size": 0.961,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "profileBannerEditButtonIcon": " {\n  fill: $nickel !important;\n}"
+    },
+    "replaced-tailwind": {
+      ".container": [
+        { "flex-direction: row": "flex-row" },
+        { "align-items: center": "items-center" },
+        { "background-size: contain": "bg-contain" }
+      ],
+      ".info": [],
+      ".name": [],
+      ".email": []
+    },
+    "reduced-size": 825,
+    "size-after-unused": 0.899,
+    "final-size": 0.825
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/trendingBoard/components/trendingQuickFilter/trendingQuickFilter.mod.scss": {
+    "original-size": 0.302,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "full-max-width": " {\n  max-width: 100%;\n}",
+      "rightContainer": " {\n  @include flex-container(row nowrap, flex-end, center);\n}",
+      "quickFilterLabel": " {\n  @include txt-h6();\n  color: $charcoal;\n}"
+    },
+    "replaced-tailwind": {
+      ".blurBg": [{ "top: 0": "top-0" }, { "left: 0": "left-0" }]
+    },
+    "reduced-size": 120,
+    "size-after-unused": 0.12,
+    "final-size": 0.099
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/components/userDetails/tabs/platformLinksTab/platformLinks.mod.scss": {
+    "original-size": 0.536,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".platformLinksContainer": [
+        { "padding-top: 0": "py-0" },
+        { "padding-bottom: 0": "py-0" }
+      ]
+    },
+    "reduced-size": 536,
+    "size-after-unused": 0.536,
+    "final-size": 0.497
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/assetManager/assetBoard/detailAssetBoard.mod.scss": {
+    "original-size": 0.936,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".createdDate": [] },
+    "reduced-size": 936,
+    "size-after-unused": 0.936,
+    "final-size": 0.936
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/assetManager/assetManager.scss": {
+    "original-size": 0.438,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "aM-assetImageEditor": " {\n  .imageEditor {\n    left: $nav-bar-width !important; /*classes in imageEditor are applied by id #sprImageEditor*/\n  }\n}",
+      "aM-assetEditorContainer": " {\n  width: calc(100% - #{$nav-bar-width});\n  .assetEdHeader {\n    font-weight: 600;\n  }\n}"
+    },
+    "replaced-tailwind": { ".emptyMessageCont": [] },
+    "reduced-size": 179,
+    "size-after-unused": 0.179,
+    "final-size": 0.179
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/campaigns/components/campaignAssetsOverlayPane/components/campaignAssetsList/campaignAssetsList.mod.scss": {
+    "original-size": 1.494,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "rightOverlayPane": " {\n  height: 100%;\n  width: $campaign-assets-list-workspace-width;\n  top: 0;\n  right: 0;\n  z-index: 1;\n}",
+      "transition": " {\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n}",
+      "campaignAssetsListWorkspace": " {\n  margin-bottom: 2.5 * $spacer;\n}",
+      "emptyMsgContainer": " {\n  @extend .campaignAssetsListWorkspace;\n  height: 85vh;\n}",
+      "campaignsBody": " {\n  height: calc(100% - #{$campaign-info-cont-height});\n}"
+    },
+    "replaced-tailwind": {
+      ".campaignAssetsListCont": [],
+      ".campaignAssetsInfoCont": [],
+      ".campaignAssetMedia": [
+        { "object-fit: cover": "object-cover" },
+        { "position: relative": "relative" },
+        { "max-width: 100%": "max-w-full" }
+      ],
+      ".campaignAssetFooter": []
+    },
+    "reduced-size": 987,
+    "size-after-unused": 1.049,
+    "final-size": 0.987
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/scss/homePage.mod.scss": {
+    "original-size": 1.129,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".homePageItemsContainer": [],
+      ".emptyViewIcon": []
+    },
+    "reduced-size": 1129,
+    "size-after-unused": 1.129,
+    "final-size": 1.129
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/scss/mixins.scss": {
+    "original-size": 0.204,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 204,
+    "size-after-unused": 0.204,
+    "final-size": 0.204
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/scss/rightSection.mod.scss": {
+    "original-size": 0.546,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "rightSection": " {\n  :global {\n    .resonance {\n      @include spr-rule(margin-bottom, margin-2);\n    }\n\n    .resonance__progress__container {\n      background-color: $azure;\n      height: 0.5rem;\n      border-radius: $resonanceBar-border-radius;\n      @include spr-rule(width, width-full);\n    }\n\n    .resonance__progress {\n      background-color: $green;\n      border-radius: $resonanceBar-border-radius;\n      @include full-height;\n    }\n  }\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 101,
+    "size-after-unused": 0.101,
+    "final-size": 0.101
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/accountsAdditionWidget/components/userAccountsWidget/userAccountsWidget.mod.scss": {
+    "original-size": 0.819,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "widgetContainer": " {\n  width: $widget-container-width;\n  top: 3 * $spacer;\n  left: calc(50% - (#{$homepage-cards-width} / 2) - #{$widget-padding * 2} - #{$widget-container-width});\n  max-height: 95%;\n  :global {\n    .resonance {\n      @include spr-rule(margin-bottom, margin-2);\n    }\n\n    .resonance__progress__container {\n      background-color: $azure;\n      height: 0.5rem;\n      border-radius: $resonanceBar-border-radius;\n      @include spr-rule(width, width-full);\n    }\n\n    .resonance__progress {\n      background-color: $green;\n      border-radius: $resonanceBar-border-radius;\n      @include full-height;\n    }\n  }\n}"
+    },
+    "replaced-tailwind": { ".overlay": [] },
+    "reduced-size": 192,
+    "size-after-unused": 0.192,
+    "final-size": 0.192
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/assetCard/assetCard.mod.scss": {
+    "original-size": 1.167,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "assetInfo": " {\n  height: $asset-card-info-height;\n}",
+      "assetTile": " {\n  &:hover {\n    @include spr-rule(box-shadow, spr-shadow-01);\n    transition: box-shadow 0.1s linear;\n  }\n  &:not(:last-child) {\n    margin-right: $spacer * 2;\n  }\n}",
+      "publishIconCnt": " {\n  background-color: $charcoal;\n  opacity: 0.9;\n  right: $spacer * 1.5;\n  bottom: $spacer * 1.5 + $asset-card-info-height;\n}"
+    },
+    "replaced-tailwind": {
+      ".assetsContainer": [
+        { "justify-content: space-around": "justify-around" }
+      ],
+      ".assetCard": []
+    },
+    "reduced-size": 762,
+    "size-after-unused": 0.795,
+    "final-size": 0.762
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/campaign/campaignCard.mod.scss": {
+    "original-size": 0.456,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".campaignCardContainer": [
+        { "justify-content: space-around": "justify-around" }
+      ]
+    },
+    "reduced-size": 456,
+    "size-after-unused": 0.456,
+    "final-size": 0.423
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/customEntity/customEntity.mod.scss": {
+    "original-size": 0.458,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".customEntitiesContainer": [
+        { "justify-content: space-around": "justify-around" }
+      ]
+    },
+    "reduced-size": 458,
+    "size-after-unused": 0.458,
+    "final-size": 0.425
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/engagementEntityWidget/components/engagementEntityCard.mod.scss": {
+    "original-size": 0.587,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".engagementContainer": [{ "position: relative": "relative" }],
+      ".bottomDivider": []
+    },
+    "reduced-size": 564,
+    "size-after-unused": 0.587,
+    "final-size": 0.564
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/engagementEntityWidget/engagementEntityWidget.mod.scss": {
+    "original-size": 0.463,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".taskEngEntityWidget": [] },
+    "reduced-size": 463,
+    "size-after-unused": 0.463,
+    "final-size": 0.463
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/products/productCard.mod.scss": {
+    "original-size": 0.455,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".productCardContainer": [
+        { "justify-content: space-around": "justify-around" }
+      ]
+    },
+    "reduced-size": 455,
+    "size-after-unused": 0.455,
+    "final-size": 0.422
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/homePage/widgets/stories/story.mod.scss": {
+    "original-size": 0.563,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".container": [], ".dashboardOverlay": [] },
+    "reduced-size": 563,
+    "size-after-unused": 0.563,
+    "final-size": 0.563
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/insights/components/advanceListeningExplorer/components/explorerStarter.mod.scss": {
+    "original-size": 0.399,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".queryManagerContainer": [{ "height: 100vh": "h-screen" }],
+      ".container": []
+    },
+    "reduced-size": 382,
+    "size-after-unused": 0.399,
+    "final-size": 0.354
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/insights/components/advanceListeningExplorer/components/researchQueryComposer/components/queryComposer/queryComposer.mod.scss": {
+    "original-size": 1.744,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".streamContainer": [],
+      ".searchSection": [],
+      ".queryBuilder": [],
+      ".queryComposerBody": [{ "height: 100vh": "h-screen" }],
+      ".queryContainerSpacing": []
+    },
+    "reduced-size": 1749,
+    "size-after-unused": 1.744,
+    "final-size": 1.725
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/insights/distributedInsights.scss": {
+    "original-size": 0.542,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "insightBodyContainer": " {\n  .customBrandCreationForm {\n    /*have to use !important to override styles from file: core/containers/fullPageForm/fullPageForm.mod.scss*/\n    top: 0 !important;\n    height: 100vh !important;\n    width: calc(100% - #{$nav-bar-width}) !important;\n    left: $nav-bar-width;\n  }\n}"
+    },
+    "replaced-tailwind": { ".dstInsightsApp": [] },
+    "reduced-size": 239,
+    "size-after-unused": 0.239,
+    "final-size": 0.239
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/insights/insightsOverrides.mod.scss": {
+    "original-size": 0.037,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".advancedExportFooter": [{ "left: 0": "left-0" }] },
+    "reduced-size": 37,
+    "size-after-unused": 0.037,
+    "final-size": 0
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/lyearn/components/courseViewer/courseViewer.mod.scss": {
+    "original-size": 0.084,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".container": [{ "height: 100vh": "h-screen" }] },
+    "reduced-size": 84,
+    "size-after-unused": 0.084,
+    "final-size": 0.067
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/navigation/components/userMenu/userProfile.scss": {
+    "original-size": 0.364,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "userProfile_overlay": " {\n  width: $popover-cont-width;\n}"
+    },
+    "replaced-tailwind": {
+      ".userStatusIndicator": [],
+      ".userMenuAvatar": [],
+      ".activeAvatarBorderColor": []
+    },
+    "reduced-size": 308,
+    "size-after-unused": 0.308,
+    "final-size": 0.308
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/navigation/navigation.mod.scss": {
+    "original-size": 1.104,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "publisherIcon": " {\n  background-color: $nav-menu-active-color;\n  @include spr-rule(box-shadow, spr-shadow-02);\n}",
+      "globalFilterIcon": " {\n  background-color: $nav-menu-active-color;\n}",
+      "containerFadeIn": " {\n  animation: fadeInTabs 0.3s ease-in-out;\n}",
+      "platformLinksPopover": " {\n  margin-top: 0;\n  @include spr-rule(margin-left, 'margin-6');\n}",
+      "subMenuChevronContainer": " {\n  &:hover {\n    .subMenuChevron {\n      fill: $active-color;\n    }\n  }\n}"
+    },
+    "replaced-tailwind": {
+      ".userProfile": [],
+      ".logoImg": [{ "object-fit: cover": "object-cover" }],
+      ".menuActive": [],
+      ".overflow": [{ "overflow-y: auto": "overflow-y-auto" }]
+    },
+    "reduced-size": 649,
+    "size-after-unused": 0.67,
+    "final-size": 0.629
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/paid/oneClickAdBuys/oneClickAdBuys.scss": {
+    "original-size": 1.79,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "rfloat": " {\n  float: right;\n}",
+      "lfloat": " {\n  float: left;\n}"
+    },
+    "replaced-tailwind": { ".dstOneClickAdBuys": [] },
+    "reduced-size": 1733,
+    "size-after-unused": 1.733,
+    "final-size": 1.733
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/photoBank/components/folderCard.mod.scss": {
+    "original-size": 0.065,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".folderIcon": [] },
+    "reduced-size": 65,
+    "size-after-unused": 0.065,
+    "final-size": 0.065
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/products/product.mod.scss": {
+    "original-size": 0.08,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".quickViewContainer": [] },
+    "reduced-size": 80,
+    "size-after-unused": 0.08,
+    "final-size": 0.08
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/publisher/components/mediaUploader.scss": {
+    "original-size": 0.468,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 468,
+    "size-after-unused": 0.468,
+    "final-size": 0.468
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/publisher/components/publisher.scss": {
+    "original-size": 1.482,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "properties-section": " {\n  .sprFormFieldTitle {\n    /*space-ui styles is over-riding distributes form-fields, remove this once that is fixed*/\n    @include txt-bd5();\n  }\n}",
+      "quickPublishWindow": " {\n  .active-border-color.active-border-color {\n    border-color: $active-color;\n  }\n  .channelIcnSwitch {\n    &:hover {\n      fill: $active-color;\n    }\n    &.selectedSwitch {\n      fill: $active-color;\n      border-color: $active-color;\n    }\n  }\n\n  .propertiesSection {\n    .customPropSectionLabel {\n      color: $active-color;\n    }\n  }\n}"
+    },
+    "replaced-tailwind": { ".publisher": [] },
+    "reduced-size": 958,
+    "size-after-unused": 0.958,
+    "final-size": 0.958
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/publisher/components/smartPublisher/components/accountsSelector/accountSelector.scss": {
+    "original-size": 1.016,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "account-selector-section": " {\n  .popoverSelectMenu {\n    border-radius: 0 0 2.2rem 2.2rem;\n    overflow: hidden;\n    @include spr-rule(border-top, 'borderWidth-0');\n    @include spr-rule(margin-top, 'margin-0', true);\n    @include spr-rule(border-color, 'spr-border-02');\n    box-shadow: 0 1.2rem 3.4rem 0 rgba(0, 0, 0, 0.1);\n  }\n\n  .Select-input {\n    height: 4.4rem !important;\n    @include spr-rule(font-size, 'fontSize-13');\n    @include spr-rule(font-weight, 'fontWeight-500');\n    display: inline-flex !important;\n  }\n\n  .account-card:hover {\n    .closeIcon {\n      display: flex;\n    }\n  }\n\n  .account-card:first-child {\n    @include spr-rule(margin-left, 'margin--2');\n  }\n\n  .account-selector-closed {\n    border-radius: 2.2rem;\n  }\n\n  .account-selector-opened {\n    border-radius: 2.2rem 2.2rem 0 0;\n  }\n\n  .Select-chevron {\n    top: 1.4rem;\n    right: 1.6rem;\n  }\n\n  .rotate {\n    transform: rotate(180deg);\n  }\n\n  .Select-loading-zone {\n    top: 0.4rem;\n    right: 3.2rem;\n  }\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 26,
+    "size-after-unused": 0.026,
+    "final-size": 0.026
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/publisher/components/smartPublisher/components/editorSection/editorSection.scss": {
+    "original-size": 0.16,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "publish__editor": " {\n  font-size: 1.8rem;\n  overflow: visible;\n  padding: 0 !important; /*todo: why not spr-rule*/\n  line-height: 1.5;\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 26,
+    "size-after-unused": 0.026,
+    "final-size": 0.026
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/publisher/components/smartPublisher/components/errorSection/errorSection.mod.scss": {
+    "original-size": 0.134,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".errorPanel": [] },
+    "reduced-size": 134,
+    "size-after-unused": 0.134,
+    "final-size": 0.134
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/accountCard/accountCard.scss": {
+    "original-size": 0.921,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".settings-card": [{ "overflow: hidden": "overflow-hidden" }],
+      ".settings-card--content": [],
+      ".settings-card--title": [],
+      ".settings-card--desc": [],
+      ".settings-card--img": [{ "background-size: cover": "bg-cover" }],
+      ".settings-card--icon": [
+        { "overflow: hidden": "overflow-hidden" },
+        { "width: 3.2rem": "w-8" },
+        { "height: 3.2rem": "h-8" }
+      ],
+      ".settings-card--ftr": []
+    },
+    "reduced-size": 820,
+    "size-after-unused": 0.921,
+    "final-size": 0.82
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/accountCardContainer/accountCardContainer.scss": {
+    "original-size": 0.227,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {
+      ".settings-card": [{ "overflow: hidden": "overflow-hidden" }]
+    },
+    "reduced-size": 227,
+    "size-after-unused": 0.227,
+    "final-size": 0.207
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/accountCreation/smsAccountCreationBox/smsAccountCreationBox.mod.scss": {
+    "original-size": 0.372,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "smsAccountCreationContainer": " {\n  width: $sms-account-creation-container-width;\n}",
+      "smsAccountCreationBody": " {\n  height: $sms-account-creation-body-height;\n}",
+      "loaderContainer": " {\n  top: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(255, 255, 255, 0.7);\n}"
+    },
+    "replaced-tailwind": {},
+    "reduced-size": 115,
+    "size-after-unused": 0.115,
+    "final-size": 0.115
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/accountPermissionsRenderer/accountPermissionsRenderer.scss": {
+    "original-size": 0.201,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "icnHasPermission": " {\n  @include size(1.2rem);\n  fill: $active-color;\n}",
+      "icnNoPermission": " {\n  @include size(1rem);\n  fill: $charcoal;\n}"
+    },
+    "replaced-tailwind": {
+      ".engageLabel": [{ "margin-right: 4rem": "mr-10" }]
+    },
+    "reduced-size": 66,
+    "size-after-unused": 0.066,
+    "final-size": 0.026
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/channelAccountContainer/channelAccountContainer.scss": {
+    "original-size": 0.89,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".cAC": [], ".cAC--bdy": [] },
+    "reduced-size": 892,
+    "size-after-unused": 0.89,
+    "final-size": 0.892
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/accountSettings/components/accountProfile/accountProfileDetail/accountProfileDetail.mod.scss": {
+    "original-size": 0.608,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "inApprovalIcon": " {\n  fill: $in-approval-clr;\n}",
+      "approvedIcon": " {\n  fill: $approved-clr;\n}",
+      "rejectedIcon": " {\n  fill: $rejected-clr;\n}",
+      "icon": " {\n  @include size($spacer * 4);\n}",
+      "globalErrorMessage": " {\n  border-radius: 0.4rem;\n  background-color: $error-light-bgc;\n  border: solid 0.1rem $error-border-saturated-clr;\n  padding: $spacer $spacer * 1.5;\n}"
+    },
+    "replaced-tailwind": { ".container": [] },
+    "reduced-size": 262,
+    "size-after-unused": 0.262,
+    "final-size": 0.262
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/accountSettings/components/accountProfile/accountProfileEditor/accountProfileEditor.mod.scss": {
+    "original-size": 3.193,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "customLayoutContainer": " {\n  :global {\n    .layout-row-cont {\n      box-shadow: none;\n      padding: 0;\n    }\n    .customEditor {\n      margin-top: 2.4rem;\n      margin-left: $spacer;\n      margin-right: $spacer;\n      &:first-child {\n        margin-top: 0;\n      }\n      .layout-row-cont {\n        box-shadow: inset 0 0 0.4rem 0 $smoke;\n        padding: $spacer * 3;\n        margin-bottom: $spacer * 3;\n\n        @include media('<lg') {\n          box-shadow: none;\n          padding: 0;\n        }\n      }\n    }\n  }\n}"
+    },
+    "replaced-tailwind": {
+      ".container": [],
+      ".footer": [],
+      ".entityEditor": [],
+      ".editor": [],
+      ".flexItemHalf": [{ "width: 50%": "w-1/2" }],
+      ".icon": [],
+      ".status": []
+    },
+    "reduced-size": 2667,
+    "size-after-unused": 2.681,
+    "final-size": 2.667
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/accountSettings/components/accountProfile/accountProfileEditor/common/experiencesEducationsEditor.mod.scss": {
+    "original-size": 0.76,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "addLayoutCont": " {\n  position: absolute;\n  right: 0;\n}",
+      "addIcon": " {\n  fill: $active-color;\n}",
+      "addAction": " {\n  color: $active-color;\n  &:hover {\n    color: $active-color;\n  }\n  :global .icon {\n    fill: $active-color;\n  }\n}"
+    },
+    "replaced-tailwind": {
+      ".closeIconContainer": [
+        { "position: absolute": "absolute" },
+        { "visibility: hidden": "invisible" }
+      ],
+      ".closeIcon": [{ "position: absolute": "absolute" }]
+    },
+    "reduced-size": 540,
+    "size-after-unused": 0.54,
+    "final-size": 0.474
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/accountSettings/components/channelAccountPopup/wechat/wechatAccountPopup.mod.scss": {
+    "original-size": 0.214,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 214,
+    "size-after-unused": 0.214,
+    "final-size": 0.214
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/notificationPreferences/notificationPreferences.scss": {
+    "original-size": 0.272,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".notificationSettingsItemContainer": [] },
+    "reduced-size": 272,
+    "size-after-unused": 0.272,
+    "final-size": 0.272
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/profileSettings/components/profileSettings.mod.scss": {
+    "original-size": 2.625,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "profileBannerField": " {\n  @include media('<md') {\n    margin-bottom: 15 * $spacer !important;\n  }\n  border-bottom: 0 !important;\n}",
+      "fieldHeader": " {\n  font-size: $font-size-normal;\n}"
+    },
+    "replaced-tailwind": {
+      ".banner": [],
+      ".profileBannerSection": [],
+      ".sectionsContainer": [],
+      ".profileBannerContainer": [],
+      ".entitySections": [],
+      ".profileEditorSettingContainer": [],
+      ".profileSettingField": [],
+      ".profileSettingFieldLabel": [],
+      ".profileSettingFieldEmptyValue": [],
+      ".iconValueContainerClassName": [],
+      ".sectionHeader": [],
+      ".footerSection": [],
+      ".footerSectionInner": [],
+      ".loaderCnt": []
+    },
+    "reduced-size": 2437,
+    "size-after-unused": 2.458,
+    "final-size": 2.437
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/securitySettings/securitySettings.scss": {
+    "original-size": 0.415,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": { ".securitySettings_container": [] },
+    "reduced-size": 415,
+    "size-after-unused": 0.415,
+    "final-size": 0.415
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/workspaceSettings/components/userCard/userCard.mod.scss": {
+    "original-size": 0.042,
+    "unused": false,
+    "empty": false,
+    "unused-classes": { "moreIcon": " {\n  transform: rotate(90deg);\n}" },
+    "replaced-tailwind": {},
+    "reduced-size": 0,
+    "size-after-unused": 0,
+    "final-size": 0
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/settings/components/tabs/workspaceSettings/components/userForm/userForm.mod.scss": {
+    "original-size": 0.129,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {},
+    "replaced-tailwind": {},
+    "reduced-size": 129,
+    "size-after-unused": 0.129,
+    "final-size": 0.129
+  },
+  "/Users/nikunjshah/Desktop/work/sprinklr-app-client/apps/distributed-app/modules/stream/stream.scss": {
+    "original-size": 1.616,
+    "unused": false,
+    "empty": false,
+    "unused-classes": {
+      "conversationStreamC": " {\n  @include flex-container($justify: center, $align-items: flex-start);\n}",
+      "conversationStream": " {\n  flex: 1 0 0%;\n  max-height: 56rem;\n}",
+      "convIndent": " {\n  display: flex;\n  fill: $granite;\n  margin-top: 0.8rem;\n  height: 4 * $spacer;\n  align-items: center;\n}",
+      "stream-qA-popover-cnt": " {\n  .quickActionPopupC {\n    background-color: $white;\n    box-shadow: $quickAction-popup-cont-shadow;\n    height: 28rem;\n    width: 27rem;\n    overflow-y: auto;\n  }\n}",
+      "emptyStreamContainer": " {\n  @include media('>md') {\n    width: $engagement-entity-width;\n    background-color: $white;\n    border: 0;\n    @include spr-rule(border-radius, borderRadius-6);\n    .empty_stream_msg {\n      .icon {\n        @include size($empty-stream-icon-width, $empty-stream-icon-height);\n      }\n    }\n  }\n}",
+      "empty_stream_msg": " {\n      .icon {\n        @include size($empty-stream-icon-width, $empty-stream-icon-height);\n      }\n    }"
+    },
+    "replaced-tailwind": {
+      ".stream": [{ "overflow: hidden": "overflow-hidden" }],
+      ".dstStreamEntity": [{ "margin-bottom: 2rem": "mb-5" }]
+    },
+    "reduced-size": 824,
+    "size-after-unused": 0.824,
+    "final-size": 0.781
+  }
+}

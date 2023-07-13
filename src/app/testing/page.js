@@ -39,7 +39,7 @@ export default function Home() {
           </Card>
           </div>
           <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
-          <Card className="hover:bg-slate-100">
+          <Card className=" hover:bg-slate-100">
           <Link href='/testing'>
             <CardBody>
              <p>Testing-repo</p>

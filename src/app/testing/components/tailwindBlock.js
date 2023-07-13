@@ -12,20 +12,31 @@ import { useState } from "react";
 //     ]
 //   },
 
-
-
 export default function TailwindCodeblock(props) {
-  const obj = structuredClone(props.tailwind)  ;
+  const obj = structuredClone(props.tailwind);
+
   const classes = Object.keys(obj);
-    let codeblock =JSON.stringify(obj);
+  let codeblock = "";
+  // console.log(keys);
+  // console.log(classes);
+  const newline = "\n";
+  const temp = classes.forEach((c) => {
+    codeblock += c + "\n\t";
+    if (obj[c]) {
+      obj[c].forEach((property) => {
+        codeblock += JSON.stringify(property)+"\n\t" ;
+      });
+    }
+
+    codeblock += newline;
+  });
+
   return (
     <div>
       <div>
         <p>REPLACED TAILWIND</p>
         <pre>
-            <code>
-                {codeblock}
-            </code>
+          <code>{codeblock}</code>
         </pre>
       </div>
     </div>

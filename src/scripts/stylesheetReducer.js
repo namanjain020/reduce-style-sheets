@@ -45,9 +45,6 @@ async function checkScript(className, filePath) {
 }
 
 
-
-
-
 async function regexHelper(className, fileName, importsFrom, visited) {
   if (visited.includes(fileName)) {
     return false;
