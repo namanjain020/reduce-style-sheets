@@ -20,15 +20,13 @@ let counter = 0;
 const converter = new TailwindConverter({
   remInPx: null,
   // set null if you don't want to convert rem to pixels
-  postCSSPlugins: [postcssNested, postcssImport], // add any postcss plugins to this array
+  postCSSPlugins: [], // add any postcss plugins to this array
   tailwindConfig: {
     // your tailwind config here
     content: [],
     theme: {
       extend: {},
       supports: {
-        grid: "display: grid",
-        flex: "display: flex",
       },
     },
   },

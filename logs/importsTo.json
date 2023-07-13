@@ -1,17 +1,867 @@
 {
-  "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/common.css": [
-    "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/App.js"
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/about_build_modal/about_build_modal_cloud/about_build_modal_cloud.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/about_build_modal/about_build_modal_cloud/about_build_modal_cloud.tsx"
   ],
-  "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/destination.css": [
-    "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/Components/Destination.js"
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/access_problem/access_problem.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/access_problem/index.tsx"
   ],
-  "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/homepage.css": [
-    "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/Components/Homepage.js"
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/actions_menu/actions_menu.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/actions_menu/actions_menu.tsx"
   ],
-  "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/nav.css": [
-    "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/Components/Nav.js"
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/activity_and_insights.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/activity_and_insights.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/insights.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/insights_modal/insights_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/join_channel_modal/join_channel_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/least_active_channels.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/least_active_channels_item/least_active_channels_item.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/least_active_channels_table/least_active_channels_table.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_boards/top_boards.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_boards/top_boards_table/top_boards_table.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_channels/top_channels.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_channels/top_channels_line_chart/top_channels_line_chart.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_channels/top_channels_table/top_channels_table.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_dms_and_new_members/new_members_item/new_members_item.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_dms_and_new_members/new_members_table/new_members_table.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_dms_and_new_members/new_members_total/new_members_total.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_dms_and_new_members/top_dms_and_new_members.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_dms_and_new_members/top_dms_item/top_dms_item.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_dms_and_new_members/top_dms_table/top_dms_table.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_playbooks/top_playbooks.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_playbooks/top_playbooks_table/top_playbooks_table.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_reactions/top_reactions.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_reactions/top_reactions_table/top_reactions_table.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_threads/top_threads.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_threads/top_threads_table/top_threads_table.tsx"
   ],
-  "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/style/technology.css": [
-    "/Users/naman.jain1/Documents/testinng-repos/space-tourism/src/Components/Technology.js"
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/activity_and_insights_link/activity_and_insights_link.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/activity_and_insights_link/activity_and_insights_link.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/card/card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/card/card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/insights_header/insights_header.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/insights_header/insights_header.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/insights_modal/insights_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/insights_modal/insights_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/channel_actions_menu/channel_actions_menu.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/channel_actions_menu/channel_actions_menu.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/least_active_channels_table/least_active_channels_table.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/least_active_channels/least_active_channels_table/least_active_channels_table.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/time_frame_dropdown/time_frame_dropdown.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/time_frame_dropdown/time_frame_dropdown.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_threads/top_threads.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_threads/top_threads.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/activity_and_insights/insights/top_threads/top_threads_table/top_threads_table.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/user_groups_modal/user_groups_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/add_users_to_group_modal/add_users_to_group_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/create_user_groups_modal/create_user_groups_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/update_user_group_modal/update_user_group_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/user_groups_modal/user_groups_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/admin_button_outline/admin_button_outline.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/admin_button_outline/admin_button_outline.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/admin_user_card/admin_user_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/admin_user_card/admin_user_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_history.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_history.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_history_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_history_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_history_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/cloud_trial_banner.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/cloud_trial_banner.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/billing_subscriptions.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limit_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limit_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limit_reached_banner.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limit_reached_banner.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limits.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/limits.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/to_yearly_nudge_banner.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_subscriptions/to_yearly_nudge_banner.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_summary/billing_summary.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_summary/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_summary/upsell_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/billing_summary/upsell_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/company_info_display.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/company_info_display.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/company_info_edit.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/company_info_edit.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/delete_workspace_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/delete_workspace_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/progress_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/progress_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/result_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/result_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/success_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/delete_workspace/success_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/payment_info.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/payment_info.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/payment_info_display.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/payment_info_display.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/payment_info_edit.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/payment_info_edit.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/feature_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/feature_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/plan_details.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/index.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/plan_details.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/plan_pricing.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/billing/plan_details/plan_pricing.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_grid/data_grid.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_grid/data_grid.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_grid/data_grid_header.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_grid/data_grid_row.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_grid/data_grid_search.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/channel_list/channel_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/channel_list/channel_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/custom_policy_form/custom_policy_form.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/custom_policy_form/custom_policy_form.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/data_retention_settings.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/data_retention_settings.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/global_policy_form/global_policy_form.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/global_policy_form/global_policy_form.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/team_list/team_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/data_retention_settings/team_list/team_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/database/migrations_table.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/database/migrations_table.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/feature_discovery/feature_discovery.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/feature_discovery/feature_discovery.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/filter.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/filter.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/filter_list.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/team_filter_dropdown/team_filter_dropdown.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/team_filter_dropdown/team_filter_dropdown.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/filter/team_filter_dropdown/team_filter_dropdown.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/jobs/job_cancel_button.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/jobs/job_cancel_button.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/jobs/table.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/jobs/table.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/enterprise_edition/enterprise_edition.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/enterprise_edition/enterprise_edition_left_panel.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/license_settings.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/license_settings.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/confirm_license_removal_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/confirm_license_removal_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/ee_license_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/ee_license_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/upload_license_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/modals/upload_license_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/renew_license_card/renew_license_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/renew_license_card/renew_license_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/starter_edition/starter_edition.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/starter_edition/starter_left_panel.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/team_edition/team_edition.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/team_edition/team_edition_left_panel.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/trial_license_card/trial_license_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/license_settings/trial_license_card/trial_license_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/member_list_group/member_list_group.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/member_list_group/member_list_group.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/openid_convert/openid_convert.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/openid_convert/openid_convert.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/schema_admin_settings.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/schema_admin_settings.jsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/server_logs/log_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/server_logs/log_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_role/system_role_permissions.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_role/system_role_permission.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_role/system_role_permission_dropdown.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_role/system_role_permissions.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_roles.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_roles/system_roles.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/system_user_detail.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/system_user_detail.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/team_list/abstract_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/team_list/abstract_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/team_list/team_row.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/system_user_detail/team_list/team_row.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/channel/details/channel_profile.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/channel/details/channel_profile.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/channel/list/channel_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/channel/list/channel_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/group/group_users/users_to_remove.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/group/group_users/users_to_remove.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/team/details/team_profile.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/team/details/team_profile.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/team/list/team_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/team_channel_settings/team/list/team_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/user_grid/user_grid.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/user_grid/user_grid.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/workspace-optimization/dashboard.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/workspace-optimization/chips_list.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/workspace-optimization/cta_buttons.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/workspace-optimization/dashboard.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/admin_console/workspace-optimization/overall-score.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/advanced_text_editor/advanced_text_editor.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/advanced_text_editor/advanced_text_editor.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/air_gapped_self_hosted_purchase_modal/content.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/air_gapped_self_hosted_purchase_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/alert_banner.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/alert_banner.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/analytics/true_up_review.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/analytics/true_up_review.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/contact_sales/contact_us.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/contact_sales/contact_us.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/no_internet_connection/no_internet_connection.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/no_internet_connection/no_internet_connection.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/overage_users_banner/overage_users_banner.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/overage_users_banner/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/purchase_link/purchase_link.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/purchase_link/purchase_link.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/renewal_link/renew_link.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/announcement_bar/renewal_link/renewal_link.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/app_bar/app_bar.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/app_bar/app_bar.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/apps_form/apps_form_component.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/apps_form/apps_form_component.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/at_sum_members_mention/notification_from_members_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/at_sum_members_mention/notification_from_members_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/card/card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/card/card.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/card/card_body.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/center_message_lock/index.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/center_message_lock/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_fetch_error/cloud_fetch_error.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_fetch_error/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_invoice_preview/cloud_invoice_preview.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_invoice_preview/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_start_trial/cloud_start_trial_btn.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_start_trial/cloud_start_trial_btn.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_start_trial/request_business_email_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_start_trial/request_business_email_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_subscribe_result_modal/style.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_subscribe_result_modal/error.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_subscribe_result_modal/success.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/index.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/limit_line.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/limit_line.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/mini_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/cloud_usage_modal/mini_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/commercial_support_modal/commercial_support_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/commercial_support_modal/commercial_support_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/accordion/accordion.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/accordion/accordion.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/accordion/accordion_card.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/accordion/message_item.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/auto_height_switcher.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/auto_height_switcher.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/carousel/carousel.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/carousel/carousel.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/carousel/carousel_button.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/circular_chart/circular_chart.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/circular_chart/circular_chart.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/multi_select_cards/index.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/multi_select_cards/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/multi_select_cards/multi_select_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/common/multi_select_cards/multi_select_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/create_user_groups_modal/create_user_groups_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/create_user_groups_modal/create_user_groups_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/category_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/custom_status/custom_status_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/delete_category_modal/delete_category_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/edit_category_modal/edit_category_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/custom_status/custom_status.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/custom_status/custom_status_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/custom_status/custom_status_suggestion.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/date_picker/date_picker.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/date_picker/date_picker.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/delinquency_modal/delinquency_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/delinquency_modal/delinquency_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/delinquency_modal/freemium_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dnd_custom_time_picker_modal/dnd_custom_time_picker_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dnd_custom_time_picker_modal/dnd_custom_time_picker_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/do_verify_email/do_verify_email.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/do_verify_email/do_verify_email.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dot_menu/dot_menu.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dot_menu/dot_menu.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/payment_form.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/downgrade_modal/index.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/address_form.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/payment_form.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/purchase_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/downgrade_modal/index.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/downgrade_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/draft_actions/action.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/draft_actions/action.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/draft_title/draft_title.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/draft_title/draft_title.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/drafts.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/drafts.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/drafts_link/drafts_link.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/drafts_link/drafts_link.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel_body.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel_body.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel_header.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/drafts/panel/panel_header.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dropdown_input.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/dropdown_input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/external_login_button/external_login_button.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/external_login_button/external_login_button.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/feature_restricted_modal/feature_restricted_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/feature_restricted_modal/feature_restricted_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/feedback_modal/feedback.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/feedback_modal/feedback.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_footer/file_preview_modal_footer.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_footer/file_preview_modal_footer.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_header/file_preview_modal_header.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_header/file_preview_modal_header.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_info/file_preview_modal_info.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_info/file_preview_modal_info.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_main_actions/file_preview_modal_main_actions.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_main_actions/file_preview_modal_main_actions.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_main_nav/file_preview_modal_main_nav.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/file_preview_modal_main_nav/file_preview_modal_main_nav.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/image_preview.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_preview_modal/image_preview.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_search_results/file_search_result_item.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/file_search_results/file_search_result_item.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/forward_post_modal/forward_post_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/forward_post_modal/forward_post_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/generic_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/generic_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/Categories/Categories.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/Categories/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/Header/Header.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/Header/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchBar/SearchBar.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchBar/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchGrid/SearchGrid.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchGrid/SearchGrid.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchItem/SearchItem.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/gif_picker/components/SearchItem/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/global_header/left_controls/product_menu/product_menu_list/product_menu_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/global_header/left_controls/product_menu/product_menu_list/product_menu_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/content_layouts/alternate_link.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/content_layouts/alternate_link.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/content_layouts/column.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/content_layouts/column.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/footer.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/footer.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/header.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/header.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/header_footer_route.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/header_footer_route/header_footer_route.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/hint-toast/hint_toast.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/hint-toast/hint_toast.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/icon_message_with_progress_bar/icon_message_with_progress_bar.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/icon_message_with_progress_bar/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/info_toast/info_toast.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/info_toast/info_toast.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/add_to_channels.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/add_to_channels.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invitation_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invitation_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invite_as.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invite_as.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invite_view.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/invite_view.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/no_permissions_view.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/no_permissions_view.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/overage_users_banner_notice/overage_users_banner_notice.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/overage_users_banner_notice/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/result_table.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/result_table.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/result_view.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/invitation_modal/result_view.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/keyboard_shortcuts/keyboard_shortcuts_modal/keyboard_shortcuts_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/keyboard_shortcuts/keyboard_shortcuts_modal/keyboard_shortcuts_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/keyboard_shortcuts/keyboard_shortcuts_sequence/keyboard_shortcuts_sequence.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/keyboard_shortcuts/keyboard_shortcuts_sequence/keyboard_shortcuts_sequence.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/learn_more_trial_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/learn_more_trial_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/learn_more_trial_modal_step.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/learn_more_trial_modal_step.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/start_trial_btn.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/learn_more_trial_modal/start_trial_btn.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/link_tooltip/link_tooltip.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/link_tooltip/link_tooltip.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/login/login.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/login/login.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/login/login_mfa.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/login/login_mfa.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/markdown_image_expand/markdown_image_expand.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/markdown_image_expand/markdown_image_expand.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/menu/sub_menu.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/menu/sub_menu.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/more_channels/more_channels.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/more_channels/more_channels.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/multi_input.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/multi_input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/new_channel_modal/new_channel_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/new_channel_modal/new_channel_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/new_replies_banner/new_replies_banner.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/new_replies_banner/new_replies_banner.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/no_results_indicator/no_results_indicator.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/no_results_indicator/no_results_indicator.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/onboarding_tasks/onboarding_video_modal/onboarding_video_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/onboarding_tasks/onboarding_video_modal/onboarding_video_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/card_image.css": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/card_image.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/input/input.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/card_input.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/dropdown_input_hybrid.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/input/input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/card_input.css": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/card_input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/gather_intent/gather_intent.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/gather_intent/gather_intent.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/gather_intent/gather_intent_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/payment_form/gather_intent/gather_intent_submitted_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/picture_selector.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/picture_selector.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/plugin_marketplace/marketplace_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/plugin_marketplace/marketplace_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_priority/post_priority_picker.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_priority/post_priority_picker.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_reminder_custom_time_picker_modal/post_reminder_custom_time_picker_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_reminder_custom_time_picker_modal/post_reminder_custom_time_picker_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/acknowledgements/post_acknowledgements.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/acknowledgements/post_acknowledgements.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/channel_intro_message/add_members_button.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/channel_intro_message/add_members_button.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/post_attachment_opengraph/post_attachment_opengraph.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/post_attachment_opengraph/post_attachment_opengraph.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/reaction/reaction.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/post_view/reaction/reaction.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/description.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/description.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/launching_workspace.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/launching_workspace.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/page_body.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/page_body.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/plugins.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/plugins.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/preparing_workspace.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/preparing_workspace.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/progress.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/progress.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/single_column_layout.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/single_column_layout.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/title.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/preparing_workspace/title.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/content.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/content.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/self_hosted_content.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/downgrade_team_removal_modal/downgrade_team_removal_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/downgrade_team_removal_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/pricing_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/pricing_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/product_notices_modal/product_notices_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/product_notices_modal/product_notices_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/profile_picture/profile_picture.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/profile_picture/profile_picture.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/profile_popover/profile_popover.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/profile_popover/profile_popover.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/progress_bar.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/progress_bar.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_in_progress_modal/index.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_in_progress_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/icon_message.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/icon_message.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/process_payment.css": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/process_payment_setup.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/purchase.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/purchase_modal/purchase_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/screening_in_progress_modal/content.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/screening_in_progress_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/files_filter_menu.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/files_filter_menu.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/messages_or_files_selector.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/messages_or_files_selector.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/search_results.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_results/search_results.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_shortcut/search_shortcut.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/search_shortcut/search_shortcut.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/seats_calculator/seats_calculator.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/seats_calculator/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/self_hosted_purchase_modal/self_hosted_purchase_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/self_hosted_purchase_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/self_hosted_purchase_modal/success_page.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/self_hosted_purchase_modal/success_page.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/shortcut_key/shortcut_key.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/shortcut_key/shortcut_key.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/should_verify_email/should_verify_email.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/should_verify_email/should_verify_email.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/sidebar/sidebar_channel/channel_pencil_icon/channel_pencil_icon.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/sidebar/sidebar_channel/channel_pencil_icon/channel_pencil_icon.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/sidebar/unread_channel_indicator/unread_channel_indicator.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/sidebar/unread_channel_indicator/unread_channel_indicator.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/signup/signup.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/signup/signup.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/start_trial_modal/start_trial_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/start_trial_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/status_dropdown/status_dropdown.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/status_dropdown/status_dropdown.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/switch_to_yearly_plan_confirm_modal/switch_to_yearly_plan_confirm_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/switch_to_yearly_plan_confirm_modal/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/channel_threads/thread_footer/thread_footer.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/channel_threads/thread_footer/thread_footer.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/common/button/button.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/common/button/button.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/global_threads.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/global_threads.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/mark_all_threads_as_read_modal/mark_all_threads_as_read_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/mark_all_threads_as_read_modal/mark_all_threads_as_read_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/attachments/attachment_card/attachment_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/attachments/attachment_card/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/attachments/file_card/file_card.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/attachments/file_card/file_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/thread_item.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_item/thread_item.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_list/thread_list.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_list/thread_list.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_menu/thread_menu.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_menu/thread_menu.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_pane/thread_pane.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads/thread_pane/thread_pane.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads_link/global_threads_link.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/global_threads_link/global_threads_link.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/thread_viewer/thread_viewer.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/threading/thread_viewer/thread_viewer.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/three_days_left_trial_modal/three_days_left_trial_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/three_days_left_trial_modal/learn_more_action_button.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/three_days_left_trial_modal/three_days_left_trial_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/three_days_left_trial_modal/three_days_left_trial_modal_card.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/toast/toast.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/toast/toast.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/tours/crt_tour/collapsed_reply_threads_modal/collapsed_reply_threads_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/tours/crt_tour/collapsed_reply_threads_modal/collapsed_reply_threads_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal_step.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal_step.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal_step_more.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/trial_benefits_modal/trial_benefits_modal_step_more.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/update_user_group_modal/update_user_group_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/update_user_group_modal/update_user_group_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/user_group_popover/user_group_popover.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/user_group_popover/user_group_popover.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/view_user_group_modal/view_user_group_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/view_user_group_modal/view_user_group_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/welcome_post_renderer/index.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/welcome_post_renderer/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/admin_console/admin_panel.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/admin_console/admin_panel.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/header/header.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/header/header.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/channels_input.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/channels_input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/dropdown_input_hybrid.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/dropdown_input_hybrid.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/password_input/password_input.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/password_input/password_input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/url_input/url_input.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/url_input/url_input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/users_emails_input.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/inputs/users_emails_input.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/links/link.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/links/upgrade_link.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_group.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_group.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_header.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_header.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/menu_item.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/menu_cloud_trial.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/menu_item.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/menu_item_cloud_limit.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/menu_start_trial.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/submenu_item.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/restricted_indicator.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_items/restricted_indicator.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_modals/submenu_modal/submenu_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_modals/submenu_modal/submenu_modal.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_wrapper.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/menu/menu_wrapper.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/modals/full_screen_modal.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/modals/full_screen_modal.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/plugins/index.js"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/public-private-selector/public-private-selector.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/public-private-selector/public-private-selector.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/separator/separator.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/separator/basic-separator.tsx",
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/separator/notification-separator.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/separator/notification-separator.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/separator/notification-separator.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/team_icon/team_icon.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/team_icon/team_icon.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/users/avatar/avatar.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/users/avatar/avatar.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/users/avatars/avatars.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/components/widgets/users/avatars/avatars.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/sass/styles.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/entry.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/packages/components/src/pulsating_dot/pulsating_dot.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/packages/components/src/pulsating_dot/index.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/packages/components/src/tour_tip/tour_tip.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/packages/components/src/tour_tip/tour_tip.tsx"
+  ],
+  "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/plugins/call_button/call_button.scss": [
+    "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/plugins/call_button/call_button.tsx"
   ]
 }

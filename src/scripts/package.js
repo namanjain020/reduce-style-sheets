@@ -10,6 +10,7 @@ import { stylesheetConverter } from "./stylesheetConverterCopy.js";
 import { parsingJSFiles } from "./parsingJSFiles.js";
 import { finalTraverse } from "./finalTraverse.js";
 import { middleTraverse } from "./middleTraverse.js";
+import {variableParse} from "./variableParse.js";
 
 async function deleteAllFilesInDir(dirPath) {
   try {
@@ -36,26 +37,35 @@ async function wrapper(dir) {
   let importsTo = {},
     importsFrom = {},
     styleImports = {},
-    result = {};
+    result = {},
+    globalVariables = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
+  await variableParse(dir, globalVariables);
+  // console.log(globalVariables);
+  // trigger();
   await stylesheetRemover(dir, importsTo, styleImports, result);
   setTimeout(async () => {
     await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
     setTimeout(async () => {
       await middleTraverse(dir, importsTo, styleImports, result);
       setTimeout(async () => {
-        await stylesheetConverter(dir, importsFrom, importsTo, styleImports, result);
+        await stylesheetConverter(
+          dir,
+          importsFrom,
+          importsTo,
+          styleImports,
+          result,globalVariables
+        );
         setTimeout(async () => {
-          await finalTraverse(dir, importsTo, styleImports, result);
           trigger(importsFrom, importsTo, styleImports, result);
-        }, 10000);
-      }, 10000);
-    }, 10000);
-  }, 10000);
-
+        }, 180000);
+      }, 180000);
+    }, 180000);
+  }, 180000);
 }
 const trigger = (importsFrom, importsTo, styleImports, result) => {
-  setTimeout(() => {
+  setTimeout(async () => {
+    await finalTraverse(dir, importsTo, styleImports, result);
     console.log("RESULTS HAVE BEEN PRINTED");
     // console.log(result);
     fs.writeFileSync(
@@ -74,13 +84,13 @@ const trigger = (importsFrom, importsTo, styleImports, result) => {
       "./logs/removedBlocks.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 10000);
+  }, 200000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-let dir = "../../testinng-repos/space-tourism/src";
+// let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
-// let dir = "../../testinng-repos/mattermost-webapp";
+let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";

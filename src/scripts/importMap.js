@@ -5,6 +5,8 @@ import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 import resolve from "enhanced-resolve";
 import { addToObject } from "./bins/addToObject.js";
+import postcss from "postcss";
+import scss from "postcss-scss";
 import { rejects } from "assert";
 const traverse = _traverse.default;
 const resolver = resolve.create.sync({
@@ -15,9 +17,7 @@ const alias = {
   "@space/": "../../apps/spr-main-web/src/",
   "rules/": "../../apps/spr-main-web/src/rules/",
   "types/*": "../../apps/spr-main-web/src/types/",
-
   "core/*": "../../apps/spr-main-web/src/core/*",
-
   "typings/*": "../../apps/spr-main-web/src/typings/*",
   "modules/": "../../apps/spr-main-web/src/modules/*",
   "src/": "../../apps/spr-main-web/src/",
@@ -25,7 +25,6 @@ const alias = {
   "spr-base/": "../spr-base/",
   "spr-main-web/": "../../apps/spr-main-web/",
   "@sprinklr/modules/": "../../packages/modules/src/",
-
   "@mattermost/client": "packages/client/src",
   "@mattermost/components": "packages/components/src",
   "@mattermost/types/": "packages/types/src/",
@@ -149,7 +148,6 @@ async function styleImports(filePath, styleImportsMap) {
         styleImportsMap[result].push(filePath);
       }
     }
-    //Partial imports
     while ((match = styleImportRegex2.exec(content))) {
       const result = syncResolveStyles(fileDir, match[1]);
       if (result) {
@@ -159,11 +157,46 @@ async function styleImports(filePath, styleImportsMap) {
         styleImportsMap[result].push(filePath);
       }
     }
+    //Partial imports
+    while ((match = styleImportRegex1.exec(content))) {
+      const result = syncResolveStyles(fileDir, "_" + match[1]);
+      if (result) {
+        if (!(result in styleImportsMap)) {
+          styleImportsMap[result] = [];
+        }
+        styleImportsMap[result].push(filePath);
+      }
+    }
     const absPath =
       "/Users/naman.jain1/Documents/testinng-repos/mattermost-webapp/sass";
+    //Partial imports
     //Need to write imports due to webpack config
+    // if (filePath.includes("variable") || filePath.includes("Variable")) {
+    //   readVariables(globalVariables, filePath);
+    // }
     res();
   });
+}
+
+function readVariables(globalVariables, filePath) {
+  const css = fs.readFileSync(file, "utf8");
+  const test = postcss.plugin("test", () => {
+    return (root) => {
+      root.walkDecl(async(decl) =>{
+        if(decl.type ==  'decl')
+        {
+          globalVariables[decl.prop] =decl.value;
+        }
+      })
+    };
+  });
+  postcss([test])
+    .process(css, { from: file, parser: scss })
+    .then((result) => {
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 async function scriptImports(
