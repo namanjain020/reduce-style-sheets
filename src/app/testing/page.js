@@ -22,7 +22,7 @@ export default function Home() {
         <div className="w-2/12 bg-white text-3xl drop-shadow-2xl content-center">
           <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
           <Card className=" hover:bg-slate-100">
-          <Link href='/distributed-app'>
+          <Link href='/dst'>
             <CardBody>
              <p>Distributed-app</p>
             </CardBody>
@@ -31,7 +31,7 @@ export default function Home() {
           </div>
           <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
           <Card className=" hover:bg-slate-100 ">
-          <Link href='/mattermost-webapp'>
+          <Link href='/mattermost'>
             <CardBody>
              <p>Mattermost-webapp</p>
             </CardBody>

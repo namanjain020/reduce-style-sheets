@@ -33,8 +33,8 @@ const MergeRequest = ({ original, newFile }) => {
 export default function Codeblock (props){
     const unusedObj = structuredClone(props.unused);
     const unusedClasses = Object.keys(unusedObj);
-    const og =props.original;
-  const final =props.final;
+  //   const og =props.original;
+  // const final =props.final;
     // console.log(unusedClasses);
     const temp = unusedClasses.map((className) => (
         <div key={className.id}>
@@ -47,13 +47,13 @@ export default function Codeblock (props){
         </div>
     ));
     return (<div>
-        <p>Changed Code</p>
-      <MergeRequest original={og} newFile={final}/>
+        {/* <p>Changed Code</p> */}
+      {/* <MergeRequest original={og} newFile={final}/> */}
         <div >
-            {/* <p>
+            <p>
                 Unused Classes
             </p>
-            {temp} */}
+            {temp}
         </div>
         
     </div>)

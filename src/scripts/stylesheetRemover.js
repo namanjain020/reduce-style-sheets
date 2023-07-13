@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 
+import * as prettier from "prettier";
 import postcss from "postcss";
 import scss from "postcss-scss";
-import * as prettier from "prettier";
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 import _generator from "@babel/generator";
@@ -22,7 +22,9 @@ async function init(filePath, result) {
 
     //Initialize result block;
     result[filePath] = {};
+    
     result[filePath]["original-size"] = fileSize / 1000;
+    result[filePath]["original-code"] = prettier.format(fs.readFileSync(filePath,"utf8"), { parser: "scss" });
     result[filePath]["unused"] = false;
     result[filePath]["empty"] = false;
     result[filePath]["unused-classes"] = {};

@@ -22,6 +22,7 @@
     "autoprefixer": "10.4.14",
     "baseui": "^13.0.0",
     "css-to-tailwindcss": "^1.0.4",
+    "diff": "^5.1.0",
     "enhanced-resolve": "^5.15.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",

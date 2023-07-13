@@ -72,7 +72,7 @@ function Table(props) {
           <AccordionPanel>
             <CodeBlock
               unused={result[file]["unused-classes"]}
-              tw={result[file]["replaced-tailwind"]}
+              original={result[file]["original-code"]} final={result[file]["unused-code"]}
             />
           </AccordionPanel>
         </div>
@@ -110,9 +110,8 @@ function Table(props) {
                 />
             </div>
           </AccordionButton>
-
           <AccordionPanel>
-            <TailwindCodeBlock tailwind={result[file]["replaced-tailwind"]} />
+            <TailwindCodeBlock tailwind={result[file]["replaced-tailwind"]}  original={result[file]["unused-code"]} final={result[file]["final-code"]} />
           </AccordionPanel>
         </div>
       </AccordionItem>

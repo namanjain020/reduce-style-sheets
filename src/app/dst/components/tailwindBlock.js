@@ -33,8 +33,8 @@ const MergeRequest = ({ original, newFile }) => {
 
 export default function TailwindCodeblock(props) {
   const obj = structuredClone(props.tailwind);
-  const og =props.original;
-  const final =props.final;
+  // const og =props.original;
+  // const final =props.final;
 
   const classes = Object.keys(obj);
   let codeblock = "";
@@ -54,13 +54,13 @@ export default function TailwindCodeblock(props) {
 
   return (
     <div >
-      <p>Changed Code</p>
-      <MergeRequest original={og} newFile={final}/>
+      {/* <p>Changed Code</p> */}
+      {/* <MergeRequest original={og} newFile={final}/> */}
       <div>
-      {/* <p>Replaced Tailwind</p>
+      <p>Replaced Tailwind</p>
         <pre>
           <code>{codeblock}</code>
-        </pre> */}
+        </pre>
       </div>
     </div>
   );

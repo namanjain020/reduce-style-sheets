@@ -5,7 +5,7 @@ import "./removed.css";
 import Table from "./components/table.js";
 // If you're using Immutable.js: `npm i --save immutable`
 import Overall from "./components/overall.js";
-import obj from "../../../results/mattermost.json";
+import obj from "../../../results/dst3.json";
 // use the component in your app!
 
 import { Roboto } from "next/font/google";
@@ -26,7 +26,7 @@ export default function RightPane() {
     <div className="w-full">
       <div className="mx-10 p-4">
         <h1 className=" text-5xl p-3">Reduce StyleSheets</h1>
-        <h2 className="text-3xl p-4">mattermost-webapp</h2>
+        <h2 className="text-3xl p-4">Testing webapp</h2>
       </div>
       <Overall data={obj}></Overall>
       <Table data={obj}></Table>

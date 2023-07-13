@@ -3,7 +3,7 @@ import path from "path";
 
 import postcss from "postcss";
 import scss from "postcss-scss";
-
+import * as prettier from "prettier";
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 import _generator from "@babel/generator";
@@ -43,6 +43,7 @@ export async function middleTraverse(
             const stats = fs.statSync(filePath);
             const fileSize = stats.size;
             result[filePath]["size-after-unused"] = fileSize / 1000;
+            result[filePath]["unused-code"] = prettier.format(fs.readFileSync(filePath,"utf8"), { parser: "scss" })
           }
         }
       });

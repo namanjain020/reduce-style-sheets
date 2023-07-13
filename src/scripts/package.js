@@ -58,10 +58,10 @@ async function wrapper(dir) {
         );
         setTimeout(async () => {
           trigger(importsFrom, importsTo, styleImports, result);
-        }, 180000);
-      }, 180000);
-    }, 180000);
-  }, 180000);
+        }, 20000);
+      }, 20000);
+    }, 20000);
+  }, 20000);
 }
 const trigger = (importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
@@ -84,13 +84,13 @@ const trigger = (importsFrom, importsTo, styleImports, result) => {
       "./logs/removedBlocks.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 200000);
+  }, 20000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-// let dir = "../../testinng-repos/space-tourism/src";
+let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
-let dir = "../../testinng-repos/mattermost-webapp";
+// let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";
