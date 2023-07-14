@@ -27,10 +27,10 @@ const variables = {
   $tighter: "-0.025em",
 };
 
-let global;
+// let global;
 
-async function atruleHelper(converted,curVal) {
-  return new Promise((res,rej) => {
+async function atruleHelper(converted, curVal) {
+  return new Promise((res, rej) => {
     let value;
     const twPlugin = postcss.plugin("tw-plugin", () => {
       return (root) => {
@@ -48,8 +48,7 @@ async function atruleHelper(converted,curVal) {
       .catch((error) => {
         console.error(error);
       });
-  })
-  
+  });
 }
 
 const converter = new TailwindConverter({
@@ -117,7 +116,7 @@ async function anotherHelper(className, params, newStr) {
 async function addToScript(className, filePath, newStr) {
   // console.log(className);
   // console.log(filePath);
-  try{
+  try {
     let pluginArr;
     if (filePath.endsWith(".ts")) {
       pluginArr = ["typescript"];
@@ -131,7 +130,7 @@ async function addToScript(className, filePath, newStr) {
       sourceType: "module",
       plugins: pluginArr,
     });
-  
+
     await traverse(ast, {
       StringLiteral(path) {
         if (path.node && path.node.value) {
@@ -166,22 +165,17 @@ async function addToScript(className, filePath, newStr) {
     // console.log(className+ " |||| " +  newStr  +"   changes in "+ filePath);
     fs.writeFileSync(filePath, modCode);
     return;
-  }
-  catch(error){
+  } catch (error) {
     console.log("error");
     return;
   }
-
 }
 
-const convertUsedClasses = postcss.plugin(
-  "convert-used-classes",
-  (params, globalVariables) => {
-    return async (root) => {
-      for(let idx =0 ;idx <root.nodes.length ;idx++ )
-      {
-        if(root.nodes[idx].type === 'rule')
-        {
+const convertUsedClasses = (params, local) => ({
+  postcssPlugin: "convert",
+  async Root(root) {
+    for (let idx = 0; idx < root.nodes.length; idx++) {
+      if (root.nodes[idx].type === "rule") {
         const rule = root.nodes[idx];
         const codeBlock = rule.toString();
         // Check if the rule has a class selector
@@ -202,7 +196,6 @@ const convertUsedClasses = postcss.plugin(
             else if (el[0] === "#") ids.push(el);
             else tags.push(el);
           });
-
           //No pseudo selectors are taken in tc for now
           const regex = /[:+~>@$&\\]/;
           const parent = rule.parent;
@@ -229,24 +222,24 @@ const convertUsedClasses = postcss.plugin(
                 for (let idx = 0; idx < rule.nodes.length; idx++) {
                   if (
                     rule.nodes[idx].type === "decl" &&
-                    camelCase(rule.nodes[idx].prop) == prop &&
-                    rule.nodes[idx].value == temp[util][prop]
+                    camelCase(rule.nodes[idx].prop) === prop &&
+                    rule.nodes[idx].value === temp[util][prop]
                   ) {
                     arrayOfIndex.push(idx);
                   }
                   if (
                     rule.nodes[idx].type === "decl" &&
-                    camelCase(rule.nodes[idx].prop) == prop &&
+                    camelCase(rule.nodes[idx].prop) === prop &&
                     //Object of variables
-                    rule.nodes[idx].value in globalVariables &&
-                    globalVariables[rule.nodes[idx].value] == temp[util][prop]
+                    rule.nodes[idx].value in local &&
+                    local[rule.nodes[idx].value] === temp[util][prop]
                   ) {
                     arrayOfIndex.push(idx);
                   }
                   counter++;
                 }
               });
-              if (size == arrayOfIndex.length) {
+              if (size === arrayOfIndex.length) {
                 str.push(util);
                 for (let idx = 0; idx < arrayOfIndex.length; idx++) {
                   const obj = {
@@ -259,132 +252,78 @@ const convertUsedClasses = postcss.plugin(
                 }
               }
             });
-
             for (let idx = 0; idx < rule.nodes.length; idx++) {
-              // console.log("Hell");
-              // setTimeout(() => {
-                if (rule.nodes[idx]  &&   rule.nodes[idx].type === "decl") {
-                  const attribute =
-                    ".class{" + rule.nodes[idx].toString() + "}";
-                  await converter
-                    .convertCSS(attribute)
-                    .then(async ({ convertedRoot, nodes }) => {
-                      const converted = convertedRoot.toString();
-                      // console.log(converted);
-                      let curVal = "F";
-                      const twPlugin = postcss.plugin("tw-plugin", () => {
-                        return (root) => {
-                          root.walkRules((rule) => {
-                            curVal = rule.nodes[0].params;
-                            // console.log(curVal);
-                          });
-                        };
-                      });
-                      postcss([twPlugin])
-                        .process(converted, { from: undefined })
-                        .then((result) => {
-                        })
-                        .catch((error) => {
-                          console.error(error);
-                        });
-                      // await atruleHelper(converted,curVal);
-                      console.log(curVal);
-                      if(curVal && !curVal.includes("\\") && !curVal.includes("\""))
-                      {
-                        rule.nodes[idx].remove();
-                        str.push(curVal);
-                        if (str && str.length > 0) {
-                          console.log(className);
-                          console.log(str);
-                          await anotherHelper(className.substring(1), params, str);
-                        }
-                        if (rule.nodes.length == 0) {
-                          console.log(rule.selector + " is removed");
-                          rule.remove();
-                        }
-                      }
-                    });
+              if (rule.nodes[idx] && rule.nodes[idx].type === "decl") {
+                const prop = rule.nodes[idx].prop;
+                let val;
+                if (
+                  rule.nodes[idx].value.startsWith("$") &&
+                  rule.nodes[idx].value in local
+                ) {
+                  val = local[rule.nodes[idx].value];
+                } else {
+                  val = rule.nodes[idx].value;
                 }
-
-              // }, 2000);
-              // console.log(idx + " ===>>>  " + rule.nodes[idx].toString());
-              // if (
-              //   rule.nodes[idx].type === "decl" &&
-              //   camelCase(rule.nodes[idx].prop) == prop &&
-              //   rule.nodes[idx].value == temp[util][prop]
-              // ) {
-              //   arrayOfIndex.push(idx);
-              // }
-              // if (
-              //   rule.nodes[idx].type === "decl" &&
-              //   camelCase(rule.nodes[idx].prop) == prop &&
-              //   //Object of variables
-              //   rule.nodes[idx].value in globalVariables &&
-              //   globalVariables[rule.nodes[idx].value] == temp[util][prop]
-              // ) {
-              //   arrayOfIndex.push(idx);
-              // }
-              // counter++;
+                const attribute = ".class{" + prop + ":" + val + "}";
+                await converter
+                  .convertCSS(attribute)
+                  .then(async ({ convertedRoot, nodes }) => {
+                    const converted = convertedRoot.toString();
+                    // console.log(converted);
+                    let curVal = " ";
+                    const twPlugin = () => ({
+                      postcssPlugin: "tw-plugin",
+                      async Rule(rule) {
+                        curVal = curVal + rule.nodes[0].params;
+                      },
+                    });
+                    twPlugin.postcss = true;
+                    postcss([twPlugin])
+                      .process(converted, { from: undefined })
+                      .then((result) => {})
+                      .catch((error) => {
+                        console.error(error);
+                      });
+                    if (
+                      curVal &&
+                      !curVal.includes("\\") &&
+                      !curVal.includes('"')
+                    ) {
+                      rule.nodes[idx].remove();
+                      str.push(curVal);
+                      if (str && str.length > 0) {
+                        await anotherHelper(
+                          className.substring(1),
+                          params,
+                          str
+                        );
+                      }
+                      // console.log("OTHER");
+                      console.log(className);
+                      console.log(str);
+                      if (rule.nodes.length === 0) {
+                        console.log(rule.selector + " is removed");
+                        rule.remove();
+                      }
+                    }
+                  });
+              }
             }
-            async function completed()
-            {
-              // if (
-              //   params.removedBlocks[params.filePath]["replaced-tailwind"][
-              //     className
-              //   ].length < 0
-              // ) {
-              //   delete params.removedBlocks[params.filePath][className];
-              // }
-              
-            }
-            
-            // fs.writeFileSync(params.filePath, root.toString());
-            // converter
-            //   .convertCSS(rule.toString())
-            //   .then(({ convertedRoot, nodes }) => {
-            //     converted = convertedRoot.toString();
-
-            //     let curVal = null;
-            //     curVal = atruleHelper(converted, curVal);
-            //     if (curVal !== null) {
-            //       //add to js function
-            //       anotherHelper(className.substring(1), params, curVal);
-            //       rule.remove();
-            //       // onSuccess();
-            //       params.removedBlocks[params.filePath]["replaced-tailwind"][
-            //         className
-            //       ] = {};
-            //       params.removedBlocks[params.filePath]["replaced-tailwind"][
-            //         className
-            //       ]["original"] = rule.toString();
-            //       params.removedBlocks[params.filePath]["replaced-tailwind"][
-            //         className
-            //       ]["converted"] = curVal;
-            //     }
-            //   });
           }
         }
-
-        }
-        
       }
-      setTimeout(() => {
-        const processed = root.toString();
-              fs.writeFileSync(
-                params.filePath,
-                prettier.format(processed, { parser: "scss" })
-              );
-      }, 10000);
-      
-      // console.log(root.nodes.length);
-      // root.walkRules(async (rule) => {
-        
-      // });
-    };
-  }
-);
+    }
+  },
+  async RootExit(root) {
+    fs.writeFileSync(
+      params.filePath,
+      prettier.format(root.toString(), { parser: "scss" })
+    );
+  },
+});
+convertUsedClasses.postcss = true;
 
-function convertClasses(params, globalVariables) {
+async function convertClasses(params, local) {
   const css = fs.readFileSync(params.filePath, "utf8");
   // const processedCss = postcss()
   //   .use(simpleVars({ silent: true }))
@@ -396,7 +335,7 @@ function convertClasses(params, globalVariables) {
       root.nodes.forEach((node) => {
         if (node.type == "decl") {
           const decl = node;
-          globalVariables[decl.prop] = decl.value;
+          local[decl.prop] = decl.value;
         }
       });
     };
@@ -408,7 +347,7 @@ function convertClasses(params, globalVariables) {
       console.log(error);
     });
 
-  postcss([convertUsedClasses(params, globalVariables)])
+  postcss([convertUsedClasses(params, local)])
     .process(css, { from: params.filePath, parser: scss })
     .then((result) => {})
     .catch((error) => {
@@ -425,7 +364,9 @@ export async function stylesheetConverter(
   removedBlocks,
   globalVariables
 ) {
-  // global = structuredClone(globalVariables);
+  console.log("second-in");
+  let local = structuredClone(globalVariables);
+
   // console.log("StyleSheet converter execution started");
   const dir = path.resolve(unresDir);
   const files = fs.readdirSync(dir);
@@ -435,7 +376,7 @@ export async function stylesheetConverter(
     .filter((file) => !file.includes("__tests__"))
     .filter((file) => !file.includes("tests"))
     .filter((file) => !file.startsWith("_"))
-    .forEach((file) => {
+    .forEach(async (file) => {
       const filePath = path.join(dir, file);
       const stats = fs.statSync(filePath);
 
@@ -446,7 +387,7 @@ export async function stylesheetConverter(
           importsTo,
           styleImports,
           removedBlocks,
-          globalVariables
+          local
         );
       } else if (stats.isFile()) {
         const params = {
@@ -462,12 +403,13 @@ export async function stylesheetConverter(
           const css = fs.readFileSync(params.filePath, "utf8");
           // console.log(css);
           // console.log(filePath);
-          convertClasses(params, globalVariables);
+          await convertClasses(params, local);
           const stats = fs.statSync(filePath);
           params.removedBlocks[params.filePath]["reduced-size"] = stats.size;
         }
       }
     });
+  console.log("second-out");
   // console.log("StyleSheet converter execution completed");
   return;
 }

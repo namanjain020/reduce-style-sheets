@@ -5,12 +5,12 @@ import * as prettier from "prettier";
 import { fileSystem } from "./fileSystem.js";
 import { importMap } from "./importMap.js";
 import { stylesheetRemover } from "./stylesheetRemover.js";
-import { stylesheetReducer } from "./stylesheetReducer.js";
+import { stylesheetReducer } from "./stylesheetReducerCopy.js";
 import { stylesheetConverter } from "./stylesheetConverterCopy.js";
 import { parsingJSFiles } from "./parsingJSFiles.js";
 import { finalTraverse } from "./finalTraverse.js";
 import { middleTraverse } from "./middleTraverse.js";
-import {variableParse} from "./variableParse.js";
+import { variableParse } from "./variableParse.js";
 import { unusedVariables } from "./unusedVariables.js";
 import { emptyBlock } from "./emptyBlock.js";
 
@@ -42,12 +42,11 @@ async function wrapper(dir) {
     result = {},
     globalVariables = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
+  await stylesheetRemover(dir, importsTo, styleImports, result);
   await variableParse(dir, globalVariables);
   await unusedVariables(dir);
   await emptyBlock(dir);
-  // console.log(globalVariables);
-  // trigger();
-  await stylesheetRemover(dir, importsTo, styleImports, result);
+
   setTimeout(async () => {
     await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
     setTimeout(async () => {
@@ -58,14 +57,24 @@ async function wrapper(dir) {
           importsFrom,
           importsTo,
           styleImports,
-          result,globalVariables
+          result,
+          globalVariables
         );
         setTimeout(async () => {
-          setTimeout(async() => {
+          await stylesheetConverter(
+            dir,
+            importsFrom,
+            importsTo,
+            styleImports,
+            result,
+            globalVariables
+          );
+
+          setTimeout(async () => {
             await unusedVariables(dir);
             await emptyBlock(dir);
+            trigger(importsFrom, importsTo, styleImports, result);
           }, 150000);
-          trigger(importsFrom, importsTo, styleImports, result);
         }, 150000);
       }, 150000);
     }, 150000);
@@ -96,9 +105,9 @@ const trigger = (importsFrom, importsTo, styleImports, result) => {
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-let dir = "../../testinng-repos/space-tourism/src";
+// let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
-// let dir = "../../testinng-repos/mattermost-webapp";
+let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";

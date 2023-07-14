@@ -124,9 +124,9 @@ async function removeClasses(
         styleImports,
         removedBlocks,
         onSuccess
-      ),
+      )
     ])
-      .process(css, { from: undefined, parser: scss })
+      .process(css, { from: filePath, parser: scss })
       .then((result) => {})
       .catch((error) => {
         console.error(error);
@@ -134,73 +134,82 @@ async function removeClasses(
   });
   // fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(removedBlocks));
 }
-const removeUnusedClasses = postcss.plugin(
-  "remove-unused-classes",
-  (
-    filePath,
-    importsFrom,
-    importsTo,
-    styleImports,
-    removedBlocks,
-    onSuccess
-  ) => {
-    return (root) => {
-      root.walkRules(async (rule) => {
-        const codeBlock = rule.toString();
-        // Check if the rule has a class selector
-        if (rule.selector && rule.selector.includes(".")) {
-          const arr = rule.selector
-            .toString()
-            .match(/(\.[^\s.#,]+|#[^\s.#,]+|[^.\s#,][^\s.#,]+)?/g)
-            .filter((el) => el != "");
-          let classes = [];
-          let ids = [];
-          let tags = [];
-          arr.forEach((el) => {
-            if (el[0] === ".") classes.push(el);
-            else if (el[0] === "#") ids.push(el);
-            else tags.push(el);
-          });
+// const plugin = () => ({
+//   Declaration(decl) {
+//     console.log(decl.toString());
+//     decl.value = "red";
+//   },
+// });
+// plugin.postcss = true;
 
-          //No pseudo selectors are taken in tc for now
-          const regex = /[:+~>@\[$&\\]/;
-          const parent = rule.parent;
-          if (
-            (!parent || !parent.selector) &&
-            ids.length === 0 &&
-            tags.length === 0 &&
-            classes.length === 1 &&
-            !regex.test(rule.selector)
-          ) {
-            const className = classes[0];
+// await postcss([plugin]).process("a { color: black }", { from });
+// // => color: black
+// // => color: red
 
-            const boolVal = await helper(
-              className.substring(1),
-              filePath,
-              importsFrom,
-              importsTo,
-              styleImports
-            );
-            if (!boolVal) {
-              removedBlocks[filePath]["unused-classes"][
-                classes[0].substring(1)
-              ] = codeBlock.replace(classes[0], "");
-
-              // Uncommet to start removal \\
-              rule.remove();
-              const processed = root.toString();
-              fs.writeFileSync(
-                filePath,
-                prettier.format(processed, { parser: "scss" })
-              );
-            }
-          }
-        }
-        onSuccess();
+const removeUnusedClasses = (
+  filePath,
+  importsFrom,
+  importsTo,
+  styleImports,
+  removedBlocks,
+  onSuccess
+) => ({
+  postcssPlugin: 'remove',
+  async Rule(rule) {
+    const codeBlock = rule.toString();
+    // Check if the rule has a class selector
+    if (rule.selector && rule.selector.includes(".")) {
+      const arr = rule.selector
+        .toString()
+        .match(/(\.[^\s.#,]+|#[^\s.#,]+|[^.\s#,][^\s.#,]+)?/g)
+        .filter((el) => el != "");
+      let classes = [];
+      let ids = [];
+      let tags = [];
+      arr.forEach((el) => {
+        if (el[0] === ".") classes.push(el);
+        else if (el[0] === "#") ids.push(el);
+        else tags.push(el);
       });
-    };
+
+      //No pseudo selectors are taken in tc for now
+      const regex = /[:+~>@\[$&\\]/;
+      const parent = rule.parent;
+      if (
+        (!parent || !parent.selector) &&
+        ids.length === 0 &&
+        tags.length === 0 &&
+        classes.length === 1 &&
+        !regex.test(rule.selector)
+      ) {
+        const className = classes[0];
+
+        const boolVal = await helper(
+          className.substring(1),
+          filePath,
+          importsFrom,
+          importsTo,
+          styleImports
+        );
+        if (!boolVal) {
+          removedBlocks[filePath]["unused-classes"][classes[0].substring(1)] =
+            codeBlock.replace(classes[0], "");
+          // Uncommet to start removal \\
+          rule.remove();
+          // const processed = root.toString();
+        }
+      }
+    }
+  },
+  async RootExit(root){
+    fs.writeFileSync(
+      filePath,
+      prettier.format(root.toString(), { parser: "scss" })
+    );
+    onSuccess();
   }
-);
+});
+removeUnusedClasses.postcss = true;
 
 export async function stylesheetReducer(
   dirt,
