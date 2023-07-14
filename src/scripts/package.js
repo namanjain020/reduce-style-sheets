@@ -64,12 +64,12 @@ async function wrapper(dir) {
           setTimeout(async() => {
             await unusedVariables(dir);
             await emptyBlock(dir);
-          }, 15000);
+          }, 150000);
           trigger(importsFrom, importsTo, styleImports, result);
-        }, 15000);
-      }, 15000);
-    }, 15000);
-  }, 15000);
+        }, 150000);
+      }, 150000);
+    }, 150000);
+  }, 150000);
 }
 const trigger = (importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
@@ -92,7 +92,7 @@ const trigger = (importsFrom, importsTo, styleImports, result) => {
       "./logs/removedBlocks.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 15000);
+  }, 150000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
