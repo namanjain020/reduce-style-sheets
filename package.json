@@ -60,14 +60,14 @@
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "eslint-plugin-baseui": "^13.0.0",
-    "postcss": "^8.4.25",
+    "postcss": "^8.4.26",
     "postcss-extend": "^1.0.5",
     "postcss-nested": "^6.0.1",
     "postcss-simple-vars": "^7.0.1",
     "react-simple-explorer": "^1.1.1"
   },
   "peerDependencies": {
-    "postcss": "^8.0.0"
+    "postcss": "^8.4.26"
   },
   "browserify": {
     "transform": [

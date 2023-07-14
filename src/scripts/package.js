@@ -11,6 +11,8 @@ import { parsingJSFiles } from "./parsingJSFiles.js";
 import { finalTraverse } from "./finalTraverse.js";
 import { middleTraverse } from "./middleTraverse.js";
 import {variableParse} from "./variableParse.js";
+import { unusedVariables } from "./unusedVariables.js";
+import { emptyBlock } from "./emptyBlock.js";
 
 async function deleteAllFilesInDir(dirPath) {
   try {
@@ -41,6 +43,8 @@ async function wrapper(dir) {
     globalVariables = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
   await variableParse(dir, globalVariables);
+  await unusedVariables(dir);
+  await emptyBlock(dir);
   // console.log(globalVariables);
   // trigger();
   await stylesheetRemover(dir, importsTo, styleImports, result);
@@ -57,11 +61,15 @@ async function wrapper(dir) {
           result,globalVariables
         );
         setTimeout(async () => {
+          setTimeout(async() => {
+            await unusedVariables(dir);
+            await emptyBlock(dir);
+          }, 15000);
           trigger(importsFrom, importsTo, styleImports, result);
-        }, 20000);
-      }, 20000);
-    }, 20000);
-  }, 20000);
+        }, 15000);
+      }, 15000);
+    }, 15000);
+  }, 15000);
 }
 const trigger = (importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
@@ -84,7 +92,7 @@ const trigger = (importsFrom, importsTo, styleImports, result) => {
       "./logs/removedBlocks.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 20000);
+  }, 15000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";

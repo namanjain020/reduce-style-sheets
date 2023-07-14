@@ -135,7 +135,7 @@ function Table(props) {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <div className="bg-slate-100 py-1 font-bold flex p-2">
+              <div className="bg-[rgba(8,40,204,0.02)] py-1 font-bold flex p-2">
                 
                 <p className="w-[36rem] py-4 pl-8 flex justify-center">File Name</p>
                 <p className="w-[12rem] py-4  flex justify-center">Size Before</p>

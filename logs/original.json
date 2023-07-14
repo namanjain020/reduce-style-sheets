@@ -9,13 +9,13 @@
     "size": 0
   },
   "style": {
-    "common.css": { "size": 2.804 },
-    "crew.css": { "size": 0.818 },
-    "destination.css": { "size": 1.39 },
-    "homepage.css": { "size": 1.077 },
-    "nav.css": { "size": 1.234 },
-    "technology.css": { "size": 1.052 },
-    "size": 8.375
+    "common.css": { "size": 5.953 },
+    "crew.css": { "size": 0.865 },
+    "destination.css": { "size": 1.622 },
+    "homepage.css": { "size": 1.316 },
+    "nav.css": { "size": 1.575 },
+    "technology.css": { "size": 1.237 },
+    "size": 12.568000000000001
   },
-  "size": 8.375
+  "size": 12.568000000000001
 }
