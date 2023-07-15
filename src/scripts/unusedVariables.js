@@ -15,7 +15,7 @@ const traverse = _traverse.default;
 async function readVariables(filePath) {
   return new Promise((res, rej) => {
     const css = fs.readFileSync(filePath, "utf8");
-    const contentPlugin = () => ({
+    const contentPlugin = (content) => ({
       postcssPlugin: "contentPlugin",
       prepare(result) {
         return {
@@ -80,6 +80,7 @@ export async function unusedVariables(unresolvedDir) {
     const files = fs.readdirSync(dir);
     //Recursive function
     files
+    .filter((file) => !file.includes("assets"))
       .filter((file) => !file.includes("node_modules"))
       .filter((file) => !file.includes("__tests__"))
       .filter((file) => !file.includes("tests"))

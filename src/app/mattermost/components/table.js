@@ -4,6 +4,7 @@ import Image from "next/image";
 import Progress from "./Progress";
 import CodeBlock from "./codeblock.js";
 import TailwindCodeBlock from "./tailwindBlock.js";
+import { Tooltip } from "@chakra-ui/react";
 
 import {
   Accordion,
@@ -43,42 +44,42 @@ function Table(props) {
     }
   });
   const unusedClasses = filesForUnused.map((file) => (
-    <div key={file.id} >
+    <div key={file.id}>
       <AccordionItem>
         <div className="border-2">
           <AccordionButton>
-                <p className="w-[36rem] py-3 pl-6">
-                {file.replace(/^.*[\\\/]/, "")}
-              </p>
-              {/* <CountUp end={100} /> */}
-              <p className="w-[12rem] py-3">
-                {result[file]["original-size"]} KB
-              </p>
-              <p className=" w-[12rem] py-3">
-                {result[file]["size-after-unused"]} KB
-              </p>
-              <div className="p-5  w-[22rem]">
-                <Progress 
-                  val={Math.round(
-                    (result[file]["reduced-size"] /
-                      1000 /
-                      result[file]["original-size"]) *
-                      100
-                  )}
-                />
-              </div>
+            <Tooltip label={file} hasArrow aria-label="A tooltip" bg='gray.300' color='black' placement='left'>
+            <p className="w-[36rem] py-3 pl-6">
+              {file.replace(/^.*[\\\/]/, "")}
+            </p>
+            </Tooltip>
+           
+            {/* <CountUp end={100} /> */}
+            <p className="w-[12rem] py-3">{result[file]["original-size"]} KB</p>
+            <p className=" w-[12rem] py-3 ">
+              {result[file]["size-after-unused"]} KB
+            </p>
+            <div className="p-5  w-[22rem]">
+              <Progress
+                val={Math.round(
+                  (result[file]["reduced-size"] /
+                    1000 /
+                    result[file]["original-size"]) *
+                    100
+                )}
+              />
+            </div>
           </AccordionButton>
 
           <AccordionPanel>
             <CodeBlock
               unused={result[file]["unused-classes"]}
-              original={result[file]["original-code"]} final={result[file]["unused-code"]}
+              original={result[file]["original-code"]}
+              final={result[file]["unused-code"]}
             />
           </AccordionPanel>
         </div>
       </AccordionItem>
-      
-      
     </div>
   ));
   let filesForTW = [];
@@ -92,26 +93,30 @@ function Table(props) {
       <AccordionItem>
         <div className="current border-2">
           <AccordionButton>
-              <p className="w-[36rem] py-3 pl-6">
-                {file.replace(/^.*[\\\/]/, "")}
-              </p>
-              <p className="w-[12rem] py-3">
-                {result[file]["size-after-unused"]} KB
-              </p>
-              <p className="w-[12rem] py-3">{result[file]["final-size"]} KB</p>
-              <div className=" w-[22rem] p-5">
-                <Progress
-                  val={Math.round(
-                    (result[file]["reduced-size"] /
-                      1000 /
-                      result[file]["original-size"]) *
-                      100
-                  )}
-                />
+            <p className="w-[36rem] py-3 pl-6">
+              {file.replace(/^.*[\\\/]/, "")}
+            </p>
+            <p className="w-[12rem] py-3">
+              {result[file]["size-after-unused"]} KB
+            </p>
+            <p className="w-[12rem] py-3">{result[file]["final-size"]} KB</p>
+            <div className=" w-[22rem] p-5">
+              <Progress
+                val={Math.round(
+                  (result[file]["reduced-size"] /
+                    1000 /
+                    result[file]["original-size"]) *
+                    100
+                )}
+              />
             </div>
           </AccordionButton>
           <AccordionPanel>
-            <TailwindCodeBlock tailwind={result[file]["replaced-tailwind"]}  original={result[file]["unused-code"]} final={result[file]["final-code"]} />
+            <TailwindCodeBlock
+              tailwind={result[file]["replaced-tailwind"]}
+              original={result[file]["unused-code"]}
+              final={result[file]["final-code"]}
+            />
           </AccordionPanel>
         </div>
       </AccordionItem>
@@ -135,12 +140,19 @@ function Table(props) {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <div className="bg-[rgba(8,40,204,0.02)] py-1 font-bold flex p-2">
-                
-                <p className="w-[36rem] py-4 pl-8 flex justify-center">File Name</p>
-                <p className="w-[12rem] py-4  flex justify-center">Size Before</p>
-                <p className=" w-[12rem] py-4  flex justify-center">Size After</p>
-                <p className=" w-[22rem] py-4  flex justify-center">Visualiser</p>
+              <div className="py-1 font-bold flex p-2">
+                <p className="w-[36rem] py-4 pl-8 flex justify-center">
+                  File Name
+                </p>
+                <p className="w-[12rem] py-4  flex justify-center">
+                  Size Before
+                </p>
+                <p className=" w-[12rem] py-4  flex justify-center">
+                  Size After
+                </p>
+                <p className=" w-[22rem] py-4  flex justify-center">
+                  Visualiser
+                </p>
               </div>
               <Accordion allowToggle>
                 <div className="w-full">{unusedClasses}</div>
@@ -149,11 +161,18 @@ function Table(props) {
             </TabPanel>
             <TabPanel>
               <div className="bg-slate-100 py-1 font-bold flex p-2">
- 
-                <p className="w-[36rem] py-4 pl-8 flex justify-center">File Name</p>
-                <p className="w-[12rem] py-4  flex justify-center">Size Before</p>
-                <p className=" w-[12rem] py-4  flex justify-center">Size After</p>
-                <p className=" w-[22rem] py-4  flex justify-center">Visualiser</p>
+                <p className="w-[36rem] py-4 pl-8 flex justify-center">
+                  File Name
+                </p>
+                <p className="w-[12rem] py-4  flex justify-center">
+                  Size Before
+                </p>
+                <p className=" w-[12rem] py-4  flex justify-center">
+                  Size After
+                </p>
+                <p className=" w-[22rem] py-4  flex justify-center">
+                  Visualiser
+                </p>
               </div>
               <Accordion allowToggle>
                 <div>{replaced}</div>

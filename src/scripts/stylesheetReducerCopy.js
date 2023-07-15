@@ -110,52 +110,38 @@ async function removeClasses(
   styleImports,
   removedBlocks
 ) {
-  new Promise((res, rej) => {
-    const onSuccess = () => {
-      res();
-    };
+  return new Promise((res, rej) => {
     const css = fs.readFileSync(filePath, "utf8");
-    // let removedBlocks = JSON.parse(fs.readFileSync("./logs/removedBlocks.json"));
     postcss([
       removeUnusedClasses(
         filePath,
         importsFrom,
         importsTo,
         styleImports,
-        removedBlocks,
-        onSuccess
-      )
+        removedBlocks
+      ),
     ])
       .process(css, { from: filePath, parser: scss })
-      .then((result) => {})
+      .then((result) => {
+        res();
+      })
       .catch((error) => {
         console.error(error);
       });
   });
-  // fs.writeFileSync("./logs/removedBlocks.json", JSON.stringify(removedBlocks));
 }
-// const plugin = () => ({
-//   Declaration(decl) {
-//     console.log(decl.toString());
-//     decl.value = "red";
-//   },
-// });
-// plugin.postcss = true;
-
-// await postcss([plugin]).process("a { color: black }", { from });
-// // => color: black
-// // => color: red
 
 const removeUnusedClasses = (
   filePath,
   importsFrom,
   importsTo,
   styleImports,
-  removedBlocks,
-  onSuccess
+  removedBlocks
 ) => ({
-  postcssPlugin: 'remove',
+  postcssPlugin: "remove",
   async Rule(rule) {
+    // console.log("in",counter);
+    // counter++;
     const codeBlock = rule.toString();
     // Check if the rule has a class selector
     if (rule.selector && rule.selector.includes(".")) {
@@ -171,19 +157,15 @@ const removeUnusedClasses = (
         else if (el[0] === "#") ids.push(el);
         else tags.push(el);
       });
-
       //No pseudo selectors are taken in tc for now
       const regex = /[:+~>@\[$&\\]/;
-      const parent = rule.parent;
       if (
-        (!parent || !parent.selector) &&
         ids.length === 0 &&
         tags.length === 0 &&
         classes.length === 1 &&
         !regex.test(rule.selector)
       ) {
         const className = classes[0];
-
         const boolVal = await helper(
           className.substring(1),
           filePath,
@@ -196,18 +178,17 @@ const removeUnusedClasses = (
             codeBlock.replace(classes[0], "");
           // Uncommet to start removal \\
           rule.remove();
-          // const processed = root.toString();
         }
       }
     }
   },
-  async RootExit(root){
+  async RootExit(root) {
+    console.log("written");
     fs.writeFileSync(
       filePath,
       prettier.format(root.toString(), { parser: "scss" })
     );
-    onSuccess();
-  }
+  },
 });
 removeUnusedClasses.postcss = true;
 
@@ -232,6 +213,7 @@ export async function stylesheetReducer(
       // files = fs.readdirSync(dir);
       //Recursive function
       files
+        .filter((file) => !file.includes("assets"))
         .filter((file) => !file.includes("node_modules"))
         .filter((file) => !file.includes("__tests__"))
         .filter((file) => !file.includes("tests"))
@@ -260,8 +242,8 @@ export async function stylesheetReducer(
               );
             }
           }
+          return;
         });
-      return;
     }
     await stylesheetReducerHelper(
       dirt,

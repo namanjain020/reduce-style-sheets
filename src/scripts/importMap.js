@@ -67,7 +67,7 @@ export async function importMap(dir, importsTo, importsFrom, styleImportsMap) {
       files
         .filter((file) => !file.includes("node_modules"))
         .filter((file) => !file.includes("__tests__"))
-        .filter((file) => !file.includes("tests"))
+        .filter((file) => !file.includes("test"))
         .forEach(async (file) => {
           // console.log(file);
           const filePath = path.resolve(path.join(dir, file));
