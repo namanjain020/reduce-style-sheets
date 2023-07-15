@@ -364,7 +364,7 @@ export async function stylesheetConverter(
   removedBlocks,
   globalVariables
 ) {
-  console.log("second-in");
+  // console.log("second-in");
   let local = structuredClone(globalVariables);
 
   // console.log("StyleSheet converter execution started");
@@ -410,7 +410,7 @@ export async function stylesheetConverter(
         }
       }
     });
-  console.log("second-out");
+  // console.log("second-out");
   // console.log("StyleSheet converter execution completed");
   return;
 }

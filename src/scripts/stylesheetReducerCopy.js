@@ -183,7 +183,7 @@ const removeUnusedClasses = (
     }
   },
   async RootExit(root) {
-    console.log("written");
+    // console.log("written");
     fs.writeFileSync(
       filePath,
       prettier.format(root.toString(), { parser: "scss" })
