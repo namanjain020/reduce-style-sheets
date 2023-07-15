@@ -10,7 +10,6 @@ import _generator from "@babel/generator";
 const generator = _generator.default;
 const traverse = _traverse.default;
 
-
 export async function finalTraverse(
   unresolvedDir,
   importsTo,
@@ -28,7 +27,7 @@ export async function finalTraverse(
     const files = fs.readdirSync(dir);
     //Recursive function
     files
-    .filter((file) => !file.includes("assets"))
+      .filter((file) => !file.includes("assets"))
       .filter((file) => !file.includes("node_modules"))
       .filter((file) => !file.includes("__tests__"))
       .filter((file) => !file.includes("tests"))
@@ -43,8 +42,13 @@ export async function finalTraverse(
           if ([".css", ".scss", ".less"].includes(extension)) {
             const stats = fs.statSync(filePath);
             const fileSize = stats.size;
-            result[filePath]["final-size"] = fileSize / 1000;
-            result[filePath]["final-code"] = prettier.format(fs.readFileSync(filePath,"utf8"), { parser: "scss" })
+            if (filePath in result) {
+              result[filePath]["final-size"] = fileSize / 1000;
+              result[filePath]["final-code"] = prettier.format(
+                fs.readFileSync(filePath, "utf8"),
+                { parser: "scss" }
+              );
+            }
           }
         }
       });
