@@ -88,7 +88,8 @@ async function wrapper(dir) {
                 styleImports,
                 result
               );
-              trigger();
+              await finalTraverse(dir, importsTo, styleImports, result);
+              // trigger(,dirimportsFrom, importsTo, styleImports, result);
             }, 200000);
           }, 200000);
         }, 200000);
@@ -98,7 +99,6 @@ async function wrapper(dir) {
 }
 const trigger = (importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
-    await finalTraverse(dir, importsTo, styleImports, result);
     console.log("RESULTS HAVE BEEN PRINTED");
     // console.log(result);
     fs.writeFileSync(
