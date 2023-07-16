@@ -25,7 +25,7 @@ const MergeRequest = ({ original, newFile }) => {
     });
     return diffElements;
   };
-  return <div className="merge-request">{generateDiff()}</div>;
+  return <div className="merge-request overflow-y-auto h-64 p-0 m-0">{generateDiff()}</div>;
 };
 
 
@@ -33,8 +33,8 @@ const MergeRequest = ({ original, newFile }) => {
 
 export default function TailwindCodeblock(props) {
   const obj = structuredClone(props.tailwind);
-  // const og =props.original;
-  // const final =props.final;
+  const og =props.original;
+  const final =props.final;
 
   const classes = Object.keys(obj);
   let codeblock = "";
@@ -53,14 +53,14 @@ export default function TailwindCodeblock(props) {
   });
 
   return (
-    <div >
-      {/* <p>Changed Code</p> */}
-      {/* <MergeRequest original={og} newFile={final}/> */}
+    <div className="bg-slate-50">
+      <p className="text-md p-2">Changed Code</p>
+      <MergeRequest original={og} newFile={final}/>
       <div>
-      <p>Replaced Tailwind</p>
+      {/* <p>Replaced Tailwind</p>
         <pre>
           <code>{codeblock}</code>
-        </pre>
+        </pre> */}
       </div>
     </div>
   );
