@@ -33,6 +33,8 @@ async function init(filePath, result) {
     result[filePath]["unused-classes"] = {};
     result[filePath]["replaced-tailwind"] = {};
     result[filePath]["reduced-size"] = fileSize / 1000;
+    result[filePath]["final-size"] = 0;
+    result[filePath]["final-code"] = "";
     res();
   });
 }

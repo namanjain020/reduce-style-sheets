@@ -19,38 +19,7 @@ export default function Home() {
   return (
     <div className={roboto.className}>
       <div className="flex overflow-clip">
-        <div className="w-2/12 bg-white text-3xl drop-shadow-2xl content-center">
-          <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
-          <Card className=" hover:bg-slate-100">
-          <Link href='/dst'>
-            <CardBody>
-             <p>Distributed-app</p>
-            </CardBody>
-            </Link>
-          </Card>
-          </div>
-          <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
-          <Card className=" hover:bg-slate-100 ">
-          <Link href='/mattermost'>
-            <CardBody>
-             <p>Mattermost-webapp</p>
-            </CardBody>
-            </Link>
-          </Card>
-          </div>
-          <div className="w-4/5 m-4 p-4 drop-shadow-lg text-center text-sm">
-          <Card className=" hover:bg-slate-100">
-          <Link href='/testing'>
-            <CardBody>
-             <p>Testing-repo</p>
-            </CardBody>
-            </Link>
-          </Card>
-          </div>
-        </div>
-        <div className="w-10/12">
           <RightPane />
-        </div>
       </div>
     </div>
   );

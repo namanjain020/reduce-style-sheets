@@ -10,8 +10,6 @@ import _generator from "@babel/generator";
 const generator = _generator.default;
 const traverse = _traverse.default;
 
-
-
 async function readVariables(filePath) {
   return new Promise((res, rej) => {
     const css = fs.readFileSync(filePath, "utf8");
@@ -28,20 +26,19 @@ async function readVariables(filePath) {
     });
 
     const test = (content) => ({
-        postcssPlugin: "test",
-        prepare(result) {
-          return {
-            Declaration(decl) {
-                // console.log(content);
-                if(decl.prop.startsWith("$") && !content.includes(decl.prop))
-                {
-                    decl.remove();
-                    // console.log(decl.prop);
-                }
-            },
-          };
-        },
-      });
+      postcssPlugin: "test",
+      prepare(result) {
+        return {
+          Declaration(decl) {
+            // console.log(content);
+            if (decl.prop.startsWith("$") && !content.includes(decl.prop)) {
+              decl.remove();
+              // console.log(decl.prop);
+            }
+          },
+        };
+      },
+    });
     contentPlugin.postcss = true;
     test.postcss = true;
     let content = "";
@@ -51,7 +48,10 @@ async function readVariables(filePath) {
         postcss([test(content)])
           .process(css, { from: filePath, parser: scss })
           .then((result) => {
-            fs.writeFileSync(filePath,prettier.format(result.css, { parser: "scss" }))
+            fs.writeFileSync(
+              filePath,
+              prettier.format(result.css, { parser: "scss" })
+            );
             //answer
           })
           .catch((error) => {
@@ -61,15 +61,6 @@ async function readVariables(filePath) {
       .catch((error) => {
         console.log(error);
       });
-
-    // postcss([contentPlugin,test])
-    //   .process(css, { from: filePath, parser: scss })
-    //   .then((result) => {
-    //     res();
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   });
 }
 
@@ -80,7 +71,7 @@ export async function unusedVariables(unresolvedDir) {
     const files = fs.readdirSync(dir);
     //Recursive function
     files
-    .filter((file) => !file.includes("assets"))
+      .filter((file) => !file.includes("assets"))
       .filter((file) => !file.includes("node_modules"))
       .filter((file) => !file.includes("__tests__"))
       .filter((file) => !file.includes("tests"))

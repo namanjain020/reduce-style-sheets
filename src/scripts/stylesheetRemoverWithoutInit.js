@@ -72,13 +72,12 @@ export async function stylesheetRemoverWithoutInit(
                 } else {
                   isEmpty = true;
                 }
-                // console.log(isEmpty);
-                if (fileSize === 0 || isEmpty) {
+                if (fileSize === 0 ) {
                   if(filePath in result)
                   {
                     result[filePath]["empty"] = true;
                   }
-                  console.log("Empty " + filePath);
+                  // console.log("Empty " + filePath);
                   // TO DO
                   if (filePath in styleImports) {
                     await helper1();

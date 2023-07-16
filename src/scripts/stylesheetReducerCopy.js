@@ -11,6 +11,14 @@ import parser from "@babel/parser";
 const __dirname = path.resolve();
 
 let counter = 0;
+function endsWithFunc(str, arr) {
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (str.endsWith(arr[idx])) {
+      return true;
+    }
+  }
+  return false;
+}
 
 async function checkScript(className, filePath) {
   let value = false;
@@ -50,7 +58,6 @@ async function regexHelper(className, fileName, importsFrom, visited) {
   }
   visited.push(fileName);
   const content = fs.readFileSync(fileName, "utf-8");
-  // const str = `${className}`;
   if (content.includes(className)) {
     return true;
   } else {
@@ -71,6 +78,28 @@ async function regexHelper(className, fileName, importsFrom, visited) {
   return false;
 }
 
+async function dirSearch(className, visited, toVisit, dir) {
+  const files = fs.readdirSync(dir);
+  files
+    .filter((file) => !file.includes("__tests__"))
+    .filter((file) => !file.includes("tests"))
+    .forEach(async (file) => {
+      const filePath = path.join(dir, file);
+      const stats = fs.statSync(filePath);
+      if (stats.isDirectory()) {
+        await dirSearch(className, visited, toVisit, filePath);
+      } else if (
+        stats.isFile() &&
+        !endsWithFunc(filePath, ["css", "scss", "less"]) &&
+        !visited.includes(filePath)
+      ) {
+        toVisit.push(filePath);
+      }
+      return;
+    });
+  return;
+}
+
 async function helper(
   className,
   filePath,
@@ -78,29 +107,42 @@ async function helper(
   importsTo,
   styleImports
 ) {
-  let arr = [filePath];
-  let visited = [];
+  return new Promise(async (resolve, reject) => {
+    let arr = [filePath];
+    let visited = [];
 
-  if (filePath in styleImports) {
-    styleImports[filePath].forEach((file) => arr.push(file));
-  }
-  for (let idx = 0; idx < arr.length; idx++) {
-    if (arr[idx] in importsTo) {
-      for (let idx2 = 0; idx2 < importsTo[arr[idx]].length; idx2++) {
-        const res = await regexHelper(
-          className,
-          importsTo[arr[idx]][idx2],
-          importsFrom,
-          visited
-        );
-        if (res) {
-          return true;
+    if (filePath in styleImports) {
+      styleImports[filePath].forEach((file) => arr.push(file));
+    }
+    for (let idx = 0; idx < arr.length; idx++) {
+      if (arr[idx] in importsTo) {
+        for (let idx2 = 0; idx2 < importsTo[arr[idx]].length; idx2++) {
+          const res = await regexHelper(
+            className,
+            importsTo[arr[idx]][idx2],
+            importsFrom,
+            visited
+          );
+          if (res) {
+            resolve(true);
+          }
         }
       }
     }
-  }
-  console.log(className + " classs is unused");
-  return false;
+    const dirPath = path.dirname(filePath);
+    let toVisit = [];
+    dirSearch(className, visited, toVisit, dirPath).then((result) => {
+      // console.log(toVisit);
+      for (let idx = 0; idx < toVisit.length; idx++) {
+        const content = fs.readFileSync(toVisit[idx], "utf8");
+        if (content.includes(className)) {
+          // console.log(toVisit[idx], className);
+          resolve(true);
+        }
+      }
+      resolve(false);
+    });
+  });
   // return boolVal;
 }
 async function removeClasses(
@@ -111,6 +153,7 @@ async function removeClasses(
   removedBlocks
 ) {
   return new Promise((res, rej) => {
+    // console.log(filePath);
     const css = fs.readFileSync(filePath, "utf8");
     postcss([
       removeUnusedClasses(
@@ -166,24 +209,25 @@ const removeUnusedClasses = (
         !regex.test(rule.selector)
       ) {
         const className = classes[0];
-        const boolVal = await helper(
+        await helper(
           className.substring(1),
           filePath,
           importsFrom,
           importsTo,
           styleImports
-        );
-        if (!boolVal) {
-          removedBlocks[filePath]["unused-classes"][classes[0].substring(1)] =
-            codeBlock.replace(classes[0], "");
-          // Uncommet to start removal \\
-          rule.remove();
-        }
+        ).then((result) => {
+          if (!result) {
+            console.log(className, "class is unused");
+            removedBlocks[filePath]["unused-classes"][classes[0].substring(1)] =
+              codeBlock.replace(classes[0], "");
+            // Uncommet to start removal \\
+            rule.remove();
+          }
+        });
       }
     }
   },
-  async RootExit(root) {
-    // console.log("written");
+  RootExit(root) {
     fs.writeFileSync(
       filePath,
       prettier.format(root.toString(), { parser: "scss" })
@@ -199,7 +243,7 @@ export async function stylesheetReducer(
   styleImports,
   removedBlocks
 ) {
-  return new Promise(async (res, rej) => {
+  return new Promise(async (res1, rej1) => {
     console.log("in");
     async function stylesheetReducerHelper(
       dirt,
@@ -208,42 +252,46 @@ export async function stylesheetReducer(
       styleImports,
       removedBlocks
     ) {
-      const dir = path.resolve(dirt);
-      const files = fs.readdirSync(dir);
-      // files = fs.readdirSync(dir);
-      //Recursive function
-      files
-        .filter((file) => !file.includes("assets"))
-        .filter((file) => !file.includes("node_modules"))
-        .filter((file) => !file.includes("__tests__"))
-        .filter((file) => !file.includes("tests"))
-        .filter((file) => !file.startsWith("_"))
-        .forEach(async (file) => {
-          const filePath = path.join(dir, file);
-          const stats = fs.statSync(filePath);
-          if (stats.isDirectory()) {
-            await stylesheetReducerHelper(
-              filePath,
-              importsFrom,
-              importsTo,
-              styleImports,
-              removedBlocks
-            );
-          } else if (stats.isFile()) {
-            const extension = path.extname(filePath);
-            if ([".css", ".scss", ".less"].includes(extension)) {
-              counter++;
-              await removeClasses(
+      return new Promise(async (res2, rej2) => {
+        const dir = path.resolve(dirt);
+        const files = fs.readdirSync(dir);
+        //Recursive function
+        files
+          .filter((file) => !file.includes("assets"))
+          .filter((file) => !file.includes("node_modules"))
+          .filter((file) => !file.includes("__tests__"))
+          .filter((file) => !file.includes("tests"))
+          .filter((file) => !file.startsWith("_"))
+          .forEach(async (file) => {
+            const filePath = path.join(dir, file);
+            const stats = fs.statSync(filePath);
+            if (stats.isDirectory()) {
+              await stylesheetReducerHelper(
                 filePath,
                 importsFrom,
                 importsTo,
                 styleImports,
                 removedBlocks
-              );
+              ).then((value) => {
+                res2();
+              });
+            } else if (stats.isFile()) {
+              const extension = path.extname(filePath);
+              if ([".css", ".scss", ".less"].includes(extension)) {
+                counter++;
+                await removeClasses(
+                  filePath,
+                  importsFrom,
+                  importsTo,
+                  styleImports,
+                  removedBlocks
+                ).then((value) => {
+                  res2();
+                });
+              }
             }
-          }
-          return;
-        });
+          });
+      });
     }
     await stylesheetReducerHelper(
       dirt,
@@ -251,8 +299,9 @@ export async function stylesheetReducer(
       importsTo,
       styleImports,
       removedBlocks
-    );
-    console.log("out");
-    res();
+    ).then((value) => {
+      console.log("out");
+      res1();
+    });
   });
 }

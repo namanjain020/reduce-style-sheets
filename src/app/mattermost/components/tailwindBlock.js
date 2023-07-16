@@ -25,7 +25,7 @@ const MergeRequest = ({ original, newFile }) => {
     });
     return diffElements;
   };
-  return <div className="merge-request">{generateDiff()}</div>;
+  return <div className="merge-request overflow-y-auto h-64 p-0 m-0">{generateDiff()}</div>;
 };
 
 
@@ -53,8 +53,8 @@ export default function TailwindCodeblock(props) {
   });
 
   return (
-    <div >
-      <p>Changed Code</p>
+    <div className="bg-slate-50">
+      <p className="text-md p-2">Changed Code</p>
       <MergeRequest original={og} newFile={final}/>
       <div>
       {/* <p>Replaced Tailwind</p>

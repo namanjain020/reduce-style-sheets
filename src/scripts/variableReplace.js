@@ -3,17 +3,14 @@ import path from "path";
 import * as prettier from "prettier";
 import postcss from "postcss";
 import scss from "postcss-scss";
-
-import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 import _generator from "@babel/generator";
 const generator = _generator.default;
 const traverse = _traverse.default;
 
-async function readVariables(filePath) {
+async function readVariables(filePath, variables) {
   return new Promise((res, rej) => {
     let css = fs.readFileSync(filePath, "utf8");
-
     const test = (variables) => ({
       postcssPlugin: "test",
       Declaration(decl) {
@@ -25,18 +22,17 @@ async function readVariables(filePath) {
       },
     });
     test.postcss = true;
-    let variables = {};
+
     postcss([test(variables)])
       .process(css, { from: filePath, parser: scss })
       .then((result) => {
         css = result.css;
-        // console.log(variables);
         const vars = Object.keys(variables);
         vars.forEach((v) => {
-          // console.log(v);
           css = css.replaceAll(v, variables[v]);
         });
         fs.writeFileSync(filePath, prettier.format(css, { parser: "scss" }));
+        res();
       })
       .catch((error) => {
         console.log(error);
@@ -44,9 +40,9 @@ async function readVariables(filePath) {
   });
 }
 
-export async function variableReplace(unresolvedDir) {
+export async function variableReplace(unresolvedDir, globalVariables) {
   // console.log("in");
-  async function variableReplaceHelper(unresolvedDir) {
+  async function variableReplaceHelper(unresolvedDir, variables) {
     const dir = path.resolve(unresolvedDir);
     const files = fs.readdirSync(dir);
     //Recursive function
@@ -60,16 +56,17 @@ export async function variableReplace(unresolvedDir) {
         const filePath = path.join(dir, file);
         const stats = fs.statSync(filePath);
         if (stats.isDirectory()) {
-          variableReplaceHelper(filePath);
+          variableReplaceHelper(filePath, variables);
         } else if (stats.isFile()) {
           const extension = path.extname(filePath);
           if ([".css", ".scss", ".less"].includes(extension)) {
-            await readVariables(filePath);
+            await readVariables(filePath, variables);
           }
         }
       });
   }
-  await variableReplaceHelper(unresolvedDir);
+  let variables = JSON.parse(JSON.stringify(globalVariables));
+  await variableReplaceHelper(unresolvedDir, variables);
   // console.log("out");
   return;
 }

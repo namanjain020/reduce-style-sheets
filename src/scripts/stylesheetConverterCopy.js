@@ -365,7 +365,7 @@ export async function stylesheetConverter(
   globalVariables
 ) {
   // console.log("second-in");
-  let local = structuredClone(globalVariables);
+  let local = JSON.parse(JSON.stringify((globalVariables)));
 
   // console.log("StyleSheet converter execution started");
   const dir = path.resolve(unresDir);

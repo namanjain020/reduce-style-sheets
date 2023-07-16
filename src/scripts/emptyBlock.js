@@ -10,31 +10,32 @@ import _generator from "@babel/generator";
 const generator = _generator.default;
 const traverse = _traverse.default;
 
-
-
 async function readVariables(filePath) {
   return new Promise((res, rej) => {
     const css = fs.readFileSync(filePath, "utf8");
 
     const test = () => ({
-        postcssPlugin: "test",
-        prepare(result) {
-          return {
-            Rule(rule) {
-                if(rule.nodes && rule.nodes.length<1)
-                {
-                    rule.remove();
-                }
-            },
-          };
-        },
-      });
+      postcssPlugin: "test",
+      prepare(result) {
+        return {
+          Rule(rule) {
+            if (rule.nodes && rule.nodes.length < 1) {
+              rule.remove();
+            }
+          },
+        };
+      },
+    });
     test.postcss = true;
     postcss([test])
       .process(css, { from: filePath, parser: scss })
       .then((result) => {
         //answer
-        fs.writeFileSync(filePath,prettier.format(result.css, { parser: "scss" }))
+        fs.writeFileSync(
+          filePath,
+          prettier.format(result.css, { parser: "scss" })
+        );
+        res();
       })
       .catch((error) => {
         console.log(error);
@@ -49,7 +50,7 @@ export async function emptyBlock(unresolvedDir) {
     const files = fs.readdirSync(dir);
     //Recursive function
     files
-    .filter((file) => !file.includes("assets"))
+      .filter((file) => !file.includes("assets"))
       .filter((file) => !file.includes("node_modules"))
       .filter((file) => !file.includes("__tests__"))
       .filter((file) => !file.includes("tests"))
@@ -58,7 +59,7 @@ export async function emptyBlock(unresolvedDir) {
         const filePath = path.join(dir, file);
         const stats = fs.statSync(filePath);
         if (stats.isDirectory()) {
-            emptyBlockHelper(filePath);
+          await emptyBlockHelper(filePath);
         } else if (stats.isFile()) {
           const extension = path.extname(filePath);
           if ([".css", ".scss", ".less"].includes(extension)) {

@@ -10,11 +10,13 @@ import { stylesheetConverter } from "./stylesheetConverterCopy.js";
 import { parsingJSFiles } from "./parsingJSFiles.js";
 import { finalTraverse } from "./finalTraverse.js";
 import { middleTraverse } from "./middleTraverse.js";
+import { mixinParse } from "./mixinParse.js"
 import { variableParse } from "./variableParse.js";
 import { unusedVariables } from "./unusedVariables.js";
 import { emptyBlock } from "./emptyBlock.js";
 import { variableReplace } from "./variableReplace.js";
 import { stylesheetRemoverWithoutInit } from "./stylesheetRemoverWithoutInit.js";
+import { mixinReplace } from "./mixinReplace.js";
 
 async function deleteAllFilesInDir(dirPath) {
   try {
@@ -34,34 +36,34 @@ async function wrapper(dir) {
   fs.mkdirSync("logs");
   let counter = 0;
   const original = fileSystem(dir, counter);
-  fs.writeFileSync(
-    "./logs/original.json",
-    prettier.format(JSON.stringify(original), { parser: "json" })
-  );
   let importsTo = {},
     importsFrom = {},
     styleImports = {},
     result = {},
-    globalVariables = {};
+    globalVariables = {},globalMixins={};
   await importMap(dir, importsTo, importsFrom, styleImports);
+  await mixinParse(dir, globalMixins);
+  
+  await variableParse(dir, globalVariables);
+  await stylesheetRemover(dir, importsTo, styleImports, result);
+  await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
   setTimeout(async () => {
-    await stylesheetRemover(dir, importsTo, styleImports, result);
+    await unusedVariables(dir);
+    await emptyBlock(dir);
     setTimeout(async () => {
-      await stylesheetReducer(
-        dir,
-        importsFrom,
-        importsTo,
-        styleImports,
-        result
-      );
+      await middleTraverse(dir, importsTo, styleImports, result);
       setTimeout(async () => {
-        await unusedVariables(dir);
+        await variableReplace(dir, globalVariables);
+        await mixinReplace(dir,globalMixins);
         setTimeout(async () => {
-          await emptyBlock(dir);
-          await variableParse(dir, globalVariables);
-          await variableReplace(dir);
-          await middleTraverse(dir, importsTo, styleImports, result);
-
+          await stylesheetConverter(
+            dir,
+            importsFrom,
+            importsTo,
+            styleImports,
+            result,
+            globalVariables
+          );
           setTimeout(async () => {
             await stylesheetConverter(
               dir,
@@ -71,16 +73,9 @@ async function wrapper(dir) {
               result,
               globalVariables
             );
+
             setTimeout(async () => {
-              await stylesheetConverter(
-                dir,
-                importsFrom,
-                importsTo,
-                styleImports,
-                result,
-                globalVariables
-              );
-              await unusedVariables(dir);
+              await emptyBlock(dir);
               await emptyBlock(dir);
               await stylesheetRemoverWithoutInit(
                 dir,
@@ -88,36 +83,41 @@ async function wrapper(dir) {
                 styleImports,
                 result
               );
-              trigger(dir,importsFrom, importsTo, styleImports, result);
+              setTimeout(async () => {
+                await finalTraverse(dir, importsTo, styleImports, result);
+                setTimeout(async () => {
+                  trigger(dir, importsFrom, importsTo, styleImports, result);
+                }, 100000)
+              }, 100000);
             }, 200000);
           }, 200000);
         }, 200000);
-      }, 200000);
+      }, 150000);
     }, 200000);
-  }, 200000);
+  }, 300000);
 }
-const trigger = (importsFrom, importsTo, styleImports, result) => {
+const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
+  
   setTimeout(async () => {
-    await finalTraverse(dir, importsTo, styleImports, result);
     console.log("RESULTS HAVE BEEN PRINTED");
     // console.log(result);
+    // fs.writeFileSync(
+    //   "./logs/importsTo.json",
+    //   prettier.format(JSON.stringify(importsTo), { parser: "json" })
+    // );
+    // fs.writeFileSync(
+    //   "./logs/importsFrom.json",
+    //   prettier.format(JSON.stringify(importsFrom), { parser: "json" })
+    // );
+    // fs.writeFileSync(
+    //   "./logs/styleImports.json",
+    //   prettier.format(JSON.stringify(styleImports), { parser: "json" })
+    // );
     fs.writeFileSync(
-      "./logs/importsTo.json",
-      prettier.format(JSON.stringify(importsTo), { parser: "json" })
-    );
-    fs.writeFileSync(
-      "./logs/importsFrom.json",
-      prettier.format(JSON.stringify(importsFrom), { parser: "json" })
-    );
-    fs.writeFileSync(
-      "./logs/styleImports.json",
-      prettier.format(JSON.stringify(styleImports), { parser: "json" })
-    );
-    fs.writeFileSync(
-      "./logs/removedBlocks.json",
+      "./logs/results.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 150000);
+  }, 100000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
