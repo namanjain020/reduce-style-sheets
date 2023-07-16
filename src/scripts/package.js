@@ -94,7 +94,7 @@ async function wrapper(dir) {
         }, 200000);
       }, 150000);
     }, 200000);
-  }, 300000);
+  }, 200000);
 }
 const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
   

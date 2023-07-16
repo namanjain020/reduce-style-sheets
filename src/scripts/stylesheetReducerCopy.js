@@ -182,50 +182,53 @@ const removeUnusedClasses = (
   removedBlocks
 ) => ({
   postcssPlugin: "remove",
-  async Rule(rule) {
-    // console.log("in",counter);
-    // counter++;
-    const codeBlock = rule.toString();
-    // Check if the rule has a class selector
-    if (rule.selector && rule.selector.includes(".")) {
-      const arr = rule.selector
-        .toString()
-        .match(/(\.[^\s.#,]+|#[^\s.#,]+|[^.\s#,][^\s.#,]+)?/g)
-        .filter((el) => el != "");
-      let classes = [];
-      let ids = [];
-      let tags = [];
-      arr.forEach((el) => {
-        if (el[0] === ".") classes.push(el);
-        else if (el[0] === "#") ids.push(el);
-        else tags.push(el);
-      });
-      //No pseudo selectors are taken in tc for now
-      const regex = /[:+~>@\[$&\\]/;
-      if (
-        ids.length === 0 &&
-        tags.length === 0 &&
-        classes.length === 1 &&
-        !regex.test(rule.selector)
-      ) {
-        const className = classes[0];
-        await helper(
-          className.substring(1),
-          filePath,
-          importsFrom,
-          importsTo,
-          styleImports
-        ).then((result) => {
-          if (!result) {
-            console.log(className, "class is unused");
-            removedBlocks[filePath]["unused-classes"][classes[0].substring(1)] =
-              codeBlock.replace(classes[0], "");
-            // Uncommet to start removal \\
-            rule.remove();
-          }
+  async Root(root) {
+    root.walkRules(async (rule) => {
+      // console.log("in",counter);
+      // counter++;
+      const codeBlock = rule.toString();
+      // Check if the rule has a class selector
+      if (rule.selector && rule.selector.includes(".")) {
+        const arr = rule.selector
+          .toString()
+          .match(/(\.[^\s.#,]+|#[^\s.#,]+|[^.\s#,][^\s.#,]+)?/g)
+          .filter((el) => el != "");
+        let classes = [];
+        let ids = [];
+        let tags = [];
+        arr.forEach((el) => {
+          if (el[0] === ".") classes.push(el);
+          else if (el[0] === "#") ids.push(el);
+          else tags.push(el);
         });
+        //No pseudo selectors are taken in tc for now
+        const regex = /[:+~>@\[$&\\]/;
+        if (
+          ids.length === 0 &&
+          tags.length === 0 &&
+          classes.length === 1 &&
+          !regex.test(rule.selector)
+        ) {
+          const className = classes[0];
+          await helper(
+            className.substring(1),
+            filePath,
+            importsFrom,
+            importsTo,
+            styleImports
+          ).then((result) => {
+            if (!result) {
+              console.log(className, "class is unused");
+              removedBlocks[filePath]["unused-classes"][
+                classes[0].substring(1)
+              ] = codeBlock.replace(classes[0], "");
+              // Uncommet to start removal \\
+              rule.remove();
+            }
+          });
+        }
       }
-    }
+    });
   },
   RootExit(root) {
     fs.writeFileSync(
