@@ -9,7 +9,7 @@ import Text from "next";
 // import { StatefulInput } from "baseui/input";
 import dynamic from "next/dynamic";
 import * as Diff from 'diff';
-
+import Widget from "./components/Widget"
 // const Client = dynamic(
 //   () => {
 //     return import("styletron-engine-atomic");
@@ -123,8 +123,9 @@ export default function Home() {
   // const [value, setValue] = React.useState(70);
   return (
     <div>
-      <MergeRequest original={one} newFile={other}/>
-      <Progress value={80} />
+      <Widget   text = "The number of files parsed" number ="291"/>
+      {/* <MergeRequest original={one} newFile={other}/> */}
+      {/* <Progress value={80} /> */}
     </div>
   );
 }

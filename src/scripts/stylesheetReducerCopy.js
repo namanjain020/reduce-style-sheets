@@ -166,6 +166,10 @@ async function removeClasses(
     ])
       .process(css, { from: filePath, parser: scss })
       .then((result) => {
+        fs.writeFileSync(
+          filePath,
+          prettier.format(result.css, { parser: "scss" })
+        );
         res();
       })
       .catch((error) => {
@@ -229,12 +233,6 @@ const removeUnusedClasses = (
         }
       }
     });
-  },
-  RootExit(root) {
-    fs.writeFileSync(
-      filePath,
-      prettier.format(root.toString(), { parser: "scss" })
-    );
   },
 });
 removeUnusedClasses.postcss = true;

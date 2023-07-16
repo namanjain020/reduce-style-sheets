@@ -43,16 +43,16 @@ export async function finalTraverse(
             const stats = fs.statSync(filePath);
             const fileSize = stats.size;
             // result[filePath]
-            console.log(filePath);
-            console.log(fileSize/1000);
-            // if (filePath in result) {
+            // console.log(filePath);
+            // console.log(fileSize/1000);
+            if (filePath in result) {
               
-            //   result[filePath]["final-size"] = fileSize / 1000;
-            //   result[filePath]["final-code"] = prettier.format(
-            //     fs.readFileSync(filePath, "utf8"),
-            //     { parser: "scss" }
-            //   );
-            // }
+              result[filePath]["final-size"] = fileSize / 1000;
+              result[filePath]["final-code"] = prettier.format(
+                fs.readFileSync(filePath, "utf8"),
+                { parser: "scss" }
+              );
+            }
           }
         }
       });

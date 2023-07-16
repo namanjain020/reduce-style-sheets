@@ -3,7 +3,7 @@ import "./table.css";
 import Image from "next/image";
 import Progress from "./Progress";
 import { CountUp } from "use-count-up";
-
+import Widget from "../../components/Widget";
 import { Chart } from "react-google-charts";
 import Link from "next/link";
 import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
@@ -29,6 +29,7 @@ function Overall(props) {
       unused += Object.keys(props.data[file]["unused-classes"]).length;
     }
   });
+  console.log(originalSize, remaining);
   const info = [
     ["Task", "in KB"],
     ["Remaining", remaining],
@@ -40,39 +41,56 @@ function Overall(props) {
   };
   return (
     <>
-      <div className=" p-4  bg-white rounded-[12px] text-xl overflow-hidden text-slate-400 font-sans">
-        <div className="px-6 py-3"></div>
+      <div className="p-4 w-3/4 bg-white rounded-[12px] text-xl overflow-hidden text-slate-400 font-sans">
         <div className=" flex bg-white text-3xl justify-between px-6 my-2">
-          <div className=" flex drop-shadow-lg text-center text-sm">
-            <Card className=" hover:bg-slate-300">
+          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-3 cursor-pointer text-center text-sm">
+            <Card
+              className="hover:bg-[#F2F5F7] bg-[#F2F5F7]"
+              style={{ border: "1px solid rgb(30, 144, 255)" }}
+            >
               <Link href="/dst">
                 <CardBody>
-                  <p>Distributed-app</p>
+                  <p className="font-medium">Distributed-app</p>
                 </CardBody>
               </Link>
             </Card>
           </div>
-          <div className="flex   drop-shadow-lg text-center text-sm">
-            <Card className=" hover:bg-slate-300">
+          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-3 cursor-pointer text-center text-sm">
+            <Card className="hover:bg-[#F2F5F7] ">
               <Link href="/mattermost">
                 <CardBody>
-                  <p>Mattermost-webapp</p>
+                  <p className="font-medium">Mattermost-webapp</p>
                 </CardBody>
               </Link>
             </Card>
           </div>
-          <div className="flex  drop-shadow-lg text-center text-sm">
-            <Card className=" hover:bg-slate-300">
+          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-3 cursor-pointer text-center text-sm">
+            <Card className="hover:bg-[#F2F5F7]">
               <Link href="/testing">
                 <CardBody>
-                  <p>Testing-repository</p>
+                  <p className="font-medium">Testing-repository</p>
                 </CardBody>
               </Link>
             </Card>
           </div>
         </div>
-        <p className="text-slate-800 text-3xl py-2 px-6 ">Overall Statistics</p>
-        <div className="flex ">
+        <hr class="h-[0.4rem] w-full rounded-xl bg-[#F0F3F4]"></hr>
+        <p className="text-black text-3xl py-4 px-6 text-center">
+          Overall Statistics
+        </p>
+        <div className="flex flex-row justify-between">
+          <Widget
+            text="Total number of stylesheets parsed"
+            number={totalFiles}
+          />
+          <Widget text="Number of unused classes found" number={unused} />
+          <Widget
+            text="Size of converted Styles"
+            number={Math.round((reducedSize - remaining) * 100) / 100 + " KB"}
+          />
+        </div>
+
+        {/* <div className="flex ">
           <div className="px-6 w-1/2">
             <p className="text-slate-700">
               Total number of stylesheets parsed:{" "}
@@ -115,7 +133,7 @@ function Overall(props) {
               height={"100%"}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
