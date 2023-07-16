@@ -218,15 +218,7 @@ function Table(props) {
               <div className="table-container w-full m-0 p-0"></div>
             </TabPanel>
             <TabPanel>
-              <div>
-                <Chart
-                  chartType="PieChart"
-                  data={info}
-                  options={options}
-                  width={"100%"}
-                  height={"500px"}
-                />
-              </div>
+              <p>Empty</p>
             </TabPanel>
           </TabPanels>
         </Tabs>

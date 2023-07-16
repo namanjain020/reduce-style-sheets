@@ -14,47 +14,55 @@ async function readMixins(filePath, globalMixins) {
     const another = (mixin) => ({
       postcssPlugin: "another",
       AtRule(atrule) {
-        if (atrule.name === "include") {
-          if (atrule.params.includes("(")) {
-            const func = atrule.params.match(/([^()\s]+)\s*\(/)[1];
-            const params = atrule.params
-              .match(/\(([^)]+)\)/)[1]
-              .replaceAll(" ", "")
-              .split(",");
-            if (
-              func in mixin &&
-              params.length === mixin[func]["params"].length
-            ) {
-              // console.log(mixin[func]["params"]);
-              // console.log(params);
-              const attr = mixin[func]["attributes"];
-              attr.forEach(async (obj) => {
-                const curProp = Object.keys(obj)[0];
-                let curValue = obj[curProp];
-                for (let idx = 0; idx < mixin[func]["params"].length; idx++) {
-                  curValue = curValue.replace(
-                    mixin[func]["params"][idx],
-                    params[idx]
-                  );
-                }
-                await atrule.parent.append({ prop: curProp, value: curValue });
-                // console.log(curProp,curValue);
-              });
-              atrule.remove();
-            }
-          } else {
-            if (atrule.params in mixin) {
-              const attr = mixin[atrule.params]["attributes"];
-              attr.forEach(async (obj) => {
-                const curProp = Object.keys(obj)[0];
-                const curValue = obj[curProp];
-                // console.log(curProp,curValue);
-                await atrule.parent.append({ prop: curProp, value: curValue });
-              });
-              atrule.remove();
+        try {
+          if (atrule.name === "include") {
+            if (atrule.params.includes("(")) {
+              const func = atrule.params.match(/([^()\s]+)\s*\(/)[1];
+              const params = atrule.params
+                .match(/\(([^)]+)\)/)[1]
+                .replaceAll(" ", "")
+                .split(",");
+              if (
+                func in mixin &&
+                params.length === mixin[func]["params"].length
+              ) {
+                // console.log(mixin[func]["params"]);
+                // console.log(params);
+                const attr = mixin[func]["attributes"];
+                attr.forEach(async (obj) => {
+                  const curProp = Object.keys(obj)[0];
+                  let curValue = obj[curProp];
+                  for (let idx = 0; idx < mixin[func]["params"].length; idx++) {
+                    curValue = curValue.replace(
+                      mixin[func]["params"][idx],
+                      params[idx]
+                    );
+                  }
+                  await atrule.parent.append({
+                    prop: curProp,
+                    value: curValue,
+                  });
+                  // console.log(curProp,curValue);
+                });
+                atrule.remove();
+              }
+            } else {
+              if (atrule.params in mixin) {
+                const attr = mixin[atrule.params]["attributes"];
+                attr.forEach(async (obj) => {
+                  const curProp = Object.keys(obj)[0];
+                  const curValue = obj[curProp];
+                  // console.log(curProp,curValue);
+                  await atrule.parent.append({
+                    prop: curProp,
+                    value: curValue,
+                  });
+                });
+                atrule.remove();
+              }
             }
           }
-        }
+        } catch {}
       },
     });
     another.postcss = true;
@@ -62,7 +70,10 @@ async function readMixins(filePath, globalMixins) {
     postcss([another(globalMixins)])
       .process(css, { from: filePath, parser: scss })
       .then((result) => {
-        fs.writeFileSync(filePath, prettier.format(result.css, { parser: "scss" }));
+        fs.writeFileSync(
+          filePath,
+          prettier.format(result.css, { parser: "scss" })
+        );
         res();
       })
       .catch((error) => {

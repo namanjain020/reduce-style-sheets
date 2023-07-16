@@ -24,7 +24,9 @@ export default function RightPane() {
   ));
 
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full min-h-screen gap-y-[1.6rem] pb-5 items-center">
+      
+      <p className="pt-8 pb-3 text-[2.4rem] font-medium my-[0.4rem]">Reduce StyleSheets</p>
       <Overall data={obj}></Overall>
       <Table data={obj}></Table>
       <div className="pl-5"></div>

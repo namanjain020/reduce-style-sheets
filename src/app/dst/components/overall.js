@@ -4,6 +4,7 @@ import Image from "next/image";
 import Progress from "./Progress";
 import { CountUp } from "use-count-up";
 
+import { Chart } from "react-google-charts";
 import Link from "next/link";
 import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 
@@ -28,14 +29,19 @@ function Overall(props) {
       unused += Object.keys(props.data[file]["unused-classes"]).length;
     }
   });
-
+  const info = [
+    ["Task", "in KB"],
+    ["Remaining", remaining],
+    ["Converted", reducedSize - remaining],
+    ["Unused Classes", originalSize - reducedSize],
+  ];
+  const options = {
+    title: "",
+  };
   return (
     <>
-      <div className="shadow-xl p-4 my-6 mx-20 bg-white rounded-md text-xl text-slate-400 font-sans">
-      <div className="px-6 py-3">
-        <h1 className="text-4xl text-black">Reduce StyleSheets</h1>
-        <h2 className="text-2xl pt-1 text-slate-500">Mattermost Webapp</h2>
-      </div>
+      <div className=" p-4  bg-white rounded-[12px] text-xl overflow-hidden text-slate-400 font-sans">
+        <div className="px-6 py-3"></div>
         <div className=" flex bg-white text-3xl justify-between px-6 my-2">
           <div className=" flex drop-shadow-lg text-center text-sm">
             <Card className=" hover:bg-slate-300">
@@ -66,40 +72,51 @@ function Overall(props) {
           </div>
         </div>
         <p className="text-slate-800 text-3xl py-2 px-6 ">Overall Statistics</p>
+        <div className="flex ">
+          <div className="px-6 w-1/2">
+            <p className="text-slate-700">
+              Total number of stylesheets parsed:{" "}
+            </p>
+            <CountUp isCounting end={totalFiles} duration={2} />
+            <p className="text-slate-700">Total Size:</p>
+            <CountUp
+              isCounting
+              end={Math.round(originalSize * 100) / 100}
+              duration={2}
+            />
+            <p className="text-slate-700">Size of unused styles:</p>
+            <CountUp
+              isCounting
+              end={Math.round((originalSize - reducedSize) * 100) / 100}
+              duration={2}
+            />
 
-        <div className="px-6">
-          <p className="text-slate-700">Total number of stylesheets parsed: </p>
-          <CountUp isCounting end={totalFiles} duration={2} />
-          <p className="text-slate-700">Total Size:</p>
-          <CountUp
-            isCounting
-            end={Math.round(originalSize * 100) / 100}
-            duration={2}
-          />
-          <p className="text-slate-700">Size of unused styles:</p>
-          <CountUp
-            isCounting
-            end={Math.round((originalSize - reducedSize) * 100) / 100}
-            duration={2}
-          />
-
-          <p className="text-slate-700">Size of converted styles:</p>
-          <CountUp
-            isCounting
-            end={Math.round((reducedSize - remaining) * 100) / 100}
-            duration={2}
-          />
-          <p className="text-slate-700">Final size </p>
-          <CountUp
-            isCounting
-            end={Math.round(remaining * 100) / 100}
-            duration={2}
-          />
-          <p className="text-slate-700">Number of unused classes found: </p>
-          <CountUp isCounting end={unused} duration={2} />
+            <p className="text-slate-700">Size of converted styles:</p>
+            <CountUp
+              isCounting
+              end={Math.round((reducedSize - remaining) * 100) / 100}
+              duration={2}
+            />
+            <p className="text-slate-700">Final size </p>
+            <CountUp
+              isCounting
+              end={Math.round(remaining * 100) / 100}
+              duration={2}
+            />
+            <p className="text-slate-700">Number of unused classes found: </p>
+            <CountUp isCounting end={unused} duration={2} />
+          </div>
+          <div className="flex w-1/2">
+            <Chart
+              chartType="PieChart"
+              data={info}
+              options={options}
+              width={"100%"}
+              height={"100%"}
+            />
+          </div>
         </div>
       </div>
-
     </>
   );
 }

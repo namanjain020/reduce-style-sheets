@@ -42,13 +42,17 @@ export async function finalTraverse(
           if ([".css", ".scss", ".less"].includes(extension)) {
             const stats = fs.statSync(filePath);
             const fileSize = stats.size;
-            if (filePath in result) {
-              result[filePath]["final-size"] = fileSize / 1000;
-              result[filePath]["final-code"] = prettier.format(
-                fs.readFileSync(filePath, "utf8"),
-                { parser: "scss" }
-              );
-            }
+            // result[filePath]
+            console.log(filePath);
+            console.log(fileSize/1000);
+            // if (filePath in result) {
+              
+            //   result[filePath]["final-size"] = fileSize / 1000;
+            //   result[filePath]["final-code"] = prettier.format(
+            //     fs.readFileSync(filePath, "utf8"),
+            //     { parser: "scss" }
+            //   );
+            // }
           }
         }
       });
