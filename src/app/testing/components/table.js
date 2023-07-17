@@ -78,8 +78,8 @@ function Table(props) {
             <p className=" w-[12rem] flex  justify-self-start text-[14px] font-normal">
               {result[file]["size-after-unused"]} KB
             </p>
-            <div className="  w-[20rem] pr-4">
-              {/* <p className="p-0">
+            <div className="  w-[20rem] pr-4 text-left">
+              <span className="p-0 align-left mb-[4px] text-[14px] font-semibold">
                 {Math.round(
                   100 -
                     (result[file]["size-after-unused"] /
@@ -87,33 +87,33 @@ function Table(props) {
                       100
                 )}{" "}
                 %
-              </p> */}
-              
-                <Progress
-                  color={
-                    Math.round(
-                      100 -
-                        (result[file]["size-after-unused"] /
-                          result[file]["original-size"]) *
-                          100
-                    ) > 75
-                      ? "green"
-                      : Math.round(
-                          100 -
-                            (result[file]["size-after-unused"] /
-                              result[file]["original-size"]) *
-                              100
-                        ) > 50
-                      ? "yellow"
-                      : "pink"
-                  }
-                  val={Math.round(
+              </span>
+
+              <Progress
+                color={
+                  Math.round(
                     100 -
                       (result[file]["size-after-unused"] /
                         result[file]["original-size"]) *
                         100
-                  )}
-                />
+                  ) > 75
+                    ? "green"
+                    : Math.round(
+                        100 -
+                          (result[file]["size-after-unused"] /
+                            result[file]["original-size"]) *
+                            100
+                      ) > 50
+                    ? "yellow"
+                    : "pink"
+                }
+                val={Math.round(
+                  100 -
+                    (result[file]["size-after-unused"] /
+                      result[file]["original-size"]) *
+                      100
+                )}
+              />
             </div>
           </AccordionButton>
 
@@ -155,39 +155,43 @@ function Table(props) {
               {result[file]["size-after-unused"]} KB
             </p>
             <p className=" w-[12rem] flex  justify-self-start text-[14px] font-normal">
-               {result[file]["final-size"]} KB
+              {result[file]["final-size"]} KB
             </p>
-            <div className=" w-[20rem] pr-4">
-              {/* <p className="p-0">{Math.round(100-
-                  (result[file]["final-size"] /
-                    result[file]["size-after-unused"]) *
-                    100
-                )} %</p> */}
-                <Progress
-                  color={
-                    Math.round(
-                      100 -
-                        (result[file]["final-size"] /
-                          result[file]["size-after-unused"]) *
-                          100
-                    ) > 75
-                      ? "green"
-                      : Math.round(
-                          100 -
-                            (result[file]["final-size"] /
-                              result[file]["size-after-unused"]) *
-                              100
-                        ) > 50
-                      ? "yellow"
-                      : "pink"
-                  }
-                  val={Math.round(
+            <div className="  w-[20rem] pr-4 text-left">
+              <span className="p-0 align-left mb-[4px] text-[14px] font-semibold">
+                {Math.round(
+                  100 -
+                    (result[file]["final-size"] /
+                      result[file]["size-after-unused"]) *
+                      100
+                )}{" "}
+                %
+              </span>
+              <Progress
+                color={
+                  Math.round(
                     100 -
                       (result[file]["final-size"] /
                         result[file]["size-after-unused"]) *
                         100
-                  )}
-                />
+                  ) > 75
+                    ? "green"
+                    : Math.round(
+                        100 -
+                          (result[file]["final-size"] /
+                            result[file]["size-after-unused"]) *
+                            100
+                      ) > 50
+                    ? "yellow"
+                    : "pink"
+                }
+                val={Math.round(
+                  100 -
+                    (result[file]["final-size"] /
+                      result[file]["size-after-unused"]) *
+                      100
+                )}
+              />
             </div>
           </AccordionButton>
           <AccordionPanel className="p-0">
@@ -212,7 +216,7 @@ function Table(props) {
           </p>
         </div>
         <div className="border-2 rounded-lg mt-2">
-          <Tabs isFitted variant="line" size="lg" className="py-2">
+          <Tabs isFitted variant="line" size="md" className="">
             <TabList>
               <Tab>Unused Classes</Tab>
               <Tab>Styles to Utility Classes</Tab>

@@ -42,39 +42,36 @@ function Overall(props) {
   return (
     <>
       <div className="p-4 w-3/4 bg-white rounded-[12px] text-xl overflow-hidden text-slate-400 font-sans">
-        <div className=" flex bg-white text-3xl justify-between px-6 ">
-          
-          <div className=" flex flex-row bg-white w-44 rounded-[8px] items-center hover:bg-[#F2F5F7]  text-center cursor-pointer  text-sm">
+      <div className=" flex bg-white text-3xl justify-between mx-[8px]">
+          <div
+            className=" flex flex-row w-44 rounded-[8px] place-content-center hover:bg-[#F2F5F7]  text-center cursor-pointer  text-sm"
+            
+          >
             <Link href="/dst">
-              <p className="text-[16px] text-black font-medium text-center p-[11px]">
-              Distributed-app
+              <p className="text-[16px] text-black font-medium place-content-center p-[11px]">
+                Distributed-app
               </p>
             </Link>
           </div>
-          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0  cursor-pointer text-center text-sm">
-            <Card
-              className="hover:bg-[#F2F5F7] bg-[#F2F5F7]"
-              style={{ border: "1px solid rgb(30, 144, 255)" }}
-            >
-              <Link href="/mattermost">
-                <CardBody>
-                  <p className="text-[16px] font-medium">Mattermost-webapp</p>
-                </CardBody>
-              </Link>
-            </Card>
-          </div>
-          <div className=" flex flex-row bg-white w-44 rounded-[8px] items-center hover:bg-[#F2F5F7]  text-center cursor-pointer  text-sm">
-            
-              <Link href="/testing">
-                
+          <div className=" flex flex-row bg-white w-44 rounded-[8px] place-content-center hover:bg-[#F2F5F7] bg-[#F2F5F7] text-center cursor-pointer  text-sm"
+          style={{ outline: "1px solid rgb(30, 144, 255)" }}>
+            <Link href="/mattermost">
               <p className="text-[16px] text-black font-medium text-center p-[11px]">
-              Testing-repository</p>
-                
-              </Link>
-           
+                Mattermost-webapp
+              </p>
+            </Link>
+          </div>
+          <div className=" flex flex-row bg-white w-44 rounded-[8px] place-content-center hover:bg-[#F2F5F7]  text-center cursor-pointer  text-sm">
+            <Link href="/testing">
+              <p className="text-[16px] text-black font-medium text-center p-[11px]">
+                Testing-repository
+              </p>
+            </Link>
           </div>
         </div>
-        <hr class="h-[0.4rem] w-full rounded-xl bg-[#F0F3F4] border-0 mx-2 my-4"></hr>
+        <div className="place-content-center px-[8px]">
+          <hr class="h-[0.4rem] w-full rounded-xl bg-[#F0F3F4] border-0  my-4"></hr>
+        </div>
         <div className="flex flex-row justify-between">
           <Widget text="No. of stylesheets" number={totalFiles} />
           <Widget text="No. of unused classes" number={unused} />
