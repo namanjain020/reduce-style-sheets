@@ -83,7 +83,7 @@ function Overall(props) {
             text="Total number of stylesheets parsed"
             number={totalFiles}
           />
-          <Widget text="Number of unused classes found" number={0} />
+          <Widget text="Number of unused classes found" number={unused} />
           <Widget
             text="Size of converted Styles"
             number={Math.round((reducedSize - remaining) * 100) / 100 + " KB"}
