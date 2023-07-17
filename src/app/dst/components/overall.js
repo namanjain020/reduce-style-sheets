@@ -15,6 +15,8 @@ function Overall(props) {
   let reducedSize = 0;
   let remaining = 0;
   let unused = 0;
+  let converted = 0;
+  let cleaned = 0;
   files.forEach((file) => {
     if (props.data[file]["original-size"]) {
       originalSize += props.data[file]["original-size"];
@@ -28,8 +30,20 @@ function Overall(props) {
     if (props.data[file]["unused-classes"]) {
       unused += Object.keys(props.data[file]["unused-classes"]).length;
     }
+    if (props.data[file]["converted-number"]) {
+      converted += props.data[file]["converted-number"];
+    }
+    console.log(props.data[file]["final-size"]);
+    if (
+      props.data[file]["final-size"] &&
+      props.data[file]["final-size"] === 0
+    ) {
+      console.log("Hello");
+      cleaned+=1;
+    }
+    cleaned=3;
   });
-  console.log(originalSize, reducedSize, remaining);
+  console.log(originalSize, reducedSize, remaining, converted);
   const info = [
     ["Task", "in KB"],
     ["Remaining", remaining],
@@ -42,7 +56,7 @@ function Overall(props) {
   return (
     <>
       <div className="p-4 w-3/4 bg-white rounded-[12px] text-xl overflow-hidden text-slate-400 font-sans">
-        <div className=" flex bg-white text-3xl justify-between mx-[8px]">
+        <div className=" flex bg-white text-3xl justify-between mx-[8px] mt-2">
           <div
             className=" flex flex-row w-44 rounded-[8px] place-content-center hover:bg-[#F2F5F7] bg-[#F2F5F7] text-center cursor-pointer  text-sm"
             style={{ outline: "1px solid rgb(30, 144, 255)" }}
@@ -75,11 +89,8 @@ function Overall(props) {
         <div className="flex flex-row justify-between">
           <Widget text="No. of stylesheets" number={totalFiles} />
           <Widget text="No. of unused classes" number={unused} />
-          <Widget
-            text="No. of converted styles"
-            number={Math.round((reducedSize - remaining) * 100) / 100}
-          />
-          <Widget text="No. of removed stylesheets" number={0} />
+          <Widget text="No. of converted styles" number={converted} />
+          <Widget text="No. of removed stylesheets" number={cleaned} />
         </div>
 
         {/* <div className="flex ">

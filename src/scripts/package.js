@@ -88,14 +88,14 @@ async function wrapper(dir) {
                 await finalTraverse(dir, importsTo, styleImports, result);
                 setTimeout(async () => {
                   trigger(dir, importsFrom, importsTo, styleImports, result);
-                }, 100000);
-              }, 100000);
-            }, 200000);
-          }, 200000);
-        }, 200000);
-      }, 250000);
-    }, 200000);
-  }, 200000);
+                }, 10000);
+              }, 10000);
+            }, 20000);
+          }, 20000);
+        }, 20000);
+      }, 25000);
+    }, 20000);
+  }, 20000);
 }
 const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
@@ -117,7 +117,7 @@ const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
       "./logs/results.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 100000);
+  }, 10000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
