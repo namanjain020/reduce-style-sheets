@@ -53,13 +53,17 @@ export async function stylesheetRemoverWithoutInit(
             const stats = fs.statSync(filePath);
             const fileSize = stats.size;
             //If file is empty delete the file and remove imports
-            let isEmpty =false;
+            let isEmpty = false;
             const css = fs.readFileSync(filePath, "utf8");
             let count = 0;
             const test = (count) => ({
               postcssPlugin: "remove",
-              async Rule(rule) {
-                count++;
+              Root(root) {
+                for (let idx = 0; idx < root.nodes.length; idx++) {
+                  if (root.nodes[idx].type === "rule") {
+                    count++;
+                  }
+                }
               },
             });
             test.postcss = true;
@@ -67,15 +71,10 @@ export async function stylesheetRemoverWithoutInit(
               .process(css, { from: filePath, parser: scss })
               .then(async (result) => {
                 // console.log(count);
-                if (count > 0) {
-                  isEmpty = false;
-                } else {
-                  isEmpty = true;
-                }
                 if (fileSize === 0 ) {
-                  if(filePath in result)
-                  {
+                  if (filePath in result) {
                     result[filePath]["empty"] = true;
+                    result[filePath]["emptyCount"]++;
                   }
                   // console.log("Empty " + filePath);
                   // TO DO
@@ -93,7 +92,7 @@ export async function stylesheetRemoverWithoutInit(
               .catch((error) => {
                 console.error(error);
               });
-            
+
             // If file is never imported remove
             // if (!(filePath in styleImports) && !(filePath in importsTo)) {
             //   console.log("Non imported file " + filePath);

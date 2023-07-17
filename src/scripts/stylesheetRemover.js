@@ -32,6 +32,8 @@ async function init(filePath, result) {
     result[filePath]["empty"] = false;
     result[filePath]["unused-classes"] = {};
     result[filePath]["replaced-tailwind"] = {};
+    result[filePath]["emptyCount"] = 0;
+    result[filePath]["converted-number"] = 0;
     result[filePath]["reduced-size"] = fileSize / 1000;
     result[filePath]["final-size"] = 0;
     result[filePath]["final-code"] = "";

@@ -248,6 +248,7 @@ const convertUsedClasses = (params, local) => ({
                   params.removedBlocks[params.filePath]["replaced-tailwind"][
                     className
                   ].push(obj);
+                  params.removedBlocks[params.filePath]["converted-number"]++;
                   rule.nodes[arrayOfIndex[idx] - idx].remove();
                 }
               }
@@ -290,6 +291,7 @@ const convertUsedClasses = (params, local) => ({
                       !curVal.includes('"')
                     ) {
                       rule.nodes[idx].remove();
+                      params.removedBlocks[params.filePath]["converted-number"]++;
                       str.push(curVal);
                       if (str && str.length > 0) {
                         await anotherHelper(
