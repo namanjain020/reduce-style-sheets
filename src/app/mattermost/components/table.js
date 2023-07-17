@@ -78,7 +78,7 @@ function Table(props) {
             <p className=" w-[12rem] flex  justify-self-start">
               {result[file]["size-after-unused"]} KB
             </p>
-            <div className="  w-[20rem]">
+            <div className="  w-[20rem] pr-4">
               {/* <p className="p-0">{Math.round(
                   (result[file]["size-after-unused"] /
                     result[file]["original-size"]) *
@@ -134,7 +134,7 @@ function Table(props) {
             <p className=" w-[12rem] flex justify-self-start">
               {result[file]["final-size"]} KB
             </p>
-            <div className=" w-[20rem] ">
+            <div className=" w-[20rem] pr-4">
               {/* <p className="p-0">{Math.round(
                   (result[file]["final-size"] /
                     result[file]["size-after-unused"]) *
@@ -165,10 +165,10 @@ function Table(props) {
     <>
       <div className="rounded-[12px] w-3/4 p-4 my-4 mx-20 bg-white overflow-hidden">
         <div>
-          <p className="px-4 pt-4 pb-2 text-2xl font-medium">
+          <p className=" pb-2 text-2xl font-medium">
             Stylesheet files
           </p>
-          <p className="text-xl pl-4 pb-4 text-slate-500">
+          <p className="text-md  pb-4 text-slate-500">
             CSS, SCSS, LESS Files in the codebase
           </p>
         </div>

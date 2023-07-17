@@ -29,7 +29,7 @@ function Overall(props) {
       unused += Object.keys(props.data[file]["unused-classes"]).length;
     }
   });
-  console.log(originalSize, remaining);
+  console.log(originalSize, reducedSize,remaining);
   const info = [
     ["Task", "in KB"],
     ["Remaining", remaining],
@@ -42,10 +42,11 @@ function Overall(props) {
   return (
     <>
       <div className="p-4 w-3/4 bg-white rounded-[12px] text-xl overflow-hidden text-slate-400 font-sans">
-        <div className=" flex bg-white text-3xl justify-between px-6 my-2">
-          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-3 cursor-pointer text-center text-sm">
+        <div className=" flex bg-white text-3xl justify-between px-6 ">
+          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0 mb-4 cursor-pointer text-center text-sm">
             <Card
-              className="hover:bg-[#F2F5F7]"
+              className="hover:bg-[#F2F5F7] "
+              
             >
               <Link href="/dst">
                 <CardBody>
@@ -54,10 +55,9 @@ function Overall(props) {
               </Link>
             </Card>
           </div>
-          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-3 cursor-pointer text-center text-sm">
+          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0 mb-4 cursor-pointer text-center text-sm">
             <Card className="hover:bg-[#F2F5F7] bg-[#F2F5F7]"
-              style={{ border: "1px solid rgb(30, 144, 255)" }}
-            >
+            style={{ border: "1px solid rgb(30, 144, 255)" }}>
               <Link href="/mattermost">
                 <CardBody>
                   <p className="font-medium">Mattermost-webapp</p>
@@ -65,7 +65,7 @@ function Overall(props) {
               </Link>
             </Card>
           </div>
-          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-3 cursor-pointer text-center text-sm">
+          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0 mb-4 cursor-pointer text-center text-sm">
             <Card className="hover:bg-[#F2F5F7]">
               <Link href="/testing">
                 <CardBody>
