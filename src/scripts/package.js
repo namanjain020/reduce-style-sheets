@@ -10,7 +10,7 @@ import { stylesheetConverter } from "./stylesheetConverterCopy.js";
 import { parsingJSFiles } from "./parsingJSFiles.js";
 import { finalTraverse } from "./finalTraverse.js";
 import { middleTraverse } from "./middleTraverse.js";
-import { mixinParse } from "./mixinParse.js"
+import { mixinParse } from "./mixinParse.js";
 import { variableParse } from "./variableParse.js";
 import { unusedVariables } from "./unusedVariables.js";
 import { emptyBlock } from "./emptyBlock.js";
@@ -40,21 +40,22 @@ async function wrapper(dir) {
     importsFrom = {},
     styleImports = {},
     result = {},
-    globalVariables = {},globalMixins={};
+    globalVariables = {},
+    globalMixins = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
   await mixinParse(dir, globalMixins);
-  
   await variableParse(dir, globalVariables);
   await stylesheetRemover(dir, importsTo, styleImports, result);
   await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
   setTimeout(async () => {
-    await unusedVariables(dir);
-    await emptyBlock(dir);
+    await middleTraverse(dir, importsTo, styleImports, result);
+
     setTimeout(async () => {
-      await middleTraverse(dir, importsTo, styleImports, result);
+      await unusedVariables(dir);
+      await emptyBlock(dir);
       setTimeout(async () => {
         await variableReplace(dir, globalVariables);
-        await mixinReplace(dir,globalMixins);
+        await mixinReplace(dir, globalMixins);
         setTimeout(async () => {
           await stylesheetConverter(
             dir,
@@ -87,17 +88,16 @@ async function wrapper(dir) {
                 await finalTraverse(dir, importsTo, styleImports, result);
                 setTimeout(async () => {
                   trigger(dir, importsFrom, importsTo, styleImports, result);
-                }, 10000)
-              }, 10000);
-            }, 20000);
-          }, 20000);
-        }, 20000);
-      }, 25000);
-    }, 20000);
-  }, 20000);
+                }, 100000);
+              }, 100000);
+            }, 200000);
+          }, 200000);
+        }, 200000);
+      }, 250000);
+    }, 200000);
+  }, 200000);
 }
 const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
-  
   setTimeout(async () => {
     console.log("RESULTS HAVE BEEN PRINTED");
     // console.log(result);
@@ -117,15 +117,15 @@ const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
       "./logs/results.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 10000);
+  }, 100000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
 // let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
 // /Users/naman.jain1/Documents/testinng-repos/netflix-clone/src
-let dir = "../../testinng-repos/netflix-clone/src";
-// let dir = "../../testinng-repos/mattermost-webapp";
+// let dir = "../../testinng-repos/netflix-clone/src";
+let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";
