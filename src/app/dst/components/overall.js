@@ -29,7 +29,7 @@ function Overall(props) {
       unused += Object.keys(props.data[file]["unused-classes"]).length;
     }
   });
-  console.log(originalSize, reducedSize,remaining);
+  console.log(originalSize, reducedSize, remaining);
   const info = [
     ["Task", "in KB"],
     ["Remaining", remaining],
@@ -43,51 +43,45 @@ function Overall(props) {
     <>
       <div className="p-4 w-3/4 bg-white rounded-[12px] text-xl overflow-hidden text-slate-400 font-sans">
         <div className=" flex bg-white text-3xl justify-between px-6 ">
-          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0 mb-4 cursor-pointer text-center text-sm">
+          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0  cursor-pointer text-center text-sm">
             <Card
               className="hover:bg-[#F2F5F7] bg-[#F2F5F7]"
               style={{ border: "1px solid rgb(30, 144, 255)" }}
             >
               <Link href="/dst">
                 <CardBody>
-                  <p className="font-medium">Distributed-app</p>
+                  <p className="text-[16px] font-medium">Distributed-app</p>
                 </CardBody>
               </Link>
             </Card>
           </div>
-          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0 mb-4 cursor-pointer text-center text-sm">
-            <Card className="hover:bg-[#F2F5F7] ">
-              <Link href="/mattermost">
-                <CardBody>
-                  <p className="font-medium">Mattermost-webapp</p>
-                </CardBody>
-              </Link>
-            </Card>
+          <div className=" flex flex-row bg-white w-44 rounded-[8px] items-center hover:bg-[#F2F5F7]  text-center cursor-pointer  text-sm">
+            <Link href="/mattermost">
+              <p className="text-[16px] text-black font-medium text-center p-[11px]">
+                Mattermost-webapp
+              </p>
+            </Link>
           </div>
-          <div className=" flex flex-row bg-white rounded-[8px] items-center justify-between p-0 mb-4 cursor-pointer text-center text-sm">
-            <Card className="hover:bg-[#F2F5F7]">
+          <div className=" flex flex-row bg-white w-44 rounded-[8px] items-center hover:bg-[#F2F5F7]  text-center cursor-pointer  text-sm">
+            
               <Link href="/testing">
-                <CardBody>
-                  <p className="font-medium">Testing-repository</p>
-                </CardBody>
+                
+              <p className="text-[16px] text-black font-medium text-center p-[11px]">
+              Testing-repository</p>
+                
               </Link>
-            </Card>
+           
           </div>
         </div>
-        <hr class="h-[0.4rem] w-full rounded-xl bg-[#F0F3F4]"></hr>
-        <p className="text-black text-3xl py-4 px-6 text-center">
-          Overall Statistics
-        </p>
+        <hr class="h-[0.4rem] w-full rounded-xl bg-[#F0F3F4] border-0 mx-2 my-4"></hr>
         <div className="flex flex-row justify-between">
+          <Widget text="No. of stylesheets" number={totalFiles} />
+          <Widget text="No. of unused classes" number={unused} />
           <Widget
-            text="Total number of stylesheets parsed"
-            number={totalFiles}
+            text="No. of converted styles"
+            number={Math.round((reducedSize - remaining) * 100) / 100}
           />
-          <Widget text="Number of unused classes found" number={unused} />
-          <Widget
-            text="Size of converted Styles"
-            number={Math.round((reducedSize - remaining) * 100) / 100 + " KB"}
-          />
+          <Widget text="No. of removed stylesheets" number={0} />
         </div>
 
         {/* <div className="flex ">

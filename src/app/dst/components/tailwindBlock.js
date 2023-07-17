@@ -25,7 +25,7 @@ const MergeRequest = ({ original, newFile }) => {
     });
     return diffElements;
   };
-  return <div className="merge-request overflow-y-auto h-64 p-0 m-0">{generateDiff()}</div>;
+  return <div className="merge-request overflow-y-auto min-h-[16rem] max-h-[30rem] p-0 m-0">{generateDiff()}</div>;
 };
 
 

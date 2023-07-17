@@ -57,40 +57,63 @@ function Table(props) {
   const unusedClasses = filesForUnused.map((file) => (
     <div key={file.id}>
       <AccordionItem>
-        <div className="border-1">
+        <div className="border-1 ">
           <AccordionButton className="py-4 px-0">
             <Tooltip
-              label={file}
+              label={file.substring(50)}
               hasArrow
               aria-label="A tooltip"
-              bg="gray.300"
-              color="black"
-              placement="bottom"
+              bg="black"
+              color="white"
+              placement="bottom-start"
             >
-              <p className="w-[36rem] pl-8  flex  justify-self-start">
+              <p className="w-[36rem] pl-8  flex  justify-self-start text-[14px] font-normal">
                 {file.replace(/^.*[\\\/]/, "")}
               </p>
             </Tooltip>
 
-            <p className="w-[12rem] flex justify-self-start">
+            <p className="w-[12rem] flex justify-self-start text-[14px] font-normal">
               {result[file]["original-size"]} KB
             </p>
-            <p className=" w-[12rem] flex  justify-self-start">
+            <p className=" w-[12rem] flex  justify-self-start text-[14px] font-normal">
               {result[file]["size-after-unused"]} KB
             </p>
             <div className="  w-[20rem] pr-4">
-              {/* <p className="p-0">{Math.round(
-                  (result[file]["size-after-unused"] /
-                    result[file]["original-size"]) *
-                    100
-                )} %</p> */}
-              <Progress
-                val={Math.round(
-                  (result[file]["size-after-unused"] /
-                    result[file]["original-size"]) *
-                    100
-                )}
-              />
+              {/* <p className="p-0">
+                {Math.round(
+                  100 -
+                    (result[file]["size-after-unused"] /
+                      result[file]["original-size"]) *
+                      100
+                )}{" "}
+                %
+              </p> */}
+              
+                <Progress
+                  color={
+                    Math.round(
+                      100 -
+                        (result[file]["size-after-unused"] /
+                          result[file]["original-size"]) *
+                          100
+                    ) > 75
+                      ? "green"
+                      : Math.round(
+                          100 -
+                            (result[file]["size-after-unused"] /
+                              result[file]["original-size"]) *
+                              100
+                        ) > 50
+                      ? "yellow"
+                      : "pink"
+                  }
+                  val={Math.round(
+                    100 -
+                      (result[file]["size-after-unused"] /
+                        result[file]["original-size"]) *
+                        100
+                  )}
+                />
             </div>
           </AccordionButton>
 
@@ -117,36 +140,54 @@ function Table(props) {
         <div className="border-1">
           <AccordionButton className="py-4 px-0">
             <Tooltip
-              label={file}
+              label={file.substring(50)}
               hasArrow
               aria-label="A tooltip"
-              bg="gray.300"
-              color="black"
-              placement="bottom"
+              bg="black"
+              color="white"
+              placement="bottom-start"
             >
-              <p className="w-[36rem] pl-8  flex  justify-self-start">
+              <p className="w-[36rem] pl-8  flex  justify-self-start text-[14px] font-normal">
                 {file.replace(/^.*[\\\/]/, "")}
               </p>
             </Tooltip>
-            <p className="w-[12rem] flex justify-self-start">
+            <p className="w-[12rem] flex justify-self-start text-[14px] font-normal">
               {result[file]["size-after-unused"]} KB
             </p>
-            <p className=" w-[12rem] flex justify-self-start">
-              {result[file]["final-size"]} KB
+            <p className=" w-[12rem] flex  justify-self-start text-[14px] font-normal">
+               {result[file]["final-size"]} KB
             </p>
             <div className=" w-[20rem] pr-4">
-              {/* <p className="p-0">{Math.round(
+              {/* <p className="p-0">{Math.round(100-
                   (result[file]["final-size"] /
                     result[file]["size-after-unused"]) *
                     100
                 )} %</p> */}
-              <Progress
-                val={Math.round(
-                  (result[file]["final-size"] /
-                    result[file]["size-after-unused"]) *
-                    100
-                )}
-              />
+                <Progress
+                  color={
+                    Math.round(
+                      100 -
+                        (result[file]["final-size"] /
+                          result[file]["size-after-unused"]) *
+                          100
+                    ) > 75
+                      ? "green"
+                      : Math.round(
+                          100 -
+                            (result[file]["final-size"] /
+                              result[file]["size-after-unused"]) *
+                              100
+                        ) > 50
+                      ? "yellow"
+                      : "pink"
+                  }
+                  val={Math.round(
+                    100 -
+                      (result[file]["final-size"] /
+                        result[file]["size-after-unused"]) *
+                        100
+                  )}
+                />
             </div>
           </AccordionButton>
           <AccordionPanel className="p-0">
@@ -165,14 +206,12 @@ function Table(props) {
     <>
       <div className="rounded-[12px] w-3/4 p-4 my-4 mx-20 bg-white overflow-hidden">
         <div>
-          <p className="  pb-2 text-2xl font-medium">
-            Stylesheet files
-          </p>
-          <p className="text-md  pb-4 text-slate-500">
+          <p className=" pb-2 text-[16px] font-semibold">Stylesheet files</p>
+          <p className="  text-[14px] italic font-normal text-slate-500">
             CSS, SCSS, LESS Files in the codebase
           </p>
         </div>
-        <div className="border-2">
+        <div className="border-2 rounded-lg mt-2">
           <Tabs isFitted variant="line" size="lg" className="py-2">
             <TabList>
               <Tab>Unused Classes</Tab>
@@ -180,8 +219,8 @@ function Table(props) {
             </TabList>
             <TabPanels>
               <TabPanel className="p-0">
-                <div className="bg-slate-100  font-bold flex">
-                  <p className="w-[36rem] py-4 pl-8 flex justify-self-start">
+                <div className="bg-slate-100 text-[14px] font-medium flex">
+                  <p className="w-[36rem] py-4 pl-8 flex justify-self-start ">
                     File Name
                   </p>
                   <p className="w-[12rem] py-4  flex justify-self-start">
@@ -200,7 +239,7 @@ function Table(props) {
                 <div className="table-container w-full m-0 p-0"></div>
               </TabPanel>
               <TabPanel className="p-0">
-                <div className="bg-slate-100 font-bold flex">
+                <div className="bg-slate-100 text-[14px] font-medium flex">
                   <p className="w-[36rem] py-4 pl-8 flex justify-self-start">
                     File Name
                   </p>

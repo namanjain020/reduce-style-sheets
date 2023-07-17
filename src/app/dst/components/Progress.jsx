@@ -6,6 +6,9 @@ import { Progress as ProgressBar} from '@chakra-ui/react'
 export default function Progress(props) {
   const [value, setValue] = React.useState(props.val);
   return (
-      <ProgressBar value={value}  />    
+    <div>
+        <ProgressBar colorScheme={props.color} value={value}  />  
+    </div>
+        
   );
 }
