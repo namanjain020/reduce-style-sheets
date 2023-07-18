@@ -79,7 +79,9 @@ async function readMixins(globalMixins, filePath) {
               }
             });
           }
-        } catch (error) {}
+        } catch (error) {
+          console.log(error);
+        }
       },
     });
     test.postcss = true;

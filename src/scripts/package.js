@@ -47,13 +47,14 @@ async function wrapper(dir) {
   await importMap(dir, importsTo, importsFrom, styleImports);
   await mixinParse(dir, globalMixins);
   await variableParse(dir, globalVariables, variablePath);
-  
-  // console.log(globalVariables);
   await stylesheetRemover(dir, importsTo, styleImports, result);
   await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
   setTimeout(async () => {
+    await mixinReplace(dir, globalMixins);
     await middleTraverse(dir, importsTo, styleImports, result);
     setTimeout(async () => {
+      await mixinReplace(dir, globalMixins);
+      await variableReplace(dir, globalVariables);
       await variableReplace(dir, globalVariables);
       await emptyBlock(dir);
       setTimeout(async () => {
@@ -98,14 +99,14 @@ async function wrapper(dir) {
                 await finalTraverse(dir, importsTo, styleImports, result);
                 setTimeout(async () => {
                   trigger(dir, importsFrom, importsTo, styleImports, result);
-                }, 100000);
-              }, 100000);
-            }, 200000);
-          }, 200000);
-        }, 200000);
-      }, 250000);
-    }, 200000);
-  }, 200000);
+                }, 150000);
+              }, 150000);
+            }, 150000);
+          }, 150000);
+        }, 150000);
+      }, 150000);
+    }, 150000);
+  }, 150000);
 }
 const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
@@ -127,15 +128,15 @@ const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
       "./logs/results.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 100000);
+  }, 150000);
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-// let dir = "../../testinng-repos/space-tourism/src";
+let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
 // /Users/naman.jain1/Documents/testinng-repos/netflix-clone/src
 // let dir = "../../testinng-repos/netflix-clone/src";
-let dir = "../../testinng-repos/mattermost-webapp";
+// let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";

@@ -99,7 +99,7 @@ async function readMixins(filePath, globalMixins) {
           filePath,
           prettier.format(result.css, { parser: "scss" })
         );
-        console.log("mixin out");
+        // console.log("mixin out");
         res();
       })
       .catch((error) => {

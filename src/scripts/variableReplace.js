@@ -28,9 +28,15 @@ async function readVariables(filePath, variables) {
       .then((result) => {
         css = result.css;
         const vars = Object.keys(variables);
-        vars.forEach((v) => {
-          css = css.replaceAll(v, variables[v]);
-        });
+        // vars.forEach((v) => {
+          // const regex = new RegExp(
+          //   /${className}/g
+          // );
+          css = css.replace(/\$[a-zA-Z0-9-_]+/g, (match) => {
+            const variableName = match.trim();
+            return variables[variableName] || match;
+          });
+        // });
         fs.writeFileSync(filePath, prettier.format(css, { parser: "scss" }));
         // console.log("variable out");
         res();

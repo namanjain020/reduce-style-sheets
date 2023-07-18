@@ -351,6 +351,13 @@ const convertUsedClasses = (params, local) => ({
                 }
               }
             });
+            if (str && str.length > 0) {
+              await anotherHelper(
+                className.substring(1),
+                params,
+                str
+              );
+            }
             for (let idx = 0; idx < rule.nodes.length; idx++) {
               if (rule.nodes[idx] && rule.nodes[idx].type === "decl") {
                 const prop = rule.nodes[idx].prop;
@@ -384,7 +391,8 @@ const convertUsedClasses = (params, local) => ({
                         console.error(error);
                       });
                     if (
-                      curVal &&
+                      curVal
+                      && !curVal.includes("undefined") &&
                       !curVal.includes("\\") &&
                       !curVal.includes('"')
                     ) {

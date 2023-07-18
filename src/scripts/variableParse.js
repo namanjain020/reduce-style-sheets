@@ -50,7 +50,7 @@ export async function variableParse(unresolvedDir, globalVariables,globalPath) {
         const filePath = path.join(dir, file);
         const stats = fs.statSync(filePath);
         if (stats.isDirectory()) {
-          variableParseHelper(filePath, globalVariables);
+          await variableParseHelper(filePath, globalVariables);
         } else if (stats.isFile()) {
           const extension = path.extname(filePath);
           if (
