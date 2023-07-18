@@ -50,70 +50,62 @@ async function wrapper(dir) {
   
   // console.log(globalVariables);
   await stylesheetRemover(dir, importsTo, styleImports, result);
-  await stylesheetConverter(
-    dir,
-    importsFrom,
-    importsTo,
-    styleImports,
-    result,
-    globalVariables
-  );
-  // await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
-  // setTimeout(async () => {
-  //   await middleTraverse(dir, importsTo, styleImports, result);
-  //   setTimeout(async () => {
-  //     await variableReplace(dir, globalVariables);
-  //     await emptyBlock(dir);
-  //     setTimeout(async () => {
-  //       await variableReplace(dir, globalVariables);
-  //       await mixinReplace(dir, globalMixins);
-  //       await stylesheetConverter(
-  //         dir,
-  //         importsFrom,
-  //         importsTo,
-  //         styleImports,
-  //         result,
-  //         globalVariables
-  //       );
-  //       setTimeout(async () => {
-  //         await stylesheetConverter(
-  //           dir,
-  //           importsFrom,
-  //           importsTo,
-  //           styleImports,
-  //           result,
-  //           globalVariables
-  //         );
-  //         setTimeout(async () => {
-  //           await stylesheetConverter(
-  //             dir,
-  //             importsFrom,
-  //             importsTo,
-  //             styleImports,
-  //             result,
-  //             globalVariables
-  //           );
-  //           await emptyBlock(dir);
-  //           setTimeout(async () => {
-  //             await emptyBlock(dir);
-  //             await stylesheetRemoverWithoutInit(
-  //               dir,
-  //               importsTo,
-  //               styleImports,
-  //               result
-  //             );
-  //             setTimeout(async () => {
-  //               await finalTraverse(dir, importsTo, styleImports, result);
-  //               setTimeout(async () => {
-  //                 trigger(dir, importsFrom, importsTo, styleImports, result);
-  //               }, 100000);
-  //             }, 100000);
-  //           }, 200000);
-  //         }, 200000);
-  //       }, 200000);
-  //     }, 250000);
-  //   }, 200000);
-  // }, 200000);
+  await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
+  setTimeout(async () => {
+    await middleTraverse(dir, importsTo, styleImports, result);
+    setTimeout(async () => {
+      await variableReplace(dir, globalVariables);
+      await emptyBlock(dir);
+      setTimeout(async () => {
+        await variableReplace(dir, globalVariables);
+        await mixinReplace(dir, globalMixins);
+        await stylesheetConverter(
+          dir,
+          importsFrom,
+          importsTo,
+          styleImports,
+          result,
+          globalVariables
+        );
+        setTimeout(async () => {
+          await stylesheetConverter(
+            dir,
+            importsFrom,
+            importsTo,
+            styleImports,
+            result,
+            globalVariables
+          );
+          setTimeout(async () => {
+            await stylesheetConverter(
+              dir,
+              importsFrom,
+              importsTo,
+              styleImports,
+              result,
+              globalVariables
+            );
+            await emptyBlock(dir);
+            setTimeout(async () => {
+              await emptyBlock(dir);
+              await stylesheetRemoverWithoutInit(
+                dir,
+                importsTo,
+                styleImports,
+                result
+              );
+              setTimeout(async () => {
+                await finalTraverse(dir, importsTo, styleImports, result);
+                setTimeout(async () => {
+                  trigger(dir, importsFrom, importsTo, styleImports, result);
+                }, 100000);
+              }, 100000);
+            }, 200000);
+          }, 200000);
+        }, 200000);
+      }, 250000);
+    }, 200000);
+  }, 200000);
 }
 const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
