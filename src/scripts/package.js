@@ -47,6 +47,7 @@ async function wrapper(dir) {
   await importMap(dir, importsTo, importsFrom, styleImports);
   await mixinParse(dir, globalMixins);
   await variableParse(dir, globalVariables, variablePath);
+  
   // console.log(globalVariables);
   await stylesheetRemover(dir, importsTo, styleImports, result);
   await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
@@ -130,11 +131,11 @@ const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-let dir = "../../testinng-repos/space-tourism/src";
+// let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
 // /Users/naman.jain1/Documents/testinng-repos/netflix-clone/src
 // let dir = "../../testinng-repos/netflix-clone/src";
-// let dir = "../../testinng-repos/mattermost-webapp";
+let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";

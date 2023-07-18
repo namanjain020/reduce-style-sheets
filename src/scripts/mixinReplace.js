@@ -18,31 +18,56 @@ async function readMixins(filePath, globalMixins) {
           if (atrule.name === "include") {
             if (atrule.params.includes("(")) {
               const func = atrule.params.match(/([^()\s]+)\s*\(/)[1];
-              const params = atrule.params
-                .match(/\(([^)]+)\)/)[1]
-                .replaceAll(" ", "")
-                .split(",");
+              // console.log(func);
               if (
                 func in mixin &&
-                params.length === mixin[func]["params"].length
+                atrule.params.match(/\(([^)]+)\)/) === null
               ) {
-                // console.log(mixin[func]["params"]);
-                // console.log(params);
                 const attr = mixin[func]["attributes"];
                 attr.forEach(async (obj) => {
                   const curProp = Object.keys(obj)[0];
-                  let curValue = obj[curProp];
-                  for (let idx = 0; idx < mixin[func]["params"].length; idx++) {
-                    curValue = curValue.replace(
-                      mixin[func]["params"][idx],
-                      params[idx]
-                    );
+                  const curValue = obj[curProp];
+                  // console.log(curProp,curValue);
+                  await atrule.parent.append({
+                    prop: curProp,
+                    value: curValue,
+                  });
+                });
+                atrule.remove();
+              } else if (func in mixin) {
+                const params = atrule.params.match(/\(([^)]+)\)/)[1].split(",");
+                // console.log(params);
+                const obj = JSON.parse(JSON.stringify(mixin[func]["default"]));
+                // console.log(obj);
+                const keys = Object.keys(obj);
+                for (let idx = 0; idx < params.length; idx++) {
+                  if (params[idx].includes(":")) {
+                    const variable = params[idx].split(":")[0].trim();
+                    const value = params[idx].split(":")[1].trim();
+                    obj[variable] = value;
+                  } else {
+                    const value = params[idx].trim();
+                    obj[keys[idx]] = value;
+                  }
+                }
+                keys.forEach((key1) => {
+                  keys.forEach((key2) => {
+                    if (key1 === obj[key2]) {
+                      obj[key2] = obj[key1];
+                    }
+                  });
+                });
+                const attr = mixin[func]["attributes"];
+                attr.forEach(async (eachProp) => {
+                  const curProp = Object.keys(eachProp)[0];
+                  let curValue = eachProp[curProp];
+                  if (curValue.startsWith("$")) {
+                    curValue = obj[curValue];
                   }
                   await atrule.parent.append({
                     prop: curProp,
                     value: curValue,
                   });
-                  // console.log(curProp,curValue);
                 });
                 atrule.remove();
               }

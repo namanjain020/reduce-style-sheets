@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import postcss from "postcss";
 import simpleVars from "postcss-simple-vars";
+import types from "@babel/types";
 import { TailwindConverter } from "css-to-tailwindcss";
 import * as prettier from "prettier";
 import camelCase from "./bins/camelCase.js";
@@ -28,6 +29,14 @@ const variables = {
 };
 
 // let global;
+function endsWithFunc(str, arr) {
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (str.endsWith(arr[idx])) {
+      return true;
+    }
+  }
+  return false;
+}
 
 async function atruleHelper(converted, curVal) {
   return new Promise((res, rej) => {
@@ -148,7 +157,18 @@ async function anotherHelper(className, params, newStr) {
   return;
 }
 
+async function checkArray(arr, value) {
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (arr[idx].property.name === value) {
+      console.log(value);
+      return true;
+    }
+  }
+  return false;
+}
+
 async function addToScript(className, filePath, newStr) {
+  console.log(className, filePath, newStr);
   // console.log(className);
   // console.log(filePath);
   try {
@@ -164,6 +184,30 @@ async function addToScript(className, filePath, newStr) {
     const ast = parser.parse(content, {
       sourceType: "module",
       plugins: pluginArr,
+    });
+    await traverse(ast, {
+      JSXExpressionContainer(path) {
+        const { expression } = path.node;
+        if (
+          types.isMemberExpression(expression) &&
+          expression.property.name === className
+        ) {
+          const arrayExpression = types.arrayExpression([expression]);
+          path.replaceWith(types.jsxExpressionContainer(arrayExpression));
+        } else if (types.isArrayExpression(expression)) {
+          checkArray(expression.elements, className).then((bool) => {
+            if (bool) {
+              let string = "";
+              newStr.forEach((util) => {
+                string = string + " " + util;
+              });
+
+              const newStringLiteral = types.stringLiteral(string);
+              expression.elements.push(newStringLiteral);
+            }
+          });
+        }
+      },
     });
     await traverse(ast, {
       TemplateLiteral(path) {
@@ -219,7 +263,7 @@ async function addToScript(className, filePath, newStr) {
     );
     return;
   } catch (error) {
-    console.log("error");
+    console.log(error);
     return;
   }
 }

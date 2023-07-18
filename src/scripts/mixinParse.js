@@ -25,22 +25,41 @@ async function readMixins(globalMixins, filePath) {
     const test = (mixin) => ({
       postcssPlugin: "test",
       AtRule(atrule) {
-        if (atrule.name === "mixin") {
-          checkNodes(atrule.nodes).then((res) => {
-            if (res) {
-              let func = "";
-              let params = [];
-              let props = [];
-              try {
+        try {
+          if (atrule.name === "mixin") {
+            checkNodes(atrule.nodes).then((res) => {
+              if (res) {
+                let func = "";
+                let params1 = [],
+                  params2 = [];
+                let props = [];
+                let defaultObj = {};
                 if (atrule.params.includes("(")) {
                   func = atrule.params.match(/([^()\s]+)\s*\(/)[1];
-                  params = atrule.params
-                    .match(/\(([^)]+)\)/)[1]
-                    .replaceAll(" ", "")
-                    .split(",");
-                  // console.log()
-                  for (let idx = 0; idx < params.length; idx++) {
-                    params[idx] = params[idx].split(":")[0];
+                  if( atrule.params.match(/\(([^)]+)\)/))
+                  {
+                    params1 = atrule.params.match(/\(([^)]+)\)/)[1].split(",");
+                  }
+                  else{
+                    return;
+                  }
+                  
+                  // params2 = atrule.params.match(/\(([^)]+)\)/)[1].split(",");
+                  for (let idx = 0; idx < params1.length; idx++) {
+                    // console.log(params1);
+                    // const variable =
+                    let defValue;
+                    if (params1[idx].includes(":")) {
+                      defValue = params1[idx]
+                        .split(":")[1]
+                        .replace("\n", "")
+                        .trim();
+                    } else {
+                      defValue = null;
+                    }
+                    defaultObj[
+                      params1[idx].split(":")[0].replace("\n", "").trim()
+                    ] = defValue;
                   }
                   atrule.nodes.forEach((node) => {
                     props.push({ [node.prop]: node.value });
@@ -51,14 +70,16 @@ async function readMixins(globalMixins, filePath) {
                     props.push({ [node.prop]: node.value });
                   });
                 }
+                // console.log(defaultArr);
                 mixin[func] = {};
-                mixin[func]["params"] = params;
+                mixin[func]["params"] = params1;
+                mixin[func]["default"] = defaultObj;
                 mixin[func]["attributes"] = props;
-                // console.log(func, params,props);
-              } catch {}
-            }
-          });
-        }
+                // console.log(func, defaultObj, props);
+              }
+            });
+          }
+        } catch (error) {}
       },
     });
     test.postcss = true;
