@@ -7,7 +7,7 @@ export default function Progress(props) {
   const [value, setValue] = React.useState(props.val);
   return (
     <div>
-        <ProgressBar style={{height:"8px",borderRadius:"8px"}} colorScheme={props.color} value={value}  />  
+        <ProgressBar isAnimated="true" style={{height:"8px",borderRadius:"8px"}} colorScheme={props.color} value={value}  />  
     </div>
         
   );

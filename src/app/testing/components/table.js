@@ -18,7 +18,8 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 function Table(props) {
   let result = structuredClone(props.data);
-  const files = Object.keys(result);
+  let files = Object.keys(result);
+  files.sort();
   let originalSize = 0;
   let reducedSize = 0;
   let remaining = 0;
@@ -56,11 +57,12 @@ function Table(props) {
   });
   const unusedClasses = filesForUnused.map((file) => (
     <div key={file.id}>
-      <AccordionItem>
-        <div className="border-1 ">
+      <AccordionItem className="" style={{borderLeftWidth:"1px",borderTopWidth:"1px",borderBottomWidth:"0px",borderRightWidth:"1px"}}>
+        <div className="">
           <AccordionButton
-            _expanded={{ color: "#0E61F6", backgroundColor: "#F7FAFC" }}
-            className="px-0 py-[0.4rem]"
+            _hover={{backgroundColor:"#F8F8FA"}}
+            _expanded={{ color: "#0E61F6", backgroundColor: "#F8F8FA" }}
+            className="px-0 py-[0.5rem]"
           >
             <span className="w-[36rem] pl-[0.8rem]  flex  justify-self-start text-[14px] font-normal">
               <Tooltip
@@ -140,11 +142,12 @@ function Table(props) {
   });
   const replaced = filesForTW.map((file) => (
     <div key={file.id}>
-      <AccordionItem>
+      <AccordionItem className="" style={{borderLeftWidth:"1px",borderTopWidth:"1px",borderBottomWidth:"0px",borderRightWidth:"1px"}}>
         <div className="border-1">
-          <AccordionButton
-            _expanded={{ color: "#0E61F6", backgroundColor: "#F7FAFC" }}
-            className="px-0 py-[0.4rem]"
+        <AccordionButton
+            _hover={{backgroundColor:"#F8F8FA"}}
+            _expanded={{ color: "#0E61F6", backgroundColor: "#F8F8FA" }}
+            className="px-0 py-[0.5rem]"
           >
             <span className="w-[36rem] pl-[0.8rem]  flex  justify-self-start text-[14px] font-normal">
               <Tooltip
@@ -232,10 +235,10 @@ function Table(props) {
                 <Tab>Styles to Utility Classes</Tab>
               </TabList>
             </div>
-            <div className="border-2 rounded-lg mt-2">
+            <div className=" border-[#DBDBDB] border-b-[1px] rounded-b-lg mt-2" >
               <TabPanels>
                 <TabPanel className="p-0">
-                  <div className="bg-slate-100 text-[13px] font-semibold flex py-[0.4rem]">
+                  <div className="border-t-[1px] border-x-[1px] rounded-t-lg bg-[#F8F8FA] text-[13px] font-semibold flex py-[0.5rem]">
                     <p className="w-[36rem]  pl-[0.8rem] flex justify-self-start ">
                       File Name
                     </p>
@@ -255,8 +258,8 @@ function Table(props) {
                   <div className="table-container w-full m-0 p-0"></div>
                 </TabPanel>
                 <TabPanel className="p-0">
-                <div className="bg-slate-100 text-[13px] font-semibold flex py-[0.4rem]">
-                    <p className="w-[36rem] pl-[0.8rem] flex justify-self-start">
+                <div className="border-t-[1px] border-x-[1px] rounded-t-lg bg-[#F8F8FA] text-[13px] font-semibold flex py-[0.5rem]">
+                      <p className="w-[36rem] pl-[0.8rem] flex justify-self-start">
                       File Name
                     </p>
                     <p className="w-[12rem]  flex justify-self-start">

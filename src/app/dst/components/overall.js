@@ -33,15 +33,12 @@ function Overall(props) {
     if (props.data[file]["converted-number"]) {
       converted += props.data[file]["converted-number"];
     }
-    console.log(props.data[file]["final-size"]);
-    if (
-      props.data[file]["final-size"] &&
-      props.data[file]["final-size"] === 0
-    ) {
-      console.log("Hello");
-      cleaned+=1;
+    // console.log(props.data[file]["final-size"]);
+    if (props.data[file]["empty"]) {
+      // console.log(props.data[file]["converted-number"]);
+      cleaned++;
     }
-    cleaned=3;
+    // cleaned=3;
   });
   console.log(originalSize, reducedSize, remaining, converted);
   const info = [
