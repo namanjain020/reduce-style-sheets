@@ -13,7 +13,6 @@ const traverse = _traverse.default;
 async function readVariables(filePath) {
   return new Promise((res, rej) => {
     const css = fs.readFileSync(filePath, "utf8");
-
     const test = () => ({
       postcssPlugin: "test",
       prepare(result) {

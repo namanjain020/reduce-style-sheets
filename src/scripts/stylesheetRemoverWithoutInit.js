@@ -46,7 +46,7 @@ export async function stylesheetRemoverWithoutInit(
         const filePath = path.join(dir, file);
         const stats = fs.statSync(filePath);
         if (stats.isDirectory()) {
-          stylesheetRemoverHelper(filePath, importsTo, styleImports, result);
+          await stylesheetRemoverHelper(filePath, importsTo, styleImports, result);
         } else if (stats.isFile()) {
           const extension = path.extname(filePath);
           if ([".css", ".scss", ".less"].includes(extension)) {
@@ -65,13 +65,9 @@ export async function stylesheetRemoverWithoutInit(
                   }
                 }
               },
-            });
-            test.postcss = true;
-            postcss([test(count)])
-              .process(css, { from: filePath, parser: scss })
-              .then(async (result) => {
-                // console.log(count);
-                if (fileSize === 0 ) {
+              async OnceExit() {
+                // console.log(filePath,count);
+                if (fileSize === 0 || count === 0 ) {
                   if (filePath in result) {
                     result[filePath]["empty"] = true;
                     result[filePath]["emptyCount"]++;
@@ -88,6 +84,13 @@ export async function stylesheetRemoverWithoutInit(
                   console.log(filePath + " is empty");
                   fs.rmSync(filePath);
                 }
+              }
+            });
+            test.postcss = true;
+            postcss([test(count)])
+              .process(css, { from: filePath, parser: scss })
+              .then(async (result) => {
+                
               })
               .catch((error) => {
                 console.error(error);

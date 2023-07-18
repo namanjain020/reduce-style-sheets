@@ -590,49 +590,6 @@ export default {
     "border-opacity-100": { "-BorderOpacity": "1" },
     "border-collapse": { "borderCollapse": "collapse" },
     "border-separate": { "borderCollapse": "separate" },
-    "font-sans": {
-      "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
-    },
-    "font-serif": {
-      "fontFamily": "Georgia, Cambria, \"Times New Roman\", Times, serif"
-    },
-    "font-mono": {
-      "fontFamily": "Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
-    },
-    "placeholder-transparent::placeholder": { "color": "transparent" },
-    "placeholder-current::placeholder": { "color": "currentColor" },
-    "text-transparent": { "color": "transparent" },
-    "text-current": { "color": "currentColor" },
-    "spr-link": { "color": "var(--spr-link, #0E61F6)" },
-    "spr-text-01": { "color": "var(--spr-text-01, #0A0A14)" },
-    "spr-text-02": { "color": "var(--spr-text-02, #434350)" },
-    "spr-text-03": { "color": "var(--spr-text-03, #646470)" },
-    "spr-text-04": { "color": "var(--spr-text-04, #0E61F6)" },
-    "spr-text-05": { "color": "var(--spr-text-05, #FFFFFF)" },
-    "spr-text-06": { "color": "var(--spr-text-06, #FFFFFF)" },
-    "spr-text-placeholder": { "color": "var(--spr-text-placeholder, #646470)" },
-    "spr-support-error-text": {
-      "color": "var(--spr-support-error-text, #C70F5C)"
-    },
-    "spr-support-success-text": {
-      "color": "var(--spr-support-success-text, #6AC96E)"
-    },
-    "spr-support-warning-text": {
-      "color": "var(--spr-support-warning-text, #F3BF24)"
-    },
-    "nav-text-01": { "color": "var(--nav-text-01, rgba(255, 255, 255, 0.9))" },
-    "text-10": { "fontSize": "1rem" },
-    "text-11": { "fontSize": "1.1rem" },
-    "text-12": { "fontSize": "1.2rem" },
-    "text-13": { "fontSize": "1.3rem" },
-    "text-14": { "fontSize": "1.4rem" },
-    "text-16": { "fontSize": "1.6rem" },
-    "text-20": { "fontSize": "2rem" },
-    "text-24": { "fontSize": "2.4rem" },
-    "text-32": { "fontSize": "3.2rem" },
-    "text-40": { "fontSize": "4rem" },
-    "text-56": { "fontSize": "5.6rem" },
-    "text-72": { "fontSize": "7.2rem" },
     "typography-h1": {
       "fontSize": "4.2rem",
       "lineHeight": "4.8rem",
@@ -728,6 +685,50 @@ export default {
       "lineHeight": "1.4rem",
       "fontWeight": "400"
     },
+    "font-sans": {
+      "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+    },
+    "font-serif": {
+      "fontFamily": "Georgia, Cambria, \"Times New Roman\", Times, serif"
+    },
+    "font-mono": {
+      "fontFamily": "Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+    },
+    "placeholder-transparent::placeholder": { "color": "transparent" },
+    "placeholder-current::placeholder": { "color": "currentColor" },
+    "text-transparent": { "color": "transparent" },
+    "text-current": { "color": "currentColor" },
+    "spr-link": { "color": "var(--spr-link, #0E61F6)" },
+    "spr-text-01": { "color": "var(--spr-text-01, #0A0A14)" },
+    "spr-text-02": { "color": "var(--spr-text-02, #434350)" },
+    "spr-text-03": { "color": "var(--spr-text-03, #646470)" },
+    "spr-text-04": { "color": "var(--spr-text-04, #0E61F6)" },
+    "spr-text-05": { "color": "var(--spr-text-05, #FFFFFF)" },
+    "spr-text-06": { "color": "var(--spr-text-06, #FFFFFF)" },
+    "spr-text-placeholder": { "color": "var(--spr-text-placeholder, #646470)" },
+    "spr-support-error-text": {
+      "color": "var(--spr-support-error-text, #C70F5C)"
+    },
+    "spr-support-success-text": {
+      "color": "var(--spr-support-success-text, #6AC96E)"
+    },
+    "spr-support-warning-text": {
+      "color": "var(--spr-support-warning-text, #F3BF24)"
+    },
+    "nav-text-01": { "color": "var(--nav-text-01, rgba(255, 255, 255, 0.9))" },
+    "text-10": { "fontSize": "1rem" },
+    "text-11": { "fontSize": "1.1rem" },
+    "text-12": { "fontSize": "1.2rem" },
+    "text-13": { "fontSize": "1.3rem" },
+    "text-14": { "fontSize": "1.4rem" },
+    "text-16": { "fontSize": "1.6rem" },
+    "text-20": { "fontSize": "2rem" },
+    "text-24": { "fontSize": "2.4rem" },
+    "text-32": { "fontSize": "3.2rem" },
+    "text-40": { "fontSize": "4rem" },
+    "text-56": { "fontSize": "5.6rem" },
+    "text-72": { "fontSize": "7.2rem" },
+    
     "italic": { "fontStyle": "italic" },
     "not-italic": { "fontStyle": "normal" },
     "font-300": { "fontWeight": "300" },

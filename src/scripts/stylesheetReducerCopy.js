@@ -90,7 +90,7 @@ async function dirSearch(className, visited, toVisit, dir) {
         await dirSearch(className, visited, toVisit, filePath);
       } else if (
         stats.isFile() &&
-        !endsWithFunc(filePath, ["css", "scss", "less"]) &&
+        endsWithFunc(filePath, [".js", ".jsx", ".ts", ".tsx"]) &&
         !visited.includes(filePath)
       ) {
         toVisit.push(filePath);
@@ -190,8 +190,6 @@ const removeUnusedClasses = (
     for (let idx = 0; idx < root.nodes.length; idx++) {
       if (root.nodes[idx].type === "rule") {
         const rule = root.nodes[idx];
-        // console.log("in",counter);
-        // counter++;
         const codeBlock = rule.toString();
         // Check if the rule has a class selector
         if (rule.selector && rule.selector.includes(".")) {

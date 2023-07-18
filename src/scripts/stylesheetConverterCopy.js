@@ -65,6 +65,29 @@ const converter = new TailwindConverter({
   },
 });
 
+
+async function dirSearch(className, visited, toVisit, dir) {
+  const files = fs.readdirSync(dir);
+  files
+    .filter((file) => !file.includes("__tests__"))
+    .filter((file) => !file.includes("tests"))
+    .forEach(async (file) => {
+      const filePath = path.join(dir, file);
+      const stats = fs.statSync(filePath);
+      if (stats.isDirectory()) {
+        await dirSearch(className, visited, toVisit, filePath);
+      } else if (
+        stats.isFile() &&
+        endsWithFunc(filePath, [".js", ".jsx", ".ts", ".tsx"]) &&
+        !visited.includes(filePath)
+      ) {
+        toVisit.push(filePath);
+      }
+      return;
+    });
+  return;
+}
+
 async function regexHelper(className, fileName, importsFrom, visited, newStr) {
   if (visited.includes(fileName)) {
     return;
@@ -110,8 +133,23 @@ async function anotherHelper(className, params, newStr) {
       }
     }
   }
-  return;
+  // const dirPath = path.dirname(params.filePath);
+  // let toVisit = [];
+  // dirSearch(className, visited, toVisit, dirPath).then((result) => {
+  //   // console.log(toVisit);
+  //   for (let idx = 0; idx < toVisit.length; idx++) {
+  //     const content = fs.readFileSync(toVisit[idx], "utf8");
+  //     if (content.includes(className)) {
+  //       // console.log(toVisit[idx], className);
+  //       resolve(true);
+  //     }
+  //   }
+  //   resolve(false);
+  // });
+  // return;
 }
+
+
 
 async function addToScript(className, filePath, newStr) {
   // console.log(className);
@@ -156,13 +194,6 @@ async function addToScript(className, filePath, newStr) {
     });
     //Uncomment below two lines to update js files
     const modCode = await generator(ast).code;
-    // let parserObj;
-    // if (filePath.endsWith("js") || filePath.endsWith("jsx")) {
-    //   parserObj = "babel";
-    // } else {
-    //   parserObj = "typescript";
-    // }
-    // console.log(className+ " |||| " +  newStr  +"   changes in "+ filePath);
     fs.writeFileSync(filePath, modCode);
     return;
   } catch (error) {
@@ -210,13 +241,13 @@ const convertUsedClasses = (params, local) => ({
             params.removedBlocks[params.filePath]["replaced-tailwind"][
               className
             ] = [];
-            let count = 0;
             let str = [];
             const utils = Object.keys(temp);
             utils.forEach((util) => {
               const size = Object.keys(temp[util]).length;
               let counter = 0;
               let arrayOfIndex = [];
+              let arr = [];
               const props = Object.keys(temp[util]); //array
               props.forEach((prop) => {
                 for (let idx = 0; idx < rule.nodes.length; idx++) {
@@ -226,8 +257,8 @@ const convertUsedClasses = (params, local) => ({
                     rule.nodes[idx].value === temp[util][prop]
                   ) {
                     arrayOfIndex.push(idx);
-                  }
-                  if (
+                    arr.push(prop);
+                  } else if (
                     rule.nodes[idx].type === "decl" &&
                     camelCase(rule.nodes[idx].prop) === prop &&
                     //Object of variables
@@ -240,6 +271,7 @@ const convertUsedClasses = (params, local) => ({
                 }
               });
               if (size === arrayOfIndex.length) {
+                console.log(util);
                 str.push(util);
                 for (let idx = 0; idx < arrayOfIndex.length; idx++) {
                   const obj = {
@@ -291,7 +323,9 @@ const convertUsedClasses = (params, local) => ({
                       !curVal.includes('"')
                     ) {
                       rule.nodes[idx].remove();
-                      params.removedBlocks[params.filePath]["converted-number"]++;
+                      params.removedBlocks[params.filePath][
+                        "converted-number"
+                      ]++;
                       str.push(curVal);
                       if (str && str.length > 0) {
                         await anotherHelper(
@@ -327,11 +361,6 @@ convertUsedClasses.postcss = true;
 
 async function convertClasses(params, local) {
   const css = fs.readFileSync(params.filePath, "utf8");
-  // const processedCss = postcss()
-  //   .use(simpleVars({ silent: true }))
-  //   .process(css)
-  //   .css;
-  // const css = fs.readFileSync(filePath, "utf8");
   const test = postcss.plugin("test", () => {
     return (root) => {
       root.nodes.forEach((node) => {
@@ -367,14 +396,14 @@ export async function stylesheetConverter(
   globalVariables
 ) {
   // console.log("second-in");
-  let local = JSON.parse(JSON.stringify((globalVariables)));
+  let local = JSON.parse(JSON.stringify(globalVariables));
 
   // console.log("StyleSheet converter execution started");
   const dir = path.resolve(unresDir);
   const files = fs.readdirSync(dir);
   //Recursive function
   files
-  .filter((file) => !file.includes("assets"))
+    .filter((file) => !file.includes("assets"))
     .filter((file) => !file.includes("node_modules"))
     .filter((file) => !file.includes("__tests__"))
     .filter((file) => !file.includes("tests"))
@@ -384,7 +413,7 @@ export async function stylesheetConverter(
       const stats = fs.statSync(filePath);
 
       if (stats.isDirectory()) {
-        stylesheetConverter(
+        await stylesheetConverter(
           filePath,
           importsFrom,
           importsTo,

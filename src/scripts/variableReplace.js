@@ -32,6 +32,7 @@ async function readVariables(filePath, variables) {
           css = css.replaceAll(v, variables[v]);
         });
         fs.writeFileSync(filePath, prettier.format(css, { parser: "scss" }));
+        console.log("variable out");
         res();
       })
       .catch((error) => {
@@ -41,7 +42,7 @@ async function readVariables(filePath, variables) {
 }
 
 export async function variableReplace(unresolvedDir, globalVariables) {
-  // console.log("in");
+  console.log("in variable");
   async function variableReplaceHelper(unresolvedDir, variables) {
     const dir = path.resolve(unresolvedDir);
     const files = fs.readdirSync(dir);
@@ -56,11 +57,13 @@ export async function variableReplace(unresolvedDir, globalVariables) {
         const filePath = path.join(dir, file);
         const stats = fs.statSync(filePath);
         if (stats.isDirectory()) {
-          variableReplaceHelper(filePath, variables);
+          await variableReplaceHelper(filePath, variables);
+          return;
         } else if (stats.isFile()) {
           const extension = path.extname(filePath);
           if ([".css", ".scss", ".less"].includes(extension)) {
             await readVariables(filePath, variables);
+            return;
           }
         }
       });

@@ -16,6 +16,7 @@ function Overall(props) {
   let remaining = 0;
   let unused = 0;
   let converted = 0;
+  let cleaned=0; 
   files.forEach((file) => {
     if (props.data[file]["original-size"]) {
       originalSize += props.data[file]["original-size"];
@@ -30,8 +31,12 @@ function Overall(props) {
       unused += Object.keys(props.data[file]["unused-classes"]).length;
     }
     if (props.data[file]["converted-number"]) {
-      console.log(props.data[file]["converted-number"]);
+      // console.log(props.data[file]["converted-number"]);
       converted += props.data[file]["converted-number"];
+    }
+    if (props.data[file]["empty"]) {
+      // console.log(props.data[file]["converted-number"]);
+      cleaned++;
     }
   });
   console.log(originalSize, reducedSize, remaining, converted);
@@ -82,7 +87,7 @@ function Overall(props) {
           <Widget text="No. of stylesheets" number={totalFiles} />
           <Widget text="No. of unused classes" number={unused} />
           <Widget text="No. of converted styles" number={converted} />
-          <Widget text="No. of removed stylesheets" number={0} />
+          <Widget text="No. of removed stylesheets" number={cleaned} />
         </div>
 
         {/* <div className="flex ">

@@ -74,6 +74,7 @@ async function readMixins(filePath, globalMixins) {
           filePath,
           prettier.format(result.css, { parser: "scss" })
         );
+        console.log("mixin out");
         res();
       })
       .catch((error) => {
@@ -83,7 +84,7 @@ async function readMixins(filePath, globalMixins) {
 }
 
 export async function mixinReplace(unresolvedDir, globalMixins) {
-  // console.log("in");
+  console.log("in mixin");
   async function mixinReplaceHelper(unresolvedDir, globalMixins) {
     const dir = path.resolve(unresolvedDir);
     const files = fs.readdirSync(dir);
@@ -98,7 +99,7 @@ export async function mixinReplace(unresolvedDir, globalMixins) {
         const filePath = path.join(dir, file);
         const stats = fs.statSync(filePath);
         if (stats.isDirectory()) {
-          mixinReplaceHelper(filePath, globalMixins);
+          await mixinReplaceHelper(filePath, globalMixins);
         } else if (stats.isFile()) {
           const extension = path.extname(filePath);
           if ([".css", ".scss", ".less"].includes(extension)) {
