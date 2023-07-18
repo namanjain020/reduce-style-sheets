@@ -65,7 +65,6 @@ const converter = new TailwindConverter({
   },
 });
 
-
 async function dirSearch(className, visited, toVisit, dir) {
   const files = fs.readdirSync(dir);
   files
@@ -133,23 +132,21 @@ async function anotherHelper(className, params, newStr) {
       }
     }
   }
-  // const dirPath = path.dirname(params.filePath);
-  // let toVisit = [];
-  // dirSearch(className, visited, toVisit, dirPath).then((result) => {
-  //   // console.log(toVisit);
-  //   for (let idx = 0; idx < toVisit.length; idx++) {
-  //     const content = fs.readFileSync(toVisit[idx], "utf8");
-  //     if (content.includes(className)) {
-  //       // console.log(toVisit[idx], className);
-  //       resolve(true);
-  //     }
-  //   }
-  //   resolve(false);
-  // });
-  // return;
+
+  const dirPath = path.dirname(params.filePath);
+  let toVisit = [];
+  await dirSearch(className, visited, toVisit, dirPath).then(async (result) => {
+    // console.log(toVisit);
+    for (let idx = 0; idx < toVisit.length; idx++) {
+      const content = fs.readFileSync(toVisit[idx], "utf8");
+      if (content.includes(className)) {
+        await addToScript(className, toVisit[idx], newStr);
+        // console.log(toVisit[idx], className);
+      }
+    }
+  });
+  return;
 }
-
-
 
 async function addToScript(className, filePath, newStr) {
   // console.log(className);
@@ -168,7 +165,29 @@ async function addToScript(className, filePath, newStr) {
       sourceType: "module",
       plugins: pluginArr,
     });
-
+    await traverse(ast, {
+      TemplateLiteral(path) {
+        if (path.node && path.node.value) {
+          const regex = new RegExp(
+            `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
+          );
+          // Using AST notation we can grab the className attribut for all the react tags
+          if (regex.test(path.node.value)) {
+            let baseString = path.node.value;
+            // const comment = {
+            //   type: "CommentLine",
+            //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
+            // };
+            // path.node.trailingComments = [comment];
+            newStr.forEach((util) => {
+              if (!path.node.value.includes(util)) {
+                path.node.value = path.node.value + " " + util;
+              }
+            });
+          }
+        }
+      },
+    });
     await traverse(ast, {
       StringLiteral(path) {
         if (path.node && path.node.value) {
@@ -194,7 +213,10 @@ async function addToScript(className, filePath, newStr) {
     });
     //Uncomment below two lines to update js files
     const modCode = await generator(ast).code;
-    fs.writeFileSync(filePath, modCode);
+    fs.writeFileSync(
+      filePath,
+      prettier.format(modCode, { parser: "typescript" })
+    );
     return;
   } catch (error) {
     console.log("error");

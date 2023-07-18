@@ -35,33 +35,37 @@ async function wrapper(dir) {
   }
   fs.mkdirSync("logs");
   let counter = 0;
+  let variablePath = "./src/scripts/bins/variables.scss";
+  variablePath = path.resolve(variablePath);
   const original = fileSystem(dir, counter);
   let importsTo = {},
     importsFrom = {},
     styleImports = {},
     result = {},
-    globalVariables = {"$spacer":"5px","$ivory":"#ffffff"},
+    globalVariables = {},
     globalMixins = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
   await mixinParse(dir, globalMixins);
-  await variableParse(dir, globalVariables);
+  await variableParse(dir, globalVariables, variablePath);
+  // console.log(globalVariables);
   await stylesheetRemover(dir, importsTo, styleImports, result);
   await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
   setTimeout(async () => {
     await middleTraverse(dir, importsTo, styleImports, result);
     setTimeout(async () => {
+      await variableReplace(dir, globalVariables);
       await emptyBlock(dir);
       setTimeout(async () => {
         await variableReplace(dir, globalVariables);
         await mixinReplace(dir, globalMixins);
-          await stylesheetConverter(
-            dir,
-            importsFrom,
-            importsTo,
-            styleImports,
-            result,
-            globalVariables
-          );
+        await stylesheetConverter(
+          dir,
+          importsFrom,
+          importsTo,
+          styleImports,
+          result,
+          globalVariables
+        );
         setTimeout(async () => {
           await stylesheetConverter(
             dir,
@@ -126,11 +130,11 @@ const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-// let dir = "../../testinng-repos/space-tourism/src";
+let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
 // /Users/naman.jain1/Documents/testinng-repos/netflix-clone/src
 // let dir = "../../testinng-repos/netflix-clone/src";
-let dir = "../../testinng-repos/mattermost-webapp";
+// let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);
 // const dir = "../../../../testinng-repos/screenREC/src";

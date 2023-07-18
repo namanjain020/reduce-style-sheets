@@ -1,0 +1,191 @@
+/*  ========================================================================
+    Variables
+    ========================================================================  */
+
+/*  New Colors
+    ========================================================================  */
+    $midnight: #0f248f;
+    $blue: #0828cc;
+    $cadet: #8791c7; // .6 opacity of $blue
+    $azure: #e6e9f9; // .1 opacity of $blue
+    $water: #f7f8fd; // .03 opacity of $blue
+    $moon: #f8f9fd;
+    $charcoal: #0a0a14;
+    $anchor: #73737d;
+    $fossil: #a9a9b2;
+    $ash: #d7d7e0;
+    $powder: #efeff8;
+    $persian: #1c62fd;
+    $cosmo: #1747ff;
+    $smog: #afbaee;
+    $comet: #646470;
+    $apricot: #f3eae1;
+    $magnolia: #ebebff;
+    $solitude: #e0e6f0;
+    $dawn: #c7d3f7;
+    $shell: #fffaf5;
+    
+    /*  Primary Colors
+        ========================================================================  */
+    $space: $blue !default;
+    $black: #000 !default;
+    $obsidian: $charcoal !default;
+    $basalt: #14141c !default;
+    $tungsten: #191923 !default;
+    $pencil: #23232d !default;
+    $pepper: #373741 !default;
+    $nickel: #4b4b55 !default;
+    $granite: $anchor !default;
+    $concrete: #82828c !default;
+    $soapstone: #9b9ba5 !default;
+    $marble: $fossil !default;
+    $chrome: #d2d2d9 !default;
+    $smoke: $ash !default;
+    $chalk: #e6e6ed !default;
+    $salt: #ebebf0 !default;
+    $ivory: $powder !default;
+    $snow: $water !default;
+    $pearl: #fafafd !default;
+    $white: #ffffff !default;
+    
+    /*  Supporting Colors
+        ========================================================================  */
+    $sea: $midnight !default;
+    $sky: $cadet !default;
+    $azure: $azure !default;
+    $ice: #f6fbff !default;
+    $orchid: #6464dc !default;
+    $lavendar: #6b7ee0 !default;
+    $ocean: #005fc8 !default;
+    $icon: #3c3c78 !default;
+    $overlay: #0f0f17 !default;
+    $launchpad: #121223 !default;
+    $cantaloupe: #f1b23c !default;
+    $blush: #ff6060 !default;
+    $error: $blush !default;
+    $peach: #ffefef !default;
+    $green: #3fbf41 !default;
+    $gold: #ff9421 !default;
+    $sun: #ffd200 !default;
+    $cyan: #9ef6ff !default;
+    $teal: #02d999 !default;
+    
+    /*  Font Sizes
+        ========================================================================  */
+    $font-size-xxxsmall: 0.9rem !default;
+    $font-size-xxsmall: 1rem !default;
+    $font-size-xsmall: 1.1rem !default;
+    $font-size-small: 1.2rem !default;
+    $font-size-normal: 1.3rem !default;
+    $font-size-medium: 1.4rem !default;
+    $font-size-xmedium: 1.5rem !default;
+    $font-size-xxmedium: 1.6rem !default;
+    $font-size-large: 1.8rem !default;
+    $font-size-xlarge: 2rem !default;
+    $font-size-xxlarge: 2.2rem !default;
+    $font-size-xxxlarge: 2.4rem !default;
+    $font-size-big: 2.6rem !default;
+    $font-size-huge: 4.8rem !default;
+    
+    /*  Icon Sizes
+        ========================================================================  */
+    $icon-size-xxsmall: 0.8rem !default;
+    $icon-size-xsmall: 1rem !default;
+    $icon-size-small: 1.2rem !default;
+    $icon-size-base: 1.4rem !default;
+    $icon-size-large: 1.6rem !default;
+    $icon-size-x2large: 2rem !default;
+    $icon-size-x4large: 3rem !default;
+    
+    /*  Buttons
+        ========================================================================  */
+    $btn-height: 3.2rem !default;
+    $btn-height-lg: $btn-height;
+    $btn-height-xs: 2.4rem !default;
+    $btn-height-sm: $btn-height-xs;
+    
+    $btn-min-width: 9.6rem !default;
+    $btn-min-width-xs: 7.2rem !default;
+    $btn-min-width-sm: $btn-min-width-xs;
+    $btn-min-width-lg: $btn-min-width;
+    $btn-disable-opacity: 0.6 !default;
+    
+    /*  Forms
+        ========================================================================  */
+    $input-padding-x-xs: 0.8rem !default;
+    $input-padding-y-xs: 0.4rem !default;
+    
+    $input-height-xs: 2.4rem !default;
+    
+    /*  Background Colors
+        ========================================================================  */
+    $bg-dark: $pencil !default;
+    $bg-weak: $ivory !default;
+    $bg-light: $white !default;
+    
+    /*  Layout
+        ========================================================================  */
+    $header-height: 4rem !default;
+    $content-padding: 2.4rem !default;
+    $universal-bar-height: 4.2rem !default;
+    $universal-bar-tab-height: 3.6rem !default;
+    $side-nav-width: 360px !default;
+    $entity-bar-height: 4rem !default;
+    $body-bg: $smoke !default;
+    $link-color: $space !default;
+    $link-hover-color: $persian !default;
+    $link-hover-decoration: unset !default;
+    
+    /*  Z - Index
+        ========================================================================  */
+    $zindex-min: 10 !default;
+    $zindex-mid: 100 !default;
+    $zindex-max: 9999 !default;
+    $zindex-modal: $zindex-max + 1 !default; // set this to 10000 (override bootstrap's 1050);
+    $zindex-modal-bg: $zindex-max + 1 !default; // set this to 10000 (override bootstrap's 1040);
+    $zindex-drill-down: $zindex-modal - 2; //less than contextual dialog and select2 boxes
+    
+    /*  Illustrations
+        ========================================================================  */
+    $spr-loader-path: 'http://spr.ly/6002BQ02g';
+    $empty-stream-img-path: 'http://spr.ly/6002Bt7Pp';
+    $planet-namek-img-path: 'http://spr.ly/6005Bt7Oc';
+    $astronaut-img-path: 'http://spr.ly/6007Bt7Ov';
+    
+    /*  Box Shadows
+        ========================================================================  */
+    $box-shadow-color: $ash !default;
+    $box-shadow-light-color: transparentize($black, 0.8) !default;
+    $box-shadow-weak-color: transparentize($black, 0.9) !default;
+    $box-shadow-weaker-color: transparentize($black, 0.95) !default;
+    $box-shadow-dark-color: rgba(10, 10, 20, 0.3) !default;
+    
+    $universal-bar-dialog-box-shadow: 0 0.2rem 0.6rem 0 $ash;
+    
+    /*  Modals
+        ========================================================================  */
+    $modal-background-color: rgba(0, 0, 15, 0.85);
+    
+    /*  Transition Effects
+        ========================================================================  */
+    $icon-scale-transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+    /* Breakpoint
+        ========================================================================  */
+    $breakpoints: (
+      xs: 0px,
+      //Add one to actual breakpoint
+      sm: 426px,
+      md: 769px,
+      lg: 1025px,
+      xl: 1441px,
+    ) !default;
+    
+    /* border-radius
+        ========================================================================  */
+    $border-radius-sm: 0.2rem;
+    $border-radius-lg: 0.4rem;
+    
+    :export {
+      universalBarHeight: $universal-bar-height;
+    }
