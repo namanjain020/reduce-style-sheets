@@ -32,7 +32,7 @@ async function readVariables(filePath, variables) {
           css = css.replaceAll(v, variables[v]);
         });
         fs.writeFileSync(filePath, prettier.format(css, { parser: "scss" }));
-        console.log("variable out");
+        // console.log("variable out");
         res();
       })
       .catch((error) => {

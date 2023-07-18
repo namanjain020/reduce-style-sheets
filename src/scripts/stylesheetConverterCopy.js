@@ -159,8 +159,8 @@ async function anotherHelper(className, params, newStr) {
 
 async function checkArray(arr, value) {
   for (let idx = 0; idx < arr.length; idx++) {
-    if (arr[idx].property.name === value) {
-      console.log(value);
+    if (arr[idx].property &&  arr[idx].property.name === value) {
+      // console.log(value);
       return true;
     }
   }
@@ -168,7 +168,7 @@ async function checkArray(arr, value) {
 }
 
 async function addToScript(className, filePath, newStr) {
-  console.log(className, filePath, newStr);
+  // console.log(className, filePath, newStr);
   // console.log(className);
   // console.log(filePath);
   try {
