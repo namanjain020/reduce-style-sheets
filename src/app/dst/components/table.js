@@ -62,7 +62,9 @@ function Table(props) {
           <AccordionButton
             _hover={{backgroundColor:"#F8F8FA"}}
             _expanded={{ color: "#0E61F6", backgroundColor: "#F8F8FA" }}
-            className="px-0 py-[0.5rem]"
+            
+            className={result[file]["empty"]?"bg-[#C70F5C]/[.2] px-0 py-[0.5rem]":"bg-whitepx-0 py-[0.5rem]"}
+          
           >
             <span className="w-[36rem] pl-[0.8rem]  flex  justify-self-start text-[14px] font-normal">
               <Tooltip
@@ -142,12 +144,12 @@ function Table(props) {
   });
   const replaced = filesForTW.map((file) => (
     <div key={file.id}>
-      <AccordionItem className="" style={{borderLeftWidth:"1px",borderTopWidth:"1px",borderBottomWidth:"0px",borderRightWidth:"1px"}}>
+      <AccordionItem     style={{borderLeftWidth:"1px",borderTopWidth:"1px",borderBottomWidth:"0px",borderRightWidth:"1px"}}>
         <div className="border-1">
-        <AccordionButton
+        <AccordionButton 
             _hover={{backgroundColor:"#F8F8FA"}}
             _expanded={{ color: "#0E61F6", backgroundColor: "#F8F8FA" }}
-            className="px-0 py-[0.5rem]"
+            className={result[file]["empty"]?"bg-[#C70F5C]/[.2] px-0 py-[0.5rem]":"bg-whitepx-0 py-[0.5rem]"}
           >
             <span className="w-[36rem] pl-[0.8rem]  flex  justify-self-start text-[14px] font-normal">
               <Tooltip
