@@ -24,7 +24,7 @@ export default function RightPane() {
   ));
 
   return (
-    <div className="flex flex-col w-full min-h-screen gap-y-[1.6rem] pb-5 items-center">
+    <div className="flex flex-col w-full min-h-screen gap-y-[1.6rem] pb-5 items-center ">
       <p className="pt-8 pb-3 text-[2.4rem] font-bold  ">
         Reduce StyleSheets
       </p>
