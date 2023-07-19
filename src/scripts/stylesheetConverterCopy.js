@@ -221,7 +221,7 @@ async function addToScript(className, filePath, newStr) {
           const regex = new RegExp(
             `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
           );
-          console.log(path.node.toString());
+          // console.log(path.node.toString());
           // Using AST notation we can grab the className attribut for all the react tags
           // if (regex.test(path.node.value)) {
           //   let baseString = path.node.value;
@@ -422,6 +422,13 @@ const convertUsedClasses = (params, local) => ({
                       }
                     }
                   });
+                  if (str && str.length > 0) {
+                    await anotherHelper(
+                      className.substring(1),
+                      params,
+                      str
+                    );
+                  }
               }
             }
           }
