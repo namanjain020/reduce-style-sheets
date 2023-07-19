@@ -36,7 +36,9 @@ async function wrapper(dir) {
   fs.mkdirSync("logs");
   let counter = 0;
   let variablePath = "./src/scripts/bins/variables.scss";
+  let mixinPath = "./src/scripts/bins/mixin.scss";
   variablePath = path.resolve(variablePath);
+  mixinPath = path.resolve(mixinPath);
   const original = fileSystem(dir, counter);
   let importsTo = {},
     importsFrom = {},
@@ -45,7 +47,7 @@ async function wrapper(dir) {
     globalVariables = {},
     globalMixins = {};
   await importMap(dir, importsTo, importsFrom, styleImports);
-  await mixinParse(dir, globalMixins);
+  await mixinParse(dir, globalMixins, mixinPath);
   await variableParse(dir, globalVariables, variablePath);
   await stylesheetRemover(dir, importsTo, styleImports, result);
   await stylesheetReducer(dir, importsFrom, importsTo, styleImports, result);
@@ -88,17 +90,27 @@ async function wrapper(dir) {
             );
             await emptyBlock(dir);
             setTimeout(async () => {
-              await emptyBlock(dir);
-              await stylesheetRemoverWithoutInit(
+              await stylesheetConverter(
                 dir,
+                importsFrom,
                 importsTo,
                 styleImports,
-                result
+                result,
+                globalVariables
               );
               setTimeout(async () => {
-                await finalTraverse(dir, importsTo, styleImports, result);
+                await emptyBlock(dir);
+                await stylesheetRemoverWithoutInit(
+                  dir,
+                  importsTo,
+                  styleImports,
+                  result
+                );
                 setTimeout(async () => {
-                  trigger(dir, importsFrom, importsTo, styleImports, result);
+                  await finalTraverse(dir, importsTo, styleImports, result);
+                  setTimeout(async () => {
+                    trigger(dir, importsFrom, importsTo, styleImports, result);
+                  }, 150000);
                 }, 150000);
               }, 150000);
             }, 150000);
@@ -132,10 +144,10 @@ const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
 };
 
 // const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-let dir = "../../testinng-repos/space-tourism/src";
+// let dir = "../../testinng-repos/space-tourism/src";
 // let dir = "../detailPane";
 // /Users/naman.jain1/Documents/testinng-repos/netflix-clone/src
-// let dir = "../../testinng-repos/netflix-clone/src";
+let dir = "../../testinng-repos/netflix-clone/src";
 // let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
 dir = path.resolve(dir);

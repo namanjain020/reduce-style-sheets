@@ -171,7 +171,7 @@ async function addToScript(className, filePath, newStr) {
   // console.log(className, filePath, newStr);
   // console.log(className);
   // console.log(filePath);
-  try {
+  
     let pluginArr;
     if (filePath.endsWith(".ts")) {
       pluginArr = ["typescript"];
@@ -185,6 +185,7 @@ async function addToScript(className, filePath, newStr) {
       sourceType: "module",
       plugins: pluginArr,
     });
+    try {
     await traverse(ast, {
       JSXExpressionContainer(path) {
         const { expression } = path.node;
@@ -209,26 +210,32 @@ async function addToScript(className, filePath, newStr) {
         }
       },
     });
+  }
+  catch(error)
+  {
+    console.log(error);
+  }
     await traverse(ast, {
       TemplateLiteral(path) {
-        if (path.node && path.node.value) {
+        if (path.node ) {
           const regex = new RegExp(
             `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
           );
+          console.log(path.node.toString());
           // Using AST notation we can grab the className attribut for all the react tags
-          if (regex.test(path.node.value)) {
-            let baseString = path.node.value;
-            // const comment = {
-            //   type: "CommentLine",
-            //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
-            // };
-            // path.node.trailingComments = [comment];
-            newStr.forEach((util) => {
-              if (!path.node.value.includes(util)) {
-                path.node.value = path.node.value + " " + util;
-              }
-            });
-          }
+          // if (regex.test(path.node.value)) {
+          //   let baseString = path.node.value;
+          //   // const comment = {
+          //   //   type: "CommentLine",
+          //   //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
+          //   // };
+          //   // path.node.trailingComments = [comment];
+          //   newStr.forEach((util) => {
+          //     if (!path.node.value.includes(util)) {
+          //       path.node.value = path.node.value + " " + util;
+          //     }
+          //   });
+          // }
         }
       },
     });
@@ -262,10 +269,6 @@ async function addToScript(className, filePath, newStr) {
       prettier.format(modCode, { parser: "typescript" })
     );
     return;
-  } catch (error) {
-    console.log(error);
-    return;
-  }
 }
 
 const convertUsedClasses = (params, local) => ({
@@ -351,6 +354,8 @@ const convertUsedClasses = (params, local) => ({
                 }
               }
             });
+            // console.log(className);
+            // console.log(str);
             if (str && str.length > 0) {
               await anotherHelper(
                 className.substring(1),

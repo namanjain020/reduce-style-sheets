@@ -96,7 +96,7 @@ async function readMixins(globalMixins, filePath) {
   });
 }
 
-export async function mixinParse(unresolvedDir, globalMixins) {
+export async function mixinParse(unresolvedDir, globalMixins,mixinPath) {
   // console.log("in");
   async function mixinParseHelper(unresolvedDir, globalMixins) {
     const dir = path.resolve(unresolvedDir);
@@ -122,6 +122,7 @@ export async function mixinParse(unresolvedDir, globalMixins) {
         }
       });
   }
+  await readMixins(globalMixins, mixinPath);
   await mixinParseHelper(unresolvedDir, globalMixins);
   // console.log("out");
   return;

@@ -68,7 +68,7 @@ function Table(props) {
             <span className="w-[36rem] pl-[0.8rem]  flex  justify-self-start text-[14px] font-normal">
               <Tooltip
                 style={{ borderRadius: "12px" }}
-                label={file.substring(50)}
+                label={file.substring(file.indexOf("netflix"))}
                 hasArrow
                 aria-label="A tooltip"
                 bg="black"
@@ -154,7 +154,7 @@ function Table(props) {
             <span className="w-[36rem] pl-[0.8rem]  flex  justify-self-start text-[14px] font-normal">
               <Tooltip
                 style={{ borderRadius: "12px" }}
-                label={file.substring(50)}
+                label={file.substring(file.indexOf("netflix"))}
                 hasArrow
                 aria-label="A tooltip"
                 bg="black"
