@@ -28,7 +28,7 @@ async function deleteAllFilesInDir(dirPath) {
   }
 }
 
-async function wrapper(dir) {
+export async function wrapper(dir) {
   if (fs.existsSync("logs")) {
     deleteAllFilesInDir("./logs");
     fs.rmdirSync("./logs");
@@ -130,10 +130,3 @@ const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
   }, 60000);
 };
 
-// let dir = "../../testinng-repos/netflix-clone/src";
-let dir = "../../testinng-repos/mattermost-webapp";
-// let dir = "../detailPaneCopy";
-
-dir = path.resolve(dir);
-
-wrapper(dir);

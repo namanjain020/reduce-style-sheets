@@ -222,7 +222,7 @@ const removeUnusedClasses = (
               styleImports
             ).then((result) => {
               if (!result) {
-                console.log(className, "class is unused");
+                // console.log(className, "class is unused");
                 removedBlocks[filePath]["unused-classes"][
                   classes[0].substring(1)
                 ] = codeBlock.replace(classes[0], "");
@@ -246,7 +246,7 @@ export async function stylesheetReducer(
   removedBlocks
 ) {
   return new Promise(async (res1, rej1) => {
-    console.log("in");
+    // console.log("in");
     async function stylesheetReducerHelper(
       dirt,
       importsFrom,
@@ -302,7 +302,7 @@ export async function stylesheetReducer(
       styleImports,
       removedBlocks
     ).then((value) => {
-      console.log("out");
+      // console.log("out");
       res1();
     });
   });

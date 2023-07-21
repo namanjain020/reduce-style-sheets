@@ -199,7 +199,7 @@ async function addToScript(className, filePath, newStr, spaceweb) {
                 (comment) => comment.value === commentContent
               );
             }
-            let comment = "Script Todo: Migrate classes according to SpaceWeb";
+            let comment = "todo: styles not as per spaceweb standards";
             if (!hasComment(path, comment) && !spaceweb) 
             {
               path.addComment("trailing", comment);
@@ -230,14 +230,20 @@ async function addToScript(className, filePath, newStr, spaceweb) {
         // Using AST notation we can grab the className attribut for all the react tags
         if (regex.test(path.node.value)) {
           let baseString = path.node.value;
-          function hasComment(path, commentContent) {
+          function hasComment1(path, commentContent) {
             const existingComments = path.parent.trailingComments || [];
             return existingComments.some(
               (comment) => comment.value === commentContent
             );
           }
-          let comment = "Script Todo: Migrate classes according to SpaceWeb";
-          if (!hasComment(path, comment) && !spaceweb) 
+          function hasComment2(path, commentContent) {
+            const existingComments = path.trailingComments || [];
+            return existingComments.some(
+              (comment) => comment.value === commentContent
+            );
+          }
+          let comment = "todo: styles not as per spaceweb standards";
+          if (!hasComment1(path, comment) && !spaceweb && !hasComment1(path, comment)) 
           {
             path.addComment("trailing", comment);
           }
@@ -252,6 +258,9 @@ async function addToScript(className, filePath, newStr, spaceweb) {
   });
   //Uncomment below two lines to update js files
   const modCode = await generator(ast).code;
+  let fp ="/Users/naman.jain1/Documents/something/reduce-style-sheets/src/scripts/bins/.prettierrc.json";
+  fp =path.resolve(fp);
+  const text = fs.readFileSync(fp, "utf8");
   fs.writeFileSync(
     filePath,
     prettier.format(modCode, { parser: "typescript" })
@@ -328,7 +337,6 @@ const convertUsedClasses = (params, local) => ({
                 }
               });
               if (size === arrayOfIndex.length) {
-                console.log(util);
                 str1.push(util);
                 for (let idx = 0; idx < arrayOfIndex.length; idx++) {
                   const obj = {
@@ -340,7 +348,6 @@ const convertUsedClasses = (params, local) => ({
                   params.removedBlocks[params.filePath]["converted-number"]++;
                   rule.nodes[arrayOfIndex[idx] - idx].remove();
                   if (rule.nodes.length === 0) {
-                    console.log(rule.selector + " is removed");
                     rule.remove();
                   }  
                 }
@@ -371,6 +378,8 @@ const convertUsedClasses = (params, local) => ({
                     .then(async ({ convertedRoot, nodes }) => {
                       const converted = convertedRoot.toString();
                       let curVal = " ";
+
+
                       const twPlugin = () => ({
                         postcssPlugin: "tw-plugin",
                         async Rule(rule) {
@@ -396,7 +405,6 @@ const convertUsedClasses = (params, local) => ({
                         ]++;
                         str2.push(curVal);
                         if (rule.nodes.length === 0) {
-                          console.log(rule.selector + " is removed");
                           rule.remove();
                         }  
                       }
@@ -429,22 +437,6 @@ convertUsedClasses.postcss = true;
 
 async function convertClasses(params, local) {
   let css = fs.readFileSync(params.filePath, "utf8");
-  const test = postcss.plugin("test", () => {
-    return (root) => {
-      root.nodes.forEach((node) => {
-        if (node.type == "decl") {
-          const decl = node;
-          local[decl.prop] = decl.value;
-        }
-      });
-    };
-  });
-  postcss([test])
-    .process(css, { from: params.filePath, parser: scss })
-    .then((result) => {})
-    .catch((error) => {
-      console.log(error);
-    });
 
   postcss([convertUsedClasses(params, local)])
     .process(css, { from: params.filePath, parser: scss })
@@ -463,10 +455,8 @@ export async function stylesheetConverter(
   removedBlocks,
   globalVariables
 ) {
-  // console.log("second-in");
   let local = JSON.parse(JSON.stringify(globalVariables));
 
-  // console.log("StyleSheet converter execution started");
   const dir = path.resolve(unresDir);
   const files = fs.readdirSync(dir);
   //Recursive function
@@ -501,8 +491,6 @@ export async function stylesheetConverter(
 
         if ([".css", ".scss", ".less"].includes(extension)) {
           const css = fs.readFileSync(params.filePath, "utf8");
-          // console.log(css);
-          // console.log(filePath);
           await convertClasses(params, local);
           const stats = fs.statSync(filePath);
           params.removedBlocks[params.filePath]["reduced-size"] = stats.size;

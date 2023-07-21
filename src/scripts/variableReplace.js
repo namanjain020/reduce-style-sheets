@@ -14,7 +14,6 @@ async function readVariables(filePath, variables) {
     const test = (variables) => ({
       postcssPlugin: "test",
       Declaration(decl) {
-        // console.log(content);
         if (decl.prop.startsWith("$")) {
           variables[decl.prop] = decl.value;
           decl.remove();
@@ -28,10 +27,6 @@ async function readVariables(filePath, variables) {
       .then((result) => {
         css = result.css;
         const vars = Object.keys(variables);
-        // vars.forEach((v) => {
-          // const regex = new RegExp(
-          //   /${className}/g
-          // );
           css = css.replace(/\$[a-zA-Z0-9-_]+/g, (match) => {
             const variableName = match.trim();
             return variables[variableName] || match;
@@ -48,7 +43,7 @@ async function readVariables(filePath, variables) {
 }
 
 export async function variableReplace(unresolvedDir, globalVariables) {
-  console.log("in variable");
+  // console.log("in variable");
   async function variableReplaceHelper(unresolvedDir, variables) {
     const dir = path.resolve(unresolvedDir);
     const files = fs.readdirSync(dir);

@@ -109,7 +109,6 @@ async function readMixins(filePath, globalMixins) {
 }
 
 export async function mixinReplace(unresolvedDir, globalMixins) {
-  console.log("in mixin");
   async function mixinReplaceHelper(unresolvedDir, globalMixins) {
     const dir = path.resolve(unresolvedDir);
     const files = fs.readdirSync(dir);

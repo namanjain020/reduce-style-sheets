@@ -18,8 +18,6 @@ async function readVariables(globalVariables, filePath) {
         root.nodes.forEach((node) => {
           if (node.type == "decl") {
             const decl = node;
-            //   console.log(decl.prop);
-            //   console.log(decl.value);
             globalVariables[decl.prop] = decl.value.replace("!default","").replace(" ","");
           }
         });
@@ -37,7 +35,6 @@ async function readVariables(globalVariables, filePath) {
 }
 
 export async function variableParse(unresolvedDir, globalVariables,globalPath) {
-  // console.log("in");
   async function variableParseHelper(unresolvedDir, globalVariables) {
     const dir = path.resolve(unresolvedDir);
     const files = fs.readdirSync(dir);
@@ -64,6 +61,5 @@ export async function variableParse(unresolvedDir, globalVariables,globalPath) {
   }
   await readVariables(globalVariables, globalPath);
   await variableParseHelper(unresolvedDir, globalVariables);
-  // console.log("out");
   return;
 }

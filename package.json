@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "reduce": " node --max-old-space-size=16384 src/scripts/package.js",
+    "reduce": " node --max-old-space-size=16384 src/scripts/reduceStyleSheets.js",
     "calculate": "node src/scripts/test.js"
   },
   "dependencies": {
