@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "reduce": " node --max-old-space-size=16384 src/scripts/package.js",
-    "calculate" : "node src/scripts/test.js"
+    "calculate": "node src/scripts/test.js"
   },
   "dependencies": {
     "@babel/core": "^7.22.5",
@@ -25,12 +25,12 @@
     "css-to-tailwindcss": "^1.0.4",
     "diff": "^5.1.0",
     "enhanced-resolve": "^5.15.0",
-    "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
     "framer-motion": "^10.12.18",
     "highlight.js": "^11.8.0",
     "immutable": "^4.3.0",
     "next": "13.4.7",
+    "postcss-calc": "^9.0.1",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.8",
     "pretty-print-json": "^2.0.2",
@@ -60,6 +60,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
+    "eslint": "^8.45.0",
     "eslint-plugin-baseui": "^13.0.0",
     "postcss": "^8.4.26",
     "postcss-extend": "^1.0.5",

@@ -6,7 +6,7 @@ import "./removed.css";
 import Table from "./components/table.js";
 // If you're using Immutable.js: `npm i --save immutable`
 import Overall from "./components/overall.js";
-import obj from "../../../results/clone7.json";
+import obj from "../../../logs/results.json";
 // use the component in your app!
 
 import { Roboto } from "next/font/google";

@@ -7,7 +7,8 @@ import { TailwindConverter } from "css-to-tailwindcss";
 import * as prettier from "prettier";
 import camelCase from "./bins/camelCase.js";
 import temp from "./bins/configured.js";
-
+import calc from "postcss-calc";
+// var calc = require("postcss-calc")
 import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 const traverse = _traverse.default;
@@ -38,27 +39,6 @@ function endsWithFunc(str, arr) {
   return false;
 }
 
-async function atruleHelper(converted, curVal) {
-  return new Promise((res, rej) => {
-    let value;
-    const twPlugin = postcss.plugin("tw-plugin", () => {
-      return (root) => {
-        root.walkRules((rule) => {
-          value = rule.nodes[0].params;
-          console.log(value);
-        });
-      };
-    });
-    postcss([twPlugin])
-      .process(converted, { from: undefined })
-      .then((result) => {
-        res();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  });
-}
 
 const converter = new TailwindConverter({
   remInPx: null,
@@ -96,7 +76,14 @@ async function dirSearch(className, visited, toVisit, dir) {
   return;
 }
 
-async function regexHelper(className, fileName, importsFrom, visited, newStr) {
+async function regexHelper(
+  className,
+  fileName,
+  importsFrom,
+  visited,
+  newStr,
+  spaceweb
+) {
   if (visited.includes(fileName)) {
     return;
   }
@@ -106,7 +93,7 @@ async function regexHelper(className, fileName, importsFrom, visited, newStr) {
   const str = `${className}`;
   // const regex = new RegExp(`\\b${className}\\b`);
   if (content.includes(className)) {
-    await addToScript(className, fileName, newStr);
+    await addToScript(className, fileName, newStr, spaceweb);
   }
   if (fileName in importsFrom) {
     for (let idx = 0; idx < importsFrom[fileName]["scripts"].length; idx++) {
@@ -115,14 +102,18 @@ async function regexHelper(className, fileName, importsFrom, visited, newStr) {
         importsFrom[fileName]["scripts"][idx],
         importsFrom,
         visited,
-        newStr
+        newStr,
+        spaceweb
       );
     }
   }
   return;
 }
 
-async function anotherHelper(className, params, newStr) {
+async function anotherHelper(className, params, newStr, spaceweb) {
+  if (newStr.length === 0) {
+    return;
+  }
   let arr = [params.filePath];
   let visited = [];
   if (params.filePath in params.styleImports) {
@@ -136,7 +127,8 @@ async function anotherHelper(className, params, newStr) {
           params.importsTo[arr[idx]][idx2],
           params.importsFrom,
           visited,
-          newStr
+          newStr,
+          spaceweb
         );
       }
     }
@@ -149,7 +141,7 @@ async function anotherHelper(className, params, newStr) {
     for (let idx = 0; idx < toVisit.length; idx++) {
       const content = fs.readFileSync(toVisit[idx], "utf8");
       if (content.includes(className)) {
-        await addToScript(className, toVisit[idx], newStr);
+        await addToScript(className, toVisit[idx], newStr, spaceweb);
         // console.log(toVisit[idx], className);
       }
     }
@@ -159,7 +151,7 @@ async function anotherHelper(className, params, newStr) {
 
 async function checkArray(arr, value) {
   for (let idx = 0; idx < arr.length; idx++) {
-    if (arr[idx].property &&  arr[idx].property.name === value) {
+    if (arr[idx].property && arr[idx].property.name === value) {
       // console.log(value);
       return true;
     }
@@ -167,25 +159,21 @@ async function checkArray(arr, value) {
   return false;
 }
 
-async function addToScript(className, filePath, newStr) {
-  // console.log(className, filePath, newStr);
-  // console.log(className);
-  // console.log(filePath);
-  
-    let pluginArr;
-    if (filePath.endsWith(".ts")) {
-      pluginArr = ["typescript"];
-    } else if (filePath.endsWith(".js") || filePath.endsWith(".jsx")) {
-      pluginArr = ["jsx"];
-    } else if (filePath.endsWith(".tsx")) {
-      pluginArr = ["jsx", "typescript"];
-    }
-    const content = fs.readFileSync(filePath, "utf8");
-    const ast = parser.parse(content, {
-      sourceType: "module",
-      plugins: pluginArr,
-    });
-    try {
+async function addToScript(className, filePath, newStr, spaceweb) {
+  let pluginArr;
+  if (filePath.endsWith(".ts")) {
+    pluginArr = ["typescript"];
+  } else if (filePath.endsWith(".js") || filePath.endsWith(".jsx")) {
+    pluginArr = ["jsx"];
+  } else if (filePath.endsWith(".tsx")) {
+    pluginArr = ["jsx", "typescript"];
+  }
+  const content = fs.readFileSync(filePath, "utf8");
+  const ast = parser.parse(content, {
+    sourceType: "module",
+    plugins: pluginArr,
+  });
+  try {
     await traverse(ast, {
       JSXExpressionContainer(path) {
         const { expression } = path.node;
@@ -202,73 +190,73 @@ async function addToScript(className, filePath, newStr) {
               newStr.forEach((util) => {
                 string = string + " " + util;
               });
-
               const newStringLiteral = types.stringLiteral(string);
               expression.elements.push(newStringLiteral);
             }
+            function hasComment(path, commentContent) {
+              const existingComments = path.parent.trailingComments || [];
+              return existingComments.some(
+                (comment) => comment.value === commentContent
+              );
+            }
+            let comment = "Script Todo: Migrate classes according to SpaceWeb";
+            if (!hasComment(path, comment) && !spaceweb) 
+            {
+              path.addComment("trailing", comment);
+            }
           });
         }
+        
       },
     });
-  }
-  catch(error)
-  {
+  } catch (error) {
     console.log(error);
   }
-    await traverse(ast, {
-      TemplateLiteral(path) {
-        if (path.node ) {
-          const regex = new RegExp(
-            `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
-          );
-          console.log(path.node.toString());
-          // Using AST notation we can grab the className attribut for all the react tags
-          // if (regex.test(path.node.value)) {
-          //   let baseString = path.node.value;
-          //   // const comment = {
-          //   //   type: "CommentLine",
-          //   //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
-          //   // };
-          //   // path.node.trailingComments = [comment];
-          //   newStr.forEach((util) => {
-          //     if (!path.node.value.includes(util)) {
-          //       path.node.value = path.node.value + " " + util;
-          //     }
-          //   });
-          // }
-        }
-      },
-    });
-    await traverse(ast, {
-      StringLiteral(path) {
-        if (path.node && path.node.value) {
-          const regex = new RegExp(
-            `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
-          );
-          // Using AST notation we can grab the className attribut for all the react tags
-          if (regex.test(path.node.value)) {
-            let baseString = path.node.value;
-            // const comment = {
-            //   type: "CommentLine",
-            //   value: `SCRIPT TODO: ${className} class has been converted to util classes`,
-            // };
-            // path.node.trailingComments = [comment];
-            newStr.forEach((util) => {
-              if (!path.node.value.includes(util)) {
-                path.node.value = path.node.value + " " + util;
-              }
-            });
+  await traverse(ast, {
+    TemplateLiteral(path) {
+      if (path.node) {
+        const regex = new RegExp(
+          `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
+        );
+      }
+    },
+  });
+  await traverse(ast, {
+    StringLiteral(path) {
+      if (path.node && path.node.value) {
+        const regex = new RegExp(
+          `(^|(?<=[\\s"“”.]))${className}(?=$|(?=[\\s"“”}]))`
+        );
+        // Using AST notation we can grab the className attribut for all the react tags
+        if (regex.test(path.node.value)) {
+          let baseString = path.node.value;
+          function hasComment(path, commentContent) {
+            const existingComments = path.parent.trailingComments || [];
+            return existingComments.some(
+              (comment) => comment.value === commentContent
+            );
           }
+          let comment = "Script Todo: Migrate classes according to SpaceWeb";
+          if (!hasComment(path, comment) && !spaceweb) 
+          {
+            path.addComment("trailing", comment);
+          }
+          newStr.forEach((util) => {
+            if (!path.node.value.includes(util)) {
+              path.node.value = path.node.value + " " + util;
+            }
+          });
         }
-      },
-    });
-    //Uncomment below two lines to update js files
-    const modCode = await generator(ast).code;
-    fs.writeFileSync(
-      filePath,
-      prettier.format(modCode, { parser: "typescript" })
-    );
-    return;
+      }
+    },
+  });
+  //Uncomment below two lines to update js files
+  const modCode = await generator(ast).code;
+  fs.writeFileSync(
+    filePath,
+    prettier.format(modCode, { parser: "typescript" })
+  );
+  return;
 }
 
 const convertUsedClasses = (params, local) => ({
@@ -310,7 +298,7 @@ const convertUsedClasses = (params, local) => ({
             params.removedBlocks[params.filePath]["replaced-tailwind"][
               className
             ] = [];
-            let str = [];
+            let str1 = [];
             const utils = Object.keys(temp);
             utils.forEach((util) => {
               const size = Object.keys(temp[util]).length;
@@ -341,7 +329,7 @@ const convertUsedClasses = (params, local) => ({
               });
               if (size === arrayOfIndex.length) {
                 console.log(util);
-                str.push(util);
+                str1.push(util);
                 for (let idx = 0; idx < arrayOfIndex.length; idx++) {
                   const obj = {
                     [rule.nodes[arrayOfIndex[idx] - idx].toString()]: util,
@@ -351,79 +339,80 @@ const convertUsedClasses = (params, local) => ({
                   ].push(obj);
                   params.removedBlocks[params.filePath]["converted-number"]++;
                   rule.nodes[arrayOfIndex[idx] - idx].remove();
+                  if (rule.nodes.length === 0) {
+                    console.log(rule.selector + " is removed");
+                    rule.remove();
+                  }  
                 }
               }
             });
-            // console.log(className);
-            // console.log(str);
-            if (str && str.length > 0) {
-              await anotherHelper(
-                className.substring(1),
-                params,
-                str
-              );
-            }
-            for (let idx = 0; idx < rule.nodes.length; idx++) {
-              if (rule.nodes[idx] && rule.nodes[idx].type === "decl") {
-                const prop = rule.nodes[idx].prop;
-                let val;
-                if (
-                  rule.nodes[idx].value.startsWith("$") &&
-                  rule.nodes[idx].value in local
-                ) {
-                  val = local[rule.nodes[idx].value];
-                } else {
-                  val = rule.nodes[idx].value;
-                }
-                const attribute = ".class{" + prop + ":" + val + "}";
-                await converter
-                  .convertCSS(attribute)
-                  .then(async ({ convertedRoot, nodes }) => {
-                    const converted = convertedRoot.toString();
-                    // console.log(converted);
-                    let curVal = " ";
-                    const twPlugin = () => ({
-                      postcssPlugin: "tw-plugin",
-                      async Rule(rule) {
-                        curVal = curVal + rule.nodes[0].params;
-                      },
-                    });
-                    twPlugin.postcss = true;
-                    postcss([twPlugin])
-                      .process(converted, { from: undefined })
-                      .then((result) => {})
-                      .catch((error) => {
-                        console.error(error);
+            await anotherHelper(
+              className.substring(1),
+              params,
+              str1,
+              true
+            ).then(async (value) => {
+              let str2 = [];
+              for (let idx = 0; idx < rule.nodes.length; idx++) {
+                if (rule.nodes[idx] && rule.nodes[idx].type === "decl") {
+                  const prop = rule.nodes[idx].prop;
+                  let val;
+                  if (
+                    rule.nodes[idx].value.startsWith("$") &&
+                    rule.nodes[idx].value in local
+                  ) {
+                    val = local[rule.nodes[idx].value];
+                  } else {
+                    val = rule.nodes[idx].value;
+                  }
+                  const attribute = ".class{" + prop + ":" + val + "}";
+                  await converter
+                    .convertCSS(attribute)
+                    .then(async ({ convertedRoot, nodes }) => {
+                      const converted = convertedRoot.toString();
+                      let curVal = " ";
+                      const twPlugin = () => ({
+                        postcssPlugin: "tw-plugin",
+                        async Rule(rule) {
+                          curVal = curVal + rule.nodes[0].params;
+                        },
                       });
-                    if (
-                      curVal
-                      && !curVal.includes("undefined") &&
-                      !curVal.includes("\\") &&
-                      !curVal.includes('"')
-                    ) {
-                      rule.nodes[idx].remove();
-                      params.removedBlocks[params.filePath][
-                        "converted-number"
-                      ]++;
-                      str.push(curVal);
-                      if (str && str.length > 0) {
-                        await anotherHelper(
-                          className.substring(1),
-                          params,
-                          str
-                        );
+                      twPlugin.postcss = true;
+                      postcss([twPlugin])
+                        .process(converted, { from: undefined })
+                        .then((result) => {})
+                        .catch((error) => {
+                          console.error(error);
+                        });
+                      if (
+                        curVal &&
+                        !curVal.includes("undefined") &&
+                        !curVal.includes("\\") &&
+                        !curVal.includes('"')
+                      ) {
+                        rule.nodes[idx].remove();
+                        params.removedBlocks[params.filePath][
+                          "converted-number"
+                        ]++;
+                        str2.push(curVal);
+                        if (rule.nodes.length === 0) {
+                          console.log(rule.selector + " is removed");
+                          rule.remove();
+                        }  
                       }
-                      // console.log("OTHER");
-                      console.log(className);
-                      console.log(str);
-                      if (rule.nodes.length === 0) {
-                        console.log(rule.selector + " is removed");
-                        rule.remove();
-                      }
-                    }
-                  });
+                    });
+                }
               }
-            }
+              if (str2 && str2.length > 0) {
+                await anotherHelper(
+                  className.substring(1),
+                  params,
+                  str2,
+                  false
+                );
+              }
+
+            });
           }
         }
       }
@@ -439,7 +428,7 @@ const convertUsedClasses = (params, local) => ({
 convertUsedClasses.postcss = true;
 
 async function convertClasses(params, local) {
-  const css = fs.readFileSync(params.filePath, "utf8");
+  let css = fs.readFileSync(params.filePath, "utf8");
   const test = postcss.plugin("test", () => {
     return (root) => {
       root.nodes.forEach((node) => {
@@ -520,7 +509,5 @@ export async function stylesheetConverter(
         }
       }
     });
-  // console.log("second-out");
-  // console.log("StyleSheet converter execution completed");
   return;
 }

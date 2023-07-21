@@ -110,47 +110,30 @@ async function wrapper(dir) {
                   await finalTraverse(dir, importsTo, styleImports, result);
                   setTimeout(async () => {
                     trigger(dir, importsFrom, importsTo, styleImports, result);
-                  }, 150000);
-                }, 150000);
-              }, 150000);
-            }, 150000);
-          }, 150000);
-        }, 150000);
-      }, 150000);
-    }, 150000);
-  }, 150000);
+                  }, 60000);
+                }, 60000);
+              }, 60000);
+            }, 60000);
+          }, 60000);
+        }, 60000);
+      }, 60000);
+    }, 60000);
+  }, 60000);
 }
 const trigger = async (dir, importsFrom, importsTo, styleImports, result) => {
   setTimeout(async () => {
     console.log("RESULTS HAVE BEEN PRINTED");
-    // console.log(result);
-    // fs.writeFileSync(
-    //   "./logs/importsTo.json",
-    //   prettier.format(JSON.stringify(importsTo), { parser: "json" })
-    // );
-    // fs.writeFileSync(
-    //   "./logs/importsFrom.json",
-    //   prettier.format(JSON.stringify(importsFrom), { parser: "json" })
-    // );
-    // fs.writeFileSync(
-    //   "./logs/styleImports.json",
-    //   prettier.format(JSON.stringify(styleImports), { parser: "json" })
-    // );
     fs.writeFileSync(
       "./logs/results.json",
       prettier.format(JSON.stringify(result), { parser: "json" })
     );
-  }, 150000);
+  }, 60000);
 };
 
-// const dir = "../../../../testinng-repos/project_modern_ui_ux_gpt3/src";
-// let dir = "../../testinng-repos/space-tourism/src";
-// let dir = "../detailPane";
-// /Users/naman.jain1/Documents/testinng-repos/netflix-clone/src
-let dir = "../../testinng-repos/netflix-clone/src";
-// let dir = "../../testinng-repos/mattermost-webapp";
+// let dir = "../../testinng-repos/netflix-clone/src";
+let dir = "../../testinng-repos/mattermost-webapp";
 // let dir = "../detailPaneCopy";
+
 dir = path.resolve(dir);
-// const dir = "../../../../testinng-repos/screenREC/src";
 
 wrapper(dir);
