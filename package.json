@@ -66,7 +66,8 @@
     "postcss-extend": "^1.0.5",
     "postcss-nested": "^6.0.1",
     "postcss-simple-vars": "^7.0.1",
-    "react-simple-explorer": "^1.1.1"
+    "react-simple-explorer": "^1.1.1",
+    "webpackbar": "^5.0.2"
   },
   "peerDependencies": {
     "postcss": "^8.4.26"
